@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Barbara Garnett-Herrera | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+        .hero {
+            background-color: #1e293b;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0 0 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        .tutor-about-section {
+            padding: 0px 20px;
+            text-align: center;
+            max-width: 800px;
+            margin: auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tutor-image {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+            margin-top: 10px; /* Lowers the image slightly within the card */
+            object-fit: cover; /* Ensures the image fits within the circle without stretching */
+            object-position: center; /* Centers the image within the circle */
+        }
+
+        .tutor-about-section h2 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 15px;
+        }
+
+        .tutor-about-section p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #ff6f61;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+            color: #d9574e;
+        }
+        .values-section {
+    margin-top: 40px;
+    padding: 50px 20px;
+    background-color: #f4f4f9;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.values-section h2 {
+    font-size: 2rem;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.values-section p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.values-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.value-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+}
+
+.value-graphic {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.value-item h3 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.value-item p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+.logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="About.html" class="highlighted-link">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>About Barbara Garnett-Herrera</h1>
+        <p>Get to know your dedicated tutor!</p>
+    </div>
+
+    <!-- Tutor About Section -->
+    <section class="tutor-about-section">
+        <img src="https://i.imgur.com/Chj0g5s.jpeg" alt="Barbara Garnett-Herrera" class="tutor-image">
+        <h2>Barbara Garnett-Herrera</h2>
+        <p>
+             
+            Barbara has years of experience working with children academically. Her background includes seven years of substitute teaching in the Leander ISD. She has worked with almost every grade and spent a great deal of that time working in SPED. She is passionate about helping children succeed and doing so in a positive way. “Children fuel off our energy and mindset, so creating a happy environment and rewarding their strengths, builds confidence when overcoming challenges .” 
+            Barbara has  seven daughters (practically a football team), including her last two at home, 15 year old twins. She enjoys family vacations and going to football games with her amazing husband. After two years in college she started writing for Text-Broker and Writer’s Digest and is currently working on writing her own book and dreams of writing a series of children’s books.
+        </p>
+        <p>
+            <!--HOBBIES-->
+        </p>
+        <a href="../About.html" class="back-link">← Back to Team Page</a>
+    </section>
+    <section class="values-section">
+        <h2>Barbara's Values</h2>        
+        <div class="values-container">
+            <div class="value-item">
+                <img src="https://i.imgur.com/jPxGP0g.png" alt="Graphic 1" class="value-graphic">
+                <h3>Inclusivity</h3>
+                <p>We welcome students from all backgrounds and create a safe space for learning.</p>
+            </div>
+            <div class="value-item">
+                <img src="https://i.imgur.com/zgIG8ln.png" alt="Graphic 2" class="value-graphic">
+                <h3>Innovation</h3>
+                <p>Our unique teaching methods make learning engaging and effective.</p>
+            </div>
+            <div class="value-item">
+                <img src="https://i.imgur.com/cStGkwq.png" alt="Graphic 3" class="value-graphic">
+                <h3>Community</h3>
+                <p>We are more than tutors—we're mentors who build lasting relationships.</p>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

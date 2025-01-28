@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Tutor | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Keep it behind the content */
+            background-image: 
+                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
+                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+            background-repeat: no-repeat, no-repeat;
+            background-position: 20px 680px, right 40px bottom 10px; /* Adjust positions */
+            background-size: 250px, 250px; /* Pencil and heart sizes */
+            opacity: 0.5; /* Adjust the transparency */
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .hero {
+            width: 100%;
+            background-color: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin: 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .container {
+    width: 100%; /* Full width of the page */
+    max-width: 900px; /* Increases the card's maximum width */
+    margin: 30px auto; /* Centers the container horizontally and adds vertical spacing */
+    display: flex; /* Enables flexbox for easy centering */
+    justify-content: center; /* Horizontally centers the card */
+}
+
+.tutor-card {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Adds space between the image and the text */
+    margin-bottom: 20px;
+    width: 100%; /* Fills the width of the container */
+    max-width: 850px; /* Makes the card wider */
+}
+
+
+
+.staff-image {
+    width: 100px; /* Adjusted size for better proportion */
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0; /* Ensures the image doesn't shrink when resizing */
+}
+
+.tutor-info {
+    flex-grow: 1; /* Allows the text to take the remaining space */
+}
+
+.tutor-info h3 {
+    font-size: 1.5rem; /* Larger font for better readability */
+    color: #1e293b;
+    margin: 0;
+}
+
+.tutor-info p {
+    font-size: 1rem; /* General text size */
+    color: #555;
+    margin: 5px 0 0;
+    line-height: 1.5; /* Improves readability for the text */
+}
+
+.tutor-info p {
+    font-size: 1rem; /* General text size for the list */
+    color: #555;
+    margin: 5px 0 0;
+    line-height: 1.5; /* Improves readability for long lists */
+}
+
+.tutor-info p::before {
+    content: "Subjects:"; /* Dynamically adds "Subjects:" */
+    display: inline-block;
+    background-color: #1e293b; /* Highlighted background */
+    color: white; /* Text color for contrast */
+    font-size: 0.9rem; /* Slightly smaller than the list */
+    font-weight: bold; /* Makes it stand out */
+    padding: 3px 8px; /* Creates a badge-like effect */
+    border-radius: 12px; /* Rounded design */
+    margin-right: 8px; /* Space between "Subjects:" and the list */
+    vertical-align: middle; /* Aligns with the list text */
+}
+
+
+
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Add space between buttons */
+            margin-top: 30px;
+        }
+
+
+        .button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #d9574e;
+            transform: scale(1.05);
+        }
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+        
+        /* Progress Dots */
+        .progress {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .dot {
+            width: 20px;
+            height: 20px;
+            margin: 0 8px;
+            background-color: #d1d1d1;
+            border-radius: 50%;
+        }
+
+        .dot.active {
+            background-color: #ff6f61;
+        }
+        .error-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the error message and button horizontally */
+    justify-content: center; /* Centers the content vertically */
+    margin-top: 20px; /* Adds spacing above the error section */
+}
+
+#error-message {
+    color: #ff6f61; /* Vibrant red color for the error message */
+    font-weight: bold; /* Makes the message stand out */
+    text-align: center; /* Center-aligns the text */
+    margin-bottom: 30px; /* Adds spacing between the error message and the button */
+}
+
+.different-tutor-btn {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.different-tutor-btn:hover {
+    background-color: #d9574e; /* Darker red on hover */
+    transform: scale(1.05); /* Slightly larger on hover */
+}
+.logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html" class="highlighted-link">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Tutor Confirmation</h1>
+        <p>You have already selected <strong id="tutor-name">[Tutor Name]</strong>.</p>
+        <div class="subjects" id="selected-subjects"></div>
+        <div class="error-container">
+            <p id="error-message"></p>
+            <button id="different-tutor-btn" class="different-tutor-btn" style="display: none;">Schedule with a Different Tutor</button>
+        </div>
+
+    </div>
+    <!-- Progress Dots -->
+    <div class="progress">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+    <div class="container">
+        <div class="tutor-card" id="tutor-card">
+            <img id="tutor-image" class="staff-image" src="" alt="[Tutor Name]">
+            <div class="tutor-info">
+                <h3 id="tutor-card-name">[Tutor Name]</h3>
+                <p id="tutor-subjects">[Subjects List]</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons-container">
+        <button class="button" onclick="redirectToPrevious()">Back</button>
+        <button class="button" onclick="redirectToNext()">Next</button>
+    </div>
+
+    <script>
+        // Tutor data from RecommendedTutor.html
+        const tutors = [
+            {
+                name: "Dianne Simental",
+                subjects: [
+                    "K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Biology", "AP Biology", 
+                    "AP Biology Exam", "Chemistry", "Physics", "Spanish", "K-8th English", "SAT Math Sections", 
+                    "ACT Math Section", "ACT Science Section", "GED Mathematical Reasoning Section", "GED Science Section"
+                ],
+                image: "https://i.imgur.com/X0kdDss.jpeg"
+            },
+            {
+                name: "Evan Varan",
+                subjects: [
+                    "K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Calculus 1 (AB)", "Calculus 2 (BC)", "Statistics",
+                    "Chemistry", "Physics", "AP Physics", "SAT Math Sections", "ACT Math Section", 
+                    "ACT Science Section", "TSI Math Section", "GED Mathematical Reasoning Section", "GED Science Section"
+                ],
+                image: "https://i.imgur.com/zPiwhDv.png"
+            },
+            { 
+                name: "Zarek Cole", 
+                subjects: ["Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Calculus 1 (AB)", "Calculus 2 (BC)","Calculus 3","Differential Equations","Abstract Algebra", 
+                "Physics", "AP Physics", "Chemistry", "AP Chemistry", "ACT Math", "GED Math", "TSI Math"
+                ], image: "https://i.imgur.com/5Cuh8SZ.png" },
+            // Add other tutors if needed
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+    // Fetch tutor details and selected subjects from localStorage
+    const tutorName = localStorage.getItem('selectedTutorName');
+    const tutorImage = localStorage.getItem('selectedTutorImage');
+    const selectedSubjects = JSON.parse(localStorage.getItem('selectedSubjects')) || [];
+    const errorMessageElement = document.getElementById('error-message');
+    const differentTutorButton = document.getElementById('different-tutor-btn');
+
+    // Display selected subjects
+    const subjectsDisplay = document.getElementById('selected-subjects');
+    subjectsDisplay.textContent = selectedSubjects.length
+        ? "Selected Subjects: " + selectedSubjects.join(", ")
+        : "No subjects selected.";
+
+    // Find the tutor in the data
+    const tutor = tutors.find(t => t.name === tutorName);
+
+    if (tutor) {
+        // Display tutor's details
+        document.getElementById('tutor-name').textContent = tutor.name;
+        document.getElementById('tutor-card-name').textContent = tutor.name;
+        document.getElementById('tutor-image').src = tutor.image;
+        document.getElementById('tutor-image').alt = tutor.name;
+
+        // Filter out subjects the tutor does not teach
+        const validSubjects = selectedSubjects.filter(subject => tutor.subjects.includes(subject));
+        const invalidSubjects = selectedSubjects.filter(subject => !tutor.subjects.includes(subject));
+
+        // Display error message if there are invalid subjects
+        if (invalidSubjects.length > 0) {
+            errorMessageElement.textContent = `The selected tutor does not teach the following subjects: ${invalidSubjects.join(", ")}.`;
+            errorMessageElement.style.display = "block";
+        } else {
+            errorMessageElement.style.display = "none";
+        }
+
+        // Sort subjects to display valid selected ones first
+        const prioritizedSubjects = [
+            ...validSubjects,
+            ...tutor.subjects.filter(subject => !validSubjects.includes(subject))
+        ];
+
+        // Update the tutor's subject card
+        document.getElementById('tutor-subjects').textContent = '' + prioritizedSubjects.join(', ');
+    } else {
+        // Handle case where tutor data is missing
+        document.getElementById('tutor-name').textContent = 'Unknown Tutor';
+        document.getElementById('tutor-card-name').textContent = 'Unknown Tutor';
+        document.getElementById('tutor-image').src = 'default-image.png'; // Replace with a placeholder image
+        document.getElementById('tutor-subjects').textContent = 'Subjects: Not available.';
+        errorMessageElement.style.display = "block";
+        errorMessageElement.textContent = "No tutor information is available.";
+    }
+
+    // Always display the "Schedule with a Different Tutor" button
+    differentTutorButton.style.display = "block";
+
+    // Redirect to the scheduling page when the button is clicked
+    differentTutorButton.addEventListener('click', () => {
+        window.location.href = '../About.html#redirect-virtual-schedule'; // Redirect to the scheduling page
+    });
+});
+
+
+
+
+
+        function redirectToPrevious() {
+        // Redirect to the previous page or specific URL
+        window.location.href = 'ScheduleNowSubjects.html'; // Replace 'PreviousPage.html' with the actual file name or URL
+    }
+
+    function redirectToNext() {
+        const studentType = localStorage.getItem('studentType'); // Retrieve the student type
+
+        if (studentType === 'Returning Student') {
+            // Redirect returning students to their portal
+            window.location.href = 'Student-Portal-First-Time.html';
+        } else {
+            // Redirect first-time students to account creation
+            window.location.href = 'Account-Creation.html';
+        }
+    }
+// Retrieve student type from localStorage
+const studentType = localStorage.getItem('studentType');
+
+// Adjust progress dots
+document.addEventListener('DOMContentLoaded', () => {
+    const progressContainer = document.querySelector('.progress');
+
+    if (studentType === 'Returning Student') {
+        // Reduce the number of dots to 4 for Returning Students
+        progressContainer.innerHTML = `
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot active"></span>
+            <span class="dot"></span>
+        `;
+    }
+});
+
+
+    </script>
+</body>
+</html>

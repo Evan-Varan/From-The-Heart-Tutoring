@@ -1,0 +1,158 @@
+/* Navbar Container */
+#navbar-placeholder {
+    margin: 0;
+    padding: 0;
+    overflow: visible; /* Allow dropdowns to show */
+}
+
+.navbar {
+    font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Vertically center items */
+    padding: 10px 20px; /* Internal spacing */
+    background-color: #0f172a; /* Darker blue background */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    z-index: 1500;
+    position: fixed; /* Fix navbar at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: visible; /* Allow dropdowns to extend beyond navbar */
+}
+
+/* Logo Container */
+.logo-container {
+    display: flex;
+    align-items: center; /* Vertically align logos */
+    gap: 10px;
+}
+
+/* Logo Images */
+.logo-image {
+    height: 50px; /* Maintain consistent height */
+    width: auto; /* Preserve aspect ratio */
+}
+
+/* Center Group (Links in the Center) */
+.navbar-center {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Vertically center */
+    gap: 20px; /* Spacing between links */
+    transform: translateX(-70px); /* Adjust positioning */
+    flex: 1; /* Allow this group to grow and take up space */
+}
+
+/* Right Group (Links on the Right) */
+.navbar-right {
+    display: flex;
+    justify-content: flex-end; /* Align to the right */
+    align-items: center; /* Vertically center */
+    gap: 20px;
+    transform: translateX(-90px); /* Adjust positioning */
+}
+
+/* Navbar Links */
+.navbar ul {
+    list-style: none; /* Remove list bullets */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center; /* Ensure vertical alignment of list items */
+    position: relative; /* Establish stacking context for dropdowns */
+}
+
+.navbar a {
+    color: white; /* White text */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2rem; /* Larger font size */
+    font-weight: 400; /* Normal weight */
+    line-height: 1; /* Align text vertically */
+    padding: 10px 20px; /* Internal padding for spacing */
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
+    border-radius: 5px; /* Rounded edges */
+}
+
+/* Hover Effect for Links */
+.navbar a:hover {
+    background-color: #ff6f61; /* Light coral background */
+    color: white;
+}
+
+/* Highlighted Link (About) */
+.highlighted-link {
+    background-color: #ff6f61; /* Light coral background */
+    color: white;
+    font-weight: 600; /* Semi-bold weight */
+    padding: 10px 20px;
+    border-radius: 5px;
+    line-height: 1; /* Ensure consistent alignment */
+}
+
+/* Dropdown Menu */
+/* Dropdown Menu */
+.dropdown {
+    display: block !important;
+    visibility: visible !important;
+    position: absolute;
+    top: calc(100% + 10px); /* Avoid overlapping with the navbar */
+    left: 0;
+    background-color: #0f172a; /* Background for dropdown */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 2000; /* Ensure it's above content */
+}
+
+/* Dropdown Links */
+.dropdown a {
+    display: block; /* Stack links vertically */
+    padding: 10px; /* Internal spacing for each link */
+    white-space: nowrap; /* Prevent text wrapping */
+    font-size: 1.1rem;
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover Effect for Dropdown Links */
+.dropdown a:hover {
+    background-color: #ff6f61; /* Light coral background on hover */
+}
+
+/* Show Dropdown on Hover */
+.navbar li:hover .dropdown {
+    display: block;
+}
+
+/* Ensure Dropdown Aligns Correctly with Parent */
+.navbar-right > li {
+    position: relative; /* Set positioning context for the dropdown */
+}
+
+/* Responsive Design (Mobile) */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column; /* Stack navbar items vertically */
+        align-items: stretch;
+    }
+
+    .navbar-center {
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .navbar-right {
+        justify-content: center;
+    }
+
+    .navbar ul {
+        flex-direction: column; /* Stack links vertically */
+        gap: 10px;
+    }
+
+    .dropdown {
+        left: 0; /* Align dropdown to the left */
+    }
+}

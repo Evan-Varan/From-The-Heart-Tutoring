@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Account Creation | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Keep it behind the content */
+            background-image: 
+                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
+                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+            background-repeat: no-repeat, no-repeat;
+            background-position: 20px 280px, right 40px bottom 10px; /* Adjust positions */
+            background-size: 250px, 250px; /* Pencil and heart sizes */
+            opacity: 0.5; /* Adjust the transparency */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            background-color: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin: 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        /* Progress Dots */
+        .progress {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .dot {
+            width: 20px;
+            height: 20px;
+            margin: 0 8px;
+            background-color: #d1d1d1;
+            border-radius: 50%;
+        }
+
+        .dot.active {
+            background-color: #ff6f61;
+        }
+
+        /* Back Button */
+        .back-button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+            text-align: center;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #d9574e;
+            transform: scale(1.05);
+        }
+
+        /* Selected Tutor Section */
+        #selected-tutor {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        /* Form Instructions */
+        .instructions {
+            text-align: center;
+            font-size: 1.1rem;
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        /* Progress Dots */
+    .progress {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .dot {
+        width: 20px; /* Increased size */
+        height: 20px; /* Increased size */
+        margin: 0 8px; /* Slightly larger spacing */
+        background-color: #d1d1d1;
+        border-radius: 50%;
+    }
+
+    .dot.active {
+        background-color: #ff6f61; /* Highlighted color */
+    }
+    .logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html" class="highlighted-link">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Account Creation</h1>
+        <p>Please complete the form below. After submission, you will receive an email with instructions to access the student portal and register for a session.</p>
+    </div>
+
+    <!-- Progress Dots -->
+    <div class="progress">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+    </div>
+
+    <!-- Selected Tutor -->
+    <div id="selected-tutor"></div>
+
+    <!-- TutorBird Widget -->
+    <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9xZFhKMSIsIldlYnNpdGVJRCI6Indic196MjZKViIsIldlYnNpdGVCbG9ja0lEIjoid2JiX1Q0UzFKSCJ9"></script>
+
+    <!-- Back Button -->
+    <button class="back-button" onclick="redirectToPreviousPage()">Back</button>
+
+    <script>
+        // Retrieve the selected tutor's name from localStorage
+        const selectedTutor = localStorage.getItem('selectedTutor');
+        const tutorName = localStorage.getItem('selectedTutorName');
+        if (selectedTutor) {
+            // Add the tutor's name to the page
+            document.addEventListener('DOMContentLoaded', () => {
+                const tutorDiv = document.getElementById('selected-tutor');
+                tutorDiv.textContent = `Selected Tutor: ${selectedTutor}`;
+            });
+        }
+        else if (tutorName) {
+            // Add the tutor's name to the page
+            document.addEventListener('DOMContentLoaded', () => {
+                const tutorDiv = document.getElementById('selected-tutor');
+                tutorDiv.textContent = `Selected Tutor: ${tutorName}`;
+            });
+        }
+
+        // Function to redirect to the previous page
+        function redirectToPreviousPage() {
+        // Check if a tutor is already selected in localStorage
+        const selectedTutor = localStorage.getItem('selectedTutorName'); // Key should match what you set when saving
+        if (selectedTutor) {
+            // Redirect to TutorAlreadySelected.html if a tutor is selected
+            window.location.href = 'TutorAlreadySelected.html';
+        } else {
+            // Redirect to RecommendedTutor.html if no tutor is selected
+            window.location.href = 'RecommendedTutor.html';
+        }
+    }
+    </script>
+</body>
+</html>

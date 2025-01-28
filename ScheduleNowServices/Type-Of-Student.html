@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Student Status | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9; /* Light gray background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Keep it behind the content */
+            background-image: 
+                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
+                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+            background-repeat: no-repeat, no-repeat;
+            background-position: 20px 280px, right 40px bottom 10px; /* Adjust positions */
+            background-size: 250px, 250px; /* Pencil and heart sizes */
+            opacity: 0.5; /* Adjust the transparency */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+         /* Progress Dots */
+    .progress {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+    }
+
+    .dot {
+        width: 20px; /* Increased size */
+        height: 20px; /* Increased size */
+        margin: 0 8px; /* Slightly larger spacing */
+        background-color: #d1d1d1;
+        border-radius: 50%;
+    }
+
+    .dot.active {
+        background-color: #ff6f61; /* Highlighted color */
+    }
+
+        /* Options Container */
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .option {
+            background-color: white;
+            border: 2px solid white;
+            border-radius: 12px;
+            padding: 20px;
+            text-align: center;
+            cursor: pointer;
+            width: 250px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .option:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            border-color: #ff6f61;
+        }
+
+        .option.selected {
+            background-color: #ff6f61;
+            color: white;
+            border-color: #d9574e;
+        }
+
+        .option img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .option h2 {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            color: #1e293b;
+        }
+
+        .option.selected h2 {
+            color: white;
+        }
+
+        /* Error Message */
+        .error-message {
+            color: red;
+            font-size: 1rem;
+            margin: 10px 0;
+            display: none; /* Hidden by default */
+        }
+
+        /* Buttons */
+        .button-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .back-button, .next-button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-button:hover, .next-button:hover {
+            background-color: #d9574e;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        /* Hero Section */
+    .hero {
+        width: 100%; /* Ensures the section spans the full width */
+        background-color: #1e293b;
+        color: white;
+        padding: 80px 20px 40px;
+        text-align: center;
+        margin: 0; /* Removes any default margin */
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+    }
+    .logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html" class="highlighted-link">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+     <!-- Hero Section -->
+     <div class="hero">
+        <h1>Have you worked with From the Heart Tutoring before?</h1>
+        <p>Let us know how we can best assist you on your academic journey.</p>
+    </div>
+    <!-- Progress Dots -->
+    <div class="progress">
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <!-- Options -->
+    <div class="container">
+        <div class="option" onclick="selectOption(this, 'First-Time Student')">
+            <img src="https://i.imgur.com/1DkJtMI.png" alt="First-Time Student">
+            <h2>I'm a First-Time Student</h2>
+        </div>
+        <div class="option" onclick="selectOption(this, 'Returning Student')">
+            <img src="https://i.imgur.com/8qYpjtm.png" alt="Returning Student">
+            <h2>I'm a Returning Student</h2>
+        </div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-message">Please select an option before proceeding.</div>
+
+    <!-- Buttons -->
+    <div class="button-container">
+        <button class="back-button" onclick="redirectToScheduleNow()">Back</button>
+        <button class="next-button" onclick="redirectToNext()">Next</button>
+    </div>
+
+    <script>
+        let selectedStudentType = null; // Variable to store the selected type
+
+        function selectOption(element, type) {
+            if (element.classList.contains('selected')) {
+                // Deselect the current option
+                element.classList.remove('selected');
+                selectedStudentType = null; // Clear the selected type
+            } else {
+                // Deselect previously selected option
+                document.querySelectorAll('.option').forEach(option => option.classList.remove('selected'));
+
+                // Select the new option
+                element.classList.add('selected');
+                selectedStudentType = type; // Update the selected type
+            }
+        }
+
+        function redirectToScheduleNow() {
+            window.location.href = '../Welcome.html';
+        }
+
+        function redirectToNext() {
+            if (!selectedStudentType) {
+                // Show error if no option is selected
+                document.getElementById('error-message').style.display = 'block';
+                return;
+            }
+
+            // Save the selected type to localStorage
+            localStorage.setItem('studentType', selectedStudentType);
+
+            // Redirect to the next page
+            window.location.href = 'ScheduleNowSubjects.html';
+        }
+
+        function showErrorMessage() {
+            document.getElementById('error-message').style.display = 'block';
+        }
+    
+        function hideErrorMessage() {
+            document.getElementById('error-message').style.display = 'none';
+        }
+    </script>
+    
+</body>
+</html>

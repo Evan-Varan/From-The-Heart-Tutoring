@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From the Heart Tutoring</title>
+    <link rel="icon" href="https://i.imgur.com/rhE9l4T.png" type="image/x-icon">
+    <!-- Link to Google Fonts (Poppins) -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif; /* Apply Poppins font */
+            background-color: #f5f5f5;
+        }
+
+/* Navbar Styles */
+        .navbar {
+            display: flex;
+            justify-content: flex-start; /* Align items to the left */
+            align-items: center;
+            padding: 10px 20px; /* Adjust padding if needed */
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar-logo {
+            margin-right: 20px; /* Adjust spacing between logo and text */
+            height: 40px;
+        }
+
+        .navbar-company-name {
+            margin-right: 140px; /* Adjust this value to control spacing */
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #334155; /* Text color */
+            white-space: nowrap; /* Prevent wrapping */
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: #334155;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Full height of the screen */
+            overflow: hidden;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+            height: 100%;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Text Overlay */
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 10%; /* Move the text box to the left side */
+            transform: translateY(-50%);
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 30px;
+            border-radius: 5px;
+            max-width: 400px; /* Increased the max-width for larger text box */
+            text-align: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3rem; /* Increased font size */
+            margin: 0 0 10px;
+            font-weight: 600; /* Bold for emphasis */
+        }
+
+        .hero-text p {
+            font-size: 1.2rem; /* Increased font size */
+            margin: 0 0 20px;
+            font-weight: 400; /* Regular weight */
+        }
+
+        .hero-text button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            padding: 15px 30px; /* Made button larger */
+            font-size: 1.2rem; /* Increased button text size */
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .hero-text button:hover {
+            background-color: #d9574e;
+        }
+         /* Stats Section */
+         .stats-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .stats-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #1e293b;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 2.5rem;
+            color: #ff6f61;
+            margin: 0;
+        }
+
+        .stat p {
+            font-size: 1rem;
+            color: #333;
+            margin: 10px 0 0;
+        }
+
+        /* Testimonials Section */
+.testimonials-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #1e293b;
+    color: white;
+}
+
+.testimonials-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+}
+
+.testimonials-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    padding: 0 20px;
+}
+
+.testimonial {
+    background-color: #334155;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    max-width: 300px;
+    text-align: left;
+}
+
+.testimonial p {
+    margin: 10px 0;
+}
+
+.testimonial strong, .testimonial-horizontal strong {
+    margin-top: bottom; /* Pushes the name to the bottom */
+    font-size: 1.1rem;
+    display: block;
+    font-style: italic;
+}
+
+
+/* Subjects Section */
+.subjects-section {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: #f9f9f9;
+}
+
+.subjects-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #1e293b;
+}
+
+.subjects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.subject {
+    text-align: center;
+    width: 120px;
+}
+
+.subject img {
+    width: 80px; /* Set a smaller width for the box */
+    height: 80px; /* Match height to width for a square */
+    margin: 0 auto 10px;
+    border-radius: 10px; /* Rounded corners for the box */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    object-fit: cover; /* Ensures the image fits nicely within the box */
+    object-position: center; /* Centers the image within the box */
+    display: block; /* Ensures proper centering */
+}
+
+
+.subject p {
+    font-size: 1rem;
+    margin: 0;
+    color: #333;
+}
+
+.subjects-footer {
+    margin-top: 30px;
+}
+
+.subjects-footer a {
+    display: inline-block;
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 5px;
+    font-size: 1.2rem;
+    transition: color 0.3s;
+}
+
+.subjects-footer a:hover {
+    text-decoration: underline;
+    color: #d9574e;
+}
+.testimonial, .testimonial-horizontal {
+    background-color: #334155;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    color: white;
+    max-width: 300px; /* Constrain width for grid testimonials */
+    text-align: center;
+    justify-content: space-between; /* Ensures content is spaced, with name at the bottom */
+    margin: 20px auto;
+}
+
+.testimonial-summary {
+    font-style: italic;
+    font-size: 1rem;
+    color: #d9574e; /* Highlighted color */
+    margin-top: 10px; /* Add space between testimonial and summary */
+}
+.testimonial-horizontal {
+    max-width: 90%; /* Full width for horizontal testimonial */
+    margin-top: 30px;
+}
+.testimonial-horizontal .testimonial-summary {
+    font-size: 1.2rem; /* Larger font size for horizontal summary */
+    margin-top: 20px;
+}
+/* Overlay Section */
+/* Overlay Section */
+.overlay-section {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
+    height: 50px; /* Adjust height as needed */
+    margin-top: -150px; /* Pull it up over the hero section */
+    z-index: 1;
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 20px; /* Rounded corners */
+    border-top-right-radius: 20px;
+}
+
+/* Overlay Content */
+.overlay-content {
+    color: #334155; /* Dark blue-gray text for readability */
+    text-align: center;
+    font-size: 1.1rem;
+    font-weight: bold;
+    opacity: 1; /* Full opacity for text */
+    max-width: 800px; /* Optional: Constrain content width */
+    padding: 10px 20px; /* Padding for text inside the section */
+}
+/* Scroll Arrow */
+.scroll-arrow {
+    margin-top: 10px; /* Space between text and arrow */
+    animation: bounce 1.5s infinite; /* Add bounce animation */
+}
+
+.scroll-arrow img {
+    width: 30px; /* Adjust arrow size */
+    height: auto;
+}
+.navbar-company {
+    position: relative;
+    display: inline-block;
+}
+
+.navbar-company-logo {
+    display: block;
+    height: 40px; /* Adjust to fit your navbar */
+    margin-right: 20px;
+}
+.navbar-company-text {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Adjust for exact centering */
+    color: white; /* Make text white */
+    font-size: 1.5rem; /* Adjust font size */
+    font-weight: bold; /* Make text bold */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+    white-space: nowrap; /* Prevent text wrapping */
+}
+.schedule-button {
+            display: inline-block;
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 15px;
+        }
+
+        .schedule-button:hover {
+            background-color: #d9574e;
+            transform: scale(1.05);
+        }
+        .logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <script>
+        localStorage.clear();
+    </script>
+
+    <!-- Navigation Bar -->
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html" class="highlighted-link">Home</a></li>
+            <li><a href="Welcome.html">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    
+
+    <!-- Hero Section with Rotating Images -->
+    <div class="hero">
+        <div class="carousel-images">
+            <img src="https://i.imgur.com/Io4WxQO.jpeg" alt="Tutoring Image 1">
+            <img src="https://i.imgur.com/7f57DRe.jpeg" alt="Tutoring Image 2">
+            <img src="https://i.imgur.com/GEhYP5G.jpeg" alt="Tutoring Image 3">
+            <img src="https://i.imgur.com/dNjTJyn.jpeg" alt="Tutoring Image 4">
+            <img src="https://i.imgur.com/A5QI8Sf.jpeg" alt="Tutoring Image 5">
+            <img src="https://i.imgur.com/Io4WxQO.jpeg" alt="Tutoring Image 1 (duplicate)">
+        </div>
+        <div class="hero-text">
+            <h1>Struggling with Homework? Worried about an exam?</h1>
+            <p>Get the private tutoring help you need. Any Age. Anytime. Anywhere.</p>
+            <button class = "schedule-button" onclick="redirectToSchedule()">Schedule Now</button>
+        </div>
+        <div class="scroll-down-indicator" id="scrollIndicator">
+            <img src="https://i.imgur.com/m2kwrHd.png" alt="Down Arrow">
+        </div>
+        
+    </div>
+    <div class="overlay-section">
+        <div class="overlay-content">
+            <p>Discover how From the Heart Tutoring can help you excel in your academics and beyond!</p>
+            <div class="scroll-arrow">
+                <img src="https://i.imgur.com/m2kwrHd.png" alt="Down Arrow">
+            </div>
+        </div>
+    </div>
+
+ <!-- Stats Section -->
+ <section class="stats-section">
+    <h2>Why Choose Us?</h2>
+    <div class="stats-container">
+        <div class="stat">
+            <h3>250+</h3>
+            <p>Students Helped</p>
+        </div>
+        <div class="stat">
+            <h3>99%</h3>
+            <p>Success Rate</p>
+        </div>
+        <div class="stat">
+            <h3>50+</h3>
+            <p>Subjects Tutored</p>
+        </div>
+        <div class="stat">
+            <h3>10+ yrs</h3>
+            <p>Average Tutor Experience</p>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials-section">
+    <h2>What Our Students Say</h2>
+    <div class="testimonial-horizontal">
+        <p>"My Daughter started 7th grade Excel math this year. Within the first couple of weeks, she had such a bad panic attack over a test I had to pick her up from school. 
+            So I went online and read so many reviews and reached out to friends for recommendations. 
+            Something about From the Heart seemed like it could be a good match so I reached out. 
+            Best decision ever. 
+            Beth guided me through everything. Listened to my story and we did our first session with Evan and we were hooked 
+            He was so amazing with my daughter. Knew all of the math. Helped her to figure out what her math teacher wanted at times and was patient and so KIND! Madison took to him so well. 
+            Her confidence in math has skyrocketed. She got straight A’s and has a 97 in math. 
+            And the cherry 📷 on top she took the 8th-grade star test since she is in Excel 7th-grade math and came home saying it was easy! 
+            Can't wait to work with Evan next year and any other years he is willing to assist us. Bravo Evan."</p>
+        <p><strong>- Kelly C.</strong></p>
+    </div>
+    <div class="testimonials-container">
+        <div class="testimonial">
+            <p>"Thank you!!!  We finished homework this weekend with ZERO fights or breakdowns!!! You (Beth) are great at breaking it down for my son to understand it.”</p>
+            <br><br><br><br>
+            <p><strong>- Maerie A.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"My son likes Sam. He wasn't excited that I signed him up for Math in the Summer. However, they bonded over an Xbox video game so that opened his mind a bit.  He said Sam explains things better than his 6th grade teacher ever did."</p>
+            <br><br>
+            <p><strong>- K.Fulkes.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"I just wanted to let you know that we loved our new tutor Jason! He is very knowledgeable about dysgraphia and had some great ideas and tips moving forward. He really connected with Jason."</p>
+            <br><br><br>
+            <p><strong>- A.Garcia.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p> "Hi! Just wanted to send you a quick message to let you know that Evan got it out of the park with Leo last night. Leo says Evan is a genius and he felt so much more confident with the material. Thank you so much for making that happen! Cheers!"</p>
+            <br><br>
+            <p><strong>- Diana L.</strong></p>
+        </div>
+        <!-- Additional Testimonials -->
+        <div class="testimonial">
+            <p>"BETH!!!!!!!
+                Gabe’s SAT Math score is a 510!!!
+                Up from 370!!!!
+                Total score 1100!!!!!!"</p>
+                <br><br><br><br><br><br>
+            <p><strong>- Melanie Skipper-Relyea.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"Both my kids (7th grade and 9th grade) were tutored in Math last summer by Evan. I really appreciated Beth’s flexibility on working with our summer schedule. Both my kids enjoyed their sessions with Evan and said they felt well-prepared when they started the school year"</p>
+            <br>
+            <p><strong>- Michelle W.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"Julia has really enjoyed tutoring with Dianne. She’s a fantastic tutor. Dianne is attentive and patient and Julia values her time with her. 
+                We look forward to starting again next school year for geometry. 
+                I have recommended Dianne and From the Heart tutoring to my friends."</p>
+                <br>
+            <p><strong>- Ruth G.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"Beth is a great teacher helping my son with his 3rd-grade math.  Very patient and explains well.  My son prefers her helping him to me!  On-time and with no issues."</p>
+            <br><br><br><br>
+            <p><strong>- Anonymous.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"Beth! This is Ana! I passed my certification exam! 😭🙏🏼🙌 Thanks so much for your help and guidance. You’re wonderful!  Have an amazing weekend!"</p>
+            <br><br><br><br>
+            <p><strong>- Anonymous.</strong></p>
+        </div>
+        <div class="testimonial">
+            <p>"I have never seen him excited about a class with anyone else before, so you [Evan] know how to get to him and thanks for that!"</p>
+            <br><br><br><br><br>
+            <p><strong>- Ndeye T.</strong></p>
+        </div>
+    </div>
+    
+</section>
+<!-- Subjects Section -->
+<!-- Subjects Section -->
+<section class="subjects-section">
+    <h2>Master Subjects, Ace Tests, and Unlock Your Potential!</h2>
+    <div class="subjects-container">
+        <div class="subject">
+            <img src="https://i.imgur.com/k9E7HCd.png" alt="SAT Prep">
+            <p>SAT® Prep</p>
+        </div>
+        <div class="subject">
+            <img src="https://i.imgur.com/7vSn04C.png" alt="K-8th Math">
+            <p>K-8th Math</p>
+        </div>
+        <div class="subject">
+            <img src="https://i.imgur.com/7IhccEX.png" alt="Languages">
+            <p>Languages</p>
+        </div>
+        <div class="subject">
+            <img src="https://i.imgur.com/B0BEjGI.png" alt="Algebra 2">
+            <p>Algebra 2</p>
+        </div>
+        <div class="subject">
+            <img src="https://i.imgur.com/xSCkWSf.png" alt="Geometry">
+            <p>Geometry</p>
+        </div>
+        <div class="subject">
+            <img src="https://i.imgur.com/7kGOn2c.png" alt="Physics">
+            <p>Physics</p>
+        </div>
+        <div class="subject">
+            <img src="https://i.imgur.com/DqPyolO.png" alt="Pre-Calculus">
+            <p>Pre-Calculus</p>
+        </div>
+        <div class="subject">
+            <img src="https://i.imgur.com/QGlDzQ8.png" alt="Calculus">
+            <p>Calculus</p>
+        </div>
+        <div class="subject">
+            <img src="https://i.imgur.com/Sw6qlVp.png" alt="AP Exams">
+            <p>AP Exams</p>
+        </div>
+        <div class="subject">
+            <img src="https://i.imgur.com/cYz1WDI.png" alt="And Many More">
+            <p>Any Many More!</p>
+        </div>
+    </div>
+    <div class="subjects-footer">
+        <a href="Services.html">See All Subjects &rarr;</a>
+    </div>
+</section>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const carouselImages = document.querySelector('.carousel-images');
+            const images = document.querySelectorAll('.carousel-images img');
+            const totalImages = images.length;
+            let currentIndex = 0;
+
+            // Set the width of the carousel dynamically based on the number of images
+            carouselImages.style.width = `${totalImages * 100}%`;
+
+            // Ensure each image occupies exactly 100% of the carousel container
+            images.forEach(image => {
+                image.style.width = `${100 / totalImages}%`;
+            });
+
+            function rotateImages() {
+                currentIndex++;
+                if (currentIndex === totalImages - 1) {
+                    // Smooth transition to the duplicated last image
+                    carouselImages.style.transition = 'transform 0.5s ease-in-out';
+                    carouselImages.style.transform = `translateX(-${currentIndex * (100 / totalImages)}%)`;
+
+                    // Jump back to the first image after transition ends
+                    setTimeout(() => {
+                        carouselImages.style.transition = 'none';
+                        carouselImages.style.transform = 'translateX(0)';
+                        currentIndex = 0;
+                    }, 500); // Match the duration of the transition
+                } else {
+                    // Normal transition to the next image
+                    carouselImages.style.transition = 'transform 0.5s ease-in-out';
+                    carouselImages.style.transform = `translateX(-${currentIndex * (100 / totalImages)}%)`;
+                }
+            }
+
+            setInterval(rotateImages, 5000); // Change image every 5 seconds
+        });
+
+        // Redirection logic for the "Schedule Now" button
+        function redirectToSchedule() {
+            window.top.location.href = 'Welcome.html';
+        }
+    </script>
+</body>
+</html>

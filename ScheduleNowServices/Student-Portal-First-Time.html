@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Keep it behind the content */
+            background-image: 
+                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
+                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+            background-repeat: no-repeat, no-repeat;
+            background-position: 20px 300px, right 40px bottom 10px; /* Adjust positions */
+            background-size: 250px, 250px; /* Pencil and heart sizes */
+            opacity: 0.5; /* Adjust the transparency */
+        }
+         /* Navigation Bar */
+/* Navbar Styles */
+.navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+        .hero {
+            width: 100%;
+            background-color: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin: 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+
+
+        /* Progress Dots */
+        .progress {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .dot {
+            width: 20px;
+            height: 20px;
+            margin: 0 8px;
+            background-color: #d1d1d1;
+            border-radius: 50%;
+        }
+
+        .dot.active {
+            background-color: #ff6f61;
+        }
+        #selected-tutor {
+            font-size: 20px;
+            color: #333;
+            margin-top: 10px;
+        }
+        .info-text {
+    color: #ff6f61; /* Base red color */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.info-text:hover {
+    color: #d9574e; /* Darker red on hover */
+}
+.create-account {
+        display: inline;
+        color: #ff6f61;
+        text-decoration: none;
+        font-weight: bold;
+    }
+
+    .create-account:hover {
+        /* text-decoration: bold; */
+        color: #d9574e;
+    }
+    .logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+        
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="navbar">
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="Welcome.html" class="highlighted-link">Schedule Now</a></li>
+        <li><a href="Student-Portal.html">Student Portal</a></li>
+        <li><a href="Services.html">Services</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li>
+            <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+            <div class="dropdown">
+                <a href="FAQ.html">FAQ</a>
+                <a href="StudentSpotlight.html" >Student Spotlight</a>
+            </div>
+        </li>
+    </ul>
+</div>
+<!-- Hero Section -->
+<div class="hero">
+    <h1>Welcome to the Student Portal</h1>
+    <p id="hero-text">
+        Login and find an open session with 
+        <span id="tutor-name" style="color: #ff6f61; font-weight: bold;"></span>
+    </p>
+</div>
+
+
+    <!-- Information Text -->
+    <!-- <div class="selected-tutor">
+        <p>
+            If you cannot find a time that works for your specific tutor, please select a new one 
+            <a href="RecommendedTutor.html" class ="info-text" onclick="updateCacheData()">here</a>.
+        </p>
+    </div> -->
+    <div>
+        <p id="alternate-text">
+            Can't find a session with <span id="alt-tutor-name"></span>? 
+            Find a different tutor 
+            <a href="../About.html" class="create-account" style="color: #ff6f61;" onclick="updateCacheData()">here</a>.
+        </p>
+    </div>
+    
+    
+
+    <!-- Display Selected Tutor -->
+
+    <div id="progress-bar" class="progress"></div>
+
+    <!-- TutorBird Widget -->
+    <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9xZFhKMSIsIldlYnNpdGVJRCI6Indic196MjZKViIsIldlYnNpdGVCbG9ja0lEIjoid2JiX1Q0U2hKTSJ9"></script>
+    <div style="position: absolute; right: 300px; top: 400px; width: 300px; background: #ffffff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 8px; border: 2px solid #000000; padding: 20px;">
+        <h2 style="color: #1e293b; margin-bottom: 10px;">How to Schedule a Session</h2>
+        <p style="color: #333; line-height: 1.6;">
+            To learn how to register for a session, check out our 
+            <a href="https://www.tutorbird.com/download/66986/?tmstv=1701374343" target="_blank" class ='create-account'">detailed guide</a>.
+            <p style="font-style: italic; font-size: 0.9rem;margin-top: 20px;">Sessions are one hour long at a standard rate of $70 per hour.</p>
+        </p>
+    </div>
+    
+    
+    <!-- Script for Selected Tutor and Progress Dots -->
+    <script>
+        function updateCacheData() {
+          // Save the data from ScheduleNowSubjects.html to localStorage
+          const scheduleNowData = localStorage.getItem('selectedSubjects');
+          if (scheduleNowData) {
+            localStorage.setItem('cachedScheduleNowData', scheduleNowData);
+          }
+      
+          // Update Type-Of-Student.html cache data
+          localStorage.setItem('studentType', 'Returning Student');
+        }
+      </script>
+      
+    <script>
+        // Retrieve the selected tutor's name from local storage
+    const selectedTutor = localStorage.getItem('selectedTutor');
+    document.addEventListener('DOMContentLoaded', () => {
+        // Update the Hero section text
+        const heroText = document.getElementById('hero-text');
+        const tutorNameSpan = document.getElementById('tutor-name');
+        const altTutorNameSpan = document.getElementById('alt-tutor-name');
+
+        if (selectedTutor) {
+            tutorNameSpan.textContent = selectedTutor;
+            altTutorNameSpan.textContent = selectedTutor;
+        } else {
+            // Default text if no tutor is selected
+            heroText.textContent = "Login and find an open session with the tutor of your choice.";
+            document.getElementById('alternate-text').innerHTML = `
+                Can't find a session with the tutor you are looking for? 
+                Find a different tutor 
+                <a href="../About.html" class="create-account" style="color: #ff6f61;" onclick="updateCacheData()">here</a>.
+            `;
+        }
+    });
+
+        // Generate progress bar dots based on student type
+        function generateProgressDots() {
+            const progressBar = document.getElementById('progress-bar');
+            const studentType = localStorage.getItem('studentType');
+            const totalDots = studentType === 'Returning Student' ? 4 : 5; // 4 dots for Returning Student, 5 for others
+
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                if (i === totalDots - 1) {
+                    dot.classList.add('active'); // Last dot is active
+                }
+                progressBar.appendChild(dot);
+            }
+        }
+
+        // Initialize progress dots after DOM is loaded
+        document.addEventListener('DOMContentLoaded', generateProgressDots);
+
+    </script>
+</body>
+</html>

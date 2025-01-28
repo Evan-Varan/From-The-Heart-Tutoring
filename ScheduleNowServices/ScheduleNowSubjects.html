@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Your Subject | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Keep it behind the content */
+            background-image: 
+                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
+                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+            background-repeat: no-repeat, no-repeat;
+            background-position: 20px 280px, right 40px bottom 10px; /* Adjust positions */
+            background-size: 250px, 250px; /* Pencil and heart sizes */
+            opacity: 0.5; /* Adjust the transparency */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+
+        /* Hero Section */
+        .hero {
+            background-color: #1e293b;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0 0 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        /* Categories */
+        .category-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px 0;
+        }
+
+        .category {
+            background: white;
+            border: 2px solid #d1d1d1;
+            border-radius: 12px;
+            padding: 10px 20px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .category:hover, .category.active {
+            background-color: #ff6f61;
+            border-color: #ff6f61;
+            color: white;
+        }
+
+        /* Subjects */
+        .subjects-container {
+            display: none;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px auto;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .subjects-container.active {
+            display: flex;
+        }
+
+        .test-prep-option.selected {
+            background-color: #ff6f61;
+            border-color: #d9574e;
+            color: white;
+            font-weight: bold;
+        }
+
+
+        .subject {
+            background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 320px; /* Adjust width as needed */
+    display: flex; /* Enables horizontal layout */
+    align-items: center; /* Centers content vertically */
+    gap: 25px; /* Adds spacing between the image and text */
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+    font-size: 1.2rem;
+}
+
+.subject:hover, .subject.selected {
+    background-color: #ff6f61;
+    border-color: #d9574e;
+    color: white;
+    transform: scale(1.05);
+}
+
+.subject img {
+    width: 75px; /* Adjust image size */
+    height: 75px;
+    border-radius: 10px; /* Optional: keep the rounded style */
+    object-fit: cover;
+}
+.subject-card-content {
+    text-align: left; /* Align text to the left */
+}
+
+.subject-card h3 {
+    font-size: 1.3rem;
+    color: #ff6f61;
+    margin: 0 0 5px;
+}
+
+.subject-card p {
+    font-size: 1.2rem;
+    margin: 0;
+    color: #333;
+}
+
+        /* Buttons */
+        .button-container {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .back-button, .next-button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px 25px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-button:hover, .next-button:hover {
+            background-color: #d9574e;
+            transform: scale(1.05);
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+        .error-message {
+            color: #ff6f61;
+            font-size: 1rem;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+        /* Progress Dots */
+    .progress {
+        display: flex;
+        justify-content: center;
+        margin: 30px 0;
+    }
+
+    .dot {
+        width: 20px; /* Increased size */
+        height: 20px; /* Increased size */
+        margin: 0 8px; /* Slightly larger spacing */
+        background-color: #d1d1d1;
+        border-radius: 50%;
+    }
+
+    .dot.active {
+        background-color: #ff6f61; /* Highlighted color */
+    }
+    .test-prep-options {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    .test-prep-option {
+        background-color: white;
+        border: 2px solid #d1d1d1;
+        border-radius: 12px;
+        padding: 10px 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+    }
+
+    .test-prep-option:hover {
+        background-color: #ff6f61;
+        border-color: #d9574e;
+        color: white;
+        transform: scale(1.05);
+    }
+    .category.selected, .test-prep-option.selected {
+        background-color: #ff6f61;
+        border-color: #ff6f61;
+        color: white;
+        font-weight: bold;
+    }
+    .contact-link {
+        color: #ff6f61; /* Base color */
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+    }
+
+    .contact-link:hover {
+        color: #d9574e; /* Slightly darker shade on hover */
+    }
+    .logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+
+    
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <!-- Navigation Bar -->
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html" class="highlighted-link">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Select Your Subject(s)</h1>
+        <p>Choose which subject(s) below you would need help with.</p>
+    </div>
+    <!-- Progress Dots -->
+    <div class="progress">
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <!-- Categories -->
+    <div class="category-container">
+        <div class="category active" onclick="selectCategory(this, 'math')">Math</div>
+        <div class="category" onclick="selectCategory(this, 'science')">Science</div>
+        <div class="category" onclick="selectCategory(this, 'Test Prep')">Test Prep</div>
+        <div class="category" onclick="selectCategory(this, 'languages')">Languages</div>
+        <div class="category" onclick="selectCategory(this, 'other')">Other</div>
+    </div>
+    <div id="test-prep-options" class="test-prep-options" style="display: none;">
+        <div class="test-prep-option" onclick="selectTestPrepOption(this, 'SAT')">SAT</div>
+        <div class="test-prep-option" onclick="selectTestPrepOption(this, 'ACT')">ACT</div>
+        <div class="test-prep-option" onclick="selectTestPrepOption(this, 'TSI')">TSI</div>
+        <div class="test-prep-option" onclick="selectTestPrepOption(this, 'GED')">GED</div>
+        <div class="test-prep-option" onclick="selectTestPrepOption(this, 'AP')">AP</div>
+    </div>
+    
+
+    <!-- Subjects -->
+    <div id="sat" class="subjects-container">
+        <!-- <div class="subject" onclick="toggleSelection(this, 'Full SAT Prep')">
+            <img src="https://i.imgur.com/k9E7HCd.png" alt="Full SAT Prep">
+            Full SAT Prep
+        </div> -->
+        <div class="subject" onclick="toggleSelection(this, 'SAT Math Sections')">
+            <img src="https://i.imgur.com/k9E7HCd.png" alt="SAT Math">
+            SAT Math Sections
+        </div>
+        <!-- <div class="subject" onclick="toggleSelection(this, 'SAT English Sections')">
+            <img src="https://i.imgur.com/k9E7HCd.png" alt="SAT English">
+            SAT English Sections
+        </div> -->
+    </div>
+    
+    <!-- ACT Subject Cards -->
+    <div id="act" class="subjects-container">
+        <!-- <div class="subject" onclick="toggleSelection(this, 'Full ACT Prep')">
+            <img src="https://i.imgur.com/VTmTgcO.png" alt="Full ACT Prep">
+            Full ACT Prep
+        </div> -->
+        <div class="subject" onclick="toggleSelection(this, 'ACT Math Section')">
+            <img src="https://i.imgur.com/VTmTgcO.png" alt="ACT Math Section">
+            ACT Math Section
+        </div>
+        <!-- <div class="subject" onclick="toggleSelection(this, 'ACT English Sections')">
+            <img src="https://i.imgur.com/VTmTgcO.png" alt="ACT English Sections">
+            ACT English Sections
+        </div> -->
+        <div class="subject" onclick="toggleSelection(this, 'ACT Science Section')">
+            <img src="https://i.imgur.com/VTmTgcO.png" alt="ACT Science Section">
+            ACT Science Section
+        </div>
+    </div>
+
+    <!-- TSI Subject Cards -->
+    <div id="tsi" class="subjects-container">
+        <!-- <div class="subject" onclick="toggleSelection(this, 'Full TSI Prep')">
+            <img src="https://i.imgur.com/TyfD1Bl.png" alt="Full TSI Prep">
+            Full TSI Prep
+        </div> -->
+        <div class="subject" onclick="toggleSelection(this, 'TSI Math Section')">
+            <img src="https://i.imgur.com/TyfD1Bl.png" alt="TSI Math Section">
+            TSI Math Section
+        </div>
+        <!-- <div class="subject" onclick="toggleSelection(this, 'TSI English Sections')">
+            <img src="https://i.imgur.com/TyfD1Bl.png" alt="TSI English Sections">
+            TSI English Sections
+        </div> -->
+    </div>
+
+    <!-- GED Subject Cards -->
+    <div id="ged" class="subjects-container">
+        <!-- <div class="subject" onclick="toggleSelection(this, 'Full GED Prep')">
+            <img src="https://i.imgur.com/twcJwOD.png" alt="Full GED Prep">
+            Full GED Prep
+        </div> -->
+        <div class="subject" onclick="toggleSelection(this, 'GED Mathematical Reasoning Section')">
+            <img src="https://i.imgur.com/twcJwOD.png" alt="GED Mathematical Reasoning Section">
+            GED Mathematical Reasoning Section
+        </div>
+        <!-- <div class="subject" onclick="toggleSelection(this, 'GED Reasoning Through Language Arts Sections')">
+            <img src="https://i.imgur.com/twcJwOD.png" alt="GED Reasoning Through Language Arts Sections">
+            GED Reasoning Through Language Arts Sections
+        </div> -->
+        <div class="subject" onclick="toggleSelection(this, 'GED Science Section')">
+            <img src="https://i.imgur.com/twcJwOD.png" alt="GED Science Section">
+            GED Science Section
+        </div>
+        <!-- <div class="subject" onclick="toggleSelection(this, 'GED Social Studies Section')">
+            <img src="https://i.imgur.com/twcJwOD.png" alt="GED Social Studies Section">
+            GED Social Studies Section
+        </div> -->
+    </div>
+
+    <!-- AP exams Subject Cards -->
+    <div id="ap" class="subjects-container">
+        <div class="subject" onclick="toggleSelection(this, 'AP Biology Exam')">
+            <img src="https://i.imgur.com/R3DAMPc.png" alt="AP Biology Exam">
+            AP Biology Exam
+        </div>
+    </div>
+
+    <div id="math" class="subjects-container">
+        <div class="subject" onclick="toggleSelection(this, 'K-8th Math')">
+            <img src="https://i.imgur.com/7vSn04C.png" alt="Math Icon">
+            <div class="subject-card-content">
+                K-8th Math
+            </div>
+            
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Algebra 1')">
+            <img src="https://i.imgur.com/4PPPuA4.png" alt="Math Icon">
+            Algebra 1
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Geometry')">
+            <img src="https://i.imgur.com/xSCkWSf.png" alt="Math Icon">
+            Geometry
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Algebra 2')">
+            <img src="https://i.imgur.com/B0BEjGI.png" alt="Math Icon">
+            Algebra 2
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Pre-Calculus')">
+            <img src="https://i.imgur.com/DqPyolO.png" alt="Math Icon">
+            Pre-Calculus
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Calculus 1 (AB)')">
+            <img src="https://i.imgur.com/QGlDzQ8.png" alt="Math Icon">
+            Calculus 1 (AB)     
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Calculus 2 (BC)')">
+            <img src="https://i.imgur.com/5dkunpZ.png" alt="Math Icon">
+            Calculus 2 (BC)
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Statistics')">
+            <img src="https://i.imgur.com/wkYizz1.png" alt="Math Icon">
+            Statistics
+        </div>
+        <!-- <div class="subject" onclick="toggleSelection(this, 'AP Statistics')">
+            <img src="https://i.imgur.com/Y1oeYe3.png" alt="Math Icon">
+            AP Statistics
+        </div> -->
+        <div class="subject" onclick="toggleSelection(this, 'Calculus 3')">
+            <img src="https://i.imgur.com/en5bUUT.png" alt="Calculus 3 Icon">
+            Calculus 3
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Differential Equations')">
+            <img src="https://i.imgur.com/vWdoEHU.png" alt="Differential Equations Icon">
+            Differential Equations
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Abstract Algebra')">
+            <img src="https://i.imgur.com/YcYH4WW.png" alt="Abstract Algebra Icon">
+            Abstract Algebra
+        </div>
+    </div>
+
+    <div id="science" class="subjects-container">        
+        <div class="subject" onclick="toggleSelection(this, 'Biology')">
+            <img src="https://i.imgur.com/06UBhFc.png" alt="Science Icon">
+            Biology
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Chemistry')">
+            <img src="https://i.imgur.com/ykJ06G7.png" alt="Science Icon">
+            Chemistry
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Physics')">
+            <img src="https://i.imgur.com/7kGOn2c.png" alt="Science Icon">
+            Physics
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'AP Biology')">
+            <img src="https://i.imgur.com/R3DAMPc.png" alt="Science Icon">
+            AP Biology
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'AP Chemistry')">
+            <img src="https://i.imgur.com/KsoFdxA.png" alt="Science Icon">
+            AP Chemistry
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'AP Physics')">
+            <img src="https://i.imgur.com/o8Cmtem.png" alt="Science Icon">
+            AP Physics
+        </div>
+    </div>
+
+    <div id="testprep" class="subjects-container">
+        <div class="subject" onclick="toggleSelection(this, 'SAT English')">
+            <img src="https://i.imgur.com/Xv0LUGR.png" alt="Test Prep Icon">
+            SAT English
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'SAT Math')">
+            <img src="https://i.imgur.com/Xv0LUGR.png" alt="Test Prep Icon">
+            SAT Math
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'ACT English')">
+            <img src="https://i.imgur.com/Xv0LUGR.png" alt="Test Prep Icon">
+            ACT English
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'ACT Math')">
+            <img src="https://i.imgur.com/Xv0LUGR.png" alt="Test Prep Icon">
+            ACT Math
+        </div>
+    </div>
+
+    <div id="languages" class="subjects-container">
+        <div class="subject" onclick="toggleSelection(this, 'K-8th English')">
+            <img src="https://i.imgur.com/7IhccEX.png" alt="Languages Icon">
+            K-8th English
+        </div>
+        <div class="subject" onclick="toggleSelection(this, '9-12th English')">
+            <img src="https://i.imgur.com/wJWD2D4.png" alt="Languages Icon">
+            9-12th English
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Spanish')">
+            <img src="https://i.imgur.com/i6fOY8t.png" alt="Languages Icon">
+            Spanish
+        </div>
+    </div>
+
+    <div id="other" class="subjects-container">
+        <div class="subject" onclick="toggleSelection(this, 'Computer Science')">
+            <img src="https://i.imgur.com/Bv0GV2C.png" alt="Other Icon">
+            Computer Science
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Circuits')">
+            <img src="https://i.imgur.com/E8oNJ15.png" alt="Other Icon">
+            Circuits
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Engineering')">
+            <img src="https://i.imgur.com/roE9X6G.png" alt="Other Icon">
+            Engineering
+        </div>
+    </div>
+    
+    <!-- Error Message -->
+    <div class="error-message" id="error-message">Please select at least one subject before proceeding.</div>    
+    
+    <div class="button-container">
+        <button class="back-button" onclick="redirectToTypeOfStudent()">Back</button>
+        <button class="next-button" onclick="redirectToNext()">Next</button>
+    </div>
+    <section class="contact-section" style="text-align: center; margin-top: 40px; font-size: 1.2rem;">
+        <p>
+            Can't find the subject you're looking for? 
+            <a href="../Contact.html" class="contact-link">Contact us here</a>.
+        </p>
+    </section>
+
+    <script>
+        // Retrieve student type from localStorage
+        const studentType = localStorage.getItem('studentType');
+
+        // Adjust progress dots
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressContainer = document.querySelector('.progress');
+
+            if (studentType === 'Returning Student') {
+                // Reduce the number of dots to 4 for Returning Students
+                progressContainer.innerHTML = `
+                    <span class="dot"></span>
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                `;
+            }
+        });
+    </script>
+    <script>
+        const selectedSubjects = new Set();
+        const errorMessage = document.getElementById('error-message'); // Define error message element
+
+        function toggleSelection(element, subject) {
+            if (element.classList.contains('selected')) {
+                element.classList.remove('selected');
+                selectedSubjects.delete(subject);
+            } else {
+                element.classList.add('selected');
+                selectedSubjects.add(subject);
+            }
+        }
+
+        function showSubjects(category) {
+            document.querySelectorAll('.subjects-container').forEach(container => container.classList.remove('active'));
+            document.querySelectorAll('.category').forEach(cat => cat.classList.remove('active'));
+            document.getElementById(category).classList.add('active');
+            document.querySelector(`.category[onclick="showSubjects('${category}')"]`).classList.add('active');
+        }
+
+        function redirectToNext() {
+        const tutorSelected = localStorage.getItem('selectedTutorName'); // Check if tutor is selected
+
+        if (tutorSelected) {
+            // Redirect to TutorAlreadySelected.html if a tutor is already selected
+            window.location.href = 'TutorAlreadySelected.html';
+            errorMessage.style.display = "none";
+            localStorage.setItem('selectedSubjects', JSON.stringify([...selectedSubjects]));
+        } else if (selectedSubjects.size === 0) {
+            // Show error message if no subjects are selected
+            errorMessage.style.display = "block";
+            return;
+        } else {
+            // Hide error message and save selected subjects
+            errorMessage.style.display = "none";
+            localStorage.setItem('selectedSubjects', JSON.stringify([...selectedSubjects]));
+
+            // Redirect to RecommendedTutor.html if no tutor is selected
+            window.location.href = 'RecommendedTutor.html';
+        }
+    }
+
+    function redirectToTypeOfStudent() {
+        window.location.href = 'Type-Of-Student.html';
+    }
+        function selectCategory(element, category) {
+    // Deselect all categories
+    document.querySelectorAll('.category').forEach(cat => cat.classList.remove('selected', 'active'));
+
+    // Select the clicked category
+    element.classList.add('selected', 'active');
+    localStorage.setItem('selectedCategory', category); // Store selected category
+
+    // Hide all subjects containers
+    document.querySelectorAll('.subjects-container').forEach(container => {
+        container.classList.remove('active');
+    });
+
+    // Handle Test Prep or other categories
+    if (category === 'Test Prep') {
+        document.getElementById('test-prep-options').style.display = 'flex'; // Show Test Prep options
+
+        // Check if an option is already selected
+        const selectedOption = document.querySelector('.test-prep-option.selected');
+        if (selectedOption) {
+            const selectedExam = selectedOption.textContent.trim(); // Get the text of the selected option
+            const container = document.getElementById(selectedExam.toLowerCase());
+            if (container) {
+                container.classList.add('active'); // Show the previously selected exam's subjects
+            }
+        }
+    } else {
+        document.getElementById('test-prep-options').style.display = 'none'; // Hide Test Prep options
+        const container = document.getElementById(category.toLowerCase());
+        if (container) {
+            container.classList.add('active'); // Show relevant container
+        }
+    }
+}
+
+function selectTestPrepOption(element, option) {
+    // Deselect all test prep options
+    document.querySelectorAll('.test-prep-option').forEach(opt => opt.classList.remove('selected'));
+
+    // Highlight the clicked option
+    element.classList.add('selected');
+
+    // Hide all test prep subject containers
+    document.querySelectorAll('.subjects-container').forEach(container => {
+        container.classList.remove('active');
+    });
+
+    // Convert option to lowercase to match container IDs
+    const container = document.getElementById(option.toLowerCase());
+    if (container) {
+        container.classList.add('active'); // Show the selected container
+    }
+}
+
+        // Automatically display the Math section on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            // Set the Math category as selected
+            const mathCategory = document.querySelector('.category[onclick="selectCategory(this, \'math\')"]');
+            if (mathCategory) {
+                mathCategory.classList.add('selected', 'active');
+            }
+
+            // Show the Math subjects container
+            const mathContainer = document.getElementById('math');
+            if (mathContainer) {
+                mathContainer.classList.add('active');
+            }
+
+            // Hide Test Prep options if they are visible
+            const testPrepOptions = document.getElementById('test-prep-options');
+            if (testPrepOptions) {
+                testPrepOptions.style.display = 'none';
+            }
+        });
+    </script>
+    
+    
+</body>
+</html>

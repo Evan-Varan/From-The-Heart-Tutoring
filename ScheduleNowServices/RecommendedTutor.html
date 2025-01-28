@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recommended Tutors | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Keep it behind the content */
+            background-image: 
+                url('https://i.imgur.com/YXXdLF8.png'),  
+                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+            background-repeat: no-repeat, no-repeat;
+            background-position: 20px 440px, right 40px bottom 210px; /* Adjust positions */
+            background-size: 250px, 250px; /* Pencil and heart sizes */
+            opacity: 0.5; /* Adjust the transparency */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+
+        /* Hero Section */
+        .hero {
+            width: 100%;
+            background-color: #1e293b;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+            margin: 0;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+        }
+
+        .hero .subjects {
+            margin-top: 10px;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #ff6f61;
+        }
+
+        /* Progress Dots */
+        .progress {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .dot {
+            width: 20px;
+            height: 20px;
+            margin: 0 8px;
+            background-color: #d1d1d1;
+            border-radius: 50%;
+        }
+
+        .dot.active {
+            background-color: #ff6f61;
+        }
+
+        /* Tutor Cards */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .tutor-card {
+            background-color: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
+            cursor: pointer;
+        }
+
+        .tutor-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background-color: #ffeae6; /* Light red highlight */
+        }
+
+        .tutor-card.selected {
+            background-color: #a6d4fa; /* Softer blue for selected cards */
+            color: black;
+            border: 2px solid black; /* Slightly darker border for contrast */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+
+
+        .tutor-info a {
+            color: #1e293b; /* Blue from your website */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: font-weight 0.3s, color 0.3s;
+        }
+
+        .tutor-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            background-color: #dceffd; /* Light blue highlight */
+        }
+        .tutor-info a:hover {
+            text-decoration: underline; /* Add underline on hover */
+            color: #ff6f61; /* Change color for hover */
+        }
+
+
+        .tutor-card.selected .tutor-info a:hover {
+            color: #f7f7f7; /* Light gray hover for links on selected cards */
+            text-decoration: underline;
+        }
+
+
+
+
+        .tutor-card img {
+            width: 100px; /* Adjusted size for better proportion */
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            flex-shrink: 0; /* Ensures the image doesn't shrink when resizing */
+        }
+
+        .tutor-info {
+            flex-grow: 1;
+            margin-left: 15px;
+        }
+
+        .tutor-info h3 {
+            margin: 0;
+            color: inherit;
+        }
+
+        .tutor-info p {
+            margin: 5px 0;
+            color: inherit;
+        }
+        .tutor-info p strong {
+            /*content: "Subjects:";  Dynamically adds "Subjects:" */
+            display: inline-block; /* Badge-like appearance */
+            background-color: #1e293b; /* Highlighted background */
+            color: white; /* White text for contrast */
+            font-size: 0.9rem; /* Slightly smaller than the list */
+            font-weight: bold; /* Makes it stand out */
+            padding: 3px 8px; /* Adds spacing inside the badge */
+            border-radius: 12px; /* Rounded design */
+            margin-right: 8px; /* Space between "Subjects:" and the list */
+            vertical-align: middle; /* Aligns with the list text */
+        }
+
+        .buttons-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px auto;
+        }
+
+        .button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 12px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .button:hover {
+            background-color: #d9574e;
+            transform: scale(1.05);
+        }
+
+        .error-message {
+            color: #ff6f61;
+            font-size: 1rem;
+            text-align: center;
+            margin-top: 10px;
+            display: none;
+        }
+        .logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html" class="highlighted-link">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Select a Tutor</h1>
+        <p>Based on your selected subjects, here are the best matches for you.</p>
+        <div class="subjects" id="selected-subjects"></div>
+    </div>
+    <!-- Progress Dots -->
+    <div class="progress">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot active"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+
+    <div class="container">
+        <div id="tutor-container"></div>
+        <div class="no-results" id="no-results" style="display: none;">No tutors found for your selected subjects.</div>
+    </div>
+
+    <!-- Error Message -->
+    <div class="error-message" id="error-message">Please select a tutor before proceeding.</div>
+
+    <!-- Buttons -->
+    <div class="buttons-container">
+        <button class="button" onclick="redirectToPreviousPage()">Back</button>
+        <button class="button" onclick="redirectToNext()">Next</button>
+    </div>
+
+    <script>
+        // Retrieve student type from localStorage
+        const studentType = localStorage.getItem('studentType');
+
+        // Adjust progress dots
+        document.addEventListener('DOMContentLoaded', () => {
+            const progressContainer = document.querySelector('.progress');
+
+            if (studentType === 'Returning Student') {
+                // Reduce the number of dots to 4 for Returning Students
+                progressContainer.innerHTML = `
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                `;
+            }
+        });
+        const tutors = [
+            { name: "Dianne Simental", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Biology", "AP Biology","AP Biology Exam", "Chemistry", "Physics", "Spanish", "K-8th English", "SAT Math Sections", "ACT Math Section", "ACT Science Section", "GED Mathematical Reasoning Section", "GED Science Section" ], image: "https://i.imgur.com/X0kdDss.jpeg" },
+            { name: "Zarek Cole", subjects: ["Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Calculus 1 (AB)", "Calculus 2 (BC)","Calculus 3","Differential Equations","Abstract Algebra", "Physics", "AP Physics", "Chemistry", "AP Chemistry", "ACT Math", "GED Math", "TSI Math"
+], image: "https://i.imgur.com/5Cuh8SZ.png" },
+            { name: "Evan Varan", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Calculus 1 (AB)", "Calculus 2 (BC)", "Biology", "Chemistry", "Physics", "AP Physics", "SAT Math", "ACT Math", "TSI Math", "ACT Science", "GED Math", "GED Science", "Computer Science", "Circuits", "Engineering"
+            ], image: "https://i.imgur.com/zPiwhDv.png" },
+        ];
+
+        const selectedSubjects = JSON.parse(localStorage.getItem("selectedSubjects")) || [];
+        const selectedTutor = { name: null }; // Store selected tutor
+        const container = document.getElementById("tutor-container");
+        const errorMessage = document.getElementById("error-message");
+
+        // Display selected subjects in hero
+        const subjectsDisplay = document.getElementById("selected-subjects");
+        subjectsDisplay.textContent = selectedSubjects.length
+            ? "Selected Subjects: " + selectedSubjects.join(", ")
+            : "No subjects selected.";
+
+        // Filter tutors based on selected subjects
+        const matchingTutors = tutors.filter(tutor =>
+            selectedSubjects.every(subject => tutor.subjects.includes(subject))
+        );
+        // Sort the tutor's subjects to list selected subjects first
+        function sortSubjects(tutorSubjects, selectedSubjects) {
+            const selectedFirst = tutorSubjects.filter(subject => selectedSubjects.includes(subject));
+            const remaining = tutorSubjects.filter(subject => !selectedSubjects.includes(subject));
+            return [...selectedFirst, ...remaining];
+        }
+
+        // Display tutors
+        matchingTutors.forEach(tutor => {
+    const sortedSubjects = sortSubjects(tutor.subjects, selectedSubjects); // Sort subjects
+    const card = document.createElement("div");
+    card.classList.add("tutor-card");
+    card.innerHTML = `
+        <img src="${tutor.image}" alt="${tutor.name}">
+        <div class="tutor-info">
+            <h3>${tutor.name}</h3>
+            <p><strong>Subjects:</strong> ${sortedSubjects.join(", ")}</p>
+            <a href="../TutorAboutPages/${tutor.name.replace(/\s+/g, "")}.html" target="_blank" style="color: #1e293b;">Read more about me here</a>
+        </div>
+    `;
+    card.onclick = () => selectTutor(card, tutor.name); // Select the tutor
+    container.appendChild(card);
+});
+
+
+        // Select a tutor
+        function selectTutor(card, name) {
+    // Check if the card is already selected
+            if (card.classList.contains("selected")) {
+                // Deselect the card
+                card.classList.remove("selected");
+                selectedTutor.name = null; // Clear the selected tutor
+            } else {
+            // Deselect previously selected tutor
+            document.querySelectorAll(".tutor-card").forEach(c => c.classList.remove("selected"));
+
+            // Select the new tutor
+            card.classList.add("selected");
+            selectedTutor.name = name;
+    }
+}
+
+        // Redirect to the next page
+        function redirectToNext() {
+            if (!selectedTutor.name) {
+                errorMessage.style.display = "block"; // Show error message if no tutor is selected
+                return;
+            }
+
+            errorMessage.style.display = "none"; // Hide error message if a tutor is selected
+
+            const studentType = localStorage.getItem('studentType');
+            localStorage.setItem("selectedTutor", selectedTutor.name); // Store selected tutor
+
+            if (studentType === 'Returning Student') {
+                window.location.href = "Student-Portal-First-Time.html"; // Redirect returning students
+            } else {
+                window.location.href = "Account-Creation.html"; // Redirect first-time students
+            }
+        }
+
+        // Redirect to the previous page
+        function redirectToPreviousPage() {
+            window.location.href = "ScheduleNowSubjects.html";
+        }
+    </script>
+</body>
+</html>

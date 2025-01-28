@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Schedule Now | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Global styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9; /* Light gray background */
+            color: #1e293b; /* Dark text for readability */
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        /* Hero Section */
+        .hero-container {
+            padding: 100px 20px 50px;
+            text-align: center;
+            background-color: #1e293b;
+            color: white;
+        }
+
+        .hero-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .hero-container p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+        }
+
+        .hero-container button {
+        background-color: #ff6f61;
+        color: white;
+        border: 2px solid white;
+        padding: 15px 35px;
+        font-size: 1.2rem;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(255, 111, 97, 0.5);
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    }
+
+    .hero-container button:hover {
+        background-color: #d9574e;
+        border-color: #ffe5e0;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(255, 111, 97, 0.7);
+    }
+
+    .hero-container button:focus {
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.5);
+    }
+
+        /* Features Section */
+        .features {
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+            text-align: center;
+        }
+
+        .features h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #1e293b;
+        }
+
+        .features-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .feature {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .feature:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #ff6f61;
+        }
+
+        .feature-text {
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .values-section {
+    margin-top: 0px;
+    padding: 50px 20px;
+    background-color: #f4f4f9;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.values-section h2 {
+    font-size: 2rem;
+    color: #1e293b;
+    margin-bottom: 20px;
+}
+
+.values-section p {
+    font-size: 1rem;
+    color: #333;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.values-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.value-item {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 250px;
+}
+
+.value-graphic {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.value-item h3 {
+    font-size: 1.2rem;
+    color: #1e293b;
+    margin-bottom: 10px;
+}
+
+.value-item p {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+.schedule-button {
+            display: inline-block;
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            /* font-weight: bold; */
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 15px;
+        }
+
+        .schedule-button:hover {
+            background-color: #d9574e;
+            transform: scale(1.05);
+        }.logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html" class="highlighted-link">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero-container">
+        <h1>Welcome to From the Heart Tutoring</h1>
+        <p>Private virtual tutoring, personalized for you. Start your journey toward academic success!</p>
+        <p>Register for a session in 5 simple steps and in under 10 minutes!</p>
+        <button class="schedule-button" onclick="redirectToSchedule()">Get Started</button>
+    </div>
+
+    <!-- Features Section -->
+    <!-- <div class="features">
+        <h2>Why Choose Us?</h2>
+        <div class="features-container">
+            <div class="feature">
+                <div class="feature-icon">📚</div>
+                <div class="feature-text">Personalized Learning</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">👩‍🏫</div>
+                <div class="feature-text">Expert Tutors</div>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🌍</div>
+                <div class="feature-text">Any Age. Anytime. Anywhere.</div>
+            </div>
+        </div>
+    </div> -->
+    <section class="values-section">
+        <h2>Why Choose Us?</h2>
+
+        <div class="values-container">
+            <div class="value-item">
+                <img src="https://i.imgur.com/jPxGP0g.png" alt="Graphic 1" class="value-graphic">
+                <h3>Inclusivity</h3>
+                <p>We welcome students from all backgrounds and create a safe space for learning.</p>
+            </div>
+            <div class="value-item">
+                <img src="https://i.imgur.com/zgIG8ln.png" alt="Graphic 2" class="value-graphic">
+                <h3>Innovation</h3>
+                <p>Our unique teaching methods make learning engaging and effective.</p>
+            </div>
+            <div class="value-item">
+                <img src="https://i.imgur.com/cStGkwq.png" alt="Graphic 3" class="value-graphic">
+                <h3>Community</h3>
+                <p>We are more than tutors—we're mentors who build lasting relationships.</p>
+            </div>
+        </div>
+    </section>
+    <script>
+        // Redirect function for button
+        function redirectToSchedule() {
+            window.top.location.href = 'ScheduleNowServices/Type-Of-Student.html';
+        }
+    </script>
+</body>
+</html>

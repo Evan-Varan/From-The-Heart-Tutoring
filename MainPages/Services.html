@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Keep it behind the content */
+            background-image: 
+                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
+                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+            background-repeat: no-repeat, no-repeat;
+            background-position: 20px 250px, right 40px bottom 10px; /* Adjust positions */
+            background-size: 250px, 250px; /* Pencil and heart sizes */
+            opacity: 0.5; /* Adjust the transparency */
+        }
+
+        
+
+
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #1e293b;
+            color: white;
+            padding: 55px 10px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0 0 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        /* Services Section */
+        .services-section {
+            padding: 0px 20px;
+            text-align: center;
+        }
+
+        .services-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #1e293b;
+        }
+
+        .services-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .other-container {
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+
+        .service-card {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 250px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .service-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .service-card img {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 15px;
+        }
+
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: #ff6f61;
+            margin: 10px 0;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            margin: 0;
+        }
+        .contact-link {
+            color: #ff6f61; /* Base color */
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+        }
+
+        .contact-link:hover {
+            color: #d9574e; /* Slightly darker shade on hover */
+        }
+        .logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <script>
+        localStorage.clear();
+    </script>
+    <div class="heart left-1"></div>
+    <div class="heart left-2"></div>
+    <div class="heart right-1"></div>
+    <div class="heart right-2"></div>
+    <!-- Navigation Bar -->
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html" class="highlighted-link">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Our Services</h1>
+        <p>Explore the wide range of subjects and personalized tutoring services we offer to help you succeed.</p>
+        <p style="font-style: italic; font-size: 0.9rem;margin-top: 20px;">All services are priced at a standard rate of $70 for an hour long session.</p>
+    </div>
+
+    <section class="services-section">
+        <h2>Subjects We Cover</h2>
+        <div class="services-container">
+            <a href="MathServices.html" class="service-card">
+                <img src="https://i.imgur.com/cOi8tEb.png" alt="Math Icon">
+                <h3>Math</h3>
+                <p>From Pre-Algebra to Calculus, we make math simple and fun.</p>
+            </a>
+            <a href="ScienceServices.html" class="service-card">
+                <img src="https://i.imgur.com/6bdbW6k.png" alt="Science Icon">
+                <h3>Science</h3>
+                <p>Explore the wonders of Physics, Chemistry, and Biology.</p>
+            </a>
+            <a href="TestPrepServices.html" class="service-card">
+                <img src="https://i.imgur.com/xg7RnCd.png" alt="Test Prep Icon">
+                <h3>Test Prep</h3>
+                <p>SAT®, ACT®, and more. Ace your exams with our expert help.</p>
+            </a>
+            <a href="LanguageServices.html" class="service-card">
+                <img src="https://i.imgur.com/wJWD2D4.png" alt="Languages Icon">
+                <h3>Languages</h3>
+                <p>Master all things English and Spanish.</p>
+            </a>
+        </div>
+        <!-- Centered Row for Other -->
+        <div class="services-container other-container">
+            <a href="OtherServices.html" class="service-card">
+                <img src="https://i.imgur.com/Nj9qQJk.png" alt="Other Icon">
+                <h3>Other</h3>
+                <p>Specialized topics and unique courses tailored to your needs.</p>
+            </a>
+        </div>
+    </section>
+    <section class="contact-section" style="text-align: center; margin-top: 40px; font-size: 1.2rem;">
+        <p>
+            Can't find the subject you're looking for? 
+            <a href="Contact.html" class="contact-link">Contact us here</a>.
+        </p>
+    </section>
+</body>
+</html>

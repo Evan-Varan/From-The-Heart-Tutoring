@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #1e293b;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0 0 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        /* Subjects Section */
+        .subjects-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .subjects-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #1e293b;
+        }
+
+        .subjects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .subject-card {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .subject-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .subject-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .subject-card h3 {
+            font-size: 1.5rem;
+            color: #ff6f61;
+            margin: 10px 0;
+        }
+
+        .subject-card p {
+            font-size: 1rem;
+            margin: 0 0 15px;
+            color: #333;
+        }
+
+        .schedule-button {
+            display: inline-block;
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 15px;
+        }
+
+        .schedule-button:hover {
+            background-color: #d9574e;
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .modal ul {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .modal ul li {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            background-color: #1e293b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            margin: 40px auto;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #ff6f61;
+            transform: scale(1.05);
+        }
+
+        .back-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .contact-link {
+        color: #ff6f61; /* Base color */
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+    }
+
+    .contact-link:hover {
+        color: #d9574e; /* Slightly darker shade on hover */
+    }
+    .logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html" class="highlighted-link">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Math Subjects</h1>
+        <p>Explore the math topics we offer, from Pre-Algebra to Advanced Calculus.</p>
+    </div>
+
+    <!-- Subjects Section -->
+    <section class="subjects-section">
+        <h2>Our Math Subjects</h2>
+        <div class="subjects-container">
+            <!-- K-8th Grade Math -->
+            <div class="subject-card" onclick="openModal('k8math-modal')">
+                <img src="https://i.imgur.com/7vSn04C.png" alt="K-8 Math Icon">
+                <h3>K-8th Grade Math</h3>
+                <p>Build a solid foundation in math concepts below Algebra 1.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div>
+            <!-- Algebra 1 -->
+            <div class="subject-card" onclick="openModal('algebra1-modal')">
+                <img src="https://i.imgur.com/4PPPuA4.png" alt="Algebra 1 Icon">
+                <h3>Algebra 1</h3>
+                <p>Master fundamental algebra concepts and skills.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div>
+            <!-- Geometry -->
+            <div class="subject-card" onclick="openModal('geometry-modal')">
+                <img src="https://i.imgur.com/xSCkWSf.png" alt="Geometry Icon">
+                <h3>Geometry</h3>
+                <p>Learn about shapes, angles, and spatial reasoning.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div>
+            <!-- Algebra 2 -->
+            <div class="subject-card" onclick="openModal('algebra2-modal')">
+                <img src="https://i.imgur.com/B0BEjGI.png" alt="Algebra 2 Icon">
+                <h3>Algebra 2</h3>
+                <p>Expand your knowledge with advanced algebra topics.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div>
+            <!-- Pre-Calculus -->
+            <div class="subject-card" onclick="openModal('precalculus-modal')">
+                <img src="https://i.imgur.com/DqPyolO.png" alt="Pre-Calculus Icon">
+                <h3>Pre-Calculus</h3>
+                <p>Prepare for calculus with trigonometry and functions.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div>
+            <!-- Calculus AB -->
+            <div class="subject-card" onclick="openModal('calculusab-modal')">
+                <img src="https://i.imgur.com/QGlDzQ8.png" alt="Calculus AB Icon">
+                <h3>Calculus 1 (AB)</h3>
+                <p>Dive into limits, derivatives, and integrals.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div>
+            <!-- Calculus BC -->
+            <div class="subject-card" onclick="openModal('calculusbc-modal')">
+                <img src="https://i.imgur.com/5dkunpZ.png" alt="Calculus BC Icon">
+                <h3>Calculus 2 (BC)</h3>
+                <p>Explore advanced calculus concepts beyond Calculus AB.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div>
+            <!-- Statistics -->
+            <div class="subject-card" onclick="openModal('statistics-modal')">
+                <img src="https://i.imgur.com/wkYizz1.png" alt="Statistics Icon">
+                <h3>Statistics</h3>
+                <p>Learn about data, probability, and statistical analysis.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div>
+            <!-- AP Statistics -->
+            <!-- <div class="subject-card" onclick="openModal('apstatistics-modal')">
+                <img src="https://i.imgur.com/Y1oeYe3.png" alt="AP Statistics Icon">
+                <h3>AP Statistics</h3>
+                <p>Master advanced statistics topics for AP exams.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div> -->
+            <div class="subject-card" onclick="openModal('Calculus 3-modal')">
+                <img src="https://i.imgur.com/en5bUUT.png" alt="Calculus 3 Icon">
+                <h3>Calculus 3</h3>
+                <p>Advance your understanding of multivariable calculus concepts and applications.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div>
+            <div class="subject-card" onclick="openModal('Differential Equations-modal')">
+                <img src="https://i.imgur.com/vWdoEHU.png" alt="Differential Equations Icon">
+                <h3>Differential Equations</h3>
+                <p>Master the principles of differential equations to analyze and model dynamic systems.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div>
+            <div class="subject-card" onclick="openModal('Abstract Algebra-modal')">
+                <img src="https://i.imgur.com/YcYH4WW.png" alt="Abstract Algebra Icon">
+                <h3>Abstract Algebra</h3>
+                <p>Explore the structures of algebraic systems, including groups, rings, and fields.</p>
+                <a href="Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modals -->
+<!-- <div id="k8math-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('k8math-modal')">&times;</span>
+        <h3>K-8th Grade Math Topics</h3>
+        <ul>
+            <li>Basic Arithmetic</li>
+            <li>Fractions and Decimals</li>
+            <li>Ratios and Proportions</li>
+        </ul>
+    </div>
+</div>
+<div id="algebra1-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('algebra1-modal')">&times;</span>
+        <h3>Algebra 1 Topics</h3>
+        <ul>
+            <li>Linear Equations</li>
+            <li>Quadratic Functions</li>
+            <li>Inequalities</li>
+        </ul>
+    </div>
+</div>
+<div id="geometry-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('geometry-modal')">&times;</span>
+        <h3>Geometry Topics</h3>
+        <ul>
+            <li>Triangles and Angles</li>
+            <li>Circles</li>
+            <li>Coordinate Geometry</li>
+        </ul>
+    </div>
+</div>
+<div id="algebra2-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('algebra2-modal')">&times;</span>
+        <h3>Algebra 2 Topics</h3>
+        <ul>
+            <li>Polynomials</li>
+            <li>Logarithmic Functions</li>
+            <li>Systems of Equations</li>
+        </ul>
+    </div>
+</div>
+<div id="precalculus-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('precalculus-modal')">&times;</span>
+        <h3>Pre-Calculus Topics</h3>
+        <ul>
+            <li>Trigonometric Functions</li>
+            <li>Exponential Functions</li>
+            <li>Sequences and Series</li>
+        </ul>
+    </div>
+</div>
+<div id="calculusab-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('calculusab-modal')">&times;</span>
+        <h3>Calculus AB Topics</h3>
+        <ul>
+            <li>Limits</li>
+            <li>Derivatives</li>
+            <li>Integrals</li>
+        </ul>
+    </div>
+</div>
+<div id="calculusbc-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('calculusbc-modal')">&times;</span>
+        <h3>Calculus BC Topics</h3>
+        <ul>
+            <li>Parametric Equations</li>
+            <li>Polar Coordinates</li>
+            <li>Series and Convergence</li>
+        </ul>
+    </div>
+</div>
+<div id="statistics-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('statistics-modal')">&times;</span>
+        <h3>Statistics Topics</h3>
+        <ul>
+            <li>Descriptive Statistics</li>
+            <li>Probability</li>
+            <li>Hypothesis Testing</li>
+        </ul>
+    </div>
+</div>
+<div id="apstatistics-modal" class="modal">
+    <div class="modal-content">
+        <span class="close-button" onclick="closeModal('apstatistics-modal')">&times;</span>
+        <h3>AP Statistics Topics</h3>
+        <ul>
+            <li>Inference Procedures</li>
+            <li>Chi-Square Tests</li>
+            <li>Regression Analysis</li>
+        </ul>
+    </div>
+</div> -->
+<section class="contact-section" style="text-align: center; margin-top: 40px; font-size: 1.2rem;">
+    <p>
+        Can't find the subject you're looking for? 
+        <a href="Contact.html" class="contact-link">Contact us here</a>.
+    </p>
+</section>
+    
+
+    <!-- Back Button Section -->
+    <div class="back-container">
+        <a href="Services.html" class="back-button">Back to Services</a>
+    </div>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            position: relative;
+        }
+
+        /* Navbar Styles */
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            background-color: #1e293b;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0 0 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+
+        /* Subjects Section */
+        .subjects-section {
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .subjects-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #1e293b;
+        }
+
+        .subjects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .subject-card {
+            background-color: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 280px;
+            text-align: center;
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .subject-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .subject-card img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .subject-card h3 {
+            font-size: 1.5rem;
+            color: #ff6f61;
+            margin: 10px 0;
+        }
+
+        .subject-card p {
+            font-size: 1rem;
+            margin: 0 0 15px;
+            color: #333;
+        }
+
+        .schedule-button {
+            display: inline-block;
+            background-color: #ff6f61;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            margin-top: 15px;
+        }
+
+        .schedule-button:hover {
+            background-color: #d9574e;
+            transform: scale(1.05);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 10% auto;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 400px;
+            text-align: center;
+            position: relative;
+        }
+
+        .close-button {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 1.5rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .modal ul {
+            text-align: left;
+            list-style: none;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+        .modal ul li {
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        /* Back Button */
+        .back-button {
+            display: inline-block;
+            background-color: #1e293b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            text-align: center;
+            margin: 40px auto;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .back-button:hover {
+            background-color: #ff6f61;
+            transform: scale(1.05);
+        }
+
+        .back-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .contact-link {
+        color: #ff6f61; /* Base color */
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+    }
+
+    .contact-link:hover {
+        color: #d9574e; /* Slightly darker shade on hover */
+    }
+    .contact-section {
+        margin-bottom: 20px;
+    }.logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html" class="highlighted-link">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Test Prep Subjects</h1>
+        <p>Excel in standardized tests with targeted preparation for SAT, ACT, TSI, and GED.</p>
+
+    </div>
+    <!-- Subjects Section -->
+    <section class="subjects-section">
+        <h2>Our Test Prep Subjects</h2>
+        <div class="subjects-container">
+            <!-- SAT Exam -->
+            <div class="subject-card">
+                <img src="https://i.imgur.com/k9E7HCd.png" alt="SAT Icon">
+                <h3>SAT</h3>
+                <p>Comprehensive preparation for the SAT exam.</p>
+                <a href="SATServices.html" class="schedule-button" style="background-color: #1e293b;">View SAT Services</a>
+            </div>
+            <!-- ACT Exam -->
+            <div class="subject-card">
+                <img src="https://i.imgur.com/VTmTgcO.png" alt="ACT Icon">
+                <h3>ACT</h3>
+                <p>Expert guidance for excelling in the ACT exam.</p>
+                <a href="ACTServices.html" class="schedule-button" style="background-color: #1e293b;">View ACT Services</a>
+            </div>
+            <!-- TSI Exam -->
+            <div class="subject-card">
+                <img src="https://i.imgur.com/TyfD1Bl.png" alt="TSI Icon">
+                <h3>TSI</h3>
+                <p>Targeted preparation for success in the TSI exam.</p>
+                <a href="TSIServices.html" class="schedule-button" style="background-color: #1e293b;">View TSI Services</a>
+            </div>
+            <!-- GED Exam -->
+            <div class="subject-card">
+                <img src="https://i.imgur.com/twcJwOD.png" alt="GED Icon">
+                <h3>GED</h3>
+                <p>Achieve your GED with our customized tutoring.</p>
+                <a href="GEDServices.html" class="schedule-button" style="background-color: #1e293b;">View GED Services</a>
+            </div>
+            <!-- AP Exams -->
+            <div class="subject-card">
+                <img src="https://i.imgur.com/Sw6qlVp.png" alt="AP Exams Icon">
+                <h3>AP Exams</h3>
+                <p>Advanced placement preparation for multiple subjects.</p>
+                <a href="APExamServices.html" class="schedule-button" style="background-color: #1e293b;">View AP Services</a>
+            </div>
+        </div>
+    </section>
+    
+
+    <!-- <div id="sat-math-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('sat-math-modal')">&times;</span>
+            <h3>SAT Math Topics</h3>
+            <ul>
+                <li>Algebra and Functions</li>
+                <li>Geometry and Trigonometry</li>
+                <li>Data Analysis and Problem Solving</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="sat-english-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('sat-english-modal')">&times;</span>
+            <h3>SAT English Topics</h3>
+            <ul>
+                <li>Reading Comprehension</li>
+                <li>Grammar and Sentence Structure</li>
+                <li>Essay Writing Techniques</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="act-math-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('act-math-modal')">&times;</span>
+            <h3>ACT Math Topics</h3>
+            <ul>
+                <li>Algebra and Coordinate Geometry</li>
+                <li>Trigonometry and Statistics</li>
+                <li>Word Problems and Strategies</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="act-english-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('act-english-modal')">&times;</span>
+            <h3>ACT English Topics</h3>
+            <ul>
+                <li>Reading and Understanding Texts</li>
+                <li>Grammar Rules and Applications</li>
+                <li>Time Management for Reading Sections</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="tsi-math-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('tsi-math-modal')">&times;</span>
+            <h3>TSI Math Topics</h3>
+            <ul>
+                <li>Basic Algebra</li>
+                <li>Word Problems and Data Interpretation</li>
+                <li>College Readiness Preparation</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="tsi-english-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('tsi-english-modal')">&times;</span>
+            <h3>TSI English Topics</h3>
+            <ul>
+                <li>Critical Reading</li>
+                <li>Essay Writing and Grammar</li>
+                <li>Comprehension Strategies</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="ged-math-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('ged-math-modal')">&times;</span>
+            <h3>GED Math Topics</h3>
+            <ul>
+                <li>Fractions and Decimals</li>
+                <li>Algebra and Geometry</li>
+                <li>Data and Graph Interpretation</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div id="ged-english-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeModal('ged-english-modal')">&times;</span>
+            <h3>GED English Topics</h3>
+            <ul>
+                <li>Reading Comprehension</li>
+                <li>Grammar and Sentence Structure</li>
+                <li>Essay Writing Techniques</li>
+            </ul>
+        </div>
+    </div> -->
+    <section class="contact-section" style="text-align: center; margin-top: 40px; font-size: 1.2rem;">
+        <p>
+            Can't find test prep for your specific exam?
+            <a href="Contact.html" class="contact-link">Contact us here</a>.
+        </p>
+    </section>
+
+    <!-- Back Button Section -->
+    <div class="back-container">
+        <a href="Services.html" class="back-button">Back to Services</a>
+    </div>
+
+    <script>
+        function openModal(id) {
+            document.getElementById(id).style.display = 'block';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+</body>
+</html>

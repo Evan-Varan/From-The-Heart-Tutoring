@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | From the Heart Tutoring</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f7f9fc;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+         /* Navigation Bar */
+/* Navbar Styles */
+.navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+
+        .progress {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .dot {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background-color: #d1d1d1;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot.active {
+            background-color: #007bff;
+        }
+        .category-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .category {
+            background: #f1f1f1;
+            border: 2px solid #f1f1f1;
+            border-radius: 8px;
+            padding: 10px 20px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .category:hover, .category.active {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
+        .subjects-container {
+            width: 90%;
+            max-width: 800px;
+            display: none;
+        }
+        .subjects-container.active {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .subject {
+            background: #f1f1f1;
+            border: 2px solid #f1f1f1;
+            border-radius: 8px;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .subject:hover {
+            background-color: #007bff;
+            border-color: #007bff;
+            color: white;
+        }
+        .subject.selected {
+            background-color: #007bff;
+            border-color: #0056b3;
+            color: white;
+        }
+        .subject-icon {
+            font-size: 20px;
+            margin-bottom: 5px;
+        }
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin: 10px 0;
+            display: none; /* Hidden by default */
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+        }
+        .next-button, .back-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .next-button:hover, .back-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html" class="highlighted-link">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="Option1.html">Option 1</a>
+                    <a href="Option2.html">Option 2</a>
+                    <a href="Option3.html">Option 3</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- Dynamic Progress Bar -->
+    <div class="progress" id="progress-bar"></div>
+
+    <div class="category-container">
+        <div class="category active" onclick="showSubjects('math')">Math</div>
+        <div class="category" onclick="showSubjects('science')">Science</div>
+        <div class="category" onclick="showSubjects('english')">English</div>
+        <div class="category" onclick="showSubjects('history')">History</div>
+    </div>
+
+    <div id="math" class="subjects-container active">
+        <div class="subject" onclick="toggleSelection(this, 'SAT Math Prep')">
+            <div class="subject-icon">📘</div>
+            <div>SAT Math Prep</div>
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'K-8 Math Section')">
+            <div class="subject-icon">📘</div>
+            <div>K-8 Math Section</div>
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Pre-Algebra')">
+            <div class="subject-icon">📘</div>
+            <div>Pre-Algebra</div>
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Algebra 1')">
+            <div class="subject-icon">📗</div>
+            <div>Algebra 1</div>
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Algebra 2')">
+            <div class="subject-icon">📙</div>
+            <div>Algebra 2</div>
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Geometry')">
+            <div class="subject-icon">📏</div>
+            <div>Geometry</div>
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Statistics')">
+            <div class="subject-icon">📊</div>
+            <div>Statistics</div>
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Calculus')">
+            <div class="subject-icon">🧮</div>
+            <div>Calculus</div>
+        </div>
+    </div>
+
+    <div id="science" class="subjects-container">
+        <div class="subject" onclick="toggleSelection(this, 'Chemistry')">
+            <div class="subject-icon">🔬</div>
+            <div>Chemistry</div>
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Biology')">
+            <div class="subject-icon">🧪</div>
+            <div>Biology</div>
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Physics')">
+            <div class="subject-icon">📘</div>
+            <div>Physics</div>
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'Computer Science')">
+            <div class="subject-icon">🖥️</div>
+            <div>Computer Science</div>
+        </div>
+    </div>
+
+    <div id="english" class="subjects-container">
+        <div class="subject" onclick="toggleSelection(this, 'Reading and Writing')">
+            <div class="subject-icon">📖</div>
+            <div>Reading and Writing</div>
+        </div>
+        <div class="subject" onclick="toggleSelection(this, 'English SAT Prep')">
+            <div class="subject-icon">📘</div>
+            <div>English SAT Prep</div>
+        </div>
+    </div>
+
+    <div id="history" class="subjects-container">
+        <div class="subject" onclick="toggleSelection(this, 'History')">
+            <div class="subject-icon">📜</div>
+            <div>History</div>
+        </div>
+    </div>
+
+    <!-- Error Message -->
+    <div id="error-message" class="error-message">Please select at least one subject before proceeding.</div>
+
+    <div class="button-container">
+        <button class="back-button" onclick="redirectToPreviousPage()">Back</button>
+        <button class="next-button" onclick="redirectToNextPage()">Next</button>
+    </div>
+
+    <script>
+        let selectedSubjects = new Set();
+
+        function showSubjects(category) {
+            document.querySelectorAll('.subjects-container').forEach(subjects => subjects.classList.remove('active'));
+            document.querySelectorAll('.category').forEach(cat => cat.classList.remove('active'));
+            document.getElementById(category).classList.add('active');
+            document.querySelector(`.category[onclick="showSubjects('${category}')"]`).classList.add('active');
+        }
+
+        function toggleSelection(element, subject) {
+            if (element.classList.contains('selected')) {
+                element.classList.remove('selected');
+                selectedSubjects.delete(subject);
+            } else {
+                element.classList.add('selected');
+                selectedSubjects.add(subject);
+            }
+            hideErrorMessage();
+        }
+
+        function redirectToNextPage() {
+            if (selectedSubjects.size === 0) {
+                showErrorMessage();
+                return;
+            }
+            localStorage.setItem('selectedSubjects', JSON.stringify(Array.from(selectedSubjects)));
+            window.top.location.href = 'RecommendedTutor.html';
+        }
+
+        function redirectToPreviousPage() {
+            window.top.location.href = 'Type-of-Student.html';
+        }
+
+        function generateProgressDots() {
+            const progressBar = document.getElementById('progress-bar');
+            const studentType = localStorage.getItem('studentType');
+            const totalDots = studentType === 'First-Time Student' ? 6 : 5;
+
+            for (let i = 0; i < totalDots; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'dot';
+                if (i === 2) dot.classList.add('active'); // Highlight the 3rd dot
+                progressBar.appendChild(dot);
+            }
+        }
+
+        function showErrorMessage() {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.style.display = 'block';
+        }
+
+        function hideErrorMessage() {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.style.display = 'none';
+        }
+
+        generateProgressDots();
+    </script>
+</body>
+</html>

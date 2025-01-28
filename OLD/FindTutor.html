@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Tutor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .progress {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+        .dot {
+            width: 15px;
+            height: 15px;
+            margin: 0 5px;
+            background-color: #d1d1d1;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot.active {
+            background-color: #007bff;
+        }
+        .search-container {
+            margin: 20px;
+        }
+        .tutor {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            gap: 10px;
+        }
+        .tutor img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+        .tutor-info {
+            flex-grow: 1;
+        }
+        .tutor h3 {
+            margin: 0;
+        }
+        .tutor a {
+            display: inline-block;
+            margin-top: 5px;
+            color: blue;
+            text-decoration: none;
+        }
+        .tutor a:hover {
+            text-decoration: underline;
+        }
+        .select-button {
+            margin-left: auto;
+            padding: 5px 10px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        .hidden {
+            display: none;
+        }
+        .center {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .center img {
+            width: 150px;
+            margin-bottom: 20px;
+        }
+        .center a {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: blue;
+        }
+        .next-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .next-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+<!-- Navigation Bar -->
+<div class="navbar">
+    <ul>
+        <li><a href="Home.html">Home</a></li>
+        <li><a href="Welcome.html">Schedule Now</a></li>
+        <li><a href="Student-Portal.html">Student Portal</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+        <li><a href="Other.html">Other</a></li>
+    </ul>
+</div>
+<div class="progress">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+</div>
+
+<h1 style="text-align: center;">Find a Tutor</h1>
+<div class="search-container">
+    <label for="subject-search">Search by subject:</label>
+    <input type="text" id="subject-search" placeholder="Enter a subject (e.g., Math)">
+</div>
+
+<div id="tutor-list">
+    <div class="tutor" data-subjects="math, science, physics">
+        <img src="https://i.imgur.com/zPiwhDv.png" alt="Evan Varan - Math, Science, Physics Tutor">
+        <div class="tutor-info">
+            <h3>Evan Varan</h3>
+            <p>Subjects: Math, Science, Physics</p>
+            <a href="https://fromthehearttutoring.com/about" target="_blank">Read more about me here</a>
+        </div>
+        <div class="select-button" onclick="selectTutor('Evan Varan')">Select this tutor</div>
+    </div>
+    <div class="tutor" data-subjects="english, literature">
+        <img src="https://i.imgur.com/example2.jpg" alt="John Smith - English, Literature Tutor">
+        <div class="tutor-info">
+            <h3>John Smith</h3>
+            <p>Subjects: English, Literature</p>
+            <a href="https://fromthehearttutoring.com/about" target="_blank">Read more about me here</a>
+        </div>
+        <div class="select-button" onclick="selectTutor('John Smith')">Select this tutor</div>
+    </div>
+</div>
+
+<div id="selected-tutor" class="hidden center">
+    <img src="https://i.imgur.com/WvujYav.png" alt="Thank You">
+    <h2>Create a student portal account below to schedule with <span id="tutor-name"></span>!</h2>
+    <a href="#" onclick="goBack()">Back to tutor selection</a>
+</div>
+
+<button class="next-button" onclick="redirectToNextStep()">Next</button>
+
+<script>
+    document.getElementById('subject-search').addEventListener('input', function () {
+        const query = this.value.toLowerCase().trim();
+        const tutors = document.querySelectorAll('.tutor');
+
+        tutors.forEach(tutor => {
+            const subjects = tutor.dataset.subjects.split(',').map(s => s.trim().toLowerCase());
+            const matches = subjects.some(subject => subject.includes(query));
+            if (query === '' || matches) {
+                tutor.classList.remove('hidden');
+            } else {
+                tutor.classList.add('hidden');
+            }
+        });
+    });
+
+    function selectTutor(name) {
+        document.querySelector('.search-container').classList.add('hidden');
+        document.getElementById('tutor-list').classList.add('hidden');
+        document.getElementById('selected-tutor').classList.remove('hidden');
+        document.getElementById('tutor-name').textContent = name;
+    }
+
+    function goBack() {
+        window.top.location.reload(); // Reload the top-level page context
+    }
+
+    function redirectToNextStep() {
+        // Redirect to the next step page (replace with the actual URL)
+        window.top.location.href = 'https://fromthehearttutoring.com/account-creation';
+    }
+</script>
+
+</body>
+</html>

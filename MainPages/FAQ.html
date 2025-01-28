@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Keep it behind the content */
+            background-image: 
+                url('https://i.imgur.com/YXXdLF8.png'), /* Pencil */
+                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+            background-repeat: no-repeat, no-repeat;
+            background-position: 100px 400px, right 100px bottom 270px; /* Adjust positions */
+            background-size: 250px, 250px; /* Pencil and heart sizes */
+            opacity: 0.5; /* Adjust the transparency */
+        }
+        .navbar {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: #1e293b;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .navbar li {
+            position: relative;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            padding: 10px 15px;
+            transition: background-color 0.3s, color 0.3s;
+            border-radius: 5px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        .dropdown {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #334155;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 5px;
+            min-width: 150px;
+            z-index: 1000;
+        }
+
+        .dropdown a {
+            display: block;
+            padding: 10px;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .dropdown a:hover {
+            background-color: #ff6f61;
+            color: white;
+        }
+
+        .navbar li:hover .dropdown {
+            display: block;
+        }
+
+        .dropdown-symbol {
+            font-size: 0.9rem;
+            margin-left: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .navbar ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            .navbar a {
+                text-align: center;
+                padding: 10px 20px;
+            }
+        }
+        .hero {
+            background-color: #1e293b;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin: 0 0 20px;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin: 0;
+        }
+        .faq-section {
+        padding: 60px 0px 0px; /* Reduced bottom padding */
+        max-width: 800px;
+            margin: auto;
+        }
+
+    .contact-section {
+        text-align: center;
+        margin-top: 0px; /* Set margin-top to 0 */
+        font-size: 1.2rem;
+        padding-top: 10px; /* Add slight padding if needed for visual spacing */
+    }
+
+        .faq-section h1 {
+            text-align: center;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
+
+        .faq-section .faq-item {
+            margin-bottom: 30px;
+        }
+
+        .faq-section h2 {
+            font-size: 1.5rem;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .faq-section p {
+            font-size: 1rem;
+            color: #333;
+            line-height: 1.8;
+        }
+
+        .footer {
+            background-color: #1e293b;
+            color: white;
+            padding: 20px 10px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        .logo-container {
+            position: fixed;
+            top: -4px;
+            left: 0;
+            padding: 10px; /* Optional: Add some padding around the image */
+            z-index: 1100; /* Ensure it appears above other elements like the navbar */
+            background-color: transparent; /* Optional: Add a background if needed */
+        }
+
+        .logo-image {
+            height: 40px; /* Adjust the height as needed */
+            width: auto; /* Maintain the aspect ratio */
+        }
+        .contact-link {
+            color: #ff6f61; /* Base color */
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+        }
+
+        .contact-link:hover {
+            color: #d9574e; /* Slightly darker shade on hover */
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
+    </div>
+    <div class="navbar">
+        <ul>
+            <li><a href="Home.html">Home</a></li>
+            <li><a href="Welcome.html">Schedule Now</a></li>
+            <li><a href="Student-Portal.html">Student Portal</a></li>
+            <li><a href="Services.html">Services</a></li>
+            <li><a href="About.html">About</a></li>
+            <li><a href="Contact.html">Contact</a></li>
+            <li>
+                <a href="#" class="highlighted-link">Other <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="FAQ.html"class="highlighted-link">FAQ</a>
+                    <a href="StudentSpotlight.html" >Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="hero">
+        <h1>Frequently Asked Questions</h1>
+        <p>Answers to your common questions about our services.</p>
+    </div>
+
+    <div class="faq-section">
+        <div class="faq-item">
+            <h2>How much does a session cost?</h2>
+            <p>Our standard rate is $70 per hour, regardless of the subject. This would come to 4 sessions for $280 or 8 sessions for $560.</p>
+        </div>
+        <div class="faq-item">
+            <h2>How long is a typical session?</h2>
+            <p>Each session lasts one hour. However, we’re happy to accommodate different session lengths upon request.</p>
+        </div>
+        <div class="faq-item">
+            <h2>Why am I being billed for 4 sessions at a time?</h2>
+            <p>To ensure your session time remains reserved, we require payment for a month's worth of weekly sessions in advance. This policy helps us manage high demand and provide consistent scheduling for all our students.</p>
+        </div>
+        <div class="faq-item">
+            <h2>Are there any current specials?</h2>
+            <p>We run specials at various times throughout the year. While there aren’t any active promotions at the moment, be sure to check back here regularly for updates!</p>
+        </div>
+    </div>
+    <section class="contact-section" style="text-align: center; margin-top: 20px; font-size: 1.2rem;">
+        <p>
+            Have any other questions? 
+            <a href="Contact.html" class="contact-link">Contact us here</a>.
+        </p>
+    </section>
+    
+    <div class="footer">
+        <p>&copy; 2025 From the Heart Tutoring. All rights reserved.</p>
+    </div>
+</body>
+</html>
