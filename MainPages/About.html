@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | From the Heart Tutoring</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <style>
         body {
             margin: 0;
@@ -38,7 +38,7 @@
             padding: 60px 20px;
             text-align: center;
             position: relative; /* Add this if not present */
-    z-index: 0; /* Ensure it is lower than the navbar */
+            z-index: 0; /* Ensure it is lower than the navbar */
     
         }
 
@@ -131,55 +131,55 @@
         }
 
         .staff-members.founders {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for smaller screens */
-    gap: 30px; /* Space between cards */
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    margin: 0 auto; /* Center the grid container on the page */
-    max-width: 700px; /* Limit the total width for better centering */
-}
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for smaller screens */
+            gap: 30px; /* Space between cards */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            margin: 0 auto; /* Center the grid container on the page */
+            max-width: 700px; /* Limit the total width for better centering */
+        }
 
 
-        .staff-members.tutors,
-.staff-members.other {
-    display: grid;
-    grid-template-columns: repeat(3, 300px); /* 3 cards per row */
-    gap: 80px; /* Maintain consistent spacing between cards */
-    justify-content: center; /* Center horizontally */
-    margin: 0 auto; /* Center the grid container */
-}
-.staff-members.other.single {
-    display: flex;
-    justify-content: center; /* Center the single card horizontally */
-    margin: 0 auto; /* Ensure the container is centered */
-}
+    .staff-members.tutors,
+    .staff-members.other {
+        display: grid;
+        grid-template-columns: repeat(3, 300px); /* 3 cards per row */
+        gap: 80px; /* Maintain consistent spacing between cards */
+        justify-content: center; /* Center horizontally */
+        margin: 0 auto; /* Center the grid container */
+    }
+    .staff-members.other.single {
+        display: flex;
+        justify-content: center; /* Center the single card horizontally */
+        margin: 0 auto; /* Ensure the container is centered */
+    }
 
-.staff-member {
-    width: 100%; /* Ensures the cards take up the full column space */
-    max-width: 300px; /* Optional: Enforce a maximum size for consistency */
-    height: 400px; /* Fixed height to ensure uniformity */
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 30px 20px 20px; /* Keep spacing within the box */
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
-}
+    .staff-member {
+        width: 100%; /* Ensures the cards take up the full column space */
+        max-width: 300px; /* Optional: Enforce a maximum size for consistency */
+        height: 400px; /* Fixed height to ensure uniformity */
+        background-color: #ffffff;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 30px 20px 20px; /* Keep spacing within the box */
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
 
-.staff-image {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover; /* Ensures images fill their container without distortion */
-    margin-bottom: 15px;
-}
+    .staff-image {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover; /* Ensures images fill their container without distortion */
+        margin-bottom: 15px;
+    }
 
-.staff-title, .staff-member h4, .staff-member p {
-    margin: 0 auto; /* Ensure proper alignment */
-    max-width: 260px; /* Keep text aligned and inside the box */
-}
+    .staff-title, .staff-member h4, .staff-member p {
+        margin: 0 auto; /* Ensure proper alignment */
+        max-width: 260px; /* Keep text aligned and inside the box */
+    }
 
 
     .staff-title {
@@ -215,82 +215,82 @@
         color: #d9574e;
     }
     .values-section {
-    margin-top: 40px;
-    padding: 50px 20px;
-    background-color: #f4f4f9;
-    text-align: center;
-    border-radius: 10px;
-}
+        margin-top: 40px;
+        padding: 50px 20px;
+        background-color: #f4f4f9;
+        text-align: center;
+        border-radius: 10px;
+    }
 
-.values-section h2 {
-    font-size: 2rem;
-    color: #1e293b;
-    margin-bottom: 20px;
-}
+    .values-section h2 {
+        font-size: 2rem;
+        color: #1e293b;
+        margin-bottom: 20px;
+    }
 
-.values-section p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
+    .values-section p {
+        font-size: 1rem;
+        color: #333;
+        margin-bottom: 30px;
+        line-height: 1.6;
+    }
 
-.values-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-}
+    .values-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+    }
 
-.value-item {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 250px;
-}
+    .value-item {
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        text-align: center;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        max-width: 250px;
+    }
 
-.value-graphic {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
+    .value-graphic {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        margin-bottom: 15px;
+    }
 
-.value-item h3 {
-    font-size: 1.2rem;
-    color: #1e293b;
-    margin-bottom: 10px;
-}
+    .value-item h3 {
+        font-size: 1.2rem;
+        color: #1e293b;
+        margin-bottom: 10px;
+    }
 
-.value-item p {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.5;
-}
+    .value-item p {
+        font-size: 0.95rem;
+        color: #555;
+        line-height: 1.5;
+    }
 
-.team-section h3 {
-    font-size: 2rem;
-    color: #1e293b;
-    margin-bottom: 20px;
-    text-align: left;
-}
-.contact-link {
-            color: #ff6f61; /* Base color */
-            font-weight: bold;
-            text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
-        }
+    .team-section h3 {
+        font-size: 2rem;
+        color: #1e293b;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+    .contact-link {
+        color: #ff6f61; /* Base color */
+        font-weight: bold;
+        text-decoration: none;
+        transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+    }
 
-        .contact-link:hover {
-            color: #d9574e; /* Slightly darker shade on hover */
-        }
+    .contact-link:hover {
+        color: #d9574e; /* Slightly darker shade on hover */
+    }
 
-        #redirect-virtual-schedule {
-    scroll-margin-top: 50px; /* Adjusts scroll position to be 10px above the element */
-}
+    #redirect-virtual-schedule {
+        scroll-margin-top: 50px; /* Adjusts scroll position to be 10px above the element */
+    }
 
 
     </style>
@@ -299,25 +299,37 @@
     <script>
         localStorage.clear();
     </script>
+    <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
-    
+    <!-- JavaScript to Load Navbar -->
     <script>
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("Navbar/Navbar.html")
-    .then(response => {
-        if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-        }
-        return response.text();
-    })
-    .then(data => {
-        document.getElementById("navbar-placeholder").innerHTML = data;
-    })
-    .catch(error => console.error("Error loading navbar:", error));
+            fetch("../Navbar/Navbar.html") // Adjust this path as needed
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Insert the navbar into the placeholder
+                    const navbarPlaceholder = document.getElementById("navbar-placeholder");
+                    navbarPlaceholder.innerHTML = data;
+
+                    // Dynamically set the highlighted class
+                    const currentPage = "about"; // Update this for each page
+                    const navbarLinks = navbarPlaceholder.querySelectorAll("a");
+
+                    navbarLinks.forEach(link => {
+                        if (link.dataset.page === currentPage) {
+                            link.classList.add("highlighted-link");
+                        }
+                    });
+                })
+                .catch(error => console.error("Error loading navbar:", error));
         });
     </script>
-    
    
     
 
@@ -338,75 +350,68 @@
             <h3>Founders</h3>
             <div class="staff-members founders">
                 <div class="staff-member">
-                    <img src="https://i.imgur.com/zNsl3lz.jpeg" alt="Staff Member 1" class="staff-image">
+                    <img src="https://i.imgur.com/zNsl3lz.jpeg"referrerpolicy="no-referrer" alt="Staff Member 1" class="staff-image">
                     <h4>Beth Burgin</h4>
                     <p class="staff-title">Founder</p>
                     <p>Co-owner and tutor for From the Heart Tutoring. Certified teacher in Austin Texas. Civil Eningineering college grad from University of Texas at Austin</p>
-                    <a href="TutorAboutPages/BethBurgin.html" class="about-link">Learn more about Beth</a>
+                    <a href="../TutorAboutPages/BethBurgin.html" class="about-link">Learn more about Beth</a>
                 </div>
                 <div class="staff-member">
-                    <img src="https://i.imgur.com/zPiwhDv.png" alt="Staff Member 2" class="staff-image">
+                    <img src="https://i.imgur.com/zPiwhDv.png" referrerpolicy="no-referrer" alt="Staff Member 2" class="staff-image">
                     <h4>Evan Varan</h4>
                     <p class="staff-title">Founder & Tutor</p>
                     <p>Co-owner and tutor for From the Heart Tutoring. Electrical Eningineering college grad from Texas State University.<br> <br></p>
-                    <a href="TutorAboutPages/EvanVaran.html" class="about-link">Learn more or schedule with Evan</a>
+                    <a href="../TutorAboutPages/EvanVaran.html" class="about-link">Learn more or schedule with Evan</a>
                 </div>
             </div>
             <div id="redirect-virtual-schedule">
                 <h3> Virtual Tutors</h3>
                 <div class="staff-members tutors">
                     <div class="staff-member">
-                        <img src="https://i.imgur.com/5Cuh8SZ.png" alt="Zarek Cole" class="staff-image">
+                        <img src="https://i.imgur.com/5Cuh8SZ.png" referrerpolicy="no-referrer" alt="Zarek Cole" class="staff-image">
                         <h4>Zarek Cole</h4>
                         <p class="staff-title">K-College Math Tutor</p>
                         <p>Senior mathematics college student. Experienced in teaching up and through the college level.<br><br></p>
-                        <a href="TutorAboutPages/ZarekCole.html" class="about-link">Learn more or schedule with Zarek</a>
+                        <a href="../TutorAboutPages/ZarekCole.html" class="about-link">Learn more or schedule with Zarek</a>
                     </div>
                     <div class="staff-member tutors">
-                        <img src="https://i.imgur.com/X0kdDss.jpeg" alt="Dianne Simental" class="staff-image">
+                        <img src="https://i.imgur.com/X0kdDss.jpeg" referrerpolicy="no-referrer" alt="Dianne Simental" class="staff-image">
                         <h4>Dianne Simental</h4>
                         <p class="staff-title">Science, Math & Spanish Tutor</p>
                         <p>Graduate from Cal State with a degree in Biology Education. Former middle school science teacher.</p>
-                        <a href="TutorAboutPages/DianneSimental.html" class="about-link">Learn more or schedule with Dianne</a>
+                        <a href="../TutorAboutPages/DianneSimental.html" class="about-link">Learn more or schedule with Dianne</a>
                     </div>
                     <div class="staff-member tutors">
-                        <img src="https://i.imgur.com/zPiwhDv.png" alt="Staff Member 2" class="staff-image">
+                        <img src="https://i.imgur.com/zPiwhDv.png" referrerpolicy="no-referrer" alt="Staff Member 2" class="staff-image">
                         <h4>Evan Varan</h4>
                         <p class="staff-title">Founder & Tutor</p>
                         <p>Co-owner and tutor for From the Heart Tutoring. Electrical Eningineering college grad from Texas State University.<br></p>
-                        <a href="TutorAboutPages/EvanVaran.html" class="about-link">Learn more or schedule with Evan</a>
+                        <a href="../TutorAboutPages/EvanVaran.html" class="about-link">Learn more or schedule with Evan</a>
                     </div>
                 </div>
             </div>
             <h3> Austin in-person Tutors</h3>
             <div class="staff-members founders">
-                <!-- <div class="staff-member other">
-                    <img src="https://i.imgur.com/2ylNyuk.jpeg" alt="Jason Tutone" class="staff-image">
-                    <h4>Jason Tutone</h4>
-                    <p class="staff-title">English & K-8th Math Tutor</p>
-                    <p>College grad in Journalism with a Masters in Elementary Education. Experience with special needs students.<br></p>
-                    <a href="TutorAboutPages/JasonTutone.html" class="about-link">Learn more about Jason </a>
-                </div> -->
                 <div class="staff-member other">
-                    <img src="https://i.imgur.com/Chj0g5s.jpeg" alt="Barbara Garnett-H" class="staff-image">
+                    <img src="https://i.imgur.com/Chj0g5s.jpeg" referrerpolicy="no-referrer" alt="Barbara Garnett-H" class="staff-image">
                     <h4>Barbara Garnett-H</h4>
                     <p class="staff-title">English & K-6th Math Tutor</p>
                     <p>Experienced professional writer and english teacher. Passionate about helping children succeed.<br><br></p>
-                    <a href="TutorAboutPages/BarbaraGarnett-Herrera.html" class="about-link">Learn more about Barbara</a>
+                    <a href="../TutorAboutPages/BarbaraGarnett-Herrera.html" class="about-link">Learn more about Barbara</a>
                 </div>
                 <div class="staff-member other">
-                    <img src="https://i.imgur.com/Gd3mxwZ.jpeg" alt="Myan Nelson" class="staff-image">
+                    <img src="https://i.imgur.com/Gd3mxwZ.jpeg" referrerpolicy="no-referrer" alt="Myan Nelson" class="staff-image">
                     <h4>Myan Nelson</h4>
                     <p class="staff-title">K-7th Math Tutor</p>
                     <p>Certified tutor and current elementary school teacher. Specialist in helping with student anxieties.<br></p>
-                    <a href="TutorAboutPages/MyanNelson.html" class="about-link">Learn more about Myan</a>
+                    <a href="../TutorAboutPages/MyanNelson.html" class="about-link">Learn more about Myan</a>
                 </div>
             </div>
 
             <h3>Other Team Members</h3>
             <div class="staff-members other single">
                 <div class="staff-member other">
-                    <img src="https://i.imgur.com/xiBstb2.png" alt="Emma Varan" class="staff-image">
+                    <img src="https://i.imgur.com/xiBstb2.png" referrerpolicy="no-referrer" alt="Emma Varan" class="staff-image">
                     <h4>Emma Varan</h4>
                     <p class="staff-title">Freelance Artist and Graphic Designer</p>
                     <p>Austin Community College student currently studying animation.</p>
@@ -426,17 +431,17 @@
         
         <div class="values-container">
             <div class="value-item">
-                <img src="https://i.imgur.com/jPxGP0g.png" alt="Graphic 1" class="value-graphic">
+                <img src="https://i.imgur.com/jPxGP0g.png" referrerpolicy="no-referrer" alt="Graphic 1" class="value-graphic">
                 <h3>Inclusivity</h3>
                 <p>We welcome students from all backgrounds and create a safe space for learning.</p>
             </div>
             <div class="value-item">
-                <img src="https://i.imgur.com/zgIG8ln.png" alt="Graphic 2" class="value-graphic">
+                <img src="https://i.imgur.com/zgIG8ln.png" referrerpolicy="no-referrer" alt="Graphic 2" class="value-graphic">
                 <h3>Innovation</h3>
                 <p>Our unique teaching methods make learning engaging and effective.</p>
             </div>
             <div class="value-item">
-                <img src="https://i.imgur.com/cStGkwq.png" alt="Graphic 3" class="value-graphic">
+                <img src="https://i.imgur.com/cStGkwq.png" referrerpolicy="no-referrer" alt="Graphic 3" class="value-graphic">
                 <h3>Community</h3>
                 <p>We are more than tutors—we're mentors who build lasting relationships.</p>
             </div>

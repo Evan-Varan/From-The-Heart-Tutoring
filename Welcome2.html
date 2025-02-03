@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Navbar/Navbar.css">
+    <style>
+        /* Global Styles */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+
+        .highlighted-link {
+            background-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .highlighted-link:hover {
+            background-color: #d9574e;
+            transform: scale(1.1);
+        }
+
+        /* Split-screen layout */
+        .split-screen {
+            display: flex;
+            width: 100%;
+            height: 100vh;
+        }
+
+        /* Left Section - Registration Form (Minimalistic Design) */
+        .left {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1e293b; /* Blue background */
+            color: #ffffff;
+            padding: 40px;
+            box-sizing: border-box;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .form-container {
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #f0f0f0; /* Accent color for headings */
+        }
+
+        p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #f0f0f0; /* Light text for paragraphs */
+        }
+
+        input {
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            background-color: #ff6f61; /* Accent color */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #d9574e; /* Darker hover color */
+        }
+
+        /* Right Section - Fading Images */
+        .right {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-fader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fade-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .fade-image.active {
+            opacity: 1;
+        }
+
+        /* For mobile responsiveness */
+        @media (max-width: 768px) {
+            .split-screen {
+                flex-direction: column;
+            }
+
+            .left h1 {
+                font-size: 2rem;
+            }
+
+            .left input, .left button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- JavaScript to Load Navbar -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../Navbar/Navbar.html") // Adjust this path as needed
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Insert the navbar into the placeholder
+                    const navbarPlaceholder = document.getElementById("navbar-placeholder");
+                    navbarPlaceholder.innerHTML = data;
+
+                    // Dynamically set the highlighted class
+                    const currentPage = "student-portal"; // Update this for each page
+                    const navbarLinks = navbarPlaceholder.querySelectorAll("a");
+
+                    navbarLinks.forEach(link => {
+                        if (link.dataset.page === currentPage) {
+                            link.classList.add("highlighted-link");
+                        }
+                    });
+                })
+                .catch(error => console.error("Error loading navbar:", error));
+        });
+    </script>
+
+    <div class="split-screen">
+        <!-- Left Section: Registration Form (Exact design we discussed) -->
+        <div class="left">
+            <div class="form-container">
+                <h1>Welcome to From the Heart Tutoring</h1>
+                <p>Private virtual tutoring, personalized for you. Start your journey toward academic success!</p>
+                <p>Register for a session in 5 simple steps and in under 10 minutes!</p>
+                <button type="submit">Register</button>
+            </div>
+        </div>
+
+        <!-- Right Section: Fading Images (Unchanged) -->
+        <div class="right">
+            <div class="image-fader">
+                <img src="https://i.imgur.com/raoWokV.jpeg" class="fade-image active" alt="Image 1">
+                <img src="https://i.imgur.com/eTlFiPU.jpeg" class="fade-image" alt="Image 2">
+                <img src="https://i.imgur.com/8MqF8tr.jpeg" class="fade-image" alt="Image 3">
+                <img src="https://i.imgur.com/fFalIfN.jpeg" class="fade-image" alt="Image 4">
+                <img src="https://i.imgur.com/fjrnuIF.jpeg" class="fade-image" alt="Image 5">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Image fading functionality
+        const images = document.querySelectorAll('.fade-image');
+        let currentIndex = 0;
+
+        function changeImage() {
+            images[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].classList.add('active');
+        }
+
+        setInterval(changeImage, 5000); // Change image every 5 seconds
+    </script>
+</body>
+</html>

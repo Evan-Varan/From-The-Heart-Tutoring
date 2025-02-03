@@ -7,180 +7,156 @@
     <link rel="icon" href="https://i.imgur.com/rhE9l4T.png" type="image/x-icon">
     <!-- Link to Google Fonts (Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <style>
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif; /* Apply Poppins font */
             background-color: #f5f5f5;
+            padding-bottom: 10px; /* Adjust based on the height of the overlay section */
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-y: auto;   /* Allow vertical scrolling */
         }
 
-/* Navbar Styles */
-        .navbar {
-            display: flex;
-            justify-content: flex-start; /* Align items to the left */
-            align-items: center;
-            padding: 10px 20px; /* Adjust padding if needed */
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
 
-        .navbar-logo {
-            margin-right: 20px; /* Adjust spacing between logo and text */
-            height: 40px;
-        }
-
-        .navbar-company-name {
-            margin-right: 140px; /* Adjust this value to control spacing */
-            font-size: 1.5rem;
-            font-weight: bold;
-            color: #334155; /* Text color */
-            white-space: nowrap; /* Prevent wrapping */
-        }
-
-        .navbar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-        }
-
-        .navbar li {
-            position: relative;
-        }
-
-        .navbar a {
-            color: #334155;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.2rem;
-            padding: 10px 15px;
-            transition: background-color 0.3s, color 0.3s;
-            border-radius: 5px;
-        }
-
-        .navbar a:hover {
-            background-color: #ff6f61;
-            color: white;
-        }
-        .highlighted-link {
-            background-color: #ff6f61;
-            color: white;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .highlighted-link:hover {
-            background-color: #d9574e;
-            transform: scale(1.1);
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #334155;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            min-width: 150px;
-            z-index: 1000;
-        }
-
-        .dropdown a {
-            display: block;
-            padding: 10px;
-            white-space: nowrap;
-            font-size: 0.95rem;
-        }
-
-        .dropdown a:hover {
-            background-color: #ff6f61;
-            color: white;
-        }
-
-        .navbar li:hover .dropdown {
-            display: block;
-        }
-
-        .dropdown-symbol {
-            font-size: 0.9rem;
-            margin-left: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .navbar ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .navbar a {
-                text-align: center;
-                padding: 10px 20px;
-            }
-        }
-
-        /* Hero Section */
-        .hero {
+        .modern-hero {
             position: relative;
             width: 100%;
-            height: 100vh; /* Full height of the screen */
-            overflow: hidden;
+            height: 97vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden; /* Prevent horizontal scrollbars */
+            overflow-y: visible; /* Allow vertical repositioning */
+            color: #ffffff;
+            
+        }
+
+        .modern-hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            border-radius: 10px; /* Rounded corners for better design */
+        }
+
+        .modern-hero-content h1, .modern-hero-content p {
+            text-shadow: 0 6px 12px rgba(0, 0, 0, 0.7); /* Stronger shadow */
+        }
+
+        .modern-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .modern-hero-content p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: #f0f0f0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .modern-hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .cta-main {
+            background-color: #ff6f61;
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .cta-main:hover {
+            background-color: #d9574e;
+            transform: scale(1.05);
+        }
+
+        .cta-secondary {
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .cta-secondary:hover {
+            background-color: #ffffff;
+            color: #1e293b;
+            transform: scale(1.05);
         }
 
         .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 500%; /* Total width based on the number of images (e.g., 5 images = 500%) */
+            height: 100%; /* Match the height of the hero section */
+            display: flex; /* Align images side by side */
+            transition: transform 0.5s ease-in-out; /* Smooth scrolling for transitions */
         }
+
 
         .carousel-images img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 20%; /* Divide equally based on the number of images (e.g., 5 images = 20% each) */
+            height: 100%; /* Match the container's height */
+            object-fit: cover; /* Ensure the image covers its space without distortion */
+        }
+        
+
+        .top-part {
+            object-position: top;
         }
 
-        /* Text Overlay */
-        .hero-text {
-            position: absolute;
-            top: 50%;
-            left: 10%; /* Move the text box to the left side */
-            transform: translateY(-50%);
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 30px;
-            border-radius: 5px;
-            max-width: 400px; /* Increased the max-width for larger text box */
-            text-align: center;
+        .center-part {
+            object-position: center;
         }
 
-        .hero-text h1 {
-            font-size: 3rem; /* Increased font size */
-            margin: 0 0 10px;
-            font-weight: 600; /* Bold for emphasis */
+        .bottom-part {
+            object-position: bottom;
+        }
+        .image2-part {
+            object-position: 20% top;
         }
 
-        .hero-text p {
-            font-size: 1.2rem; /* Increased font size */
-            margin: 0 0 20px;
-            font-weight: 400; /* Regular weight */
-        }
 
-        .hero-text button {
-            background-color: #ff6f61;
-            color: white;
-            border: none;
-            padding: 15px 30px; /* Made button larger */
-            font-size: 1.2rem; /* Increased button text size */
-            border-radius: 5px;
-            cursor: pointer;
-        }
 
-        .hero-text button:hover {
-            background-color: #d9574e;
+        @media (max-width: 768px) {
+            .modern-hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .modern-hero-content p {
+                font-size: 1rem;
+            }
+
+            .modern-hero-buttons {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .cta-main,
+            .cta-secondary {
+                width: 100%;
+                text-align: center;
+            }
         }
          /* Stats Section */
          .stats-section {
@@ -354,33 +330,79 @@
 }
 /* Overlay Section */
 /* Overlay Section */
-.overlay-section {
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.9); /* White with slight transparency */
-    height: 50px; /* Adjust height as needed */
-    margin-top: -150px; /* Pull it up over the hero section */
-    z-index: 1;
-    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.1); /* Shadow effect for depth */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-top-left-radius: 20px; /* Rounded corners */
-    border-top-right-radius: 20px;
+/* Main Overlay Bar */
+/* Main Overlay Bar */
+/* Main Overlay Bar */
+/* Main Overlay Bar */
+.overlay-bar {
+    position: fixed; /* Stick to the bottom of the viewport */
+    bottom: 0;
+    left: 0;
+    width: 100%; /* Full width */
+    background-color: #0f172a; /* Match a dark theme */
+    color: #f1f5f9; /* Light text for contrast */
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+    z-index: 1000; /* Ensure it stays above other content */
+    display: flex; /* Flexbox for alignment */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 10px 20px; /* Adjust padding for better spacing */
+    border-top-left-radius: 12px; /* Smooth rounded corners */
+    border-top-right-radius: 12px; /* Smooth rounded corners */
+    font-family: 'Poppins', sans-serif; /* Match your webpage's font */
+    font-size: 1rem; /* Uniform font size */
 }
 
-/* Overlay Content */
+/* Content Inside the Overlay */
 .overlay-content {
-    color: #334155; /* Dark blue-gray text for readability */
-    text-align: center;
-    font-size: 1.1rem;
-    font-weight: bold;
-    opacity: 1; /* Full opacity for text */
-    max-width: 800px; /* Optional: Constrain content width */
-    padding: 10px 20px; /* Padding for text inside the section */
+    display: flex; /* Horizontal layout for text and arrow */
+    align-items: center; /* Align text and arrow vertically */
+    gap: 8px; /* Space between text and arrow */
+    text-align: center; /* Center-align the text */
 }
+
+/* Informative Text */
+.overlay-content p {
+    margin: 0; /* Remove default margin */
+    font-weight: 500; /* Slightly bold text */
+    color: #f8fafc; /* Light color for readability */
+}
+
+/* Scroll Indicator (Arrow) */
+.scroll-indicator {
+    font-size: 1.4rem; /* Larger size for emphasis */
+    animation: bounce 1.5s infinite; /* Add a bouncing effect */
+    color: #ff6f61; /* Accent color matching the page's theme */
+}
+
+/* Bounce Animation for the Arrow */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-6px); /* Move the arrow slightly up */
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .overlay-bar {
+        font-size: 0.9rem; /* Slightly smaller font for mobile */
+        padding: 8px 16px; /* Adjust padding for smaller screens */
+    }
+
+    .overlay-content {
+        gap: 6px; /* Reduce spacing between elements */
+    }
+}
+
+
+
+
 /* Scroll Arrow */
 .scroll-arrow {
-    margin-top: 10px; /* Space between text and arrow */
+    margin-top: 0px; /* Space between text and arrow */
     animation: bounce 1.5s infinite; /* Add bounce animation */
 }
 
@@ -388,27 +410,7 @@
     width: 30px; /* Adjust arrow size */
     height: auto;
 }
-.navbar-company {
-    position: relative;
-    display: inline-block;
-}
 
-.navbar-company-logo {
-    display: block;
-    height: 40px; /* Adjust to fit your navbar */
-    margin-right: 20px;
-}
-.navbar-company-text {
-    position: absolute;
-    top: 50%; /* Center vertically */
-    left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Adjust for exact centering */
-    color: white; /* Make text white */
-    font-size: 1.5rem; /* Adjust font size */
-    font-weight: bold; /* Make text bold */
-    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
-    white-space: nowrap; /* Prevent text wrapping */
-}
 .schedule-button {
             display: inline-block;
             background-color: #ff6f61;
@@ -426,19 +428,7 @@
             background-color: #d9574e;
             transform: scale(1.05);
         }
-        .logo-container {
-            position: fixed;
-            top: -4px;
-            left: 0;
-            padding: 10px; /* Optional: Add some padding around the image */
-            z-index: 1100; /* Ensure it appears above other elements like the navbar */
-            background-color: transparent; /* Optional: Add a background if needed */
-        }
-
-        .logo-image {
-            height: 40px; /* Adjust the height as needed */
-            width: auto; /* Maintain the aspect ratio */
-        }
+        
     </style>
 </head>
 <body>
@@ -446,58 +436,84 @@
         localStorage.clear();
     </script>
 
-    <!-- Navigation Bar -->
-    <div class="logo-container">
-        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
-    </div>
-    <div class="navbar">
-        <ul>
-            <li><a href="Home.html" class="highlighted-link">Home</a></li>
-            <li><a href="Welcome.html">Schedule Now</a></li>
-            <li><a href="Student-Portal.html">Student Portal</a></li>
-            <li><a href="Services.html">Services</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <li>
-                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
-                <div class="dropdown">
-                    <a href="FAQ.html">FAQ</a>
-                    <a href="StudentSpotlight.html" >Student Spotlight</a>
-                </div>
-            </li>
-        </ul>
-    </div>
 
-    
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- JavaScript to Load Navbar -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../Navbar/Navbar.html") // Adjust this path as needed
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    // Insert the navbar into the placeholder
+                    const navbarPlaceholder = document.getElementById("navbar-placeholder");
+                    navbarPlaceholder.innerHTML = data;
+
+                    // Dynamically set the highlighted class
+                    const currentPage = "home"; // Update this for each page
+                    const navbarLinks = navbarPlaceholder.querySelectorAll("a");
+
+                    navbarLinks.forEach(link => {
+                        if (link.dataset.page === currentPage) {
+                            link.classList.add("highlighted-link");
+                        }
+                    });
+                })
+                .catch(error => console.error("Error loading navbar:", error));
+        });
+    </script>
 
     <!-- Hero Section with Rotating Images -->
-    <div class="hero">
+    <section class="modern-hero">
         <div class="carousel-images">
-            <img src="https://i.imgur.com/Io4WxQO.jpeg" alt="Tutoring Image 1">
-            <img src="https://i.imgur.com/7f57DRe.jpeg" alt="Tutoring Image 2">
-            <img src="https://i.imgur.com/GEhYP5G.jpeg" alt="Tutoring Image 3">
-            <img src="https://i.imgur.com/dNjTJyn.jpeg" alt="Tutoring Image 4">
-            <img src="https://i.imgur.com/A5QI8Sf.jpeg" alt="Tutoring Image 5">
-            <img src="https://i.imgur.com/Io4WxQO.jpeg" alt="Tutoring Image 1 (duplicate)">
+            <!-- <img src="https://i.imgur.com/fFalIfN.jpeg" referrerpolicy="no-referrer" class = "image-1" alt="Student Success 2"> yes
+            <img src="https://i.imgur.com/4Obb3ib.jpeg" referrerpolicy="no-referrer" class = "image-1" alt="Student Success 2"> maybe
+            <img src="https://i.imgur.com/8Tm8VUW.jpeg" referrerpolicy="no-referrer" class = "image-1" alt="Student Success 2"> no
+            <img src="https://i.imgur.com/fx0o9M4.jpeg" referrerpolicy="no-referrer" class = "image-1" alt="Student Success 2"> no
+            <img src="https://i.imgur.com/gj5V30O.jpeg" referrerpolicy="no-referrer" class = "image-1" alt="Student Success 2">
+            <img src="https://i.imgur.com/1CfDN8G.jpeg" referrerpolicy="no-referrer" class = "image-1" alt="Student Success 2"> no
+            <img src="https://i.imgur.com/6KeDl2O.jpeg" referrerpolicy="no-referrer" class = "image-1" alt="Student Success 2"> no
+            <img src="https://i.imgur.com/jnup6DP.png" referrerpolicy="no-referrer" class = "image-1" alt="Student Success 2"> -->
+            <img src="https://i.imgur.com/fFalIfN.jpeg" referrerpolicy="no-referrer" class = "image2-part" alt="Student Success 2"> 
+            <img src="https://i.imgur.com/8MqF8tr.jpeg" referrerpolicy="no-referrer" class = "image-1 center-part" alt="Student Success 2"> 
+            
+            
+            <img src="https://i.imgur.com/fjrnuIF.jpeg" referrerpolicy="no-referrer" class = "image-1 top-part" alt="Student Success 2"> 
+            <img src="https://i.imgur.com/0KLlXpE.jpeg" referrerpolicy="no-referrer" class = "image-1 top-part" alt="Student Success 2"> 
+            <img src="https://i.imgur.com/raoWokV.jpeg" referrerpolicy="no-referrer" class = "image-1 top-part" alt="Student Success 2"> 
+            
+            <!-- <img src="https://i.imgur.com/LX0poA7.jpeg" referrerpolicy="no-referrer" class = "image-2" alt="Student Success 2"> no
+            <img src="https://i.imgur.com/eTlFiPU.jpeg" referrerpolicy="no-referrer" class = "image-3" alt="Student Success 3"> maybe
+            <img src="https://i.imgur.com/GEhYP5G.jpeg" referrerpolicy="no-referrer" class = "image-4" alt="Student Success 4"> no
+            <img src="https://i.imgur.com/7f57DRe.jpeg" referrerpolicy="no-referrer" class = "image-5" alt="Student Success 5"> no -->
+            <img src="https://i.imgur.com/8MqF8tr.jpeg" referrerpolicy="no-referrer" class = "image-1 center-part" alt="Student Success 2">
         </div>
-        <div class="hero-text">
-            <h1>Struggling with Homework? Worried about an exam?</h1>
-            <p>Get the private tutoring help you need. Any Age. Anytime. Anywhere.</p>
-            <button class = "schedule-button" onclick="redirectToSchedule()">Schedule Now</button>
-        </div>
-        <div class="scroll-down-indicator" id="scrollIndicator">
-            <img src="https://i.imgur.com/m2kwrHd.png" alt="Down Arrow">
-        </div>
-        
-    </div>
-    <div class="overlay-section">
-        <div class="overlay-content">
-            <p>Discover how From the Heart Tutoring can help you excel in your academics and beyond!</p>
-            <div class="scroll-arrow">
-                <img src="https://i.imgur.com/m2kwrHd.png" alt="Down Arrow">
+        <div class="modern-hero-content">
+            <h1>Achieve More with Virtual Tutoring</h1>
+            <p>Transform your learning journey with expert guidance tailored to your goals. Empower your success today.</p>
+            <div class="modern-hero-buttons">
+                <a href="Welcome.html" class="cta-main">Schedule Now</a>
+                <a href="Services.html" class="cta-secondary">View Services</a>
             </div>
         </div>
-    </div>
+    </section>
+    
+    
+    <!-- <div class="overlay-bar">
+        <div class="overlay-content">
+            <p>There's more information below! Scroll down to learn more.</p>
+            <span class="scroll-indicator">↓</span>
+        </div>
+    </div> -->
+    
+    
+    
 
  <!-- Stats Section -->
  <section class="stats-section">
@@ -586,7 +602,7 @@
         <div class="testimonial">
             <p>"Beth! This is Ana! I passed my certification exam! 😭🙏🏼🙌 Thanks so much for your help and guidance. You’re wonderful!  Have an amazing weekend!"</p>
             <br><br><br><br>
-            <p><strong>- Anonymous.</strong></p>
+            <p><strong>- Ana.</strong></p>
         </div>
         <div class="testimonial">
             <p>"I have never seen him excited about a class with anyone else before, so you [Evan] know how to get to him and thanks for that!"</p>

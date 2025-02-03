@@ -1,33 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Navbar</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Navbar.css"> <!-- Link to the Navbar CSS -->
 </head>
 <body>
     <div class="navbar">
-    <div class="logo-container">
-        <img src="https://i.imgur.com/uTVjByi.png" alt="Heart Logo" class="logo-image" style="height: 30px; margin-right: 10px;">
-        <img src="https://i.imgur.com/QBE5XLZ.png" alt="Text Logo" class="logo-image">
-    </div>
-    <ul class="navbar-center">
-        <li><a href="../Home.html">Home</a></li>
-        <li><a href="../Welcome.html">Schedule Now</a></li>
-        <li><a href="../Services.html">Services</a></li>
-        <li><a href="../Student-Portal.html">Student Portal</a></li>
-    </ul>
-    <ul class="navbar-right">
-        <li><a href="../About.html" class="highlighted-link">About</a></li>
-        <li><a href="../Contact.html">Contact</a></li>
-        <li>
-            <a href="#">More <span class="dropdown-symbol">▼</span></a>
-            <div class="dropdown">
-                <a href="../FAQ.html">FAQ</a>
-                <a href="../StudentSpotlight.html">Student Spotlight</a>
-            </div>
-        </li>
-    </ul>
-</div>
+        <!-- Logo Container -->
+        <div class="logo-container">
+            <img src="https://i.imgur.com/uTVjByi.png" referrerpolicy="no-referrer" alt="Heart Logo" class="logo-heart-image">
+            <img src="https://i.imgur.com/QBE5XLZ.png" referrerpolicy="no-referrer" alt="Text Logo" class="logo-image">
+        </div>
 
+        <!-- Hamburger Menu (for Mobile) -->
+        <div class="hamburger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <!-- Navbar for Desktop -->
+        <ul class="navbar-center">
+            <li><a href="../Home.html" data-page="home">Home</a></li>
+            <li><a href="../MainPages/Welcome.html" data-page="welcome">Schedule Now</a></li>
+            <li><a href="../MainPages/Services.html" data-page="services">Services</a></li>
+            <li><a href="../MainPages/Student-Portal.html" data-page="student-portal">Student Portal</a></li>
+        </ul>
+        <ul class="navbar-center-small">
+            <li><a href="../Home.html" data-page="home">Home</a></li>
+            <li><a href="../MainPages/Welcome.html" data-page="welcome">Schedule Now</a></li>
+        </ul>
+        <ul class="navbar-right">
+            <li><a href="../MainPages/About.html" data-page="about">About</a></li>
+            <li><a href="../MainPages/Contact.html" data-page="contact">Contact</a></li>
+            <li>
+                <a href="#" data-page="more">More <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown">
+                    <a href="../MainPages/FAQ.html" data-page="faq">FAQ</a>
+                    <a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+
+        <!-- Dropdown for Medium Screens -->
+        <ul class="navbar-dropdown2">
+            <li>
+                <a href="#" data-page="more">Menu <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown2">
+                    <a href="../MainPages/About.html" data-page="about">About</a>
+                    <a href="../MainPages/Contact.html" data-page="contact">Contact</a>
+                    <a href="../MainPages/FAQ.html" data-page="faq">FAQ</a>
+                    <a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+
+        <ul class="navbar-dropdown3">
+            <li>
+                <a href="#" data-page="menu">Menu <span class="dropdown-symbol">▼</span></a>
+                <div class="dropdown3">
+                    <a href="../MainPages/Services.html" data-page="services">Services</a>
+                    <a href="../MainPages/Student-Portal.html" data-page="student-portal">Student Portal</a>
+                    <a href="../MainPages/About.html" data-page="about">About</a>
+                    <a href="../MainPages/Contact.html" data-page="contact">Contact</a>
+                    <a href="../MainPages/FAQ.html" data-page="faq">FAQ</a>
+                    <a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a>
+                </div>
+            </li>
+        </ul>
+        
+        
+
+    </div>
+
+    <!-- Mobile Menu (Hidden by Default) -->
+    <div class="mobile-menu">
+        <ul>
+            <li><a href="../Home.html" data-page="home">Home</a></li>
+            <li><a href="../MainPages/Welcome.html" data-page="welcome">Schedule Now</a></li>
+            <li><a href="../MainPages/Services.html" data-page="services">Services</a></li>
+            <li><a href="../MainPages/Student-Portal.html" data-page="student-portal">Student Portal</a></li>
+            <li><a href="../MainPages/About.html" data-page="about">About</a></li>
+            <li><a href="../MainPages/Contact.html" data-page="contact">Contact</a></li>
+            <li><a href="../MainPages/FAQ.html" data-page="faq">FAQ</a></li>
+            <li><a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a></li>
+        </ul>
+    </div>
+
+    <!-- <script src="Navbar.js" defer></script> JavaScript File -->
 </body>
 </html>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const navbarRight = document.querySelector(".navbar-right");
+    const navbarDropdown2 = document.querySelector(".navbar-dropdown2");
+
+    function checkScreenSize() {
+        if (window.innerWidth <= 1305) {
+            navbarRight.style.display = "none"; // Hide navbar-right
+            navbarDropdown2.style.display = "flex"; // Show menu button
+        } else {
+            navbarRight.style.display = "flex"; // Show navbar-right
+            navbarDropdown2.style.display = "none"; // Hide menu button
+        }
+    }
+
+    // Run check on load
+    checkScreenSize();
+
+    // Listen for window resize events
+    window.addEventListener("resize", checkScreenSize);
+});
+document.addEventListener("DOMContentLoaded", function () {
+    const hamburgerMenu = document.querySelector(".hamburger-menu");
+    const mobileMenu = document.querySelector(".mobile-menu");
+
+    if (hamburgerMenu && mobileMenu) {
+        console.log("Hamburger menu and mobile menu found. Adding event listener.");
+
+        hamburgerMenu.addEventListener("click", function () {
+            console.log("Hamburger menu clicked!");
+            mobileMenu.classList.toggle("show"); // Toggle the 'show' class
+        });
+    } else {
+        console.error("Hamburger menu or mobile menu not found.");
+    }
+});
+</script>
+
+
+
+
+

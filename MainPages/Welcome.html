@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule Now | From the Heart Tutoring</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <style>
         /* Global styles */
         body {
@@ -14,105 +15,6 @@
             color: #1e293b; /* Dark text for readability */
         }
 
-        /* Navbar Styles */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: #1e293b;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 0;
-            z-index: 1000;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar ul {
-            list-style-type: none;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            gap: 20px;
-        }
-
-        .navbar li {
-            position: relative;
-        }
-
-        .navbar a {
-            color: white;
-            text-decoration: none;
-            font-size: 1.1rem;
-            padding: 10px 15px;
-            transition: background-color 0.3s, color 0.3s;
-            border-radius: 5px;
-        }
-
-        .navbar a:hover {
-            background-color: #ff6f61;
-            color: white;
-        }
-
-        .highlighted-link {
-            background-color: #ff6f61;
-            color: white;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .highlighted-link:hover {
-            background-color: #d9574e;
-            transform: scale(1.1);
-        }
-
-        .dropdown {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: #334155;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            min-width: 150px;
-            z-index: 1000;
-        }
-
-        .dropdown a {
-            display: block;
-            padding: 10px;
-            white-space: nowrap;
-            font-size: 0.95rem;
-        }
-
-        .dropdown a:hover {
-            background-color: #ff6f61;
-            color: white;
-        }
-
-        .navbar li:hover .dropdown {
-            display: block;
-        }
-
-        .dropdown-symbol {
-            font-size: 0.9rem;
-            margin-left: 5px;
-        }
-
-        @media (max-width: 768px) {
-            .navbar ul {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
-
-            .navbar a {
-                text-align: center;
-                padding: 10px 20px;
-            }
-        }
 
         .highlighted-link {
             background-color: #ff6f61;
@@ -218,62 +120,62 @@
             color: #333;
         }
         .values-section {
-    margin-top: 0px;
-    padding: 50px 20px;
-    background-color: #f4f4f9;
-    text-align: center;
-    border-radius: 10px;
-}
+            margin-top: 0px;
+            padding: 50px 20px;
+            background-color: #f4f4f9;
+            text-align: center;
+            border-radius: 10px;
+        }
 
-.values-section h2 {
-    font-size: 2rem;
-    color: #1e293b;
-    margin-bottom: 20px;
-}
+        .values-section h2 {
+            font-size: 2rem;
+            color: #1e293b;
+            margin-bottom: 20px;
+        }
 
-.values-section p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 30px;
-    line-height: 1.6;
-}
+        .values-section p {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
 
-.values-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-}
+        .values-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
 
-.value-item {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 250px;
-}
+        .value-item {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 250px;
+        }
 
-.value-graphic {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 15px;
-}
+        .value-graphic {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
 
-.value-item h3 {
-    font-size: 1.2rem;
-    color: #1e293b;
-    margin-bottom: 10px;
-}
+        .value-item h3 {
+            font-size: 1.2rem;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
 
-.value-item p {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.5;
-}
-.schedule-button {
+        .value-item p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.5;
+        }
+        .schedule-button {
             display: inline-block;
             background-color: #ff6f61;
             color: white;
@@ -289,44 +191,41 @@
         .schedule-button:hover {
             background-color: #d9574e;
             transform: scale(1.05);
-        }.logo-container {
-            position: fixed;
-            top: -4px;
-            left: 0;
-            padding: 10px; /* Optional: Add some padding around the image */
-            z-index: 1100; /* Ensure it appears above other elements like the navbar */
-            background-color: transparent; /* Optional: Add a background if needed */
-        }
-
-        .logo-image {
-            height: 40px; /* Adjust the height as needed */
-            width: auto; /* Maintain the aspect ratio */
         }
     </style>
 </head>
 <body>
-    <!-- Navigation Bar -->
-    <div class="logo-container">
-        <img src="https://i.imgur.com/hFaP4ld.png" alt="Logo" class="logo-image">
-    </div>
-    <div class="navbar">
-        <ul>
-            <li><a href="Home.html">Home</a></li>
-            <li><a href="Welcome.html" class="highlighted-link">Schedule Now</a></li>
-            <li><a href="Student-Portal.html">Student Portal</a></li>
-            <li><a href="Services.html">Services</a></li>
-            <li><a href="About.html">About</a></li>
-            <li><a href="Contact.html">Contact</a></li>
-            <li>
-                <a href="#">Other <span class="dropdown-symbol">▼</span></a>
-                <div class="dropdown">
-                    <a href="FAQ.html">FAQ</a>
-                    <a href="StudentSpotlight.html" >Student Spotlight</a>
-                </div>
-            </li>
-        </ul>
-    </div>
+<!-- Navbar Placeholder -->
+<div id="navbar-placeholder"></div>
 
+<!-- JavaScript to Load Navbar -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("../Navbar/Navbar.html") // Adjust this path as needed
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                return response.text();
+            })
+            .then(data => {
+                // Insert the navbar into the placeholder
+                const navbarPlaceholder = document.getElementById("navbar-placeholder");
+                navbarPlaceholder.innerHTML = data;
+
+                // Dynamically set the highlighted class
+                const currentPage = "welcome"; // Update this for each page
+                const navbarLinks = navbarPlaceholder.querySelectorAll("a");
+
+                navbarLinks.forEach(link => {
+                    if (link.dataset.page === currentPage) {
+                        link.classList.add("highlighted-link");
+                    }
+                });
+            })
+            .catch(error => console.error("Error loading navbar:", error));
+    });
+</script>
     <!-- Hero Section -->
     <div class="hero-container">
         <h1>Welcome to From the Heart Tutoring</h1>
@@ -335,24 +234,6 @@
         <button class="schedule-button" onclick="redirectToSchedule()">Get Started</button>
     </div>
 
-    <!-- Features Section -->
-    <!-- <div class="features">
-        <h2>Why Choose Us?</h2>
-        <div class="features-container">
-            <div class="feature">
-                <div class="feature-icon">📚</div>
-                <div class="feature-text">Personalized Learning</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">👩‍🏫</div>
-                <div class="feature-text">Expert Tutors</div>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🌍</div>
-                <div class="feature-text">Any Age. Anytime. Anywhere.</div>
-            </div>
-        </div>
-    </div> -->
     <section class="values-section">
         <h2>Why Choose Us?</h2>
 
@@ -377,7 +258,7 @@
     <script>
         // Redirect function for button
         function redirectToSchedule() {
-            window.top.location.href = 'ScheduleNowServices/Type-Of-Student.html';
+            window.top.location.href = '../ScheduleNowServices/Type-Of-Student.html';
         }
     </script>
 </body>

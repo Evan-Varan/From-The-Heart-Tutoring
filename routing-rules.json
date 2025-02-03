@@ -1,0 +1,55 @@
+{
+  "IndexDocument": {
+    "Suffix": "Home.html"
+  },
+  "RoutingRules": [
+    {
+      "Condition": {
+        "KeyPrefixEquals": "about"
+      },
+      "Redirect": {
+        "ReplaceKeyWith": "MainPages/About.html"
+      }
+    },
+    {
+      "Condition": {
+        "KeyPrefixEquals": "services"
+      },
+      "Redirect": {
+        "ReplaceKeyWith": "MainPages/Services.html"
+      }
+    },
+    {
+      "Condition": {
+        "KeyPrefixEquals": "contact"
+      },
+      "Redirect": {
+        "ReplaceKeyWith": "MainPages/Contact.html"
+      }
+    },
+    {
+      "Condition": {
+        "KeyPrefixEquals": "schedule-now"
+      },
+      "Redirect": {
+        "ReplaceKeyWith": "MainPages/Welcome.html"
+      }
+    },
+    {
+      "Condition": {
+        "KeyPrefixEquals": "faq"
+      },
+      "Redirect": {
+        "ReplaceKeyWith": "MainPages/FAQ.html"
+      }
+    },
+    {
+      "Condition": {
+        "KeyPrefixEquals": "student-spotlight"
+      },
+      "Redirect": {
+        "ReplaceKeyWith": "MainPages/StudentSpotlight.html"
+      }
+    }
+  ]
+}
