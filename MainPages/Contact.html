@@ -7,7 +7,9 @@
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    
+    <!-- Link to Navbar CSS -->
+    <link rel="stylesheet" href="../Navbar/Navbar.css"> 
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 
     <style>
@@ -40,9 +42,10 @@
             font-style: italic;
         }
 
-        /* Contact Form Section */
+        /* Contact Section */
         .contact-section {
             display: flex;
+            flex-wrap: wrap; /* Allows wrapping on smaller screens */
             justify-content: center;
             align-items: flex-start;
             padding: 40px 20px;
@@ -55,6 +58,7 @@
 
         .form-container {
             flex: 1;
+            min-width: 300px; /* Prevents it from being too small */
             margin-right: 20px;
         }
 
@@ -71,10 +75,11 @@
 
         input, textarea, button {
             margin-bottom: 20px;
-            padding: 10px;
+            padding: 12px;
             font-size: 1rem;
             border: 1px solid #ddd;
             border-radius: 4px;
+            width: 100%; /* Ensures full width */
         }
 
         button {
@@ -83,16 +88,20 @@
             border: none;
             cursor: pointer;
             font-weight: bold;
-            transition: background-color 0.3s;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            padding: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
         }
 
         button:hover {
             background-color: #d9574e;
+            transform: scale(1.05);
         }
 
         /* Contact Info Section */
         .info-container {
             flex: 1;
+            min-width: 300px; /* Prevents it from being too small */
             padding-left: 20px;
             border-left: 2px solid #f3f4f6;
         }
@@ -117,190 +126,138 @@
             text-decoration: underline;
         }
 
-        .social-media-icons {
-            display: flex;
-            gap: 20px;
-            margin-top: 10px;
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            .form-container {
+                margin-right: 0;
+                width: 100%;
+            }
+
+            .info-container {
+                padding-left: 0;
+                border-left: none;
+                width: 100%;
+            }
         }
 
-        .social-media-icons img {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            object-position: center;
-            transition: transform 0.3s ease;
-        }
-
-        .social-media-icons img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Thank You Message */
-        .thank-you-message {
-            display: none;
-            text-align: center;
-            background-color: #e0ffe0;
-            color: #2c5f2d;
-            padding: 20px;
-            border: 1px solid #2c5f2d;
-            border-radius: 8px;
-            margin-top: 20px;
-        }
-        /* Bottom Heart Styling */
         /* Bottom Heart Styling */
         .bottom-heart {
-            position: relative;
-            margin-top: 0px; /* Space from the section above */
-            overflow: hidden; /* Ensures clipping */
-            height: 125px; /* Adjust to control how much of the heart is visible */
+            text-align: center;
+            margin-top: 40px;
         }
 
         .bottom-heart img {
-            position: absolute;
-            bottom: -140px; /* Push the heart below the container */
-            left: 50%; /* Center horizontally */
-            transform: translateX(-50%); /* Adjust for centering */
-            width: 250px; /* Adjust size as needed */
-            opacity: 0.5; /* Slight transparency */
+            width: 120px; /* Smaller for mobile */
+            opacity: 0.6;
         }
-        .cta-main {
-    background-color: #ff6f61;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-}
-
-.cta-main:hover {
-    background-color: #d9574e;
-    transform: scale(1.05);
-}
 
     </style>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 </head>
 <body>
 
-    
-    
 <!-- Navbar Placeholder -->
 <div id="navbar-placeholder"></div>
 
 <!-- JavaScript to Load Navbar -->
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        fetch("../Navbar/Navbar.html") // Adjust this path as needed
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.text();
-            })
+        fetch("../Navbar/Navbar.html")
+            .then(response => response.text())
             .then(data => {
-                // Insert the navbar into the placeholder
-                const navbarPlaceholder = document.getElementById("navbar-placeholder");
-                navbarPlaceholder.innerHTML = data;
-
-                // Dynamically set the highlighted class
-                const currentPage = "contact"; // Update this for each page
-                const navbarLinks = navbarPlaceholder.querySelectorAll("a");
-
-                navbarLinks.forEach(link => {
-                    if (link.dataset.page === currentPage) {
-                        link.classList.add("highlighted-link");
-                    }
-                });
+                document.getElementById("navbar-placeholder").innerHTML = data;
             })
             .catch(error => console.error("Error loading navbar:", error));
     });
 </script>
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>We’d Love to Hear from You</h1>
-        <p>Have questions? Get in touch with us using the form below or through our contact details!</p>
-        <p><strong>Please allow up to 3 business days for a response</strong></p>
-    </div>
 
-    <!-- Contact Section -->
-    <div class="contact-section">
-        <!-- Contact Form -->
-        <div class="form-container">
-            <form action="process_form.php" method="POST" id="contact-form">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required>
-            
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            
-                <label for="message">Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            
-                <div class="g-recaptcha" data-sitekey="6LeQALAqAAAAAKN0KIfQ6hSG24YKUGiLulcQ2a7s"></div>
-                <button type="submit"class="cta-main" id="schedule-button">Submit</button>
-            </form>
-        </div>
-        <!-- Contact Information -->
-        <div class="info-container">
-            <h3>Contact Information</h3>
-            <p>Email: <a href="mailto:info@fromthehearttutoring.com">info@fromthehearttutoring.com</a></p>
-            <p>Address: Based and Founded in Austin Texas</p>
+<!-- Hero Section -->
+<div class="hero">
+    <h1>We’d Love to Hear from You</h1>
+    <p>Have questions? Get in touch with us using the form below or through our contact details!</p>
+    <p><strong>Please allow up to 3 business days for a response</strong></p>
+</div>
 
-            <!-- <h3>Follow Us</h3>
-            <p>Connect with us on social media:</p>
-            <div class="social-media-icons">
-                <a href="https://facebook.com" target="https://www.facebook.com/profile.php?id=100066409571827"><img src="https://i.imgur.com/ytQDIrt.png" alt="Facebook"></a>
-                <a href="https://instagram.com" target="_blank"><img src="https://i.imgur.com/V3qrXIt.png" alt="Instagram"></a>
-                <a href="https://twitter.com" target="_blank"><img src="https://i.imgur.com/VSh2raN.png" alt="Twitter"></a>
-            </div>
-        </div> -->
+<!-- Contact Section -->
+<div class="contact-section">
+    <!-- Contact Form -->
+    <div class="form-container">
+        <form id="contact-form" onsubmit="sendEmail(event);">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
         
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
         
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+        
+            <div class="g-recaptcha" data-sitekey="6LeQALAqAAAAAKN0KIfQ6hSG24YKUGiLulcQ2a7s"></div>
+            <button type="submit">Submit</button>
+        </form>
     </div>
-    <div class="bottom-heart">
-        <img src="https://i.imgur.com/YXXdLF8.png" alt="Heart Icon">
+
+    <!-- Contact Information -->
+    <div class="info-container">
+        <h3>Contact Information</h3>
+        <p>Email: <a href="mailto:info@fromthehearttutoring.com">info@fromthehearttutoring.com</a></p>
+        <p>Address: Based and Founded in Austin, Texas</p>
     </div>
-    <script>
-        document.getElementById("contact-form").addEventListener("submit", function() {
-            console.log("Form submitted"); // Debug log for confirmation
-        });
+</div>
 
-    </script>
-    <script>
-        document.getElementById("contact-form").addEventListener("submit", function (event) {
-            event.preventDefault(); // Prevent default form submission
-            const form = this;
-            const token = grecaptcha.getResponse();
-    
-            if (!token) {
-                alert("Please complete the CAPTCHA.");
-                return;
-            }
-    
-            fetch("https://uqzu5vm8nk.execute-api.us-east-1.amazonaws.com", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ token: grecaptcha.getResponse() })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                alert("CAPTCHA verified! Submitting the form...");
-                document.getElementById("contact-form").submit();
-            } else {
-                alert("CAPTCHA verification failed.");
-            }
-        })
-        .catch(error => console.error("Error:", error));
+<!-- Bottom Heart Icon -->
+<div class="bottom-heart">
+    <img src="https://i.imgur.com/YXXdLF8.png" alt="Heart Icon">
+</div>
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+    grecaptcha.reset(); // Reset reCAPTCHA
 
+    document.addEventListener("DOMContentLoaded", function () {
+        emailjs.init("hOLJq0ZLwkJlwtTSb"); // Replace with your EmailJS Public Key
+    });
+
+    function sendEmail(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get form data
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+
+    // Verify reCAPTCHA
+    let recaptchaResponse = grecaptcha.getResponse();
+    if (!recaptchaResponse) {
+        alert("Please complete the reCAPTCHA verification.");
+        return;
+    }
+    // Template parameters
+    let templateParams = { 
+        from_name: name,      // Matches {{from_name}}
+        message: message,     // Matches {{message}}
+        reply_to: email       // Matches {{reply_to}}
+    };
+
+    // Send email using EmailJS
+    emailjs.send("service_owejv6t", "template_k98o8gc", templateParams)
+        .then(function (response) {
+            console.log("EmailJS Response:", response);
+            alert("Message sent successfully!");
+            document.getElementById("contact-form").reset(); // Reset form
+        })
+        .catch(function (error) {
+            console.error("EmailJS Error:", error);
+            alert(`Failed to send message. Error: ${error.text || "Unknown error"}`);
         });
-    </script>
-    
-    
+}
+
+</script>
 
 </body>
 </html>

@@ -13,23 +13,31 @@
             background-color: #f9f9f9;
         }
         body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 200%;
-            z-index: -1; /* Keep it behind the content */
-            background-image: 
-                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
-                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
-                url('https://i.imgur.com/YXXdLF8.png'), /* Heart */
-                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
-            background-repeat: no-repeat, no-repeat;
-            background-position: 20px 280px, right 20px bottom 1410px, right 100px bottom 10px, right 1520px bottom 10px; /* Adjust positions */
-            background-size: 250px, 250px; /* Pencil and heart sizes */
-            opacity: 0.5; /* Adjust the transparency */
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 250%;
+        z-index: -1; /* Keep it behind the content */
+        background-image: 
+            url('https://i.imgur.com/iK8jQVI.png'), /* Left Heart */
+            url('https://i.imgur.com/iK8jQVI.png'), /* Right Heart */
+            url('https://i.imgur.com/YXXdLF8.png'), /* Left Heart */
+            url('https://i.imgur.com/YXXdLF8.png'), /* Right Heart */
+            url('https://i.imgur.com/iK8jQVI.png'), /* Left Heart */
+            url('https://i.imgur.com/iK8jQVI.png'); /* Right Heart */
+        background-repeat: no-repeat, no-repeat;
+        background-position: calc(15% - 125px) 250px, calc(85% + 125px) 250px, calc(15% - 117px) 1200px, calc(85% + 150px) 1200px, calc(15% - 125px) 2150px, calc(85% + 125px) 2150px; /* Ensure even spacing */
+        background-size: 13vw, 13vw; /* Scale with viewport */
+        opacity: 0.5; /* Adjust transparency */
+    }
+
+    @media (max-width: 1200px) {
+        body::before {
+            background-image: none; /* Remove the images */
         }
+    }
 
 
         .hero {

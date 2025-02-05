@@ -7,7 +7,7 @@
     <link rel="icon" href="https://i.imgur.com/rhE9l4T.png" type="image/x-icon">
     <!-- Link to Google Fonts (Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <style>
         body {
     margin: 0;
@@ -63,8 +63,6 @@
     object-position: center center; /* Center the image content */
     transition: opacity 1s ease-in-out;
 }
-
-
 .image-1 {
     object-position: 0% 50%; /* Shift left and slightly up */
     width: 105%;
@@ -90,6 +88,15 @@
     width: 120%;
 }
 
+/* 🔹 Small Screen Image Adjustments (≤ 1055px) */
+@media (max-width: 1055px) {
+    .image-1 { object-position: 0% 0%; width: 100%; } /* Small screen version */
+    .image-2 { object-position: 10% 0%; width: 100%; }
+    .image-3 { object-position: 0% 30%; width: 100%; }
+    .image-4 { object-position: 0% 40%; width: 100%; }
+    .image-5 { object-position: 0% 50%; width: 100%; }
+    .image-6 { object-position: 0% 30%; width: 100%; }
+}
 
 
 
@@ -103,12 +110,15 @@
 
 /* Hero Content */
 .modern-hero-content {
-    position: relative;
-    z-index: 2;
-    text-align: center;
-    padding: 20px;
-    max-width: 800px;
-    border-radius: 10px;
+    position: absolute; /* Position absolutely relative to the parent container */
+    top: 50%; /* Center vertically */
+    left: 50%; /* Center horizontally */
+    transform: translate(-50%, -50%); /* Offset by 50% of its width and height */
+    text-align: center; /* Center text inside */
+    padding: 20px; /* Optional: Adjust padding as needed */
+    max-width: 800px; /* Optional: Constrain the width */
+    border-radius: 10px; /* Optional: Rounded corners */
+    z-index: 2; /* Make sure it's above the background image */
 }
 
 .modern-hero-content h1, .modern-hero-content p {
@@ -134,67 +144,123 @@
 
 /* Buttons */
 .modern-hero-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
+    display: flex; /* Use flexbox */
+    flex-direction: row; /* Horizontal alignment */
+    justify-content: center; /* Center horizontally */
+    gap: 20px; /* Space between buttons */
+    flex-wrap: wrap; /* Wrap buttons on smaller screens */
 }
 
-.cta-main {
-    background-color: #ff6f61;
-    color: white;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+.cta-main, .cta-secondary {
+    display: inline-block; /* Inline-block for proper padding/margin behavior */
+    text-align: center; /* Center text */
+    padding: 15px 30px; /* Adjust size */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 1rem; /* Consistent font size */
+    font-weight: bold; /* Bold text */
+    text-decoration: none; /* Remove underline */
+    transition: all 0.3s ease; /* Smooth hover effect */
 }
+
 
 .cta-main:hover {
     background-color: #d9574e;
     transform: scale(1.05);
 }
 
+
+.cta-main {
+    background-color: #ff6f61; /* Main theme color */
+    color: white; /* Text color */
+}
+
+.cta-main:hover {
+    background-color: #d9574e; /* Slightly darker on hover */
+    transform: scale(1.05); /* Slight zoom */
+}
+
+/* Secondary Button */
 .cta-secondary {
-    background-color: transparent;
-    border: 2px solid #ffffff;
-    color: #ffffff;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+    background-color: transparent; /* Transparent background */
+    border: 2px solid #ffffff; /* Border for secondary button */
+    color: #ffffff; /* White text */
 }
 
 .cta-secondary:hover {
-    background-color: #ffffff;
-    color: #1e293b;
-    transform: scale(1.05);
+    background-color: #ffffff; /* White background on hover */
+    color: #1e293b; /* Dark text on hover */
+    transform: scale(1.05); /* Slight zoom */
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .modern-hero-content h1 {
-        font-size: 2.5rem;
-    }
 
-    .modern-hero-content p {
-        font-size: 1rem;
-    }
-
-    .modern-hero-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .cta-main,
-    .cta-secondary {
-        width: 100%;
+@media (max-width: 1055px) {
+    /* Modern Hero Content */
+    .modern-hero-content {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
         text-align: center;
+        background: rgba(0, 0, 0, 0.4); /* Lighter semi-transparent background */
+        color: #ffffff;
+        padding: 25px 20px; /* Balanced padding */
+        border-radius: 10px; /* Smooth rounded edges */
+        max-width: 85%; /* Constrain the block width */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    }
+
+    /* Title (H1) Adjustments */
+    .modern-hero-content h1 {
+        font-size: 1.8rem; /* Slightly smaller font size */
+        line-height: 1.4; /* Compact spacing */
+        margin-bottom: 15px; /* Space below the title */
+        content: "Learn Smarter, Achieve More"; /* Overwrite the text */
+    }
+
+    /* Paragraph (P) Adjustments */
+    .modern-hero-content p {
+        font-size: 1rem; /* Smaller text for smaller screens */
+        line-height: 1.6;
+        margin-bottom: 20px; /* Add space below the paragraph */
+        content: "Expert tutoring tailored to your goals. Start your journey today."; /* Overwrite the text */
+    }
+
+    /* Button Container */
+    .modern-hero-buttons {
+        display: flex; /* Use flexbox */
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center;
+        gap: 15px; /* Space between buttons */
+    }
+
+    .cta-main, .cta-secondary {
+        width: 90%; /* Wide buttons */
+        padding: 15px; /* Add padding for better clickability */
+        font-size: 1rem;
+        text-align: center;
+        border-radius: 5px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Button Styling Adjustments */
+    .cta-main {
+        background: #f76c5e; /* Bright primary button */
+        color: #ffffff;
+        border: none;
+    }
+
+    .cta-secondary {
+        background: transparent;
+        color: white;
+        border: 2px solid white; /* Bold outline */
     }
 }
+
+
+
+
+
+
 /* Semi-Transparent Bar at Bottom of Hero Section */
 /* Semi-Transparent Bar at Bottom of Hero Section */
 .hero-bar {
@@ -579,9 +645,9 @@
     <div id="navbar-placeholder"></div>
 
     <!-- JavaScript to Load Navbar -->
-    <script>
+    <script> 
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("../Navbar/Navbar.html") // Adjust this path as needed
+            fetch("Navbar/Navbar.html") // Adjust this path as needed
                 .then(response => {
                     if (!response.ok) {
                         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -612,13 +678,46 @@
         <div class="hero-overlay"></div> <!-- Hero overlay -->
         <div class="carousel-images">
             <div class="image-fader">
+    
+                <picture>
+                    <source srcset="https://i.imgur.com/y7G7iNx.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
+                    <img src="https://i.imgur.com/8MqF8tr.jpeg" referrerpolicy="no-referrer" class="fade-image image-1" alt="Image 1">
+                </picture>
+    
+               
+                <picture>
+                    <source srcset="https://i.imgur.com/krzcJib.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
+                    <img src="https://i.imgur.com/eTlFiPU.jpeg" referrerpolicy="no-referrer" class="fade-image image-2 hidden" alt="Image 2">
+                </picture>
+               
+                <picture>
+                    <source srcset="https://i.imgur.com/egHIl0D.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
+                    <img src="https://i.imgur.com/fjrnuIF.jpeg" referrerpolicy="no-referrer" class="fade-image image-3 hidden" alt="Image 3">
+                </picture>
+               
+                <picture>
+                    <source srcset="https://i.imgur.com/GiQm5is.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
+                    <img src="https://i.imgur.com/0KLlXpE.jpeg" referrerpolicy="no-referrer" class="fade-image image-4 hidden" alt="Image 4">
+                </picture>
+                
+                <picture>
+                    <source srcset="https://i.imgur.com/IgeDqKs.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
+                    <img src="https://i.imgur.com/raoWokV.jpeg" referrerpolicy="no-referrer" class="fade-image image-5 hidden" alt="Image 5">
+                </picture>
+                
+                <picture>
+                    <source srcset="https://i.imgur.com/egHIl0D.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
+                    <img src="https://i.imgur.com/fFalIfN.jpeg" referrerpolicy="no-referrer" class="fade-image image-6 hidden" alt="Image 6">
+                </picture> 
+            <!-- <div class="image-fader">
                 <img src="https://i.imgur.com/raoWokV.jpeg" referrerpolicy="no-referrer"class="fade-image image-5" alt="Image 5">
                 <img src="https://i.imgur.com/eTlFiPU.jpeg" referrerpolicy="no-referrer"class="fade-image image-6 hidden" alt="Image 6">
                 <img src="https://i.imgur.com/8MqF8tr.jpeg" referrerpolicy="no-referrer"class="fade-image image-1 hidden" alt="Image 1">
                 <img src="https://i.imgur.com/fFalIfN.jpeg" referrerpolicy="no-referrer"class="fade-image image-2 hidden" alt="Image 2">
                 <img src="https://i.imgur.com/fjrnuIF.jpeg" referrerpolicy="no-referrer"class="fade-image image-3 hidden" alt="Image 3">
                 <img src="https://i.imgur.com/0KLlXpE.jpeg" referrerpolicy="no-referrer"class="fade-image image-4 hidden" alt="Image 4">
-            </div>       
+            </div>        -->
+            </div>
         </div>
         <div class="modern-hero-content">
             <h1>Achieve More with Virtual Tutoring</h1>
@@ -780,8 +879,27 @@
         <a href="MainPages/Services.html">See All Subjects &rarr;</a>
     </div>
 </section>
+<script>
+    function updateHeroText() {
+        const heroTitle = document.querySelector('.modern-hero-content h1');
+        const heroParagraph = document.querySelector('.modern-hero-content p');
+
+        if (window.innerWidth <= 1055) {
+            heroTitle.textContent = "Learn Smarter, Achieve More"; // Updated title
+            heroParagraph.textContent = "Expert tutoring tailored to your goals. Start your journey today."; // Updated paragraph
+        } else {
+            heroTitle.textContent = "Achieve More with Virtual Tutoring"; // Original title
+            heroParagraph.textContent = "Transform your learning journey with expert guidance tailored to your goals. Empower your success today."; // Original paragraph
+        }
+    }
+
+    // Run on page load and window resize
+    window.addEventListener('DOMContentLoaded', updateHeroText);
+    window.addEventListener('resize', updateHeroText);
+</script>
 
     <script>
+        
         document.addEventListener("DOMContentLoaded", function () {
             const images = document.querySelectorAll(".fade-image");
             let currentIndex = 0;

@@ -431,3 +431,36 @@
     display: block;
     visibility: visible;
 }
+
+/* Highlight active links in navbar and dropdowns */
+.navbar a.highlighted-link, 
+.dropdown a.highlighted-link, 
+.dropdown2 a.highlighted-link, 
+.dropdown3 a.highlighted-link, 
+.mobile-menu a.highlighted-link {
+    background-color: #ff6f61 !important; 
+    color: white !important;
+    font-weight: 600 !important;
+    padding: 10px 20px !important;
+    border-radius: 5px !important;
+    line-height: 1;
+}
+
+/* Highlight entire dropdown menu */
+.dropdown.highlighted-dropdown,
+.dropdown2.highlighted-dropdown,
+.dropdown3.highlighted-dropdown,
+.mobile-menu.highlighted-dropdown {
+    background-color: rgba(255, 111, 97, 0.9) !important; 
+    border-radius: 5px !important;
+    padding: 5px !important;
+}
+
+/* Ensure dropdown headers (More, Menu) are highlighted */
+.navbar li a.highlighted-link {
+    background-color: #ff6f61 !important;
+    color: white !important;
+}
+
+
+

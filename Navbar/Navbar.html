@@ -117,6 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
     window.addEventListener("resize", checkScreenSize);
 });
 document.addEventListener("DOMContentLoaded", function () {
+    console.log('Hello World');
     const hamburgerMenu = document.querySelector(".hamburger-menu");
     const mobileMenu = document.querySelector(".mobile-menu");
 
@@ -131,6 +132,68 @@ document.addEventListener("DOMContentLoaded", function () {
         console.error("Hamburger menu or mobile menu not found.");
     }
 });
+document.addEventListener("DOMContentLoaded", function () {
+    
+    const navbarLinks = document.querySelectorAll(".navbar a");
+    const dropdownLinks = document.querySelectorAll(".dropdown a, .dropdown2 a, .dropdown3 a, .mobile-menu a");
+    const dropdownMenus = document.querySelectorAll(".dropdown, .dropdown2, .dropdown3, .mobile-menu");
+
+    function highlightCurrentPage() {
+        const path = window.location.pathname.split("/").pop(); // Get current filename
+        const currentPage = path.replace(".html", ""); // Remove .html for matching
+
+        // Reset previous highlights
+        navbarLinks.forEach(link => link.classList.remove("highlighted-link"));
+        dropdownLinks.forEach(link => link.classList.remove("highlighted-link"));
+        dropdownMenus.forEach(dropdown => dropdown.classList.remove("highlighted-dropdown"));
+
+        let activeDropdown = null;
+
+        // Highlight direct navbar links
+        navbarLinks.forEach(link => {
+            if (link.dataset.page === currentPage) {
+                link.classList.add("highlighted-link");
+
+                // Check if inside a dropdown
+                const parentDropdown = link.closest(".dropdown, .dropdown2, .dropdown3, .mobile-menu");
+                if (parentDropdown) {
+                    activeDropdown = parentDropdown;
+                }
+            }
+        });
+
+        // Highlight dropdown links
+        dropdownLinks.forEach(link => {
+            if (link.dataset.page === currentPage) {
+                link.classList.add("highlighted-link");
+
+                // Get dropdown container and trigger link
+                const parentDropdown = link.closest(".dropdown, .dropdown2, .dropdown3, .mobile-menu");
+                if (parentDropdown) {
+                    activeDropdown = parentDropdown;
+                    const parentMenu = parentDropdown.closest("li")?.querySelector("a");
+                    if (parentMenu) parentMenu.classList.add("highlighted-link");
+                }
+            }
+        });
+
+        // Highlight the dropdown itself
+        if (activeDropdown) {
+            activeDropdown.classList.add("highlighted-dropdown");
+        }
+    }
+
+    // Run highlighting on page load
+    highlightCurrentPage();
+
+    // Ensure highlighting updates on resize
+    window.addEventListener("resize", highlightCurrentPage);
+});
+
+
+
+
+
 </script>
 
 

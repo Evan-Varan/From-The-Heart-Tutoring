@@ -21,12 +21,18 @@
             height: 100%;
             z-index: -1; /* Keep it behind the content */
             background-image: 
-                url('https://i.imgur.com/YXXdLF8.png'), /* Pencil */
-                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+                url('https://i.imgur.com/YXXdLF8.png'), /* Left Heart */
+                url('https://i.imgur.com/YXXdLF8.png'); /* Right Heart */
             background-repeat: no-repeat, no-repeat;
-            background-position: 100px 400px, right 100px bottom 270px; /* Adjust positions */
-            background-size: 250px, 250px; /* Pencil and heart sizes */
-            opacity: 0.5; /* Adjust the transparency */
+            background-position: calc(15% - 175px) 400px, calc(85% + 175px) 400px; /* Ensure even spacing */
+            background-size: 15vw, 15vw; /* Scale with viewport */
+            opacity: 0.5; /* Adjust transparency */
+        }
+
+        @media (max-width: 1200px) {
+            body::before {
+                background-image: none; /* Remove the images */
+            }
         }
         
 

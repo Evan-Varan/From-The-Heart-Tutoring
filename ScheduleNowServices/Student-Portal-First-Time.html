@@ -16,20 +16,27 @@
         
         body::before {
             content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Keep it behind the content */
-            background-image: 
-                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
-                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
-            background-repeat: no-repeat, no-repeat;
-            background-position: 20px 300px, right 40px bottom 10px; /* Adjust positions */
-            background-size: 250px, 250px; /* Pencil and heart sizes */
-            opacity: 0.5; /* Adjust the transparency */
-        }
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keep it behind the content */
+    background-image: 
+        url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
+        url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+    background-repeat: no-repeat, no-repeat;
+    background-position: 20px 280px, right 40px bottom 10px; /* Keep original positions */
+    background-size: 15vw, 15vw; /* Make images scale dynamically */
+    opacity: 0.5; /* Adjust transparency */
+}
+
+/* Medium Screens (Tablets) */
+@media (max-width: 1200px) {
+    body::before {
+        background-image: none; /* Remove the images */
+    }
+}
          
 
         .hero {
@@ -108,6 +115,43 @@
         .content {
             width: auto; /* Allow the widget to size itself */
         }
+        .schedule-box {
+    width: 90%; /* Allow dynamic resizing */
+    max-width: 300px; /* Prevent excessive width */
+    background: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    border: 2px solid #000000;
+    padding: 20px;
+    text-align: center;
+}
+
+.widget-wrapper {
+    display: flex;
+    flex-direction: row; /* Keep elements side-by-side in full screen */
+    justify-content: center; /* Center elements horizontally */
+    align-items: flex-start; /* Align items at the top */
+    gap: 20px; /* Add spacing between the widget and the schedule box */
+    margin: 0 auto; /* Center the entire wrapper */
+    max-width: 1200px; /* Limit the maximum width for centering */
+}
+
+.create-account-section {
+    text-align: center; /* Center-align the text */
+    margin-top: 20px; /* Add spacing below the schedule box */
+}
+
+/* Responsive Layout: Stack elements vertically on smaller screens */
+@media (max-width: 768px) {
+    .widget-wrapper {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center; /* Center-align elements */
+    }
+
+    .schedule-box {
+        margin: 0; /* Center schedule box under widget */
+    }
+}
     </style>
 </head>
 <body>
@@ -167,28 +211,28 @@
 
     <div id="progress-bar" class="progress"></div>
 
-    <!-- TutorBird Widget -->
+    <!-- Widget, Registration Box, and Create Account Section -->
     <div class="widget-wrapper">
         <!-- Widget Content -->
         <div class="content">
             <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9xZFhKMSIsIldlYnNpdGVJRCI6Indic196MjZKViIsIldlYnNpdGVCbG9ja0lEIjoid2JiX1Q0U2hKTSJ9"></script>
         </div>
-
+    
         <!-- How to Schedule Info Box -->
-        
-            <div style="position: absolute; right: 300px; top: 400px; width: 300px; background: #ffffff; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); border-radius: 8px; border: 2px solid #000000; padding: 20px;">
-                <h2 style="color: #1e293b; margin-bottom: 10px;">How to Schedule a Session</h2>
-                    To learn how to register for a session, check out our 
-                    <a href="https://www.tutorbird.com/download/66986/?tmstv=1701374343" target="_blank" class ='create-account'>detailed guide</a>.
-                    <p style="font-style: italic; font-size: 0.9rem;margin-top: 20px;">Sessions are one hour long at a standard rate of $70 per hour.</p>
-            </div>
-            <div>
-                <p id="alternate-text">
-                    Can't find a session with <span id="alt-tutor-name"></span>? 
-                    Find a different tutor 
-                    <a href="../About.html" class="create-account" style="color: #ff6f61;" onclick="updateCacheData()">here</a>.
-                </p>
-            </div>
+        <div class="schedule-box">
+            <h2>How to Schedule a Session</h2>
+            <p>To learn how to register for a session, check out our 
+                <a href="https://www.tutorbird.com/download/66986/?tmstv=1701374343" target="_blank" class="create-account">detailed guide</a>.
+            </p>
+            <p>Sessions are one hour long at a standard rate of $70 per hour.</p>
+        </div>
+    </div>
+    
+    <!-- Create Account Section -->
+    <div class="create-account-section">
+        <p>Don't have an account? 
+            <a href="Welcome.html" class="create-account">Create one through the scheduling process</a>
+        </p>
     </div>
     
     
