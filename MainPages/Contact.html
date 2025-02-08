@@ -37,6 +37,7 @@
         .hero p {
             font-size: 1.2rem;
         }
+
         .hero strong {
             font-size: 1rem;
             font-style: italic;
@@ -45,7 +46,7 @@
         /* Contact Section */
         .contact-section {
             display: flex;
-            flex-wrap: wrap; /* Allows wrapping on smaller screens */
+            flex-wrap: wrap;
             justify-content: center;
             align-items: flex-start;
             padding: 40px 20px;
@@ -58,7 +59,7 @@
 
         .form-container {
             flex: 1;
-            min-width: 300px; /* Prevents it from being too small */
+            min-width: 300px;
             margin-right: 20px;
         }
 
@@ -79,7 +80,7 @@
             font-size: 1rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            width: 100%; /* Ensures full width */
+            width: 100%;
         }
 
         button {
@@ -101,7 +102,7 @@
         /* Contact Info Section */
         .info-container {
             flex: 1;
-            min-width: 300px; /* Prevents it from being too small */
+            min-width: 300px;
             padding-left: 20px;
             border-left: 2px solid #f3f4f6;
         }
@@ -126,37 +127,46 @@
             text-decoration: underline;
         }
 
-        /* Mobile Adjustments */
-        @media (max-width: 768px) {
-            .contact-section {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
-
-            .form-container {
-                margin-right: 0;
-                width: 100%;
-            }
-
-            .info-container {
-                padding-left: 0;
-                border-left: none;
-                width: 100%;
-            }
+        /* Modal Styles */
+        #submissionModal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 2000;
         }
 
-        /* Bottom Heart Styling */
-        .bottom-heart {
+        #submissionModal div {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
             text-align: center;
-            margin-top: 40px;
+            max-width: 400px;
+            width: 90%;
         }
 
-        .bottom-heart img {
-            width: 120px; /* Smaller for mobile */
-            opacity: 0.6;
+        #submissionModal h2 {
+            margin-top: 0;
         }
 
+        #submissionModal button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #submissionModal button:hover {
+            background-color: #d9574e;
+        }
     </style>
 
 </head>
@@ -186,7 +196,6 @@
 
 <!-- Contact Section -->
 <div class="contact-section">
-    <!-- Contact Form -->
     <div class="form-container">
         <form id="contact-form" onsubmit="sendEmail(event);">
             <label for="name">Name:</label>
@@ -203,7 +212,6 @@
         </form>
     </div>
 
-    <!-- Contact Information -->
     <div class="info-container">
         <h3>Contact Information</h3>
         <p>Email: <a href="mailto:info@fromthehearttutoring.com">info@fromthehearttutoring.com</a></p>
@@ -211,52 +219,59 @@
     </div>
 </div>
 
-<!-- Bottom Heart Icon -->
-<div class="bottom-heart">
-    <img src="https://i.imgur.com/YXXdLF8.png" alt="Heart Icon">
+<!-- Submission Received Modal -->
+<div id="submissionModal">
+    <div>
+        <h2>Submission Received</h2>
+        <p>Thank you for your message! We will get back to you within 3 business days.</p>
+        <button onclick="closeModal()">Close</button>
+    </div>
 </div>
+
 <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 <script>
-    grecaptcha.reset(); // Reset reCAPTCHA
-
     document.addEventListener("DOMContentLoaded", function () {
         emailjs.init("hOLJq0ZLwkJlwtTSb"); // Replace with your EmailJS Public Key
     });
 
     function sendEmail(event) {
-    event.preventDefault(); // Prevent the form from submitting normally
+        event.preventDefault();
 
-    // Get form data
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message").value;
+        let name = document.getElementById("name").value;
+        let email = document.getElementById("email").value;
+        let message = document.getElementById("message").value;
+        let recaptchaResponse = grecaptcha.getResponse();
 
-    // Verify reCAPTCHA
-    let recaptchaResponse = grecaptcha.getResponse();
-    if (!recaptchaResponse) {
-        alert("Please complete the reCAPTCHA verification.");
-        return;
+        if (!recaptchaResponse) {
+            alert("Please complete the reCAPTCHA verification.");
+            return;
+        }
+
+        let templateParams = { 
+            from_name: name,
+            message: message,
+            reply_to: email
+        };
+
+        emailjs.send("service_owejv6t", "template_k98o8gc", templateParams)
+            .then(function () {
+                document.getElementById("contact-form").reset();
+                grecaptcha.reset();
+                showModal();
+            })
+            .catch(function (error) {
+                console.error("EmailJS Error:", error);
+                alert(`Failed to send message. Error: ${error.text || "Unknown error"}`);
+            });
     }
-    // Template parameters
-    let templateParams = { 
-        from_name: name,      // Matches {{from_name}}
-        message: message,     // Matches {{message}}
-        reply_to: email       // Matches {{reply_to}}
-    };
 
-    // Send email using EmailJS
-    emailjs.send("service_owejv6t", "template_k98o8gc", templateParams)
-        .then(function (response) {
-            console.log("EmailJS Response:", response);
-            alert("Message sent successfully!");
-            document.getElementById("contact-form").reset(); // Reset form
-        })
-        .catch(function (error) {
-            console.error("EmailJS Error:", error);
-            alert(`Failed to send message. Error: ${error.text || "Unknown error"}`);
-        });
-}
+    function showModal() {
+        document.getElementById("submissionModal").style.display = "flex";
+    }
 
+    function closeModal() {
+        document.getElementById("submissionModal").style.display = "none";
+    }
 </script>
 
 </body>

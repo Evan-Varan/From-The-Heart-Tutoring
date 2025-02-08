@@ -216,6 +216,22 @@
     }
     
 }
+/* For transition */
+@media (max-width: 985px) and (min-width: 984px) {
+    /* Hide large navbar components */
+    .navbar-center,
+    .navbar-dropdown2 {
+        display: none !important;
+    }
+
+    /* Show small navbar components */
+    .navbar-center-small,
+    .navbar-dropdown3 {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+    }
+}
 @media (max-width: 985px) and (min-width: 768px) {
     /* Hide other navigation elements */
     .navbar-center,
@@ -280,6 +296,7 @@
         display: none !important;;
     }
 }
+
 
 
 
