@@ -307,10 +307,18 @@
 
     .tutor-about-container,
     .subjects-container {
-        width: 100%; /* Full width for smaller screens */
-        max-width: none; /* Remove size restrictions */
+        width: calc(100% - 40px); /* Full width minus padding */
+        max-width: 600px; /* Set a reasonable maximum width */
+        margin: 0 auto; /* Center the sections horizontally */
+        box-sizing: border-box; /* Include padding in width calculations */
+    }
+
+    .subjects-container {
+        padding: 20px;
+        border: 2px solid #1e293b;
     }
 }
+
 
 
 

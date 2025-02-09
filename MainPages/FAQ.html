@@ -55,11 +55,7 @@
             font-size: 1.2rem;
             margin: 0;
         }
-        .faq-section {
-        padding: 60px 0px 0px; /* Reduced bottom padding */
-        max-width: 800px;
-            margin: auto;
-        }
+        
 
     .contact-section {
         text-align: center;
@@ -68,45 +64,90 @@
         padding-top: 10px; /* Add slight padding if needed for visual spacing */
     }
 
-        .faq-section h1 {
-            text-align: center;
-            color: #1e293b;
-            margin-bottom: 20px;
-        }
+    .faq-section {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    padding: 60px 20px;
+    max-width: 1000px;
+    margin: auto;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
 
-        .faq-section .faq-item {
-            margin-bottom: 30px;
-        }
+.faq-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+}
 
-        .faq-section h2 {
-            font-size: 1.5rem;
-            color: #1e293b;
-            margin-bottom: 10px;
-        }
 
-        .faq-section p {
-            font-size: 1rem;
-            color: #333;
-            line-height: 1.8;
-        }
+.faq-item h2 {
+    flex: 0 0 200px;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #1e293b;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        .footer {
-            background-color: #1e293b;
-            color: white;
-            padding: 20px 10px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-        .contact-link {
-            color: #ff6f61; /* Base color */
-            font-weight: bold;
-            text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
-        }
 
-        .contact-link:hover {
-            color: #d9574e; /* Slightly darker shade on hover */
-        }
+.faq-item p {
+    flex: 1;
+    font-size: 1.1rem;
+    color: #555;
+    line-height: 1.8;
+    margin: 0;
+    padding-left: 10px; /* Creates space between the text and the border */
+}
+
+.faq-item p::before {
+    content: "💬"; /* Adds an icon before the answer */
+    font-size: 1.2rem;
+    color: #6b7280;
+    margin-right: 10px;
+}
+
+.faq-section h1 {
+    text-align: center;
+    color: #1e293b;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    border-bottom: 2px solid #ff6f61;
+    padding-bottom: 10px;
+}
+
+.contact-link {
+    color: #ff6f61;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.contact-link:hover {
+    color: #d9574e;
+    transform: scale(1.05); /* Slightly enlarges on hover */
+}
+
+/* Footer adjustments for better flow */
+.footer {
+    background-color: #1e293b;
+    color: white;
+    padding: 20px 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    margin-top: 40px;
+    border-top: 3px solid #ff6f61;
+}
+
     </style>
 </head>
 <body>
@@ -128,7 +169,7 @@
         </div>
         <div class="faq-item">
             <h2>How long is a typical session?</h2>
-            <p>Each session lasts one hour. However, we’re happy to accommodate different session lengths upon request.</p>
+            <p>Each session lasts one hour. </p>
         </div>
         <div class="faq-item">
             <h2>Why am I being billed for 4 sessions at a time?</h2>

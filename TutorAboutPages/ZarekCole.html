@@ -299,7 +299,6 @@
     transform: scale(1.05); /* Slight scaling effect */
     box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
-/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
     .tutor-main-section {
         flex-direction: column; /* Stack sections vertically */
@@ -308,8 +307,15 @@
 
     .tutor-about-container,
     .subjects-container {
-        width: 100%; /* Full width for smaller screens */
-        max-width: none; /* Remove size restrictions */
+        width: calc(100% - 40px); /* Full width minus padding */
+        max-width: 600px; /* Set a reasonable maximum width */
+        margin: 0 auto; /* Center the sections horizontally */
+        box-sizing: border-box; /* Include padding in width calculations */
+    }
+
+    .subjects-container {
+        padding: 20px;
+        border: 2px solid #1e293b;
     }
 }
 
