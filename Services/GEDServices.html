@@ -14,21 +14,27 @@
             position: relative;
         }
         body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Keep it behind the content */
-            background-image: 
-                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
-                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
-            background-repeat: no-repeat, no-repeat;
-            background-position: 20px 250px, right 40px bottom 10px; /* Adjust positions */
-            background-size: 250px, 250px; /* Pencil and heart sizes */
-            opacity: 0.5; /* Adjust the transparency */
-        }
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keep it behind the content */
+    background-image: 
+        url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
+        url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+    background-repeat: no-repeat, no-repeat;
+    background-position: 20px 280px, right 40px bottom 10px; /* Keep original positions */
+    background-size: 15vw, 15vw; /* Make images scale dynamically */
+    opacity: 0.5; /* Adjust transparency */
+}
+    /* Medium Screens (Tablets) */
+@media (max-width: 1200px) {
+    body::before {
+        background-image: none; /* Remove the images */
+    }
+}    
        
 
         /* Hero Section */
@@ -201,7 +207,7 @@
             </div> -->
             <!-- GED Math Sections -->
             <div class="subject-card">
-                <img src="https://i.imgur.com/twcJwOD.png" alt="GED Math Icon">
+                <img src="https://i.imgur.com/yBpCgJ9.png" alt="GED Math Icon">
                 <h3>GED Mathematical Reasoning Section</h3>
                 <p>Targeted help for GED Math with expert guidance.</p>
                 <a href="../MainPages/Welcome.html" class="schedule-button">Schedule Now</a>
@@ -215,7 +221,7 @@
             </div> -->
             <!-- GED Science Sections -->
             <div class="subject-card">
-                <img src="https://i.imgur.com/twcJwOD.png" alt="GED Science Icon">
+                <img src="https://i.imgur.com/yBpCgJ9.png" alt="GED Science Icon">
                 <h3>GED Science Section</h3>
                 <p>Targeted help for GED Science with expert guidance.</p>
                 <a href="../MainPages/Welcome.html" class="schedule-button">Schedule Now</a>

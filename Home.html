@@ -91,10 +91,10 @@
 /* 🔹 Small Screen Image Adjustments (≤ 1055px) */
 @media (max-width: 1055px) {
     .image-1 { object-position: 0% 0%; width: 100%; } /* Small screen version */
-    .image-2 { object-position: 10% 0%; width: 100%; }
+    .image-2 { object-position: 0% 50%; width: 100%; }
     .image-3 { object-position: 0% 100%; width: 100%; }
     .image-4 { object-position: 0% 60%; width: 100%; }
-    .image-5 { object-position: 0% 70%; width: 100%; }
+    .image-5 { object-position: 0% 50%; width: 100%; }
     .image-6 { object-position: 0% 0%; width: 100%; }
 }
 
@@ -143,13 +143,18 @@
 }
 
 /* Buttons */
+/* Button Container */
 .modern-hero-buttons {
-    display: flex; /* Use flexbox */
-    flex-direction: row; /* Horizontal alignment */
-    justify-content: center; /* Center horizontally */
-    gap: 20px; /* Space between buttons */
-    flex-wrap: wrap; /* Wrap buttons on smaller screens */
+    display: flex;
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    align-items: center; /* Center align buttons */
+    justify-content: center; /* Ensure vertical centering */
+    gap: 15px; /* Space between buttons */
+    width: 100%; /* Full width for consistency */
+    max-width: 300px; /* Constrain the button container width */
+    margin: 0 auto; /* Center the container horizontally */
 }
+
 
 .cta-main, .cta-secondary {
     display: inline-block; /* Inline-block for proper padding/margin behavior */
@@ -647,30 +652,39 @@
     <!-- JavaScript to Load Navbar -->
     <script> 
         document.addEventListener("DOMContentLoaded", function () {
-            fetch("Navbar/Navbar.html") // Adjust this path as needed
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    // Insert the navbar into the placeholder
-                    const navbarPlaceholder = document.getElementById("navbar-placeholder");
-                    navbarPlaceholder.innerHTML = data;
+    fetch("../Navbar/Navbar.html") // Adjust this path as needed
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.text();
+        })
+        .then(data => {
+            // Insert the navbar into the placeholder
+            const navbarPlaceholder = document.getElementById("navbar-placeholder");
+            navbarPlaceholder.innerHTML = data;
 
-                    // Dynamically set the highlighted class
-                    const currentPage = "home"; // Update this for each page
-                    const navbarLinks = navbarPlaceholder.querySelectorAll("a");
+            // Manually execute any scripts inside Navbar.html
+            const scripts = navbarPlaceholder.querySelectorAll("script");
+            scripts.forEach(oldScript => {
+                const newScript = document.createElement("script");
+                newScript.textContent = oldScript.textContent;
+                document.body.appendChild(newScript);
+            });
 
-                    navbarLinks.forEach(link => {
-                        if (link.dataset.page === currentPage) {
-                            link.classList.add("highlighted-link");
-                        }
-                    });
-                })
-                .catch(error => console.error("Error loading navbar:", error));
-        });
+            // Dynamically set the highlighted class
+            const currentPage = "home"; // Update this for each page
+            const navbarLinks = navbarPlaceholder.querySelectorAll("a");
+
+            navbarLinks.forEach(link => {
+                if (link.dataset.page === currentPage) {
+                    link.classList.add("highlighted-link");
+                }
+            });
+        })
+        .catch(error => console.error("Error loading navbar:", error));
+});
+
     </script>
 
     <!-- Hero Section with Rotating Images -->
@@ -835,39 +849,39 @@
     <h2>Master Subjects, Ace Tests, and Unlock Your Potential!</h2>
     <div class="subjects-container">
         <div class="subject">
-            <img src="https://i.imgur.com/cOi8tEb.png" referrerpolicy="no-referrer" alt="K-8th Math">
+            <img src="https://i.imgur.com/6Dytwj6.png" referrerpolicy="no-referrer" alt="K-8th Math">
             <p>K-8th Math</p>
         </div>
         <div class="subject">
-            <img src="https://i.imgur.com/en5bUUT.png" referrerpolicy="no-referrer" alt="Languages">
+            <img src="https://i.imgur.com/8Uc14U3.png" referrerpolicy="no-referrer" alt="Languages">
             <p>High School Math</p>
         </div>
         <div class="subject">
-            <img src="https://i.imgur.com/vWdoEHU.png" referrerpolicy="no-referrer" alt="Algebra 2">
+            <img src="https://i.imgur.com/nd8xGtz.png" referrerpolicy="no-referrer" alt="Algebra 2">
             <p>College Math</p>
         </div>
         <div class="subject">
-            <img src="https://i.imgur.com/6bdbW6k.png" referrerpolicy="no-referrer" alt="Geometry">
+            <img src="https://i.imgur.com/iWB9nOK.png" referrerpolicy="no-referrer" alt="Geometry">
             <p>Science</p>
         </div>
         <div class="subject">
-            <img src="https://i.imgur.com/BkBUEfn.png" referrerpolicy="no-referrer" alt="Physics">
+            <img src="https://i.imgur.com/nKixzmW.png" referrerpolicy="no-referrer" alt="Physics">
             <p>English</p>
         </div>
         <div class="subject">
-            <img src="https://i.imgur.com/i6fOY8t.png" referrerpolicy="no-referrer" alt="Pre-Calculus">
+            <img src="https://i.imgur.com/3Fb83GI.png" referrerpolicy="no-referrer" alt="Pre-Calculus">
             <p>Spanish</p>
         </div>
         <div class="subject">
-            <img src="https://i.imgur.com/k9E7HCd.png" referrerpolicy="no-referrer" alt="Calculus">
+            <img src="https://i.imgur.com/3Yvz086.png" referrerpolicy="no-referrer" alt="Calculus">
             <p>SAT® Prep</p>
         </div>
         <div class="subject">
-            <img src="https://i.imgur.com/xg7RnCd.png" referrerpolicy="no-referrer" alt="AP Exams">
+            <img src="https://i.imgur.com/EXV9vp2.png" referrerpolicy="no-referrer" alt="AP Exams">
             <p>AP Exams</p>
         </div>
         <div class="subject">
-            <img src="https://i.imgur.com/Bv0GV2C.png" referrerpolicy="no-referrer" alt="AP Exams">
+            <img src="https://i.imgur.com/tY1r7GT.png" referrerpolicy="no-referrer" alt="AP Exams">
             <p>Computer Science</p>
         </div>
         <div class="subject">

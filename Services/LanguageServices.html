@@ -14,21 +14,27 @@
             position: relative;
         }
         body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Keep it behind the content */
-            background-image: 
-                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
-                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
-            background-repeat: no-repeat, no-repeat;
-            background-position: 20px 250px, right 40px bottom 10px; /* Adjust positions */
-            background-size: 250px, 250px; /* Pencil and heart sizes */
-            opacity: 0.5; /* Adjust the transparency */
-        }
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keep it behind the content */
+    background-image: 
+        url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
+        url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+    background-repeat: no-repeat, no-repeat;
+    background-position: 20px 280px, right 40px bottom 10px; /* Keep original positions */
+    background-size: 15vw, 15vw; /* Make images scale dynamically */
+    opacity: 0.5; /* Adjust transparency */
+}
+    /* Medium Screens (Tablets) */
+@media (max-width: 1200px) {
+    body::before {
+        background-image: none; /* Remove the images */
+    }
+}    
 
         
 
@@ -252,19 +258,19 @@
         
         <div class="subjects-container">
             <div class="subject-card" onclick="openModal('k8-english-modal')">
-                <img src="https://i.imgur.com/7IhccEX.png" alt="K-8th English Icon">
+                <img src="https://i.imgur.com/IeKkw9Y.png" alt="K-8th English Icon">
                 <h3>K-8th English</h3>
                 <p>Build a strong foundation in reading, writing, and grammar for K-8 students.</p>
                 <a href="..MainPages/Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
             </div>
-            <div class="subject-card" onclick="openModal('9-12th-english-modal')">
-                <img src="https://i.imgur.com/BkBUEfn.png" alt="9-12 English Icon">
+            <!-- <div class="subject-card" onclick="openModal('9-12th-english-modal')">
+                <img src="https://i.imgur.com/yBpCgJ9.png" alt="9-12 English Icon">
                 <h3>9-12th English</h3>
                 <p>Enhance your high school English skills in literature, essays, and critical thinking.</p>
                 <a href="..MainPages/Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>
-            </div>
+            </div> -->
             <div class="subject-card" onclick="openModal('spanish-modal')">
-                <img src="https://i.imgur.com/i6fOY8t.png" alt="Spanish Icon">
+                <img src="https://i.imgur.com/3Fb83GI.png" alt="Spanish Icon">
                 <h3>Spanish</h3>
                 <p>Learn or improve Spanish proficiency with engaging lessons and practice.</p>
                 <a href="..MainPages/Welcome.html" class="schedule-button" onclick="event.stopPropagation();">Schedule Now</a>

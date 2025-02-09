@@ -14,21 +14,27 @@
             position: relative;
         }
         body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Keep it behind the content */
-            background-image: 
-                url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
-                url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
-            background-repeat: no-repeat, no-repeat;
-            background-position: 20px 250px, right 40px bottom 10px; /* Adjust positions */
-            background-size: 250px, 250px; /* Pencil and heart sizes */
-            opacity: 0.5; /* Adjust the transparency */
-        }
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keep it behind the content */
+    background-image: 
+        url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
+        url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
+    background-repeat: no-repeat, no-repeat;
+    background-position: 20px 280px, right 40px bottom 10px; /* Keep original positions */
+    background-size: 15vw, 15vw; /* Make images scale dynamically */
+    opacity: 0.5; /* Adjust transparency */
+}
+    /* Medium Screens (Tablets) */
+@media (max-width: 1475px) {
+    body::before {
+        background-image: none; /* Remove the images */
+    }
+}     
 
         /* Navbar Styles */
         .navbar {
@@ -368,7 +374,7 @@
         <div class="subjects-container">
             <!-- Computer Science Card -->
             <div class="subject-card computer-science">
-                <img src="https://i.imgur.com/Bv0GV2C.png" alt="Computer Science Icon">
+                <img src="https://i.imgur.com/tY1r7GT.png" alt="Computer Science Icon">
                 <h3>Computer Science</h3>
                 <p>Learn programming, algorithms, and problem-solving skills.</p>
                 <a href="../MainPages/Welcome.html" class="schedule-button">Schedule Now</a>
@@ -376,14 +382,14 @@
     
             <!-- Circuits Card -->
             <div class="subject-card circuits">
-                <img src="https://i.imgur.com/E8oNJ15.png" alt="Circuits Icon">
+                <img src="https://i.imgur.com/t1PWTUE.png" alt="Circuits Icon">
                 <h3>Circuits</h3>
                 <p>Understand electrical circuits and their components.</p>
                 <a href="../MainPages/Welcome.html" class="schedule-button">Schedule Now</a>
             </div>
             <!-- Circuits Card -->
             <div class="subject-card engineering">
-                <img src="https://i.imgur.com/roE9X6G.png" alt="Engineering Icon">
+                <img src="https://i.imgur.com/owY1qoc.png" alt="Engineering Icon">
                 <h3>Engineering</h3>
                 <p>Get help with the fundamentals of Engineering.</p>
                 <a href="../MainPages/Welcome.html" class="schedule-button">Schedule Now</a>
@@ -450,7 +456,7 @@
 
     <!-- Back Button Section -->
     <div class="back-container">
-        <a href="Services.html" class="back-button">Back to Services</a>
+        <a href="../MainPages/Services.html" class="back-button">Back to Services</a>
     </div>
 
     <script>

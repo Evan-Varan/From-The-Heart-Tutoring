@@ -279,15 +279,18 @@
         display: flex !important;;
     }
     .logo-image {
-        height: 25px;
-        transform: translateY(4px);
+        height: 35px;
+        transform: translateY(8px);
     }
     .logo-heart-image {
-        height: 15px;
-        transform: translateY(-4px);
+        height: 25px;
+        transform: translateY(0px);
+    }
+    .navbar{
+        min-height: 40px;
     }
 }
-@media (min-width: 768px) {
+@media (min-width: 769px) {
     .mobile-menu {
         display: none !important;
     }
@@ -299,7 +302,6 @@
 
 
 
-
 /* Hamburger Menu */
 .hamburger-menu {
     display: flex;
@@ -307,10 +309,11 @@
     gap: 5px;
     cursor: pointer;
     z-index: 3000;
-    right: 0;
-    transform: translateX(1000%);
-    background: transparent; /* Ensure it doesn't interfere */
-    top: 50%;
+    position: absolute; /* Ensure it's positioned relative to the navbar */
+    top: 50%; /* Center vertically within the navbar */
+    right: 55px; /* Align to the right edge with some spacing */
+    transform: translateY(-50%); /* Adjust for perfect vertical centering */
+    background: transparent; /* Ensure no background color */
 }
 
 .hamburger-menu span {
@@ -326,7 +329,7 @@
 .mobile-menu {
     display: none; /* Override any display rules */
     position: fixed;
-    top: 60px; /* Adjust based on your navbar's height */
+    top: 80px; /* Adjust based on your navbar's height */
     left: 0;
     width: 100%;
     background-color: #0f172a; /* Dark background for visibility */
