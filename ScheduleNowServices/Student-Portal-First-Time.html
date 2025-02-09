@@ -159,33 +159,7 @@
 <div id="navbar-placeholder"></div>
 
 <!-- JavaScript to Load Navbar -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        fetch("../Navbar/Navbar.html") // Adjust this path as needed
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status}`);
-                }
-                return response.text();
-            })
-            .then(data => {
-                // Insert the navbar into the placeholder
-                const navbarPlaceholder = document.getElementById("navbar-placeholder");
-                navbarPlaceholder.innerHTML = data;
-
-                // Dynamically set the highlighted class
-                const currentPage = "welcome"; // Update this for each page
-                const navbarLinks = navbarPlaceholder.querySelectorAll("a");
-
-                navbarLinks.forEach(link => {
-                    if (link.dataset.page === currentPage) {
-                        link.classList.add("highlighted-link");
-                    }
-                });
-            })
-            .catch(error => console.error("Error loading navbar:", error));
-    });
-</script>
+<script src="../Navbar/Navbar.js" defer></script>
 <!-- Hero Section -->
 <div class="hero">
     <h1>Welcome to the Student Portal</h1>

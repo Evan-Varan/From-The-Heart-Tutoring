@@ -138,56 +138,69 @@
             border-radius: 0; /* Optional: Remove any rounding if not needed */
         }
 
-        .staff-members.founders {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Responsive grid for smaller screens */
-            gap: 30px; /* Space between cards */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            margin: 0 auto; /* Center the grid container on the page */
-            max-width: 700px; /* Limit the total width for better centering */
-        }
+        .staff-members.founders,
+.staff-members.tutors,
+.staff-members.other {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
+    gap: 30px; /* Maintain consistent spacing */
+    justify-content: center; /* Center horizontally */
+    margin: 0 auto; /* Ensure grid container stays centered */
+    max-width: 1200px; /* Restrict max width */
+}
 
+.staff-member {
+    width: 100%; /* Ensures the cards take up full column space */
+    max-width: 300px; /* Prevents over-stretching */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 30px 20px 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
 
+.staff-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.staff-title, .staff-member h4, .staff-member p {
+    margin: 0 auto;
+    max-width: 260px;
+}
+
+/* Ensure the single staff member section centers properly */
+.staff-members.other.single {
+    display: flex;
+    justify-content: center; /* Center the single card horizontally */
+    margin: 0 auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .staff-members.founders,
     .staff-members.tutors,
     .staff-members.other {
-        display: grid;
-        grid-template-columns: repeat(3, 300px); /* 3 cards per row */
-        gap: 80px; /* Maintain consistent spacing between cards */
-        justify-content: center; /* Center horizontally */
-        margin: 0 auto; /* Center the grid container */
-    }
-    .staff-members.other.single {
-        display: flex;
-        justify-content: center; /* Center the single card horizontally */
-        margin: 0 auto; /* Ensure the container is centered */
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust for smaller screens */
+        gap: 20px;
     }
 
     .staff-member {
-        width: 100%; /* Ensures the cards take up the full column space */
-        max-width: 300px; /* Optional: Enforce a maximum size for consistency */
-        height: 400px; /* Fixed height to ensure uniformity */
-        background-color: #ffffff;
-        border: 1px solid #ddd;
-        border-radius: 10px;
-        padding: 30px 20px 20px; /* Keep spacing within the box */
-        text-align: center;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s, box-shadow 0.3s;
+        max-width: 90%; /* Allow wider cards on smaller screens */
+        padding: 20px;
     }
 
     .staff-image {
-        width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover; /* Ensures images fill their container without distortion */
-        margin-bottom: 15px;
+        width: 100px;
+        height: 100px;
     }
+}
 
-    .staff-title, .staff-member h4, .staff-member p {
-        margin: 0 auto; /* Ensure proper alignment */
-        max-width: 260px; /* Keep text aligned and inside the box */
-    }
 
 
     .staff-title {
@@ -311,33 +324,7 @@
     <div id="navbar-placeholder"></div>
 
     <!-- JavaScript to Load Navbar -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch("../Navbar/Navbar.html") // Adjust this path as needed
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status}`);
-                    }
-                    return response.text();
-                })
-                .then(data => {
-                    // Insert the navbar into the placeholder
-                    const navbarPlaceholder = document.getElementById("navbar-placeholder");
-                    navbarPlaceholder.innerHTML = data;
-
-                    // Dynamically set the highlighted class
-                    const currentPage = "about"; // Update this for each page
-                    const navbarLinks = navbarPlaceholder.querySelectorAll("a");
-
-                    navbarLinks.forEach(link => {
-                        if (link.dataset.page === currentPage) {
-                            link.classList.add("highlighted-link");
-                        }
-                    });
-                })
-                .catch(error => console.error("Error loading navbar:", error));
-        });
-    </script>
+    <script src="../Navbar/Navbar.js" defer></script>
    
     
 
