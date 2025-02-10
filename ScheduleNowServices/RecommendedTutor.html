@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f7f9fc;
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
         }
         body::before {
     content: "";
@@ -37,30 +36,36 @@
 }
 
 
-        /* Hero Section */
-        .hero {
-            background-color: #1e293b;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
+.hero {
+    background-color: #1e293b;
+    color: white;
+    padding: 60px 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: auto;
+}
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin: 0 0 20px;
-        }
+.hero h1, .hero p {
+    max-width: 90%;
+    width: auto;
+    text-align: center;
+    margin: 0 auto; /* Ensures proper centering */
+    display: block;
+}
+.hero .subjects {
+    text-align: center;
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ff6f61;
+}
 
-        .hero p {
-            font-size: 1.2rem;
-        }
 
-
-        .hero .subjects {
-            margin-top: 10px;
-            font-size: 1rem;
-            font-weight: bold;
-            color: #ff6f61;
-        }
 
         /* Progress Dots */
         .progress {
@@ -218,7 +223,30 @@
         .content {
             width: auto; /* Allow the widget to size itself */
         }
-       
+        .no-results {
+    color: #ff6f61;
+    font-size: 1.2rem;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+    display: none;
+    width: 100%;
+}
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.buttons-container .button {
+    min-width: 120px; /* Ensures consistent button sizing */
+    text-align: center;
+}
+
+.buttons-container .button:nth-child(1) { /* Back button */
+    text-align: center;
+}
+
     </style>
 </head>
 <body>
@@ -260,13 +288,29 @@
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const subjectsDisplay = document.getElementById("selected-subjects");
+            const selectedSubjects = JSON.parse(localStorage.getItem("selectedSubjects")) || [];
+    
+            if (selectedSubjects.length > 0) {
+                subjectsDisplay.textContent = "Selected Subjects: " + selectedSubjects.join(", ");
+            } else {
+                subjectsDisplay.textContent = "No subjects selected.";
+            }
+    
+            // Ensure proper alignment by forcing width and display settings
+            subjectsDisplay.style.maxWidth = "90%";
+            subjectsDisplay.style.textAlign = "center";
+            subjectsDisplay.style.display = "block";
+        });
+    
         // Retrieve student type from localStorage
         const studentType = localStorage.getItem('studentType');
-
+    
         // Adjust progress dots
         document.addEventListener('DOMContentLoaded', () => {
             const progressContainer = document.querySelector('.progress');
-
+    
             if (studentType === 'Returning Student') {
                 // Reduce the number of dots to 4 for Returning Students
                 progressContainer.innerHTML = `
@@ -277,94 +321,160 @@
                 `;
             }
         });
+    
         const tutors = [
             { name: "Dianne Simental", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Biology", "AP Biology","AP Biology Exam", "Chemistry", "Physics", "Spanish", "K-8th English", "SAT Math Sections", "ACT Math Section", "ACT Science Section", "GED Mathematical Reasoning Section", "GED Science Section" ], image: "https://i.imgur.com/X0kdDss.jpeg" },
-            { name: "Zarek Cole", subjects: ["Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus","Statistics","AP Statistics", "Calculus 1 (AB)", "Calculus 2 (BC)","Calculus 3","College Algebra","Differential Equations","Abstract Algebra", "Physics", "AP Physics", "Chemistry", "AP Chemistry", "ACT Math", "GED Math", "TSI Math"
-], image: "https://i.imgur.com/5Cuh8SZ.png" },
-            { name: "Evan Varan", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Calculus 1 (AB)", "Calculus 2 (BC)","College Algebra", "Biology", "Chemistry", "Physics", "AP Physics", "SAT Math", "ACT Math", "TSI Math", "ACT Science", "GED Math", "GED Science", "Computer Science", "Circuits", "Engineering"
-            ], image: "https://i.imgur.com/zPiwhDv.png" },
+            { name: "Zarek Cole", subjects: ["Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus","Statistics","AP Statistics", "Calculus 1 (AB)", "Calculus 2 (BC)","Calculus 3","College Algebra","Differential Equations","Abstract Algebra", "Physics", "AP Physics", "Chemistry", "AP Chemistry", "ACT Math", "GED Math", "TSI Math"], image: "https://i.imgur.com/5Cuh8SZ.png" },
+            { name: "Evan Varan", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Calculus 1 (AB)", "Calculus 2 (BC)","College Algebra", "Biology", "Chemistry", "Physics", "AP Physics", "SAT Math", "ACT Math", "TSI Math", "ACT Science", "GED Math", "GED Science", "Computer Science", "Circuits", "Engineering"], image: "https://i.imgur.com/zPiwhDv.png" },
         ];
-
+    
         const selectedSubjects = JSON.parse(localStorage.getItem("selectedSubjects")) || [];
         const selectedTutor = { name: null }; // Store selected tutor
         const container = document.getElementById("tutor-container");
         const errorMessage = document.getElementById("error-message");
-
-        // Display selected subjects in hero
-        const subjectsDisplay = document.getElementById("selected-subjects");
-        subjectsDisplay.textContent = selectedSubjects.length
-            ? "Selected Subjects: " + selectedSubjects.join(", ")
-            : "No subjects selected.";
-
+    
+        const noResultsMessage = document.getElementById("no-results");
+        const nextButton = document.querySelector('.buttons-container .button:nth-child(2)'); // Next button
+        const backButton = document.querySelector('.buttons-container .button:nth-child(1)'); // Back button
+    
         // Filter tutors based on selected subjects
         const matchingTutors = tutors.filter(tutor =>
             selectedSubjects.every(subject => tutor.subjects.includes(subject))
         );
-        // Sort the tutor's subjects to list selected subjects first
+    
+        // If no tutors match, show "No tutors found" message and adjust buttons
+        if (matchingTutors.length === 0) {
+            noResultsMessage.style.display = "block"; // Show error message
+            nextButton.style.display = "none"; // Hide "Next" button
+            backButton.style.margin = "0 auto"; // Center "Back" button
+            backButton.style.display = "block"; // Ensure it's visible
+        } else {
+            noResultsMessage.style.display = "none"; // Hide error message
+            nextButton.style.display = "inline-block"; // Show "Next" button
+            backButton.style.margin = ""; // Reset margin
+        }
+    
+        // Function to sort subjects (selected ones first)
         function sortSubjects(tutorSubjects, selectedSubjects) {
             const selectedFirst = tutorSubjects.filter(subject => selectedSubjects.includes(subject));
             const remaining = tutorSubjects.filter(subject => !selectedSubjects.includes(subject));
             return [...selectedFirst, ...remaining];
         }
-
-        // Display tutors
-        matchingTutors.forEach(tutor => {
-    const sortedSubjects = sortSubjects(tutor.subjects, selectedSubjects); // Sort subjects
-    const card = document.createElement("div");
-    card.classList.add("tutor-card");
-    card.innerHTML = `
-        <img src="${tutor.image}" alt="${tutor.name}">
-        <div class="tutor-info">
-            <h3>${tutor.name}</h3>
-            <p><strong>Subjects:</strong> ${sortedSubjects.join(", ")}</p>
-            <a href="../TutorAboutPages/${tutor.name.replace(/\s+/g, "")}.html" target="_blank" style="color: #1e293b;">Read more about me here</a>
-        </div>
-    `;
-    card.onclick = () => selectTutor(card, tutor.name); // Select the tutor
-    container.appendChild(card);
-});
-
-
+    
+        // Function to display tutors
+        function displayTutors() {
+            matchingTutors.forEach(tutor => {
+                const sortedSubjects = sortSubjects(tutor.subjects, selectedSubjects); // Sort subjects
+                const card = document.createElement("div");
+                card.classList.add("tutor-card");
+                card.innerHTML = `
+                    <img src="${tutor.image}" alt="${tutor.name}">
+                    <div class="tutor-info">
+                        <h3>${tutor.name}</h3>
+                        <p><strong>Subjects:</strong> ${sortedSubjects.join(", ")}</p>
+                        <a href="../TutorAboutPages/${tutor.name.replace(/\s+/g, "")}.html" target="_blank" style="color: #1e293b;">Read more about me here</a>
+                    </div>
+                `;
+                card.onclick = () => selectTutor(card, tutor.name); // Select the tutor
+                container.appendChild(card);
+            });
+        }
+    
+        // Only display tutors if there are matches
+        if (matchingTutors.length > 0) {
+            displayTutors();
+        }
+    
         // Select a tutor
-        function selectTutor(card, name) {
-    // Check if the card is already selected
-            if (card.classList.contains("selected")) {
-                // Deselect the card
-                card.classList.remove("selected");
-                selectedTutor.name = null; // Clear the selected tutor
-            } else {
-            // Deselect previously selected tutor
-            document.querySelectorAll(".tutor-card").forEach(c => c.classList.remove("selected"));
+        // Select a tutor
+// Select a tutor
+// Select a tutor
+function selectTutor(card, name) {
+    const tutor = tutors.find(t => t.name === name);
+    if (!tutor) return;
 
-            // Select the new tutor
-            card.classList.add("selected");
-            selectedTutor.name = name;
+    // Determine subjects that the selected tutor does NOT teach
+    const missingSubjects = selectedSubjects.filter(subject => !tutor.subjects.includes(subject));
+
+    // If the tutor is already selected, deselect them
+    if (card.classList.contains("selected")) {
+        card.classList.remove("selected");
+        selectedTutor.name = null;
+
+        // Hide "Next" button (same logic as when no tutor is selected)
+        nextButton.style.display = "none";
+        backButton.style.margin = "0 auto";
+
+        // Hide missing subjects message
+        document.getElementById("missing-subjects-message").style.display = "none";
+
+    } else {
+        // Deselect any previously selected tutor
+        document.querySelectorAll(".tutor-card").forEach(c => c.classList.remove("selected"));
+
+        // Select the clicked tutor
+        card.classList.add("selected");
+        selectedTutor.name = name;
+
+        // If the tutor does NOT teach all selected subjects, replicate the logic for hiding "Next"
+        if (missingSubjects.length > 0) {
+            nextButton.style.display = "none"; // Hide "Next" button
+            backButton.style.margin = "0 auto"; // Center "Back" button
+
+            // Display missing subjects message
+            document.getElementById("missing-subjects-message").innerHTML =
+                `<p style="color: #ff6f61; font-weight: bold;">
+                    The selected tutor does not teach the following subjects: ${missingSubjects.join(", ")}.
+                </p>
+                <button class="button" onclick="deselectTutor()">Schedule with a Different Tutor</button>`;
+            document.getElementById("missing-subjects-message").style.display = "block";
+
+        } else {
+            // If the tutor teaches all selected subjects, show "Next" button
+            nextButton.style.display = "inline-block";
+            backButton.style.margin = "";
+            document.getElementById("missing-subjects-message").style.display = "none"; // Hide message
+        }
     }
 }
 
+// Function to deselect the tutor when "Schedule with a Different Tutor" is clicked
+function deselectTutor() {
+    document.querySelectorAll(".tutor-card").forEach(c => c.classList.remove("selected"));
+    selectedTutor.name = null;
+
+    // Reapply the same logic used when no tutor is selected
+    nextButton.style.display = "none";
+    backButton.style.margin = "0 auto";
+    document.getElementById("missing-subjects-message").style.display = "none";
+}
+
+
+
+    
         // Redirect to the next page
         function redirectToNext() {
             if (!selectedTutor.name) {
                 errorMessage.style.display = "block"; // Show error message if no tutor is selected
                 return;
             }
-
+    
             errorMessage.style.display = "none"; // Hide error message if a tutor is selected
-
-            const studentType = localStorage.getItem('studentType');
+    
             localStorage.setItem("selectedTutor", selectedTutor.name); // Store selected tutor
-
+    
             if (studentType === 'Returning Student') {
                 window.location.href = "Student-Portal-First-Time.html"; // Redirect returning students
             } else {
                 window.location.href = "Account-Creation.html"; // Redirect first-time students
             }
         }
-
+    
         // Redirect to the previous page
         function redirectToPreviousPage() {
             window.location.href = "ScheduleNowSubjects.html";
         }
     </script>
+    
 </body>
 </html>

@@ -118,12 +118,16 @@
         }
 
         /* Error Message */
-        .error-message {
-            color: red;
-            font-size: 1rem;
-            margin: 10px 0;
-            display: none; /* Hidden by default */
-        }
+        /* Center the error message */
+    .error-message {
+        color: red;
+        font-size: 1rem;
+        margin: 20px auto; /* Centers horizontally */
+        text-align: center; /* Ensures text alignment */
+        display: none; /* Hidden by default */
+        width: 100%; /* Ensures it spans the container */
+    }
+
 
         /* Buttons */
         .button-container {
@@ -234,8 +238,17 @@
         }
 
         function redirectToScheduleNow() {
-            window.location.href = '../MainPages/Welcome.html';
+            // Get the stored previous page
+            const previousPage = localStorage.getItem('previousPage');
+
+            // If the user came from WelcomeFromTutor.html, go back there. Otherwise, default to Welcome.html
+            if (previousPage === 'WelcomeFromTutor.html') {
+                window.location.href = 'WelcomeFromTutor.html';
+            } else {
+                window.location.href = '../MainPages/Welcome.html';
+            }
         }
+
 
         function redirectToNext() {
             if (!selectedStudentType) {

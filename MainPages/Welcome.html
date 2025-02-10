@@ -7,232 +7,332 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <style>
-        /* Global styles */
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9; /* Light gray background */
-            color: #1e293b; /* Dark text for readability */
+            background-image: linear-gradient(to bottom, #f0f4ff, #ffffff);
+            background-repeat: no-repeat;
+            background-size: cover;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+        body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Keep it behind the content */
+    background-image: 
+        url('https://i.imgur.com/YXXdLF8.png'), /* Left Heart */
+        url('https://i.imgur.com/YXXdLF8.png'); /* Right Heart */
+    background-repeat: no-repeat, no-repeat;
+    background-position: calc(15% - 125px) 400px, calc(85% + 125px) 400px; /* Ensure even spacing */
+    background-size: 15vw, 15vw; /* Scale with viewport */
+    opacity: 0.5; /* Adjust transparency */
+}
+
+@media (max-width: 1200px) {
+    body::before {
+        background-image: none; /* Remove the images */
+    }
+}
+
+.schedule-container {
+    display: flex;
+    flex-direction: row; /* Default: side-by-side layout */
+    flex-wrap: nowrap; /* Prevents unintended stacking at large screens */
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    max-width: 1100px;
+    width: 90%;
+    margin: 50px auto;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Panels default to side-by-side */
+.left-panel, .right-panel {
+    flex: 1; /* Ensures equal width */
+    padding: 30px;
+    box-sizing: border-box;
+    min-width: 400px; /* Prevents early stacking */
+}
+
+/* When screen is too small, stack left-panel on top */
+@supports (display: flex) {
+    .schedule-container {
+        display: flex;
+    }
+
+    .schedule-container:has(.left-panel) {
+        flex-wrap: wrap;
+    }
+
+    /* This ensures the left panel moves ON TOP when screen gets small */
+    .schedule-container:has(.left-panel) .left-panel {
+        order: -1; /* Moves left-panel above right-panel */
+    }
+
+    .left-panel, .right-panel {
+        width: 100%; /* Stacked layout on small screens */
+    }
+}
+
+/* Fallback for old browsers */
+@supports not (flex-wrap: wrap) {
+    .schedule-container {
+        display: block;
+    }
+
+    .left-panel, .right-panel {
+        width: 100%;
+    }
+}
 
 
-        .highlighted-link {
-            background-color: #ff6f61;
-            color: white;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
-            transition: background-color 0.3s, transform 0.3s;
-        }
 
-        .highlighted-link:hover {
-            background-color: #d9574e;
-            transform: scale(1.1);
-        }
 
-        /* Hero Section */
-        .hero-container {
-            padding: 100px 20px 50px;
-            text-align: center;
+
+
+
+        .left-panel {
+            flex: 1;
+            padding: 40px;
             background-color: #1e293b;
             color: white;
-        }
-
-        .hero-container h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        .hero-container p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-
-        .hero-container button {
-        background-color: #ff6f61;
-        color: white;
-        border: 2px solid white;
-        padding: 15px 35px;
-        font-size: 1.2rem;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(255, 111, 97, 0.5);
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-    }
-
-    .hero-container button:hover {
-        background-color: #d9574e;
-        border-color: #ffe5e0;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2), 0 3px 6px rgba(255, 111, 97, 0.7);
-    }
-
-    .hero-container button:focus {
-        outline: none;
-        box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.5);
-    }
-
-        /* Features Section */
-        .features {
-            padding: 50px 20px;
-            background-color: #f9f9f9;
-            text-align: center;
-        }
-
-        .features h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-            color: #1e293b;
-        }
-
-        .features-container {
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
         }
 
-        .feature {
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-            width: 250px;
-            text-align: center;
-            transition: transform 0.3s, box-shadow 0.3s;
+        .left-panel h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
         }
 
-        .feature:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        }
-
-        .feature-icon {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            color: #ff6f61;
-        }
-
-        .feature-text {
+        .left-panel p {
             font-size: 1.1rem;
-            color: #333;
-        }
-        .values-section {
-            margin-top: 0px;
-            padding: 50px 20px;
-            background-color: #f4f4f9;
-            text-align: center;
-            border-radius: 10px;
-        }
-
-        .values-section h2 {
-            font-size: 2rem;
-            color: #1e293b;
-            margin-bottom: 20px;
-        }
-
-        .values-section p {
-            font-size: 1rem;
-            color: #333;
+            line-height: 1.8;
             margin-bottom: 30px;
-            line-height: 1.6;
         }
 
-        .values-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
+        .left-panel ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
         }
 
-        .value-item {
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 250px;
-        }
-
-        .value-graphic {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
+        .left-panel li {
+            font-size: 1rem;
             margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .value-item h3 {
+        .left-panel li::before {
+            content: "✔";
+            color: #ff6f61;
+            font-weight: bold;
+        }
+
+        .right-panel {
+            flex: 1.5;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Centers content */
+            background-color: #f9f9f9;
+            justify-content: space-between; /* Pushes button to the bottom */
+            min-height: 100%; /* Ensures panel stretches fully */
+        }
+
+        .right-panel h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #1e293b;
+            text-align: left;
+        }
+
+        .right-panel h2 {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            color: #555;
+            text-align: left;
+            font-weight: 400;
+        }
+
+        .steps-outline {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+        }
+
+        .step-text {
+            flex: 1;
+        }
+
+        .step-text h3 {
             font-size: 1.2rem;
             color: #1e293b;
+            margin: 0 0 5px;
+        }
+
+        .step-text p {
+            font-size: 1rem;
+            color: #555;
+            margin: 0;
+            font-style: italic; /* Italicized step text */
+        }
+
+        .step-image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            flex-shrink: 0;
+        }
+
+        .step-image {
+            width: 50px;
+            height: 50px;
             margin-bottom: 10px;
         }
 
-        .value-item p {
-            font-size: 0.95rem;
-            color: #555;
-            line-height: 1.5;
+        .step-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 0; /* Makes the image a box */
         }
+
+        .connector {
+            width: 2px;
+            background-color: #ddd;
+            height: 40px;
+        }
+
         .schedule-button {
-            display: inline-block;
             background-color: #ff6f61;
             color: white;
-            padding: 10px 20px;
+            padding: 15px 30px;
+            border: none;
             border-radius: 5px;
             font-size: 1rem;
-            /* font-weight: bold; */
-            text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
-            margin-top: 15px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            align-self: center; /* Ensures button is always centered */
+            margin-top: 50px; /* Adds padding between text and button */
         }
 
         .schedule-button:hover {
             background-color: #d9574e;
-            transform: scale(1.05);
+            transform: translateY(-3px);
         }
     </style>
 </head>
 <body>
-<!-- Navbar Placeholder -->
-<div id="navbar-placeholder"></div>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+    <script src="../Navbar/Navbar.js" defer></script>
 
-<!-- JavaScript to Load Navbar -->
-<script src="../Navbar/Navbar.js" defer></script>
-    <!-- Hero Section -->
-    <div class="hero-container">
-        <h1>Welcome to From the Heart Tutoring</h1>
-        <p>Private virtual tutoring, personalized for you. Start your journey toward academic success!</p>
-        <p>Register for a session in 5 simple steps and in under 10 minutes!</p>
-        <button class="schedule-button" onclick="redirectToSchedule()">Get Started</button>
-    </div>
-
-    <section class="values-section">
-        <h2>Why Choose Us?</h2>
-
-        <div class="values-container">
-            <div class="value-item">
-                <img src="https://i.imgur.com/jPxGP0g.png" alt="Graphic 1" class="value-graphic">
-                <h3>Inclusivity</h3>
-                <p>We welcome students from all backgrounds and create a safe space for learning.</p>
-            </div>
-            <div class="value-item">
-                <img src="https://i.imgur.com/zgIG8ln.png" alt="Graphic 2" class="value-graphic">
-                <h3>Innovation</h3>
-                <p>Our unique teaching methods make learning engaging and effective.</p>
-            </div>
-            <div class="value-item">
-                <img src="https://i.imgur.com/cStGkwq.png" alt="Graphic 3" class="value-graphic">
-                <h3>Community</h3>
-                <p>We are more than tutors—we're mentors who build lasting relationships.</p>
-            </div>
+    <div class="schedule-container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <h2>Why Choose Us?</h2>
+            <p>Our tutors are experts in their fields, passionate about teaching, and dedicated to helping you succeed. Here's what we offer:</p>
+            <ul>
+                <li>Personalized one-on-one sessions</li>
+                <li>Flexible scheduling to fit your needs</li>
+                <li>Support for a wide range of subjects</li>
+                <li>On demand virtual sessions within 48 hours</li>
+            </ul>
+            <p style="margin-top: 30px; font-style: italic; font-size: 1rem; text-align: center;">
+                "From the Heart [Tutoring] seemed like it could be a good match so I reached out. Best decision ever." - Kelly C.
+            </p>
         </div>
-    </section>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <h1>Schedule a Session</h1>
+            <h2>Just 4 easy steps and you're done in under 5 minutes!</h2>
+            <div class="steps-outline">
+                <div class="step">
+                    <div class="step-text">
+                        <h3>Tell Us About Yourself</h3>
+                        <p>Let us know if you have worked with us before.</p>
+                    </div>
+                    <div class="step-image-container">
+                        <div class="step-image">
+                            <img src="https://i.imgur.com/02gz1N6.png" alt="Choose Tutor">
+                        </div>
+                        <div class="connector"></div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-text">
+                        <h3>Pick your Subject(s)</h3>
+                        <p>Choose the subject(s) you need help with.</p>
+                    </div>
+                    <div class="step-image-container">
+                        <div class="step-image">
+                            <img src="https://i.imgur.com/pnAQZlu.png" alt="Pick Subject">
+                        </div>
+                        <div class="connector"></div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-text">
+                        <h3>Choose a Tutor</h3>
+                        <p>Select a tutor that best fits your needs.</p>
+                    </div>
+                    <div class="step-image-container">
+                        <div class="step-image">
+                            <img src="https://i.imgur.com/7V06lu1.png" alt="Set Date and Time">
+                        </div>
+                        <div class="connector"></div>
+                    </div>
+                </div>
+
+                <div class="step">
+                    <div class="step-text">
+                        <h3>Book on our Student Portal</h3>
+                        <p>Create a student portal account and register for a session.</p>
+                    </div>
+                    <div class="step-image-container">
+                        <div class="step-image">
+                            <img src="https://i.imgur.com/i6VTkkP.png" alt="Confirm Booking">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button class="schedule-button" onclick="goToNextStep()">Get Started</button>
+        </div>
+    </div>
     <script>
-        // Redirect function for button
-        function redirectToSchedule() {
-            window.top.location.href = '../ScheduleNowServices/Type-Of-Student.html';
+        localStorage.clear();
+    </script>
+    <script>
+        
+        function goToNextStep() {
+            // Replace the URL below with the link to your next scheduling step
+            window.location.href = '../ScheduleNowServices/Type-Of-Student.html';
         }
     </script>
 </body>

@@ -566,19 +566,13 @@
     if (element.classList.contains('selected')) {
         element.classList.remove('selected');
         selectedSubjects.delete(subject);
-
-        // Force immediate repaint for visual update
-        element.style.animation = 'none';
-        element.offsetHeight; // Trigger a reflow
-        element.style.animation = ''; // Restore animations if necessary
     } else {
         element.classList.add('selected');
         selectedSubjects.add(subject);
+        document.getElementById("error-message").style.display = "none"; // Hide error message on selection
     }
-
-    // console.log("Currently selected subjects:", [...selectedSubjects]);
-    // console.log("Element classList after update:", element.classList);
 }
+
 
 
 
@@ -592,26 +586,27 @@
         }
 
         function redirectToNext() {
-        const tutorSelected = localStorage.getItem('selectedTutorName'); // Check if tutor is selected
+    const tutorSelected = localStorage.getItem('selectedTutorName'); // Check if tutor is selected
+
+    if (selectedSubjects.size === 0) {
+        // Show error message if no subjects are selected
+        document.getElementById("error-message").style.display = "block";
+        return;
+    } else {
+        // Hide error message and save selected subjects
+        document.getElementById("error-message").style.display = "none";
+        localStorage.setItem("selectedSubjects", JSON.stringify([...selectedSubjects]));
 
         if (tutorSelected) {
             // Redirect to TutorAlreadySelected.html if a tutor is already selected
-            window.location.href = 'TutorAlreadySelected.html';
-            errorMessage.style.display = "none";
-            localStorage.setItem('selectedSubjects', JSON.stringify([...selectedSubjects]));
-        } else if (selectedSubjects.size === 0) {
-            // Show error message if no subjects are selected
-            errorMessage.style.display = "block";
-            return;
+            window.location.href = "TutorAlreadySelected.html";
         } else {
-            // Hide error message and save selected subjects
-            errorMessage.style.display = "none";
-            localStorage.setItem('selectedSubjects', JSON.stringify([...selectedSubjects]));
-
             // Redirect to RecommendedTutor.html if no tutor is selected
-            window.location.href = 'RecommendedTutor.html';
+            window.location.href = "RecommendedTutor.html";
         }
     }
+}
+
 
     function redirectToTypeOfStudent() {
         window.location.href = 'Type-Of-Student.html';
