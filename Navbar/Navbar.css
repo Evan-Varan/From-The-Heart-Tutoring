@@ -4,7 +4,10 @@
     padding: 0;
     overflow: visible; /* Allow dropdowns to show */
 }
-
+.favicon-image {
+    position: relative;
+    top: -2px; /* Move it up by 2 pixels */
+}
 .navbar {
     font-family: 'Poppins', sans-serif; /* Apply Poppins font */
     display: flex;
@@ -299,7 +302,16 @@
         display: none !important;;
     }
 }
-
+@media (max-width: 405px) {
+    .logo-image {
+        height: 30px;
+        transform: translateY(8px);
+    }
+    .logo-heart-image {
+        height: 20px;
+        transform: translateY(0px);
+    }
+}
 
 
 /* Hamburger Menu */
@@ -324,22 +336,7 @@
     transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
-/* Mobile Menu */
-/* Mobile Menu: Hidden by default */
-.mobile-menu {
-    display: none; /* Override any display rules */
-    position: fixed;
-    top: 80px; /* Adjust based on your navbar's height */
-    left: 0;
-    width: 100%;
-    background-color: #0f172a; /* Dark background for visibility */
-    flex-direction: column;
-    align-items: center;
-    z-index: 2500; /* Make sure it appears above everything else */
-    padding: 20px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add some depth */
-    transform: translateY(-21px);
-}
+
 
 
 /* Mobile Menu: Shown when `.show` class is added */
@@ -348,32 +345,58 @@
 }
 
 
+.mobile-menu {
+    display: none; /* Hidden by default */
+    position: fixed;
+    top: 80px; /* Adjust based on your navbar's height */
+    left: 0;
+    width: 100%;
+    background-color: #0f172a; /* Dark background for visibility */
+    display: flex; /* Ensure flexbox layout */
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    z-index: 2500; /* Ensure it appears above other elements */
+    padding: 0; /* Remove unnecessary padding for cleaner alignment */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add depth */
+    text-align: center; /* Ensure text aligns properly */
+    transform: translateY(-5%); /* Adjust for perfect vertical centering */
+}
+
 .mobile-menu ul {
-    list-style: none;
-    padding: 0;
+    list-style: none; /* Remove default list styling */
     margin: 0;
-    text-align: center;
+    padding: 0;
+    width: 100%; /* Take full width of the mobile menu */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items horizontally */
+    justify-content: center; /* Ensure spacing is equal */
 }
 
 .mobile-menu li {
-    margin: 10px 0;
+    width: 100%;
+    text-align: center; /* Center text within each list item */
+    padding: 0px 0; /* Add vertical spacing */
 }
 
 .mobile-menu a {
-    color: white; /* Default white text color */
+    display: block;
+    width: 100%; /* Ensure links take full width */
+    text-align: center; /* Center text inside links */
+    color: white;
     text-decoration: none; /* Remove underline */
-    font-size: 1.2rem; /* Match font size with other dropdowns */
-    padding: 10px 20px; /* Add padding for spacing */
-    display: block; /* Ensure links stack vertically */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover transition */
-    border-radius: 5px; /* Rounded corners like other dropdowns */
+    font-size: 1.2rem; /* Adjust font size */
+    padding: 15px; /* Add padding for clickable area */
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border-radius: 5px; /* Rounded edges for links */
 }
 
-/* Hover Effect for Mobile Menu Links */
 .mobile-menu a:hover {
-    background-color: #ff6f61; /* Light coral red hover background */
-    color: white; /* Ensure the text remains white on hover */
+    background-color: #ff6f61; /* Light coral background */
+    color: white; /* Ensure text remains white on hover */
 }
+
 
 
 

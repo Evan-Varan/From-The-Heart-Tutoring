@@ -111,6 +111,8 @@
             background-color: white;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
+    color: black; /* Default black text */
+
     padding: 20px;
     width: 320px; /* Adjust width as needed */
     display: flex; /* Enables horizontal layout */
@@ -121,13 +123,26 @@
     transition: transform 0.3s, box-shadow 0.3s;
     font-size: 1.2rem;
 }
+.subject.selected {
+    background-color: #ff6f61 !important; /* Highlight selected subject */
+    border-color: #d9574e !important;
+    color: white !important; /* Ensure text is visible on red background */
+    transform: scale(1.05) !important;   /* Slightly enlarge selected */
+    box-shadow: none; /* Remove shadow for selected */
+    transition: none !important;        /* Disable transitions on deselect */
+}
 
-.subject:hover, .subject.selected {
-    background-color: #ff6f61;
-    border-color: #d9574e;
-    color: white;
+.subject:hover:not(.selected) {
+    background-color: #f0f0f0; /* Hover effect only applies to unselected subjects */
     transform: scale(1.05);
 }
+
+.subject:hover{
+    background-color: #ff6f61;
+    border-color: #d9574e;
+    transform: scale(1.05);
+}
+
 
 .subject img {
     width: 75px; /* Adjust image size */
@@ -546,14 +561,28 @@
         const errorMessage = document.getElementById('error-message'); // Define error message element
 
         function toggleSelection(element, subject) {
-            if (element.classList.contains('selected')) {
-                element.classList.remove('selected');
-                selectedSubjects.delete(subject);
-            } else {
-                element.classList.add('selected');
-                selectedSubjects.add(subject);
-            }
-        }
+    event.stopPropagation(); // Prevent event bubbling
+
+    if (element.classList.contains('selected')) {
+        element.classList.remove('selected');
+        selectedSubjects.delete(subject);
+
+        // Force immediate repaint for visual update
+        element.style.animation = 'none';
+        element.offsetHeight; // Trigger a reflow
+        element.style.animation = ''; // Restore animations if necessary
+    } else {
+        element.classList.add('selected');
+        selectedSubjects.add(subject);
+    }
+
+    // console.log("Currently selected subjects:", [...selectedSubjects]);
+    // console.log("Element classList after update:", element.classList);
+}
+
+
+
+
 
         function showSubjects(category) {
             document.querySelectorAll('.subjects-container').forEach(container => container.classList.remove('active'));
