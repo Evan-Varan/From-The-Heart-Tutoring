@@ -6,6 +6,8 @@
     <title>About Us | From the Heart Tutoring</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../CSS/Hero.css">
+    <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
     <style>
         body {
             margin: 0;
@@ -39,27 +41,6 @@
         }
     }
 
-
-        .hero {
-            background-color: #1e293b;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            position: relative; /* Add this if not present */
-            z-index: 0; /* Ensure it is lower than the navbar */
-    
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin: 0 0 20px;
-            font-weight: 600;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin: 0;
-        }
 
         .about-section {
             padding: 50px 20px;
@@ -113,23 +94,6 @@
         .expand-button:hover {
             background-color: #d9574e;
             transform: scale(1.05);
-        }
-
-        .footer {
-            background-color: #1e293b;
-            color: white;
-            padding: 20px 10px;
-            text-align: center;
-            font-size: 0.9rem;
-        }
-
-        .footer a {
-            color: #ff6f61;
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
         }
 
         .staff-section {
@@ -475,10 +439,7 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <div class="footer">
-        <p>&copy; 2025 From the Heart Tutoring. All rights reserved.</p>
-    </div>
+    
 
     <script>
         function toggleCredits() {
@@ -489,6 +450,27 @@
                 creditsDetails.style.display = 'block';
             }
         }
+    </script>
+    <div id="footer-placeholder"></div>
+
+    <!-- Load Footer -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../Footer/Footer.html")
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById("footer-placeholder").innerHTML = html;
+    
+                    // Ensure footer.css is loaded dynamically
+                    if (!document.querySelector('link[href="../CSS/footer.css"]')) {
+                        const link = document.createElement("link");
+                        link.rel = "stylesheet";
+                        link.href = "../CSS/footer.css";
+                        document.head.appendChild(link);
+                    }
+                })
+                .catch(error => console.error("Error loading footer:", error));
+        });
     </script>
 </body>
 </html>

@@ -1,0 +1,53 @@
+/* Ensure the footer spans the full width and stays at the bottom */
+.site-footer {
+    background-color: #1e293b;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    font-size: 0.9rem;
+    position: relative;
+    bottom: 0;
+    left: 0;
+}
+
+/* Ensure the main content pushes the footer down */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.main-content {
+    flex: 1; /* Ensures the footer is pushed to the bottom */
+}
+
+/* Center footer content */
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Footer Links */
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+}
+
+.footer-links li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #ff6f61;
+}

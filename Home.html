@@ -7,6 +7,7 @@
     <!-- Link to Google Fonts (Poppins) -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="/Footer/Footer.css"> <!-- Link to navbar CSS -->
     <style>
         body {
     margin: 0;
@@ -954,8 +955,25 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("/Footer/Footer.html")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("footer-placeholder").innerHTML = html;
+
+                // Ensure footer.css is loaded dynamically
+                if (!document.querySelector('link[href="../CSS/footer.css"]')) {
+                    const link = document.createElement("link");
+                    link.rel = "stylesheet";
+                    link.href = "../CSS/footer.css";
+                    document.head.appendChild(link);
+                }
+            })
+            .catch(error => console.error("Error loading footer:", error));
+    });
 
 
     </script>
+    
 </body>
 </html>

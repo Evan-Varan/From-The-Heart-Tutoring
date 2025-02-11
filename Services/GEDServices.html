@@ -6,6 +6,8 @@
     <title>Services | From the Heart Tutoring</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../CSS/Hero.css">
+    <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
     <style>
         body {
             margin: 0;
@@ -36,25 +38,6 @@
     }
 }    
        
-
-        /* Hero Section */
-        .hero {
-            background-color: #1e293b;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin: 0 0 20px;
-            font-weight: 600;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin: 0;
-        }
 
         /* Subjects Section */
         .subjects-section {
@@ -214,5 +197,26 @@
     <div class="back-container">
         <a href="TestPrepServices.html" class="back-button">Back to Test Prep Services</a>
     </div>
+    <div id="footer-placeholder"></div>
+
+<!-- Load Footer -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        fetch("../Footer/Footer.html")
+            .then(response => response.text())
+            .then(html => {
+                document.getElementById("footer-placeholder").innerHTML = html;
+
+                // Ensure footer.css is loaded dynamically
+                if (!document.querySelector('link[href="../CSS/footer.css"]')) {
+                    const link = document.createElement("link");
+                    link.rel = "stylesheet";
+                    link.href = "../CSS/footer.css";
+                    document.head.appendChild(link);
+                }
+            })
+            .catch(error => console.error("Error loading footer:", error));
+    });
+</script>
 </body>
 </html>

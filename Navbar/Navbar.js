@@ -36,3 +36,14 @@ function attachHamburgerMenuListener() {
         console.error("Hamburger menu or mobile menu not found.");
     }
 }
+document.addEventListener("DOMContentLoaded", function () {
+    // Check if the favicon is already present
+    if (!document.querySelector('link[rel="icon"]')) {
+        const favicon = document.createElement("link");
+        favicon.rel = "icon";
+        favicon.href = "https://i.imgur.com/YXXdLF8.png"; // Change URL if needed
+        favicon.type = "image/x-icon";
+        document.head.appendChild(favicon);
+    }
+});
+

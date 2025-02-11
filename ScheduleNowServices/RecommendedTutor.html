@@ -6,6 +6,7 @@
     <title>Recommended Tutors | From the Heart Tutoring</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    
     <style>
         body {
             margin: 0;
@@ -324,8 +325,8 @@
     
         const tutors = [
             { name: "Dianne Simental", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Biology", "AP Biology","AP Biology Exam", "Chemistry", "Physics", "Spanish", "K-8th English", "SAT Math Sections", "ACT Math Section", "ACT Science Section", "GED Mathematical Reasoning Section", "GED Science Section" ], image: "https://i.imgur.com/X0kdDss.jpeg" },
-            { name: "Zarek Cole", subjects: ["Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus","Statistics","AP Statistics", "Calculus 1 (AB)", "Calculus 2 (BC)","Calculus 3","College Algebra","Differential Equations","Abstract Algebra", "Physics", "AP Physics", "Chemistry", "AP Chemistry", "ACT Math", "GED Math", "TSI Math"], image: "https://i.imgur.com/5Cuh8SZ.png" },
-            { name: "Evan Varan", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Calculus 1 (AB)", "Calculus 2 (BC)","College Algebra", "Biology", "Chemistry", "Physics", "AP Physics", "SAT Math", "ACT Math", "TSI Math", "ACT Science", "GED Math", "GED Science", "Computer Science", "Circuits", "Engineering"], image: "https://i.imgur.com/zPiwhDv.png" },
+            { name: "Zarek Cole", subjects: ["Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus","Statistics","AP Statistics", "Calculus 1 (AB)", "Calculus 2 (BC)","Calculus 3","College Algebra","Differential Equations","Abstract Algebra", "Physics", "AP Physics", "Chemistry", "AP Chemistry", "ACT Math Section", "GED Mathematcal Reasoning Section", "TSI Math"], image: "https://i.imgur.com/5Cuh8SZ.png" },
+            { name: "Evan Varan", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus","Statistics", "Calculus 1 (AB)", "Calculus 2 (BC)","College Algebra", "Biology", "Chemistry", "Physics", "AP Physics", "SAT Math Sections", "ACT Math Section", "TSI Math Section", "ACT Science Section", "GED Mathematcal Reasoning Section", "GED Science Section", "Computer Science", "Circuits", "Engineering"], image: "https://i.imgur.com/zPiwhDv.png" },
         ];
     
         const selectedSubjects = JSON.parse(localStorage.getItem("selectedSubjects")) || [];
@@ -475,6 +476,6 @@ function deselectTutor() {
             window.location.href = "ScheduleNowSubjects.html";
         }
     </script>
-    
+   
 </body>
 </html>
