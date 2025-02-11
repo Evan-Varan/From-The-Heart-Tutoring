@@ -55,8 +55,10 @@
         }
 
         .content {
-            width: auto; /* Allow the widget to size itself */
-        }
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
         .info-box {
             width: 300px;
@@ -112,12 +114,13 @@
 
 .widget-wrapper {
     display: flex;
-    flex-direction: row; /* Keep elements side-by-side in full screen */
-    justify-content: center; /* Center elements horizontally */
-    align-items: flex-start; /* Align items at the top */
-    gap: 20px; /* Add spacing between the widget and the schedule box */
+    flex-direction: row; /* Side-by-side layout */
+    justify-content: center; /* Center the widget horizontally */
+    align-items: center; /* Align items in the center */
+    gap: 40px; /* Space between widget and schedule box */
     margin: 0 auto; /* Center the entire wrapper */
-    max-width: 1200px; /* Limit the maximum width for centering */
+    max-width: 1200px; /* Limit width for better centering */
+    padding-top: 70px; /* Keep spacing from navbar */
 }
 
 .create-account-section {
