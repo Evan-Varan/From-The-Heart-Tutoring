@@ -159,15 +159,21 @@
         }
 
         .right-panel {
-            flex: 1.5;
-            padding: 40px;
-            display: flex;
-            flex-direction: column;
-            align-items: center; /* Centers content */
-            background-color: #f9f9f9;
-            justify-content: space-between; /* Pushes button to the bottom */
-            min-height: 100%; /* Ensures panel stretches fully */
-        }
+    flex: 1.5;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f9f9f9;
+    justify-content: flex-start; /* Keeps text at the top */
+    min-height: 100%;
+    position: relative;
+    padding-bottom: 40px; /* Extra bottom space */
+}
+
+.right-panel .square-button {
+    margin-top: 40px; /* Pushes the button downward */
+}
 
         .right-panel h1 {
             font-size: 2rem;

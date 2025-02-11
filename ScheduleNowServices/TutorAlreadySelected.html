@@ -38,24 +38,35 @@
 }
 
     
+.hero {
+    background-color: #1e293b;
+    color: white;
+    padding: 40px 5vw 20px; /* Adjust padding dynamically */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 220px;
+    max-height: auto;
+    overflow: hidden;
+}
 
-        .hero {
-            width: 100%;
-            background-color: #1e293b;
-            color: white;
-            text-align: center;
-            padding: 60px 20px;
-            margin: 0;
-        }
+.hero h1 {
+    font-size: clamp(1.8rem, 3vw, 2.2rem); /* Dynamically adjusts based on width */
+    margin-bottom: 10px;
+    font-weight: 600;
+    line-height: 1.2;
+    max-width: 80%; /* Ensures proper width scaling */
+}
 
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
+.hero p {
+    font-size: clamp(1rem, 2vw, 1.1rem); /* Responsive font size */
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
 
-        .hero p {
-            font-size: 1.2rem;
-        }
 
         .container {
     width: 100%; /* Full width of the page */

@@ -2,12 +2,13 @@
 .hero {
     background-color: #1e293b;
     color: white;
-    padding: 60px 20px; /* Keeping original size */
+    padding: 50px 60px 20px; /* Keeping original size */
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    height: 200px; /* Ensure the correct static height */
 }
 
 /* Header Title */
