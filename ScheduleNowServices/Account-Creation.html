@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="../CSS/Hero.css">
     <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
     <link rel="stylesheet" href="../Progress/Progress.css">
+    <link rel="stylesheet" href="../CSS/Button.css">
     <style>
         body {
             margin: 0;
@@ -124,6 +125,11 @@
         .content {
             width: auto; /* Allow the widget to size itself */
         }
+        .back-button-container {
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    margin-top: 20px; /* Adds spacing above the button */
+}
     
     </style>
 </head>
@@ -169,7 +175,9 @@
     <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9xZFhKMSIsIldlYnNpdGVJRCI6Indic196MjZKViIsIldlYnNpdGVCbG9ja0lEIjoid2JiX1Q0UzFKSCJ9"></script>
     </div>
     <!-- Back Button -->
-    <button class="back-button" onclick="redirectToPreviousPage()">Back</button>
+    <div class="back-button-container">
+        <button class="square-button" onclick="redirectToPreviousPage()">Back</button>
+    </div>
 
     <script>
         // Retrieve the selected tutor's name from localStorage

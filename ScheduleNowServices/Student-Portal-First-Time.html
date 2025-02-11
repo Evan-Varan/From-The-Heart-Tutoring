@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <link rel="stylesheet" href="../CSS/Hero.css">
     <link rel="stylesheet" href="../Progress/Progress.css">
+    <link rel="stylesheet" href="../CSS/Button.css">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -135,6 +136,12 @@
         margin: 0; /* Center schedule box under widget */
     }
 }
+.back-button-container {
+    display: flex;
+    justify-content: center; /* Centers the button horizontally */
+    margin-top: 20px; /* Adds spacing above the button */
+}
+
     </style>
 </head>
 <body>
@@ -211,10 +218,14 @@
             <a href="../MainPages/Welcome.html" class="create-account">Create one through the scheduling process</a>
         </p>
     </div>
+    <div class="back-button-container">
+        <button class="square-button" onclick="redirectToPreviousPage()">Back</button>
+    </div>
     
     
     <!-- Script for Selected Tutor and Progress Dots -->
     <script>
+        
         function updateCacheData() {
           // Save the data from ScheduleNowSubjects.html to localStorage
           const scheduleNowData = localStorage.getItem('selectedSubjects');
@@ -249,7 +260,17 @@
             `;
         }
     });
-
+    function redirectToPreviousPage() {
+        // Check if a tutor is already selected in localStorage
+        const selectedTutor = localStorage.getItem('selectedTutorName'); // Key should match what you set when saving
+        if (selectedTutor) {
+            // Redirect to TutorAlreadySelected.html if a tutor is selected
+            window.location.href = 'TutorAlreadySelected.html';
+        } else {
+            // Redirect to RecommendedTutor.html if no tutor is selected
+            window.location.href = 'RecommendedTutor.html';
+        }
+    }
         // Generate progress bar dots based on student type
         function generateProgressDots() {
             const progressBar = document.getElementById('progress-bar');

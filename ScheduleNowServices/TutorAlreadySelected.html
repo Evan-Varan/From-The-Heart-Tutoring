@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <link rel="stylesheet" href="../Progress/Progress.css">
+    <link rel="stylesheet" href="../CSS/Button.css">
     <style>
         body {
             margin: 0;
@@ -112,7 +113,7 @@
 }
 
 .tutor-info p::before {
-    content: "Subjects:"; /* Dynamically adds "Subjects:" */
+    content: "Teaches:"; /* Dynamically adds "Subjects:" */
     display: inline-block;
     background-color: #1e293b; /* Highlighted background */
     color: white; /* Text color for contrast */
@@ -217,7 +218,7 @@
         <div class="subjects" id="selected-subjects"></div>
         <div class="error-container">
             <p id="error-message"></p>
-            <button id="different-tutor-btn" class="different-tutor-btn" style="display: none;">Schedule with a Different Tutor</button>
+            <button id="different-tutor-btn" class="square-button" style="display: none;">Schedule with a Different Tutor</button>
         </div>
 
     </div>
@@ -253,37 +254,16 @@
     </div>
 
     <div class="buttons-container">
-        <button class="button" onclick="redirectToPrevious()">Back</button>
-        <button class="button" onclick="redirectToNext()">Next</button>
+        <button class="square-button" onclick="redirectToPrevious()">Back</button>
+        <button class="square-button" onclick="redirectToNext()">Next</button>
     </div>
 
     <script>
         // Tutor data from RecommendedTutor.html
         const tutors = [
-            {
-                name: "Dianne Simental",
-                subjects: [
-                    "K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Biology", "AP Biology", 
-                    "AP Biology Exam", "Chemistry", "Physics", "Spanish", "K-8th English", "SAT Math Sections", 
-                    "ACT Math Section", "ACT Science Section", "GED Mathematical Reasoning Section", "GED Science Section"
-                ],
-                image: "https://i.imgur.com/X0kdDss.jpeg"
-            },
-            {
-                name: "Evan Varan",
-                subjects: [
-                    "K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Calculus 1 (AB)", "Calculus 2 (BC)", "Statistics",
-                    "Chemistry", "Physics", "AP Physics", "SAT Math Sections", "ACT Math Section", 
-                    "ACT Science Section", "TSI Math Section", "GED Mathematical Reasoning Section", "GED Science Section"
-                ],
-                image: "https://i.imgur.com/zPiwhDv.png"
-            },
-            { 
-                name: "Zarek Cole", 
-                subjects: ["Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Calculus 1 (AB)", "Calculus 2 (BC)","Calculus 3","Differential Equations","Abstract Algebra", 
-                "Physics", "AP Physics", "Chemistry", "AP Chemistry", "ACT Math", "GED Math", "TSI Math"
-                ], image: "https://i.imgur.com/5Cuh8SZ.png" },
-            // Add other tutors if needed
+            { name: "Dianne Simental", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Biology", "AP Biology","AP Biology Exam", "Chemistry", "Physics", "Spanish", "K-8th English", "SAT Math Sections", "ACT Math Section", "ACT Science Section", "GED Mathematical Reasoning Section", "GED Science Section" ], image: "https://i.imgur.com/X0kdDss.jpeg" },
+            { name: "Zarek Cole", subjects: ["Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus","Statistics","AP Statistics", "Calculus 1 (AB)", "Calculus 2 (BC)","Calculus 3","College Algebra","Differential Equations","Abstract Algebra", "Physics", "AP Physics", "Chemistry", "AP Chemistry", "ACT Math Section", "GED Mathematcal Reasoning Section", "TSI Math"], image: "https://i.imgur.com/5Cuh8SZ.png" },
+            { name: "Evan Varan", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus","Statistics", "Calculus 1 (AB)", "Calculus 2 (BC)","College Algebra", "Biology", "Chemistry", "Physics", "AP Physics", "SAT Math Sections", "ACT Math Section", "TSI Math Section", "ACT Science Section", "GED Mathematcal Reasoning Section", "GED Science Section", "Computer Science", "Circuits", "Engineering"], image: "https://i.imgur.com/zPiwhDv.png" },
         ];
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -389,5 +369,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    const errorMessageElement = document.getElementById('error-message');
+    const nextButton = document.querySelector('.buttons-container button:last-child'); // Select the "Next" button
+
+    // Function to check if the error message is displayed and hide the Next button
+    function toggleNextButton() {
+        if (errorMessageElement.textContent.includes("The selected tutor does not teach")) {
+            nextButton.style.display = "none"; // Hide the Next button
+        } else {
+            nextButton.style.display = "inline-block"; // Show the Next button
+        }
+    }
+
+    // Run check on page load
+    toggleNextButton();
+});
+
+        </script>
+        
 </body>
 </html>

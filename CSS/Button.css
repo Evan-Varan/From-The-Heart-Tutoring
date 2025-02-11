@@ -1,0 +1,39 @@
+/* Base Button Style */
+.square-button {
+    background: linear-gradient(135deg, #e85b50, #c94c43); /* Softer red-orange gradient */
+    color: white;
+    font-family: 'Poppins', sans-serif; /* Matching website font */
+    padding: 14px 28px;
+    border: none;
+    border-radius: 4px; /* Square shape */
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    outline: none;
+    display: inline-block;
+    text-align: center;
+}
+
+/* Hover Effect */
+.square-button:hover {
+    background: linear-gradient(135deg, #d14e44, #b8423b); /* Slightly darker gradient */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15); /* Soft increase */
+}
+
+/* Active (Click) Effect */
+.square-button:active {
+    background: linear-gradient(135deg, #c7463c, #a93c35);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+/* Disabled State */
+.square-button:disabled {
+    background: #aaa;
+    cursor: not-allowed;
+    box-shadow: none;
+    opacity: 0.6;
+}
