@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../Progress/Progress.css">
     <style>
         body {
             margin: 0;
@@ -221,14 +222,27 @@
         </div>
 
     </div>
-    <!-- Progress Dots -->
-    <div class="progress">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+    <div class="progress-steps">
+        <div class="step-container">
+            <div class="step">1</div>
+        </div>
+        <div class="step-container">
+            <div class="step">2</div>
+        </div>
+        <div class="step-container">
+            <div class="step">3</div>
+        </div>
+        <div class="step-container">
+            <div class="step">4</div>
+        </div>
     </div>
+    <script src="../Progress/Progress.js"></script>
+<script>
+    // Call updateSteps with the current step number
+    document.addEventListener("DOMContentLoaded", function() {
+        updateSteps(3); // Change 3 to any current step dynamically
+    });
+</script>
     <div class="container">
         <div class="tutor-card" id="tutor-card">
             <img id="tutor-image" class="staff-image" src="" alt="[Tutor Name]">

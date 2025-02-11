@@ -1,0 +1,139 @@
+/* Subjects Section */
+.math-services-page {
+    min-height: 110vh; /* Ensures page extends downward */
+    display: flex;
+    flex-direction: column;
+}
+.subjects-section {
+    padding-bottom: 20px; /* Reduce bottom padding for uniform spacing */
+    margin-bottom: 0px; /* Ensures spacing matches contact section */
+    text-align: center;
+}
+
+.subjects-section h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: #1e293b;
+}
+
+.subjects-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.subject-card {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 280px;
+    text-align: center;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.subject-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.subject-card img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+}
+
+.subject-card h3 {
+    font-size: 1.5rem;
+    color: #1e293b;
+    margin: 10px 0;
+}
+
+.subject-card p {
+    font-size: 1rem;
+    margin: 0 0 15px;
+    color: #333;
+}
+
+/* Schedule Button */
+.schedule-button {
+    display: inline-block;
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 15px;
+}
+
+.schedule-button:hover {
+    background-color: #d9574e;
+    transform: scale(1.05);
+}
+
+/* Contact Section */
+.contact-section {
+    text-align: center;
+    margin-top: 20px; /* Match spacing with subjects-section */
+    padding-top: 0px; /* Prevent extra space */
+    font-size: 1.2rem;
+}
+
+.contact-section p {
+    margin: 0; /* Ensure no extra space */
+}
+
+/* Contact Link */
+.contact-link {
+    color: #ff6f61;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    margin: 0; /* Keep spacing consistent */
+}
+
+.contact-link:hover {
+    color: #d9574e;
+    transform: scale(1.05);
+}
+
+/* Back Button Container */
+.back-container {
+    text-align: center;
+    margin-top: 20px; /* Match spacing with contact section */
+}
+
+/* Back Button */
+.back-button {
+    display: inline-block;
+    background-color: #1e293b;
+    color: white;
+    padding: 8px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 0px; /* Keep spacing controlled by .back-container */
+}
+
+.back-button:hover {
+    background-color: #374151;
+    transform: scale(1.05);
+}
+
+/* Flexbox for Closer Alignment */
+.contact-container {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between back button and contact link */
+    align-items: center;
+    flex-wrap: wrap;
+}

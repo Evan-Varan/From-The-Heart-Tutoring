@@ -2,17 +2,69 @@
 .hero {
     background-color: #1e293b;
     color: white;
-    padding: 60px 20px;
+    padding: 60px 20px; /* Keeping original size */
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
+/* Header Title */
 .hero h1 {
-    font-size: 2.5rem;
-    margin: 0 0 20px;
+    font-size: 2.2rem; /* Slightly refined for balance */
+    margin-bottom: 12px; /* Reduced spacing */
     font-weight: 600;
+    line-height: 1.2;
 }
 
+/* Subtext */
 .hero p {
-    font-size: 1.2rem;
-    margin: 0;
+    font-size: 1.1rem; /* More balanced with the title */
+    max-width: 700px; /* Prevents excessive stretching */
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1024px) {
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 2rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding: 45px 15px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        padding: 40px 15px;
+    }
+
+    .hero h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
 }

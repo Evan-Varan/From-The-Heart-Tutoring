@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <link rel="stylesheet" href="../CSS/Hero.css">
     <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../Progress/Progress.css">
     <style>
         body {
             margin: 0;
@@ -190,24 +191,7 @@
             margin-top: 10px;
             display: none;
         }
-        /* Progress Dots */
-    .progress {
-        display: flex;
-        justify-content: center;
-        margin: 30px 0;
-    }
-
-    .dot {
-        width: 20px; /* Increased size */
-        height: 20px; /* Increased size */
-        margin: 0 8px; /* Slightly larger spacing */
-        background-color: #d1d1d1;
-        border-radius: 50%;
-    }
-
-    .dot.active {
-        background-color: #ff6f61; /* Highlighted color */
-    }
+        
     .test-prep-options {
         display: flex;
         flex-wrap: wrap;
@@ -267,13 +251,27 @@
         <p>Choose which subject(s) below you would need help with.</p>
     </div>
     <!-- Progress Dots -->
-    <div class="progress">
-        <span class="dot"></span>
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+    <div class="progress-steps">
+        <div class="step-container">
+            <div class="step">1</div>
+        </div>
+        <div class="step-container">
+            <div class="step">2</div>
+        </div>
+        <div class="step-container">
+            <div class="step">3</div>
+        </div>
+        <div class="step-container">
+            <div class="step">4</div>
+        </div>
     </div>
+    <script src="../Progress/Progress.js"></script>
+<script>
+    // Call updateSteps with the current step number
+    document.addEventListener("DOMContentLoaded", function() {
+        updateSteps(2); // Change 3 to any current step dynamically
+    });
+</script>
 
     <!-- Categories -->
     <div class="category-container">

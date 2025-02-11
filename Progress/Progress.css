@@ -1,0 +1,80 @@
+/* Progress Steps Container */
+.progress-steps {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 80%;
+    max-width: 500px;
+    margin: 20px auto;
+}
+
+/* Step Container */
+.step-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-right: 20px; /* Reduced spacing for better line visibility */
+}
+
+/* Connecting Line */
+.step-container::before {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 6px;
+    background-color: #b0b0b0; /* Default: Inactive Gray */
+    left: -24px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 0;
+}
+
+/* Hide Line on First Step */
+.step-container:first-child::before {
+    display: none;
+}
+
+/* Step Circle */
+.step {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #d1d1d1; /* Default: Inactive Gray */
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: relative;
+    z-index: 2;
+    transition: background 0.3s ease-in-out, transform 0.3s;
+}
+
+/* Steps Before Current Step */
+/* Completed Steps (Dark Blue) */
+/* Completed Steps (Dark Blue) */
+/* Completed Steps (Dark Blue) */
+.step.completed {
+    background-color: #1e293b; 
+}
+
+/* Active Step (Current Step) - Red */
+.step.active {
+    background-color: #ff6f61;
+    transform: scale(1.1);
+}
+
+/* Completed Lines (Before Steps) - Dark Blue */
+.step-container.completed::before {
+    background-color: #1e293b;
+}
+
+/* Line Before Active Step - Red */
+.step-container.before-active::before {
+    background-color: #ff6f61 !important;
+}
+
+
+

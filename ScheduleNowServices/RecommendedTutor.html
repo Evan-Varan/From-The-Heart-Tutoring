@@ -6,6 +6,7 @@
     <title>Recommended Tutors | From the Heart Tutoring</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../Progress/Progress.css">
     
     <style>
         body {
@@ -66,26 +67,6 @@
     color: #ff6f61;
 }
 
-
-
-        /* Progress Dots */
-        .progress {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
-        }
-
-        .dot {
-            width: 20px;
-            height: 20px;
-            margin: 0 8px;
-            background-color: #d1d1d1;
-            border-radius: 50%;
-        }
-
-        .dot.active {
-            background-color: #ff6f61;
-        }
 
         /* Tutor Cards */
         .container {
@@ -263,14 +244,27 @@
         <p>Based on your selected subjects, here are the best matches for you.</p>
         <div class="subjects" id="selected-subjects"></div>
     </div>
-    <!-- Progress Dots -->
-    <div class="progress">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+    <div class="progress-steps">
+        <div class="step-container">
+            <div class="step">1</div>
+        </div>
+        <div class="step-container">
+            <div class="step">2</div>
+        </div>
+        <div class="step-container">
+            <div class="step">3</div>
+        </div>
+        <div class="step-container">
+            <div class="step">4</div>
+        </div>
     </div>
+    <script src="../Progress/Progress.js"></script>
+<script>
+    // Call updateSteps with the current step number
+    document.addEventListener("DOMContentLoaded", function() {
+        updateSteps(3); // Change 3 to any current step dynamically
+    });
+</script>
 
     <div class="widget-wrapper">
         <div class="container">
@@ -372,7 +366,7 @@
                     <img src="${tutor.image}" alt="${tutor.name}">
                     <div class="tutor-info">
                         <h3>${tutor.name}</h3>
-                        <p><strong>Subjects:</strong> ${sortedSubjects.join(", ")}</p>
+                        <p><strong>Teaches:</strong> ${sortedSubjects.join(", ")}</p>
                         <a href="../TutorAboutPages/${tutor.name.replace(/\s+/g, "")}.html" target="_blank" style="color: #1e293b;">Read more about me here</a>
                     </div>
                 `;
