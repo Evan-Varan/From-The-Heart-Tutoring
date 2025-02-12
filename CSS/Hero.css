@@ -1,6 +1,6 @@
 /* Hero Section */
 .hero {
-    background-color: #1e293b;
+    background-color: #1e293b !important;
     color: white;
     padding: 50px 60px 20px; /* Keeping original size */
     text-align: center;
@@ -8,7 +8,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 200px; /* Ensure the correct static height */
+    height: 200px !important; /* Ensure the correct static height */
 }
 
 /* Header Title */

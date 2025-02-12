@@ -51,3 +51,6 @@ html, body {
 .footer-links a:hover {
     color: #ff6f61;
 }
+.site-footer {
+    margin-top: 20px; /* Adjust this value as needed */
+}
