@@ -48,7 +48,7 @@
         .contact-section {
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-between; /* Ensures elements don't overlap */
             align-items: flex-start;
             padding: 40px 20px;
             margin: -40px auto 0;
@@ -60,7 +60,7 @@
 
         .form-container {
             flex: 1;
-            min-width: 300px;
+            min-width: 400px;
             margin-right: 20px;
         }
 
@@ -81,7 +81,8 @@
             font-size: 1rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            width: 100%;
+            width: 95%;
+            max-width: 500px; /* Prevents excessive stretching on large screens */
         }
 
         button {
@@ -171,6 +172,7 @@
     </style>
 
 </head>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <body>
 
 <!-- Navbar Placeholder -->
@@ -220,46 +222,86 @@
     </div>
 </div>
 
-<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        emailjs.init("hOLJq0ZLwkJlwtTSb"); // Replace with your EmailJS Public Key
-    });
+            emailjs.init({
+                publicKey: "hOLJq0ZLwkJlwtTSb",
+            });
+        });
 
-    function sendEmail(event) {
-        event.preventDefault();
 
-        let name = document.getElementById("name").value;
-        let email = document.getElementById("email").value;
-        let message = document.getElementById("message").value;
-        let recaptchaResponse = grecaptcha.getResponse();
+        function sendEmail(event) {
+    event.preventDefault();
+    console.log("Submitting form...");
 
-        if (!recaptchaResponse) {
-            alert("Please complete the reCAPTCHA verification.");
+    let name = document.getElementById("name").value;
+    let email = document.getElementById("email").value;
+    let message = document.getElementById("message").value;
+    let recaptchaResponse = grecaptcha.getResponse();
+
+    if (!recaptchaResponse) {
+        alert("Please complete the reCAPTCHA verification.");
+        return;
+    }
+
+    let templateParams = { 
+        from_name: name,
+        message: message,
+        reply_to: email,
+        to_email: "info@fromthehearttutoring.com",
+    };
+
+    emailjs.send("service_owejv6t", "template_k98o8gc", templateParams, "hOLJq0ZLwkJlwtTSb")
+        .then(function () {
+            console.log("Email sent successfully");
+            document.getElementById("contact-form").reset();
+            grecaptcha.reset(); // Reset reCAPTCHA after successful submission
+            showModal();
+        })
+        .catch(function (error) {
+            console.error("EmailJS Error:", error);
+            alert(`Failed to send message. Error: ${error.text || "Unknown error"}`);
+        });
+}
+
+
+    function showModal() {
+    document.getElementById("submissionModal").style.display = "flex";
+
+    // 🎉 Confetti Animation 🎉
+    const duration = 3 * 1000; // 3 seconds
+    const animationEnd = Date.now() + duration;
+    const colors = ["#ff6f61", "#ffcc00", "#4CAF50", "#36A2EB"];
+
+    (function frame() {
+        const timeLeft = animationEnd - Date.now();
+
+        if (timeLeft <= 0) {
             return;
         }
 
-        let templateParams = { 
-            from_name: name,
-            message: message,
-            reply_to: email
-        };
+        confetti({
+            particleCount: 5,
+            angle: 60,
+            spread: 55,
+            origin: { x: 0, y: 0.6 },
+            colors: colors
+        });
 
-        emailjs.send("service_owejv6t", "template_k98o8gc", templateParams)
-            .then(function () {
-                document.getElementById("contact-form").reset();
-                grecaptcha.reset();
-                showModal();
-            })
-            .catch(function (error) {
-                console.error("EmailJS Error:", error);
-                alert(`Failed to send message. Error: ${error.text || "Unknown error"}`);
-            });
-    }
+        confetti({
+            particleCount: 5,
+            angle: 120,
+            spread: 55,
+            origin: { x: 1, y: 0.6 },
+            colors: colors
+        });
 
-    function showModal() {
-        document.getElementById("submissionModal").style.display = "flex";
-    }
+        requestAnimationFrame(frame);
+    })();
+}
+
 
     function closeModal() {
         document.getElementById("submissionModal").style.display = "none";
