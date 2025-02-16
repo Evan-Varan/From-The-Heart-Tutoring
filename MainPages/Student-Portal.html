@@ -41,25 +41,17 @@
 }
 
 
-
-        
-
-
-        /* Center the widget, registration box, and create-account section */
-        .widget-wrapper {
-            display: flex;
-            flex-direction: column; /* Stack content vertically */
-            align-items: center; /* Center all elements horizontally */
-            padding-top: 70px; /* Space below the navbar */
-            gap: 20px; /* Space between stacked elements */
-        }
-
-        .content {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* Empty Spacer to Help Center the Widget */
+.spacer {
+    flex: 1; /* Pushes the widget into the center */
 }
 
+/* Ensures the widget stays centered */
+.content {
+    flex: 2; /* Allows the widget to take up space */
+    display: flex;
+    justify-content: center;
+}
         .info-box {
             width: 300px;
             background: #ffffff;
@@ -101,45 +93,54 @@
         .create-account:hover {
             color: #d9574e;
         }
+        /* Keeps the schedule box on the right */
         .schedule-box {
-    width: 90%; /* Allow dynamic resizing */
-    max-width: 300px; /* Prevent excessive width */
+    flex: 1; /* Increase flex value to make it wider */
+    max-width: 400px; /* Allows the box to be larger but not too big */
     background: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     border: 2px solid #000000;
     padding: 20px;
     text-align: center;
+    margin-left: -20px; /* Move it closer to the widget */
 }
+
 
 .widget-wrapper {
     display: flex;
-    flex-direction: row; /* Side-by-side layout */
-    justify-content: center; /* Center the widget horizontally */
-    align-items: center; /* Align items in the center */
-    gap: 40px; /* Space between widget and schedule box */
-    margin: 0 auto; /* Center the entire wrapper */
-    max-width: 1200px; /* Limit width for better centering */
-    padding-top: 70px; /* Keep spacing from navbar */
+    justify-content: center; /* Centers content */
+    align-items: center; /* Aligns items vertically */
+    gap: 10px; /* Reduce gap between widget and schedule box */
+    max-width: 1200px;
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 70px;
 }
+
 
 .create-account-section {
     text-align: center; /* Center-align the text */
     margin-top: 20px; /* Add spacing below the schedule box */
 }
 
-/* Responsive Layout: Stack elements vertically on smaller screens */
+/* Responsive Layout: Stack elements on small screens */
 @media (max-width: 768px) {
     .widget-wrapper {
-        flex-direction: column; /* Stack elements vertically */
-        align-items: center; /* Center-align elements */
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .spacer {
+        display: none; /* Remove the spacer on small screens */
     }
 
     .schedule-box {
-        margin: 0; /* Center schedule box under widget */
+        width: 90%;
+        max-width: 350px;
+        margin-top: 20px;
     }
 }
-
 
 
     </style>
@@ -159,20 +160,24 @@
 
     <!-- Widget, Registration Box, and Create Account Section -->
     <div class="widget-wrapper">
-        <!-- Widget Content -->
+        <!-- Left Empty for Centering -->
+        <div class="spacer"></div>
+    
+        <!-- Centered TutorBird Widget -->
         <div class="content">
             <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9xZFhKMSIsIldlYnNpdGVJRCI6Indic196MjZKViIsIldlYnNpdGVCbG9ja0lEIjoid2JiX1Q0U2hKTSJ9"></script>
         </div>
     
-        <!-- How to Schedule Info Box -->
+        <!-- Right: "How to Schedule" Box -->
         <div class="schedule-box">
             <h2>How to Schedule a Session</h2>
-            <p>To learn how to register for a session, check out our 
+            <p>To learn how to register for a session, check out our <br>
                 <a href="https://www.tutorbird.com/download/66986/?tmstv=1701374343" target="_blank" class="create-account">detailed guide</a>.
             </p>
             <p>Sessions are one hour long at a standard rate of $70 per hour.</p>
         </div>
     </div>
+    
     
     <!-- Create Account Section -->
     <div class="create-account-section">

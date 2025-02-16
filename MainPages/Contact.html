@@ -4,22 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us | From the Heart Tutoring</title>
-
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    
-    <!-- Link to Navbar CSS -->
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> 
-    <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <style>
-        /* Global Styles */
-        body {
-            margin: 0;
+        /* Reset and base styles */
+        *:not(.navbar, .navbar *) {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+        body, html {
             font-family: 'Poppins', sans-serif;
-            background-color: #f3f4f6;
+            line-height: 1.6;
             color: #333;
+            background-color: #f3f4f6;
+            width: 100%;
+            overflow-x: hidden;
         }
 
         /* Hero Section */
@@ -32,11 +36,12 @@
 
         .hero h1 {
             font-size: 2.5rem;
-            margin: 0 0 20px;
+            margin-bottom: 20px;
         }
 
         .hero p {
             font-size: 1.2rem;
+            margin: 10px 0;
         }
 
         .hero strong {
@@ -48,67 +53,80 @@
         .contact-section {
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between; /* Ensures elements don't overlap */
-            align-items: flex-start;
+            justify-content: center;
+            align-items: stretch;
             padding: 40px 20px;
-            margin: -40px auto 0;
+            margin: 20px auto;
             background-color: white;
             max-width: 1200px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
         }
 
-        .form-container {
+        .form-container, .info-container {
             flex: 1;
-            min-width: 400px;
-            margin-right: 20px;
+            min-width: 300px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-container {
+            border-right: 2px solid #f3f4f6;
         }
 
         form {
-            display: flex;
-            flex-direction: column;
+            width: 100%;
+            max-width: 400px;
         }
 
         label {
+            display: block;
             font-size: 1rem;
             margin-bottom: 5px;
             font-weight: 500;
         }
 
-        input, textarea, button {
-            margin-bottom: 20px;
+        input {
+            width: 100%;
+            height: 10%;
             padding: 12px;
+            margin-bottom: 20px;
             font-size: 1rem;
             border: 1px solid #ddd;
             border-radius: 4px;
-            width: 95%;
-            max-width: 500px; /* Prevents excessive stretching on large screens */
+        }
+        textarea{
+            width: 100%;
+            height: 35%;
+            padding: 12px;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
         }
 
         button {
             background-color: #ff6f61;
             color: white;
             border: none;
-            cursor: pointer;
-            font-weight: bold;
-            transition: background-color 0.3s ease, transform 0.2s ease;
             padding: 15px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            height: 10%;
         }
 
         button:hover {
             background-color: #d9574e;
-            transform: scale(1.05);
         }
 
         /* Contact Info Section */
-        .info-container {
-            flex: 1;
-            min-width: 300px;
-            padding-left: 20px;
-            border-left: 2px solid #f3f4f6;
-        }
-
         .info-container h3 {
             margin-bottom: 20px;
             color: #2c3e50;
@@ -127,6 +145,36 @@
 
         .info-container a:hover {
             text-decoration: underline;
+        }
+
+        /* Social Media Section */
+        .social-container {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            color: #1e293b;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            gap: 8px;
+        }
+
+        .social-links img {
+            width: 32px;
+            height: 32px;
+            vertical-align: middle;
         }
 
         /* Modal Styles */
@@ -169,235 +217,178 @@
         #submissionModal button:hover {
             background-color: #d9574e;
         }
-        .social-container {
-    text-align: center;
-    padding: 20px;
-    background-color: #1e293b; /* Dark Background */
-    color: white; /* Ensures text is visible */
-    margin-top: 20px;
-    border-radius: 8px;
-}
 
-.social-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    align-items: center;
-    flex-wrap: wrap;
-}
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-section {
+                flex-direction: column;
+            }
 
-.social-links a {
-    display: flex;
-    align-items: center;
-    color: white;
-    font-size: 18px;
-    font-weight: bold;
-    text-decoration: none;
-    gap: 8px;
-}
+            .form-container, .info-container {
+                width: 100%;
+                border-right: none;
+                border-bottom: 2px solid #f3f4f6;
+                padding: 30px 20px;
+            }
 
-.social-links img {
-    vertical-align: middle;
-}
-
-
-.social-links a:hover {
-    text-decoration: underline;
-}
-.social-container h3 {
-    font-size: 22px; /* Increase font size */
-    font-weight: bold; /* Make it stand out */
-    color: #ffffff; /* Pure white for contrast */
-    margin-bottom: 15px;
-}
-
+            .info-container {
+                border-bottom: none;
+            }
+            button {
+                height: 200%;
+            }
+        }
     </style>
-
 </head>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 <body>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
 
-<!-- Navbar Placeholder -->
-<div id="navbar-placeholder"></div>
-
-<!-- JavaScript to Load Navbar -->
-<script src="../Navbar/Navbar.js" defer></script>
-
-<!-- Hero Section -->
-<div class="hero">
-    <h1>We’d Love to Hear from You</h1>
-    <p>Have questions? Get in touch with us using the form below or through our contact details!</p>
-    <p><strong>Please allow up to 3 business days for a response</strong></p>
-</div>
-
-<!-- Contact Section -->
-<div class="contact-section">
-    <div class="form-container">
-        <form id="contact-form" onsubmit="sendEmail(event);">
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required>
-        
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required>
-        
-            <label for="message">Message:</label>
-            <textarea id="message" name="message" rows="5" required></textarea>
-        
-            <div class="g-recaptcha" data-sitekey="6LeQALAqAAAAAKN0KIfQ6hSG24YKUGiLulcQ2a7s"></div>
-            <button type="submit">Submit</button>
-        </form>
+    <!-- JavaScript to Load Navbar -->
+    <script src="../Navbar/Navbar.js" defer></script>
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>We'd Love to Hear from You</h1>
+        <p>Have questions? Get in touch with us using the form below or through our contact details!</p>
+        <p><strong>Please allow up to 3 business days for a response</strong></p>
     </div>
 
-    <div class="info-container">
-        <h3>Contact Information</h3>
-        <p>Email: <a href="mailto:info@fromthehearttutoring.com">info@fromthehearttutoring.com</a></p>
-        <p>Address: Based and Founded in Austin, Texas</p>
-        <!-- Social Media Section -->
-<!-- Social Media Section -->
-<!-- Social Media Section -->
-<!-- Social Media Section -->
-<!-- Social Media Section -->
-<div class="social-container">
-    <h3>Follow Us on Social Media</h3>
-    <div class="social-links">
-        <a href="https://www.facebook.com/profile.php?id=100066409571827" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" 
-                 alt="Facebook" width="32" height="32"> Facebook
-        </a> |
-        <a href="https://www.instagram.com/fromtheheartsocial/" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-                 alt="Instagram" width="32" height="32"> Instagram
-        </a> |
-        <a href="https://www.linkedin.com/company/from-the-heart-tutoring" target="_blank">
-            <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" 
-                 alt="LinkedIn" width="32" height="32"> LinkedIn
-        </a> |
-        <a href="https://www.tiktok.com/@fromthehearttutoring" target="_blank">
-            <img src="https://i.imgur.com/3Nga21m.jpeg" 
-                 alt="TikTok" width="32" height="32"> TikTok
-        </a>
+    <!-- Contact Section -->
+    <div class="contact-section">
+        <div class="form-container">
+            <form id="contact-form" onsubmit="sendEmail(event);">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            
+                <div class="g-recaptcha" data-sitekey="6LeQALAqAAAAAKN0KIfQ6hSG24YKUGiLulcQ2a7s"></div>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <div class="info-container">
+            <h3>Contact Information</h3>
+            <p>Email: <a href="mailto:info@fromthehearttutoring.com">info@fromthehearttutoring.com</a></p>
+            <p>Address: Based and Founded in Austin, Texas</p>
+            
+            <!-- Social Media Section -->
+            <div class="social-container">
+                <h3>Follow Us on Social Media</h3>
+                <div class="social-links">
+                    <a href="https://www.facebook.com/profile.php?id=100066409571827" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" 
+                             alt="Facebook"> Facebook
+                    </a>
+                    <a href="https://www.instagram.com/fromtheheartsocial/" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+                             alt="Instagram"> Instagram
+                    </a>
+                    <a href="https://www.linkedin.com/company/from-the-heart-tutoring" target="_blank">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" 
+                             alt="LinkedIn"> LinkedIn
+                    </a>
+                    <a href="https://www.tiktok.com/@fromthehearttutoring" target="_blank">
+                        <img src="https://i.imgur.com/3Nga21m.jpeg" 
+                             alt="TikTok"> TikTok
+                    </a>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
-</div>
 
-
-
-
-
-<!-- Submission Received Modal -->
-<div id="submissionModal">
-    <div>
-        <h2>Submission Received</h2>
-        <p>Thank you for your message! We will get back to you within 3 business days.</p>
-        <button onclick="closeModal()">Close</button>
+    <!-- Submission Received Modal -->
+    <div id="submissionModal">
+        <div>
+            <h2>Submission Received</h2>
+            <p>Thank you for your message! We will get back to you within 3 business days.</p>
+            <button onclick="closeModal()">Close</button>
+        </div>
     </div>
-</div>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
             emailjs.init({
                 publicKey: "hOLJq0ZLwkJlwtTSb",
             });
         });
 
-
         function sendEmail(event) {
-    event.preventDefault();
-    console.log("Submitting form...");
+            event.preventDefault();
+            console.log("Submitting form...");
 
-    let name = document.getElementById("name").value;
-    let email = document.getElementById("email").value;
-    let message = document.getElementById("message").value;
-    let recaptchaResponse = grecaptcha.getResponse();
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let message = document.getElementById("message").value;
+            let recaptchaResponse = grecaptcha.getResponse();
 
-    if (!recaptchaResponse) {
-        alert("Please complete the reCAPTCHA verification.");
-        return;
-    }
+            if (!recaptchaResponse) {
+                alert("Please complete the reCAPTCHA verification.");
+                return;
+            }
 
-    let templateParams = { 
-        from_name: name,
-        message: message,
-        reply_to: email,
-        to_email: "info@fromthehearttutoring.com",
-    };
+            let templateParams = { 
+                from_name: name,
+                message: message,
+                reply_to: email,
+                to_email: "info@fromthehearttutoring.com",
+            };
 
-    emailjs.send("service_owejv6t", "template_k98o8gc", templateParams, "hOLJq0ZLwkJlwtTSb")
-        .then(function () {
-            console.log("Email sent successfully");
-            document.getElementById("contact-form").reset();
-            grecaptcha.reset(); // Reset reCAPTCHA after successful submission
-            showModal();
-        })
-        .catch(function (error) {
-            console.error("EmailJS Error:", error);
-            alert(`Failed to send message. Error: ${error.text || "Unknown error"}`);
-        });
-}
-
-
-    function showModal() {
-    document.getElementById("submissionModal").style.display = "flex";
-
-    // 🎉 Confetti Animation 🎉
-    const duration = 3 * 1000; // 3 seconds
-    const animationEnd = Date.now() + duration;
-    const colors = ["#ff6f61", "#ffcc00", "#4CAF50", "#36A2EB"];
-
-    (function frame() {
-        const timeLeft = animationEnd - Date.now();
-
-        if (timeLeft <= 0) {
-            return;
+            emailjs.send("service_owejv6t", "template_k98o8gc", templateParams, "hOLJq0ZLwkJlwtTSb")
+                .then(function () {
+                    console.log("Email sent successfully");
+                    document.getElementById("contact-form").reset();
+                    grecaptcha.reset();
+                    showModal();
+                })
+                .catch(function (error) {
+                    console.error("EmailJS Error:", error);
+                    alert(`Failed to send message. Error: ${error.text || "Unknown error"}`);
+                });
         }
 
-        confetti({
-            particleCount: 5,
-            angle: 60,
-            spread: 55,
-            origin: { x: 0, y: 0.6 },
-            colors: colors
-        });
+        function showModal() {
+            document.getElementById("submissionModal").style.display = "flex";
 
-        confetti({
-            particleCount: 5,
-            angle: 120,
-            spread: 55,
-            origin: { x: 1, y: 0.6 },
-            colors: colors
-        });
+            const duration = 3 * 1000;
+            const animationEnd = Date.now() + duration;
+            const colors = ["#ff6f61", "#ffcc00", "#4CAF50", "#36A2EB"];
 
-        requestAnimationFrame(frame);
-    })();
-}
+            (function frame() {
+                const timeLeft = animationEnd - Date.now();
 
-
-    function closeModal() {
-        document.getElementById("submissionModal").style.display = "none";
-    }
-</script>
-<!-- <div id="footer-placeholder"></div>
-
-
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        fetch("../Footer/Footer.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("footer-placeholder").innerHTML = html;
-
-                // Ensure footer.css is loaded dynamically
-                if (!document.querySelector('link[href="../CSS/footer.css"]')) {
-                    const link = document.createElement("link");
-                    link.rel = "stylesheet";
-                    link.href = "../CSS/footer.css";
-                    document.head.appendChild(link);
+                if (timeLeft <= 0) {
+                    return;
                 }
-            })
-            .catch(error => console.error("Error loading footer:", error));
-    });
-</script> -->
+
+                confetti({
+                    particleCount: 5,
+                    angle: 60,
+                    spread: 55,
+                    origin: { x: 0, y: 0.6 },
+                    colors: colors
+                });
+
+                confetti({
+                    particleCount: 5,
+                    angle: 120,
+                    spread: 55,
+                    origin: { x: 1, y: 0.6 },
+                    colors: colors
+                });
+
+                requestAnimationFrame(frame);
+            })();
+        }
+
+        function closeModal() {
+            document.getElementById("submissionModal").style.display = "none";
+        }
+    </script>
 </body>
 </html>
+

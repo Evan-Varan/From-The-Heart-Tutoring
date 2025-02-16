@@ -258,15 +258,15 @@
     }
 }
 
-@media (min-width: 985px) {
+@media (min-width: 986px) {
     .navbar-dropdown3 {
-        display: none !important;;
+        display: none !important;
     }
-    .navbar-dropdown3,
     .navbar-center-small {
-        display: none !important;;
+        display: none !important;
     }
 }
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .navbar-center,

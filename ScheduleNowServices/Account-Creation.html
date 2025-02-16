@@ -131,7 +131,43 @@
     justify-content: center; /* Centers the button horizontally */
     margin-top: 20px; /* Adds spacing above the button */
 }
-    
+.mailing-list-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.mailing-list-section input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.mailing-list-section label {
+    color: #333;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.mailing-list-section button {
+    background-color: #ff6f61;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.mailing-list-section button:hover {
+    background-color: #d9574e;
+    transform: scale(1.05);
+}
+
     </style>
 </head>
 <body>
@@ -175,6 +211,38 @@
     <div class="widget-wrapper">
     <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9xZFhKMSIsIldlYnNpdGVJRCI6Indic196MjZKViIsIldlYnNpdGVCbG9ja0lEIjoid2JiX1Q0UzFKSCJ9"></script>
     </div>
+    <!-- Mailing List Signup -->
+<!-- <div class="mailing-list-section">
+    <input type="checkbox" id="mailing-list-checkbox">
+    <label for="mailing-list-checkbox">Sign up for our mailing list</label>
+    <button id="submit-email" onclick="submitEmail()">Submit</button>
+</div>
+
+<script>
+    function submitEmail() {
+        const checkbox = document.getElementById("mailing-list-checkbox");
+        const emailInput = document.getElementById("mailing-list-email");
+        const message = document.getElementById("mailing-list-message");
+
+        if (checkbox.checked && emailInput.value.trim() !== "") {
+            fetch('/save-email', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ email: emailInput.value.trim() })
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log(data);
+                message.style.display = "block";
+                emailInput.value = ""; // Clear input after submission
+            })
+            .catch(error => console.error("Error:", error));
+        } else {
+            alert("Please check the box and enter a valid email.");
+        }
+    }
+</script> -->
+
     <!-- Back Button -->
     <div class="back-button-container">
         <button class="square-button" onclick="redirectToPreviousPage()">Back</button>
