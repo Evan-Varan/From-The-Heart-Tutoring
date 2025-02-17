@@ -10,248 +10,261 @@
     
     <style>
         body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-image: linear-gradient(to bottom, #f0f4ff, #ffffff);
-            background-repeat: no-repeat;
-            background-size: cover;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Keep it behind the content */
-    background-image: 
-        url('https://i.imgur.com/YXXdLF8.png'), /* Left Heart */
-        url('https://i.imgur.com/YXXdLF8.png'); /* Right Heart */
-    background-repeat: no-repeat, no-repeat;
-    background-position: calc(15% - 125px) 400px, calc(85% + 125px) 400px; /* Ensure even spacing */
-    background-size: 15vw, 15vw; /* Scale with viewport */
-    opacity: 0.5; /* Adjust transparency */
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-image: linear-gradient(to bottom, #f0f4ff, #ffffff);
+  background-repeat: no-repeat;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-image: url("https://i.imgur.com/YXXdLF8.png"), url("https://i.imgur.com/YXXdLF8.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: calc(15% - 125px) 400px, calc(85% + 125px) 400px;
+  background-size: 15vw, 15vw;
+  opacity: 0.5;
 }
 
 @media (max-width: 1200px) {
-    body::before {
-        background-image: none; /* Remove the images */
-    }
+  body::before {
+    background-image: none;
+  }
 }
 
 .schedule-container {
-    display: flex;
-    flex-direction: row; /* Default: side-by-side layout */
-    flex-wrap: nowrap; /* Prevents unintended stacking at large screens */
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    max-width: 1100px;
-    width: 90%;
-    margin: 50px auto;
-    justify-content: center;
-    align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  max-width: 1100px;
+  width: 90%;
+  margin: 50px auto;
+  justify-content: center;
+  align-items: stretch;
 }
 
-/* Panels default to side-by-side */
-.left-panel, .right-panel {
-    flex: 1; /* Ensures equal width */
-    padding: 30px;
-    box-sizing: border-box;
-    min-width: 400px; /* Prevents early stacking */
+.left-panel,
+.right-panel {
+  flex: 1;
+  padding: 30px;
+  box-sizing: border-box;
+  min-width: 400px;
 }
 
-/* When screen is too small, stack left-panel on top */
 @supports (display: flex) {
-    .schedule-container {
-        display: flex;
-    }
-
-    .schedule-container:has(.left-panel) {
-        flex-wrap: wrap;
-    }
-
-    /* This ensures the left panel moves ON TOP when screen gets small */
-    .schedule-container:has(.left-panel) .left-panel {
-        order: -1; /* Moves left-panel above right-panel */
-    }
-
-    .left-panel, .right-panel {
-        width: 100%; /* Stacked layout on small screens */
-    }
-}
-
-/* Fallback for old browsers */
-@supports not (flex-wrap: wrap) {
-    .schedule-container {
-        display: block;
-    }
-
-    .left-panel, .right-panel {
-        width: 100%;
-    }
-}
-
-
-
-
-
-
-
-        .left-panel {
-            flex: 1;
-            padding: 40px;
-            background-color: #1e293b;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .left-panel h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
-
-        .left-panel p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
-        }
-
-        .left-panel ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
-
-        .left-panel li {
-            font-size: 1rem;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .left-panel li::before {
-            content: "✔";
-            color: #ff6f61;
-            font-weight: bold;
-        }
-
-        .right-panel {
-    flex: 1.5;
-    padding: 40px;
+  .schedule-container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f9f9f9;
-    justify-content: flex-start; /* Keeps text at the top */
-    min-height: 100%;
-    position: relative;
-    padding-bottom: 40px; /* Extra bottom space */
+  }
+
+  .schedule-container:has(.left-panel) {
+    flex-wrap: wrap;
+  }
+
+  .schedule-container:has(.left-panel) .left-panel {
+    order: -1;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+}
+
+@supports not (flex-wrap: wrap) {
+  .schedule-container {
+    display: block;
+  }
+
+  .left-panel,
+  .right-panel {
+    width: 100%;
+  }
+}
+
+.left-panel {
+  flex: 1;
+  padding: 40px;
+  background-color: #1e293b;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left-panel h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.left-panel p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.left-panel ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.left-panel li {
+  font-size: 1rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.left-panel li::before {
+  content: "✔";
+  color: #ff6f61;
+  font-weight: bold;
+}
+
+.right-panel {
+  flex: 1.5;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  justify-content: flex-start;
+  min-height: 100%;
+  position: relative;
+  padding-bottom: 40px;
 }
 
 .right-panel .square-button {
-    margin-top: 40px; /* Pushes the button downward */
+  margin-top: 40px;
 }
 
+.right-panel h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #1e293b;
+  text-align: left;
+}
 
-        .right-panel h1 {
-            font-size: 2rem;
-            margin-bottom: 10px;
-            color: #1e293b;
-            text-align: left;
-        }
+.right-panel h2 {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  color: #555;
+  text-align: left;
+  font-weight: 400;
+}
 
-        .right-panel h2 {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            color: #555;
-            text-align: left;
-            font-weight: 400;
-        }
+.highlight {
+  background-color: #ff6f61;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  display: inline-block;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
 
-        .steps-outline {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: flex-start;
-            width: 100%;
-        }
+.highlight:hover {
+  transform: rotate(0deg) scale(1.05);
+}
 
-        .step {
-            display: flex;
-            align-items: flex-start;
-            width: 100%;
-        }
+.steps-outline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+  width: 100%;
+}
 
-        .step-text {
-            flex: 1;
-        }
+.step {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
 
-        .step-text h3 {
-            font-size: 1.2rem;
-            color: #1e293b;
-            margin: 0 0 5px;
-        }
+.step-text {
+  flex: 1;
+}
 
-        .step-text p {
-            font-size: 1rem;
-            color: #555;
-            margin: 0;
-            font-style: italic; /* Italicized step text */
-        }
+.step-text h3 {
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin: 0 0 5px;
+}
 
-        .step-image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-shrink: 0;
-        }
+.step-text p {
+  font-size: 1rem;
+  color: #555;
+  margin: 0;
+  font-style: italic;
+}
 
-        .step-image {
-            width: 50px;
-            height: 50px;
-            margin-bottom: 10px;
-        }
+.step-image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
 
-        .step-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0; /* Makes the image a box */
-        }
+.step-image {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
 
-        .connector {
-            width: 2px;
-            background-color: #ddd;
-            height: 40px;
-        }
+.step-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+}
 
-        .schedule-button {
-            background-color: #ff6f61;
-            color: white;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            align-self: center; /* Ensures button is always centered */
-            margin-top: 50px; /* Adds padding between text and button */
-        }
+.connector {
+  width: 2px;
+  background-color: #ddd;
+  height: 40px;
+}
 
-        .schedule-button:hover {
-            background-color: #d9574e;
-            transform: translateY(-3px);
-        }
+.square-button {
+  background-color: #ff6f61;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: center;
+  margin-top: 50px;
+}
+
+.square-button:hover {
+  background-color: #d9574e;
+  transform: translateY(-3px);
+}
+
+.testimonial {
+  margin-top: 30px;
+  font-style: italic;
+  font-size: 1rem;
+  text-align: center;
+}
     </style>
 </head>
 <body>
@@ -278,7 +291,7 @@
         <!-- Right Panel -->
         <div class="right-panel">
             <h1>Schedule a Session</h1>
-            <h2>Just 4 easy steps and you're done in under 5 minutes!</h2>
+            <h2>Just <span class="highlight">4 easy steps</span> and you're done in under 5 minutes!</h2>
             <div class="steps-outline">
                 <div class="step">
                     <div class="step-text">

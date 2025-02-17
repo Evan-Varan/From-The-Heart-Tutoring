@@ -16,7 +16,8 @@
         }
 
         /* Apply the universal reset to everything EXCEPT the navbar */
-* {
+
+*:not(.navbar, .navbar *) {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -39,20 +40,27 @@ h2 {
     font-size: 1.6rem; /* Match FAQ page subheading size */
     font-weight: bold;
     color: var(--secondary-color);
+    margin-bottom: 1.5em;
+    margin-top: 1em; /* Added top margin */
+    font-size: calc(16px + 0.6vw);
+    padding-top: 1em; /* Added padding */
+    padding-bottom: 0.5em; /* Added padding */
+    /* Removed: border-top: 1px solid #e0e0e0; */
 }
 
 h3 {
     font-size: 1.4rem; /* Slightly smaller than h2 */
+    color: var(--secondary-color);
+    margin-bottom: 1.5em;
+    margin-top: 2em; /* Increased from 2em */
+    font-size: calc(16px + 0.4vw);
+    padding-top: 1em; /* Added padding */
+    padding-bottom: 0.5em; /* Added padding */
 }
 
-p {
-    font-size: 1.1rem; /* Match FAQ page paragraph size */
-    line-height: 1.8; /* Improve readability */
+h4 {
+    font-size: 1.1rem;
 }
-
-        h4 {
-            font-size: 1.1rem;
-        }
 
 
         .container {
@@ -73,6 +81,7 @@ p {
             color: white;
             text-align: center;
             padding: 3em 1em;
+            margin-bottom: 2em; /* Added margin at the bottom */
         }
 
         .hero h1 {
@@ -84,20 +93,11 @@ p {
             font-size: calc(14px + 0.4vw);
         }
 
-        section {
-            margin-top: 2em;
-        }
-
-        h2, h3 {
-            color: var(--secondary-color);
-            margin-bottom: 1em;
-            margin-top: 1em;
-            font-size: calc(16px + 0.6vw);
-        }
-
-        p {
-            margin-bottom: 1em;
-        }
+section {
+    margin-top: 4em; /* Increased from 3em */
+    padding-top: 2em; /* Increased from 1em */
+    border-top: 1px solid #e0e0e0; /* Added a subtle separator */
+}
 
         .staff-members {
             display: flex;
@@ -134,6 +134,10 @@ p {
             margin-bottom: 0.5em;
         }
 
+        .staff-member h4 {
+            margin-bottom: 1em;
+        }
+
         .about-link {
             display: inline-block;
             color: var(--primary-color);
@@ -167,6 +171,10 @@ p {
             width: 100px;
             height: 100px;
             object-fit: cover;
+            margin-bottom: 1em;
+        }
+
+        .value-item h3 {
             margin-bottom: 1em;
         }
 
@@ -275,6 +283,29 @@ p {
             text-decoration: underline;
         }
         
+        .staff-section h3 {
+            background-color: #f5f5f5; /* Light grey background */
+            padding: 0.75em 1em; /* Increased padding */
+            border-radius: 5px; /* Rounded corners */
+            display: inline-block; /* Makes the background only as wide as the text */
+            margin-bottom: 1.5em;
+        }
+
+        .values-section h2,
+        .staff-section h2,
+        .credits-section h2 {
+            margin-bottom: 1.5em; /* Space below the section titles */
+        }
+
+        .staff-section,
+        .values-section,
+        .credits-section {
+            margin-top: 5em; /* Extra space above these sections */
+        }
+
+        .values-section > p {
+            margin-bottom: 2em; /* Increased spacing before the values container */
+        }
     </style>
 </head>
 <body>
@@ -292,6 +323,7 @@ p {
         <section class="about-section">
             <h2>Our Mission</h2>
             <p>From the Heart Tutoring was founded with a mission to provide personalized and impactful education to students of all ages. Our tutors are passionate educators committed to helping learners achieve their goals and build confidence in their abilities.</p>
+            <br>
             <p>We specialize in a range of subjects including Math, Science, and Test Preparation, tailoring our approach to meet each student's unique learning style. With years of experience and proven results, our team is dedicated to making a positive difference in education.</p>
         </section>
 
@@ -321,7 +353,7 @@ p {
                     <img src="https://i.imgur.com/5Cuh8SZ.png" alt="Zarek Cole" class="staff-image">
                     <h4>Zarek Cole</h4>
                     <p class="staff-title">K-College Math Tutor</p>
-                    <p>Senior mathematics college student. Experienced in teaching up and through the college level.</p>
+                    <p>Senior mathematics college student. Experienced in teaching high school and college level advanced courses.</p>
                     <a href="../TutorAboutPages/ZarekCole.html" class="about-link">Learn more or schedule with Zarek</a>
                 </div>
                 <div class="staff-member">

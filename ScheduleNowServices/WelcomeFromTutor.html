@@ -270,7 +270,19 @@
             font-weight: bold;
             margin-left: 5px;
         }
-
+        .highlight {
+  background-color: #ff6f61;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-weight: 600;
+  display: inline-block;
+  transform: rotate(-2deg);
+  transition: transform 0.3s ease;
+}
+.highlight:hover {
+  transform: rotate(0deg) scale(1.05);
+}
     </style>
 </head>
 <body>
@@ -297,7 +309,7 @@
         <!-- Right Panel -->
         <div class="right-panel">
             <h1>Schedule a Session</h1>
-            <h2>Just 3 easy steps and you're done in under 5 minutes!</h2>
+            <h2>Just <span class="highlight">3 easy steps</span> and you're done in under 5 minutes!</h2>
             <!-- Tutor Section -->
 
             <div class="steps-outline">
