@@ -148,57 +148,64 @@
 
 /* Buttons */
 /* Button Container */
+/* Updated styles for the hero buttons */
 .modern-hero-buttons {
-    display: flex;
-    flex-direction: column; /* Stack buttons vertically on small screens */
-    align-items: center; /* Center align buttons */
-    justify-content: center; /* Ensure vertical centering */
-    gap: 15px; /* Space between buttons */
-    width: 100%; /* Full width for consistency */
-    max-width: 300px; /* Constrain the button container width */
-    margin: 0 auto; /* Center the container horizontally */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  width: 100%;
+  max-width: 600px; /* Increased max-width for better spacing on larger screens */
+  margin: 0 auto;
 }
 
-
-.cta-main, .cta-secondary {
-    display: inline-block; /* Inline-block for proper padding/margin behavior */
-    text-align: center; /* Center text */
-    padding: 15px 30px; /* Adjust size */
-    border-radius: 8px; /* Rounded corners */
-    font-size: 1rem; /* Consistent font size */
-    font-weight: bold; /* Bold text */
-    text-decoration: none; /* Remove underline */
-    transition: all 0.3s ease; /* Smooth hover effect */
+.cta-main,
+.cta-secondary {
+  display: inline-block;
+  text-align: center;
+  padding: 15px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  width: 100%; /* Full width on mobile */
+  max-width: 250px; /* Max width for larger screens */
 }
-
-
-.cta-main:hover {
-    background-color: #d9574e;
-    transform: scale(1.05);
-}
-
 
 .cta-main {
-    background-color: #ff6f61; /* Main theme color */
-    color: white; /* Text color */
+  background-color: #ff6f61;
+  color: white;
 }
 
 .cta-main:hover {
-    background-color: #d9574e; /* Slightly darker on hover */
-    transform: scale(1.05); /* Slight zoom */
+  background-color: #d9574e;
+  transform: scale(1.05);
 }
 
-/* Secondary Button */
 .cta-secondary {
-    background-color: transparent; /* Transparent background */
-    border: 2px solid #ffffff; /* Border for secondary button */
-    color: #ffffff; /* White text */
+  background-color: transparent;
+  border: 2px solid #ffffff;
+  color: #ffffff;
 }
 
 .cta-secondary:hover {
-    background-color: #ffffff; /* White background on hover */
-    color: #1e293b; /* Dark text on hover */
-    transform: scale(1.05); /* Slight zoom */
+  background-color: #ffffff;
+  color: #1e293b;
+  transform: scale(1.05);
+}
+
+/* Media query for screens wider than 640px */
+@media (min-width: 640px) {
+  .modern-hero-buttons {
+    flex-direction: row;
+  }
+
+  .cta-main,
+  .cta-secondary {
+    width: auto; /* Allow buttons to shrink on larger screens */
+  }
 }
 
 
