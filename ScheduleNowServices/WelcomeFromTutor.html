@@ -11,7 +11,7 @@
     <style>
         body {
             margin: 0;
-            font-family: 'Poppins', sans-serif;
+            font-family: "Poppins", sans-serif;
             background-image: linear-gradient(to bottom, #f0f4ff, #ffffff);
             background-repeat: no-repeat;
             background-size: cover;
@@ -19,134 +19,120 @@
             display: flex;
             justify-content: center;
             align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
         }
+
         body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Keep it behind the content */
-    background-image: 
-        url('https://i.imgur.com/YXXdLF8.png'), /* Left Heart */
-        url('https://i.imgur.com/YXXdLF8.png'); /* Right Heart */
-    background-repeat: no-repeat, no-repeat;
-    background-position: calc(15% - 125px) 400px, calc(85% + 125px) 400px; /* Ensure even spacing */
-    background-size: 15vw, 15vw; /* Scale with viewport */
-    opacity: 0.5; /* Adjust transparency */
-}
-.tutor-info {
-    text-align: center;
-    margin-bottom: 20px;
-}
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url("https://i.imgur.com/YXXdLF8.png"), url("https://i.imgur.com/YXXdLF8.png");
+            background-repeat: no-repeat, no-repeat;
+            background-position: calc(15% - 125px) 400px, calc(85% + 125px) 400px;
+            background-size: 15vw, 15vw;
+            opacity: 0.5;
+        }
 
-.tutor-profile {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 3px solid white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    margin-bottom: 10px;
-}
+        @media (max-width: 1200px) {
+            body::before {
+                background-image: none;
+            }
+        }
 
-@media (max-width: 1200px) {
-    body::before {
-        background-image: none; /* Remove the images */
-    }
-}
+        .schedule-container {
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 1100px;
+            width: 100%;
+            margin: 20px auto;
+        }
 
-.schedule-container {
-    display: flex;
-    flex-direction: row; /* Default: side-by-side layout */
-    flex-wrap: nowrap; /* Prevents unintended stacking at large screens */
-    background-color: white;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    max-width: 1100px;
-    width: 90%;
-    margin: 50px auto;
-    justify-content: center;
-    align-items: stretch;
-}
+        @media (min-width: 768px) {
+            .schedule-container {
+                flex-direction: row;
+            }
+        }
 
-/* Panels default to side-by-side */
-.left-panel, .right-panel {
-    flex: 1; /* Ensures equal width */
-    padding: 30px;
-    box-sizing: border-box;
-    min-width: 400px; /* Prevents early stacking */
-}
-
-/* When screen is too small, stack left-panel on top */
-@supports (display: flex) {
-    .schedule-container {
-        display: flex;
-    }
-
-    .schedule-container:has(.left-panel) {
-        flex-wrap: wrap;
-    }
-
-    /* This ensures the left panel moves ON TOP when screen gets small */
-    .schedule-container:has(.left-panel) .left-panel {
-        order: -1; /* Moves left-panel above right-panel */
-    }
-
-    .left-panel, .right-panel {
-        width: 100%; /* Stacked layout on small screens */
-    }
-}
-
-/* Fallback for old browsers */
-@supports not (flex-wrap: wrap) {
-    .schedule-container {
-        display: block;
-    }
-
-    .left-panel, .right-panel {
-        width: 100%;
-    }
-}
-
-
-
-
-
-
+        .left-panel,
+        .right-panel {
+            padding: 30px;
+            box-sizing: border-box;
+        }
 
         .left-panel {
-            flex: 1;
-            padding: 40px;
             background-color: #1e293b;
             color: white;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
         }
 
+        .left-panel-content {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .testimonial-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            padding: 20px 0;
+        }
+
+        .testimonial {
+            font-style: italic;
+            font-size: 0.9rem;
+            text-align: center;
+            max-width: 80%;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .testimonial p:last-child {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+
+        @media (min-width: 768px) {
+            .testimonial {
+                font-size: 1rem;
+                padding: 30px;
+            }
+        }
+
+
         .left-panel h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 20px;
         }
 
         .left-panel p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 30px;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
         }
 
         .left-panel ul {
             list-style: none;
             padding: 0;
-            margin: 0;
+            margin: 0 0 20px 0;
         }
 
         .left-panel li {
-            font-size: 1rem;
-            margin-bottom: 15px;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
             display: flex;
             align-items: center;
             gap: 10px;
@@ -159,39 +145,43 @@
         }
 
         .right-panel {
-    flex: 1.5;
-    padding: 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f9f9f9;
-    justify-content: flex-start; /* Keeps text at the top */
-    min-height: 100%;
-    position: relative;
-    padding-bottom: 40px; /* Extra bottom space */
-}
-
-.right-panel .square-button {
-    margin-top: 40px; /* Pushes the button downward */
-}
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
         .right-panel h1 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
             color: #1e293b;
-            text-align: left;
+            text-align: center;
         }
 
         .right-panel h2 {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
             color: #555;
-            text-align: left;
+            text-align: center;
             font-weight: 400;
         }
 
+        .highlight {
+            background-color: #ff6f61;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 600;
+            display: inline-block;
+            transform: rotate(-2deg);
+            transition: transform 0.3s ease;
+        }
+
+        .highlight:hover {
+            transform: rotate(0deg) scale(1.05);
+        }
+
         .steps-outline {
-            position: relative;
             display: flex;
             flex-direction: column;
             gap: 20px;
@@ -210,16 +200,16 @@
         }
 
         .step-text h3 {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: #1e293b;
             margin: 0 0 5px;
         }
 
         .step-text p {
-            font-size: 1rem;
+            font-size: 0.9rem;
             color: #555;
             margin: 0;
-            font-style: italic; /* Italicized step text */
+            font-style: italic;
         }
 
         .step-image-container {
@@ -230,8 +220,8 @@
         }
 
         .step-image {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             margin-bottom: 10px;
         }
 
@@ -239,50 +229,109 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 0; /* Makes the image a box */
+            border-radius: 0;
         }
 
         .connector {
             width: 2px;
             background-color: #ddd;
-            height: 40px;
+            height: 30px;
         }
 
-        .schedule-button {
+        .square-button {
             background-color: #ff6f61;
             color: white;
-            padding: 15px 30px;
+            padding: 12px 24px;
             border: none;
             border-radius: 5px;
             font-size: 1rem;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            align-self: center; /* Ensures button is always centered */
-            margin-top: 50px; /* Adds padding between text and button */
+            align-self: center;
+            margin-top: 30px;
         }
 
-        .schedule-button:hover {
+        .square-button:hover {
             background-color: #d9574e;
             transform: translateY(-3px);
         }
+
+        .tutor-info {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .tutor-profile {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
         .checkmark {
-            color: #ff6f61; /* Green checkmark */
+            color: #ff6f61;
             font-weight: bold;
             margin-left: 5px;
         }
-        .highlight {
-  background-color: #ff6f61;
-  color: white;
-  padding: 2px 8px;
-  border-radius: 4px;
-  font-weight: 600;
-  display: inline-block;
-  transform: rotate(-2deg);
-  transition: transform 0.3s ease;
-}
-.highlight:hover {
-  transform: rotate(0deg) scale(1.05);
-}
+
+        @media (min-width: 768px) {
+            .left-panel,
+            .right-panel {
+                flex: 1;
+                padding: 40px;
+            }
+
+            .left-panel h2 {
+                font-size: 2rem;
+            }
+
+            .left-panel p,
+            .left-panel li {
+                font-size: 1.1rem;
+            }
+
+            .right-panel h1 {
+                font-size: 2rem;
+            }
+
+            .right-panel h2 {
+                font-size: 1.2rem;
+            }
+
+            .step-text h3 {
+                font-size: 1.2rem;
+            }
+
+            .step-text p {
+                font-size: 1rem;
+            }
+
+            .step-image {
+                width: 50px;
+                height: 50px;
+            }
+
+            .connector {
+                height: 40px;
+            }
+
+            .square-button {
+                padding: 15px 30px;
+            }
+
+            .testimonial {
+                font-size: 1rem;
+                padding: 30px;
+            }
+
+            .tutor-profile {
+                width: 100px;
+                height: 100px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -293,25 +342,28 @@
     <div class="schedule-container">
         <!-- Left Panel -->
         <div class="left-panel">
-            <h2>Why Choose Us?</h2>
-            <p>Our tutors are experts in their fields, passionate about teaching, and dedicated to helping you succeed. Here's what we offer:</p>
-            <ul>
-                <li>Personalized one-on-one sessions</li>
-                <li>Flexible scheduling to fit your needs</li>
-                <li>Support for a wide range of subjects</li>
-                <li>On demand virtual sessions within 48 hours</li>
-            </ul>
-            <p style="margin-top: 30px; font-style: italic; font-size: 1rem; text-align: center;">
-                "From the Heart [Tutoring] seemed like it could be a good match so I reached out. Best decision ever." - Kelly C.
-            </p>
+            <div class="left-panel-content">
+                <h2>Why Choose Us?</h2>
+                <p>Our tutors are experts in their fields, passionate about teaching, and dedicated to helping you succeed. Here's what we offer:</p>
+                <ul>
+                    <li>Personalized one-on-one sessions</li>
+                    <li>Flexible scheduling to fit your needs</li>
+                    <li>Support for a wide range of subjects</li>
+                    <li>On demand virtual sessions within 48 hours</li>
+                </ul>
+            </div>
+            <div class="testimonial-container">
+                <div class="testimonial">
+                    <p>"From the Heart [Tutoring] seemed like it could be a good match so I reached out. Best decision ever."</p>
+                    <p>- Kelly C.</p>
+                </div>
+            </div>
         </div>
 
         <!-- Right Panel -->
         <div class="right-panel">
             <h1>Schedule a Session</h1>
             <h2>Just <span class="highlight">3 easy steps</span> and you're done in under 5 minutes!</h2>
-            <!-- Tutor Section -->
-
             <div class="steps-outline">
                 <div class="step">
                     <div class="step-text">
@@ -369,10 +421,6 @@
     </div>
 
     <script>
-        function goToNextStep() {
-            // Replace the URL below with the link to your next scheduling step
-            window.location.href = 'Type-Of-Student.html';
-        }
         document.addEventListener('DOMContentLoaded', () => {
             // Retrieve tutor data from localStorage
             const tutorName = localStorage.getItem('selectedTutorName') || 'Your Tutor';
@@ -391,8 +439,7 @@
             // Redirect to the next step
             window.location.href = 'Type-Of-Student.html';
         }
-
     </script>
-    
 </body>
 </html>
+

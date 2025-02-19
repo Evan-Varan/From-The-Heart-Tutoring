@@ -15,31 +15,135 @@
             margin: 0;
             padding: 0;
             background-color: #f7f9fc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
-        
+
         body::before {
             content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 10%;
-    z-index: -1; /* Keep it behind the content */
-    background-image: 
-        url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
-        url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
-    background-repeat: no-repeat, no-repeat;
-    background-position: 20px 280px, right 40px bottom 10px; /* Keep original positions */
-    background-size: 15vw, 15vw; /* Make images scale dynamically */
-    opacity: 0.5; /* Adjust transparency */
-}
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                url('https://i.imgur.com/iK8jQVI.png'),
+                url('https://i.imgur.com/YXXdLF8.png');
+            background-repeat: no-repeat, no-repeat;
+            background-position: 20px 280px, right 40px bottom 10px;
+            background-size: 15vw, 15vw;
+            opacity: 0.5;
+        }
 
-/* Medium Screens (Tablets) */
-@media (max-width: 1200px) {
-    body::before {
-        background-image: none; /* Remove the images */
-    }
-}
+        @media (max-width: 1200px) {
+            body::before {
+                background-image: none;
+            }
+        }
+
+        .spacer {
+            flex: 1;
+        }
+
+        .content {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
+
+        .info-box {
+            width: 300px;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 2px solid #000000;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .info-box h2 {
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .info-box .create-account {
+            display: inline-block;
+            margin-top: 10px;
+            font-style: italic;
+            font-size: 0.9rem;
+        }
+
+        .create-account-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .create-account {
+            color: #ff6f61;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .create-account:hover {
+            color: #d9574e;
+        }
+
+        .schedule-box {
+            flex: 1;
+            max-width: 400px;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 2px solid #000000;
+            padding: 20px;
+            text-align: center;
+            margin-left: -20px;
+        }
+
+        .widget-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            padding-top: 70px;
+            flex-grow: 1;
+        }
+
+        @media (max-width: 768px) {
+            .widget-wrapper {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: auto;
+                min-height: calc(100vh - 200px); /* Adjust based on your hero and navbar height */
+            }
+
+            .spacer {
+                display: none;
+            }
+
+            .schedule-box {
+                width: 90%;
+                max-width: 350px;
+                margin: 20px 0;
+            }
+
+            .content {
+                order: -1; /* Move the content (widget) to the top */
+                margin-bottom: 20px;
+            }
+        }
+
 
 
 
@@ -75,75 +179,7 @@
 .info-text:hover {
     color: #d9574e; /* Darker red on hover */
 }
-.create-account {
-        display: inline;
-        color: #ff6f61;
-        text-decoration: none;
-        font-weight: bold;
-    }
 
-    .create-account:hover {
-        /* text-decoration: bold; */
-        color: #d9574e;
-    }
-    
-    .schedule-box {
-    flex: 1; /* Increase flex value to make it wider */
-    max-width: 400px; /* Allows the box to be larger but not too big */
-    background: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    border: 2px solid #000000;
-    padding: 20px;
-    text-align: center;
-    margin-left: -20px; /* Move it closer to the widget */
-}
-
-
-.widget-wrapper {
-    display: flex;
-    justify-content: center; /* Centers content */
-    align-items: center; /* Aligns items vertically */
-    gap: 10px; /* Reduce gap between widget and schedule box */
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
-    padding-top: 70px;
-}
-
-.spacer {
-    flex: 1; /* Pushes the widget into the center */
-}
-
-/* Ensures the widget stays centered */
-.content {
-    flex: 2; /* Allows the widget to take up space */
-    display: flex;
-    justify-content: center;
-}
-
-.create-account-section {
-    text-align: center; /* Center-align the text */
-    margin-top: 20px; /* Add spacing below the schedule box */
-}
-
-/* Responsive Layout: Stack elements on small screens */
-@media (max-width: 768px) {
-    .widget-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .spacer {
-        display: none; /* Remove the spacer on small screens */
-    }
-
-    .schedule-box {
-        width: 90%;
-        max-width: 350px;
-        margin-top: 20px;
-    }
-}
 .back-button-container {
     display: flex;
     justify-content: center; /* Centers the button horizontally */
@@ -226,7 +262,7 @@
     <!-- Create Account Section -->
     <div class="create-account-section">
         <p>Don't have an account? 
-            <a href="../MainPages/Welcome.html" class="create-account">Create one through the scheduling process</a>
+            <a href="Welcome.html" class="create-account">Create one through the scheduling process</a>
         </p>
     </div>
     <div class="back-button-container">

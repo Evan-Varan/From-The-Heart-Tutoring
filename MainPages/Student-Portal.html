@@ -14,44 +14,44 @@
             margin: 0;
             padding: 0;
             background-color: #f7f9fc;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Keep it behind the content */
-    background-image: 
-        url('https://i.imgur.com/iK8jQVI.png'), /* Pencil */
-        url('https://i.imgur.com/YXXdLF8.png'); /* Heart */
-    background-repeat: no-repeat, no-repeat;
-    background-position: 20px 280px, right 40px bottom 10px; /* Keep original positions */
-    background-size: 15vw, 15vw; /* Make images scale dynamically */
-    opacity: 0.5; /* Adjust transparency */
-}
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: 
+                url('https://i.imgur.com/iK8jQVI.png'),
+                url('https://i.imgur.com/YXXdLF8.png');
+            background-repeat: no-repeat, no-repeat;
+            background-position: 20px 280px, right 40px bottom 10px;
+            background-size: 15vw, 15vw;
+            opacity: 0.5;
+        }
 
-/* Medium Screens (Tablets) */
-@media (max-width: 1200px) {
-    body::before {
-        background-image: none; /* Remove the images */
-    }
-}
+        @media (max-width: 1200px) {
+            body::before {
+                background-image: none;
+            }
+        }
 
+        .spacer {
+            flex: 1;
+        }
 
-/* Empty Spacer to Help Center the Widget */
-.spacer {
-    flex: 1; /* Pushes the widget into the center */
-}
+        .content {
+            flex: 2;
+            display: flex;
+            justify-content: center;
+        }
 
-/* Ensures the widget stays centered */
-.content {
-    flex: 2; /* Allows the widget to take up space */
-    display: flex;
-    justify-content: center;
-}
         .info-box {
             width: 300px;
             background: #ffffff;
@@ -80,8 +80,8 @@
         }
 
         .create-account-section {
-            margin-top: 20px; /* Add space above the "Create Account" text */
-            text-align: center; /* Center the text inside the section */
+            margin-top: 20px;
+            text-align: center;
         }
 
         .create-account {
@@ -93,56 +93,55 @@
         .create-account:hover {
             color: #d9574e;
         }
-        /* Keeps the schedule box on the right */
+
         .schedule-box {
-    flex: 1; /* Increase flex value to make it wider */
-    max-width: 400px; /* Allows the box to be larger but not too big */
-    background: #ffffff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    border: 2px solid #000000;
-    padding: 20px;
-    text-align: center;
-    margin-left: -20px; /* Move it closer to the widget */
-}
+            flex: 1;
+            max-width: 400px;
+            background: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+            border: 2px solid #000000;
+            padding: 20px;
+            text-align: center;
+            margin-left: -20px;
+        }
 
+        .widget-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            max-width: 1200px;
+            width: 90%;
+            margin: 0 auto;
+            padding-top: 70px;
+            flex-grow: 1;
+        }
 
-.widget-wrapper {
-    display: flex;
-    justify-content: center; /* Centers content */
-    align-items: center; /* Aligns items vertically */
-    gap: 10px; /* Reduce gap between widget and schedule box */
-    max-width: 1200px;
-    width: 90%;
-    margin: 0 auto;
-    padding-top: 70px;
-}
+        @media (max-width: 768px) {
+            .widget-wrapper {
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: auto;
+                min-height: calc(100vh - 200px); /* Adjust based on your hero and navbar height */
+            }
 
+            .spacer {
+                display: none;
+            }
 
-.create-account-section {
-    text-align: center; /* Center-align the text */
-    margin-top: 20px; /* Add spacing below the schedule box */
-}
+            .schedule-box {
+                width: 90%;
+                max-width: 350px;
+                margin: 20px 0;
+            }
 
-/* Responsive Layout: Stack elements on small screens */
-@media (max-width: 768px) {
-    .widget-wrapper {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .spacer {
-        display: none; /* Remove the spacer on small screens */
-    }
-
-    .schedule-box {
-        width: 90%;
-        max-width: 350px;
-        margin-top: 20px;
-    }
-}
-
-
+            .content {
+                order: -1; /* Move the content (widget) to the top */
+                margin-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -178,16 +177,12 @@
         </div>
     </div>
     
-    
     <!-- Create Account Section -->
     <div class="create-account-section">
         <p>Don't have an account? 
             <a href="Welcome.html" class="create-account">Create one through the scheduling process</a>
         </p>
     </div>
-    
-    
 </body>
 </html>
-
 
