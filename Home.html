@@ -377,46 +377,7 @@
             margin: 10px 0 0;
         }
 
-        /* Testimonials Section */
-.testimonials-section {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: #1e293b;
-    color: white;
-}
-
-.testimonials-section h2 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-}
-
-.testimonials-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    justify-items: center;
-    padding: 0 20px;
-}
-
-.testimonial {
-    background-color: #334155;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    max-width: 300px;
-    text-align: left;
-}
-
-.testimonial p {
-    margin: 10px 0;
-}
-
-.testimonial strong, .testimonial-horizontal strong {
-    margin-top: bottom; /* Pushes the name to the bottom */
-    font-size: 1.1rem;
-    display: block;
-    font-style: italic;
-}
+        
 
 
 /* Subjects Section */
@@ -480,32 +441,107 @@
     text-decoration: underline;
     color: #d9574e;
 }
-.testimonial, .testimonial-horizontal {
-    background-color: #334155;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-    padding: 20px;
-    color: white;
-    max-width: 300px; /* Constrain width for grid testimonials */
-    text-align: center;
-    justify-content: space-between; /* Ensures content is spaced, with name at the bottom */
-    margin: 20px auto;
-}
 
-.testimonial-summary {
-    font-style: italic;
-    font-size: 1rem;
-    color: #d9574e; /* Highlighted color */
-    margin-top: 10px; /* Add space between testimonial and summary */
-}
-.testimonial-horizontal {
-    max-width: 90%; /* Full width for horizontal testimonial */
-    margin-top: 30px;
-}
-.testimonial-horizontal .testimonial-summary {
-    font-size: 1.2rem; /* Larger font size for horizontal summary */
-    margin-top: 20px;
-}
+.testimonials-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 10px;
+            box-sizing: border-box;
+        }
+
+        @media (min-width: 768px) {
+            .testimonials-container {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                justify-items: center;
+            }
+        }
+
+        .testimonial {
+            background-color: #334155;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            width: 100%;
+            max-width: 300px;
+            text-align: center;
+            box-sizing: border-box;
+            margin: 0 auto; /* Center the testimonial */
+        }
+
+        .testimonial p, .testimonial-horizontal p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .testimonial cite, .testimonial-horizontal cite {
+            font-weight: bold;
+            font-style: normal;
+            display: block;
+        }
+
+        .testimonial-horizontal {
+            display: flex;
+            align-items: center;
+            text-align: left;
+            max-width: 600px;
+            margin: 20px auto;
+        }
+
+        .testimonial-horizontal img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin-right: 20px;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: #0f172a;
+            color: #cbd5e1;
+            text-align: center;
+            padding: 1rem 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Media query for small screens */
+        @media (max-width: 375px) {
+            .testimonials-section {
+                padding: 30px 10px; /* Reduce padding on the section */
+            }
+
+            .testimonials-container {
+                padding: 0;
+            }
+
+            .testimonial {
+                width: 100%;
+                max-width: none; /* Remove max-width constraint */
+                margin: 0 0 20px 0; /* Add bottom margin for spacing between testimonials */
+                padding: 15px;
+                box-sizing: border-box;
+            }
+
+            .testimonial p {
+                font-size: 0.9rem; /* Slightly reduce font size for better fit */
+                margin: 0 0 10px 0;
+            }
+
+            .testimonial strong {
+                font-size: 1rem;
+            }
+
+            .gold-star {
+                font-size: 1em; /* Adjust star size */
+            }
+        }
 /* Overlay Section */
 /* Overlay Section */
 /* Main Overlay Bar */

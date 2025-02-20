@@ -305,12 +305,61 @@
                 padding: 30px;
             }
         }
+        .timezone-notification {
+            display: none;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            max-width: 600px;
+            width: 100%;
+            padding: 40px;
+            text-align: center;
+            margin: 20px auto;
+        }
+
+        .timezone-notification h1 {
+            color: #1e293b;
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .timezone-notification p {
+            color: #555;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .contact-button {
+            background-color: #ff6f61;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .contact-button:hover {
+            background-color: #d9574e;
+            transform: translateY(-3px);
+        }
     </style>
 </head>
 <body>
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
     <script src="../Navbar/Navbar.js" defer></script>
+
+    <div id="timezone-notification" class="timezone-notification">
+        <h1>Different Timezone Detected</h1>
+        <p>We've noticed you're accessing our site from a timezone outside of CST. To ensure we can provide you with the best possible tutoring experience, please <span class="highlight">contact us directly</span> to schedule a session that works with your timezone.</p>
+        <a href="mailto:contact@fromthehearttutoring.com" class="contact-button">Contact Us</a>
+    </div>
 
     <div class="schedule-container">
         <!-- Left Panel -->
@@ -396,8 +445,36 @@
         localStorage.clear();
     </script>
     <script>
+        function detectTimezone() {
+    const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    console.log("Detected Timezone:", userTimezone); // Debugging output
+
+    const cstTimezones = ["America/Chicago", "America/Winnipeg", "America/Regina"]; // CST/CDT time zones
+    const notification = document.getElementById('timezone-notification');
+    const pageContent = document.querySelector('.schedule-container'); // Select the main content
+
+    if (!cstTimezones.includes(userTimezone)) {
+        notification.style.display = 'block'; // Show the notification
+        pageContent.style.display = 'none'; // Hide everything else
+        console.log("Hiding main content and showing timezone notification.");
+    } else {
+        notification.style.display = 'none'; // Hide the notification
+        console.log("Showing main content, hiding timezone notification.");
+    }
+}
+
+window.onload = detectTimezone;
+
+
+
+
+    </script>
+
+    <script>
+        localStorage.clear();
+    </script>
+    <script>
         function goToNextStep() {
-            // Replace the URL below with the link to your next scheduling step
             window.location.href = '../ScheduleNowServices/Type-Of-Student.html';
         }
     </script>
