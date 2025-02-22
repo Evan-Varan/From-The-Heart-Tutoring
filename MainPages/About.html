@@ -6,7 +6,6 @@
     <title>About Us | From the Heart Tutoring</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
     <style>
         :root {
             --primary-color: #ff6f61;
@@ -15,296 +14,216 @@
             --background-color: #f9f9f9;
         }
 
-        /* Apply the universal reset to everything EXCEPT the navbar */
-
-*:not(.navbar, .navbar *) {
+        *:not(.navbar, .navbar *) {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
         body {
-            margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            font-size: 1.1rem; /* Increase base text size to match FAQ */
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
         }
 
-
-h1 {
-    font-size: 2rem; /* Match FAQ page heading size */
-    font-weight: bold;
-}
-
-h2 {
-    font-size: 1.6rem; /* Match FAQ page subheading size */
-    font-weight: bold;
-    color: var(--secondary-color);
-    margin-bottom: 1.5em;
-    margin-top: 1em; /* Added top margin */
-    font-size: calc(16px + 0.6vw);
-    padding-top: 1em; /* Added padding */
-    padding-bottom: 0.5em; /* Added padding */
-    /* Removed: border-top: 1px solid #e0e0e0; */
-}
-
-h3 {
-    font-size: 1.4rem; /* Slightly smaller than h2 */
-    color: var(--secondary-color);
-    margin-bottom: 1.5em;
-    margin-top: 2em; /* Increased from 2em */
-    font-size: calc(16px + 0.4vw);
-    padding-top: 1em; /* Added padding */
-    padding-bottom: 0.5em; /* Added padding */
-}
-
-h4 {
-    font-size: 1.1rem;
-}
-
-
         .container {
-            width: 90%;
             max-width: 1200px;
             margin: 0 auto;
-            padding: 2em 1em;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
+            padding: 2rem;
         }
 
         .hero {
             background-color: var(--secondary-color);
             color: white;
             text-align: center;
-            padding: 3em 1em;
-            margin-bottom: 2em; /* Added margin at the bottom */
+            padding: 4rem 2rem;
         }
 
         .hero h1 {
-            font-size: calc(20px + 1.2vw);
-            margin-bottom: 0.5em;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
         }
 
-        .hero p {
-            font-size: calc(14px + 0.4vw);
-        }
-
-section {
-    margin-top: 4em; /* Increased from 3em */
-    padding-top: 2em; /* Increased from 1em */
-    border-top: 1px solid #e0e0e0; /* Added a subtle separator */
-}
-
-        .staff-members {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2em;
-        }
-
-        .staff-member {
-            flex: 1 1 250px;
-            max-width: 300px;
-            background-color: #ffffff;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 1.5em;
+        h2 {
+            font-size: 2rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        section {
+            margin-bottom: 4rem;
+        }
+
+        .mission p {
+            margin-bottom: 1rem;
+        }
+
+        .staff-grid, .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .staff-card {
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
-            align-items: center;
         }
 
-        .staff-image {
+        .staff-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .staff-card-header {
+            background-color: var(--secondary-color);
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .staff-card img {
             width: 120px;
             height: 120px;
-            border-radius: 50%;
             object-fit: cover;
-            margin-bottom: 1em;
+            border-radius: 50%;
+            border: 4px solid white;
+            margin: 0 auto;
         }
 
-        .staff-title {
+        .staff-card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .staff-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: white;
+        }
+
+        .staff-card .title {
+            color: white;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
             font-style: italic;
-            color: #777;
-            margin-bottom: 0.5em;
         }
 
-        .staff-member h4 {
-            margin-bottom: 1em;
+        .staff-card p {
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            flex-grow: 1;
         }
 
-        .about-link {
-            display: inline-block;
+        .staff-card a {
             color: var(--primary-color);
             text-decoration: none;
             font-weight: bold;
-            margin-top: 1em;
-        }
-
-        .values-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 2em;
-        }
-
-        .value-item {
-            flex: 1 1 250px;
-            max-width: 300px;
-            background-color: white;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 1.5em;
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 20px;
             text-align: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            align-self: center;
         }
 
-        .value-graphic {
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            margin-bottom: 1em;
-        }
-
-        .value-item h3 {
-            margin-bottom: 1em;
-        }
-
-        .expand-button {
+        .staff-card a:hover {
             background-color: var(--primary-color);
             color: white;
-            border: none;
-            padding: 0.5em 1em;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            margin-top: 1em;
         }
 
-        .credits-expand {
-            display: none;
-            margin-top: 1em;
-        }
-
-        .social-container {
+        .value-card {
             background-color: white;
-            color: white;
-            padding: 2em 1em;
-            margin-top: 2em;
             border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: transform 0.3s ease;
             text-align: center;
+            padding: 1.5rem;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .value-card img {
+            width: 80px;
+            height: 80px;
+            object-fit: contain;
+            margin-bottom: 1rem;
         }
 
         .social-links {
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            gap: 1em;
-            margin-top: 1em;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            padding: 0 1rem;
         }
 
         .social-links a {
+            display: flex;
+            align-items: center;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .social-links img {
+            width: 24px;
+            height: 24px;
+            margin-right: 0.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
             color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 0.5em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
 
-        .social-links img {
-            width: 32px;
-            height: 32px;
+        .cta-button:hover {
+            background-color: #e5635b;
         }
 
-        /* @media (max-width: 768px) {
-            .staff-members, .values-container {
-                gap: 1em;
-            }
-
-            .staff-member, .value-item {
-                flex-basis: 100%;
-            }
-        } */
-         /* Social Media Section */
-         .social-container {
-            margin-top: 30px;
+        .join-team {
             text-align: center;
         }
 
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            align-items: center;
-            flex-wrap: wrap;
+        .join-team p {
+            margin-bottom: 1rem;
         }
 
-        .social-links a {
-            display: flex;
-            align-items: center;
-            color: #1e293b;
-            font-size: 18px;
-            font-weight: bold;
-            text-decoration: none;
-            gap: 8px;
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
         }
 
-        .social-links img {
-            width: 32px;
-            height: 32px;
-            vertical-align: middle;
-        }
-         /* Contact Info Section */
-        .info-container h3 {
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-
-        .info-container p {
-            margin: 10px 0;
-            font-size: 1rem;
-        }
-
-        .info-container a {
-            color: #2c3e50;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .info-container a:hover {
-            text-decoration: underline;
-        }
-        
-        .staff-section h3 {
-            background-color: #f5f5f5; /* Light grey background */
-            padding: 0.75em 1em; /* Increased padding */
-            border-radius: 5px; /* Rounded corners */
-            display: inline-block; /* Makes the background only as wide as the text */
-            margin-bottom: 1.5em;
-        }
-
-        .values-section h2,
-        .staff-section h2,
-        .credits-section h2 {
-            margin-bottom: 1.5em; /* Space below the section titles */
-        }
-
-        .staff-section,
-        .values-section,
-        .credits-section {
-            margin-top: 5em; /* Extra space above these sections */
-        }
-
-        .values-section > p {
-            margin-bottom: 2em; /* Increased spacing before the values container */
+        @media (max-width: 768px) {
+            .staff-grid, .values-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -314,204 +233,227 @@ section {
 
     <!-- JavaScript to Load Navbar -->
     <script src="../Navbar/Navbar.js" defer></script>
-    <div class="hero">
+    <header class="hero">
         <h1>About Us</h1>
         <p>Learn more about who we are and what we do.</p>
-    </div>
+    </header>
 
-    <div class="container">
-        <section class="about-section">
+    <main class="container">
+        <section class="mission">
             <h2>Our Mission</h2>
             <p>From the Heart Tutoring was founded with a mission to provide personalized and impactful education to students of all ages. Our tutors are passionate educators committed to helping learners achieve their goals and build confidence in their abilities.</p>
-            <br>
             <p>We specialize in a range of subjects including Math, Science, and Test Preparation, tailoring our approach to meet each student's unique learning style. With years of experience and proven results, our team is dedicated to making a positive difference in education.</p>
         </section>
 
-        <section class="staff-section">
+        <section class="team">
             <h2>Meet Our Team</h2>
             <h3>Founders</h3>
-            <div class="staff-members">
-                <div class="staff-member">
-                    <img src="https://i.imgur.com/zNsl3lz.jpeg" alt="Beth Burgin" class="staff-image">
-                    <h4>Beth Burgin</h4>
-                    <p class="staff-title">Founder</p>
-                    <p>Co-owner and tutor for From the Heart Tutoring. Certified teacher in Austin Texas. Civil Engineering college grad from University of Texas at Austin</p>
-                    <a href="../TutorAboutPages/BethBurgin.html" class="about-link">Learn more about Beth</a>
-                </div>
-                <!-- <div class="staff-member">
-                    <img src="https://i.imgur.com/zPiwhDv.png" alt="Evan Varan" class="staff-image">
-                    <h4>Evan Varan</h4>
-                    <p class="staff-title">Founder & Tutor</p>
-                    <p>Co-owner and tutor for From the Heart Tutoring. Electrical Engineering college grad from Texas State University.</p>
-                    <a href="../TutorAboutPages/EvanVaran.html" class="about-link">Learn more or schedule with Evan</a>
-                </div> -->
-            </div>
+            <div class="staff-grid" id="foundersGrid"></div>
             
             <h3>Virtual Tutors</h3>
-            <div class="staff-members">
-                <div class="staff-member">
-                    <img src="https://i.imgur.com/5Cuh8SZ.png" alt="Zarek Cole" class="staff-image">
-                    <h4>Zarek Cole</h4>
-                    <p class="staff-title">K-College Math Tutor</p>
-                    <p>Senior mathematics college student. Experienced in teaching high school and college level advanced courses.</p>
-                    <a href="../TutorAboutPages/ZarekCole.html" class="about-link">Learn more or schedule with Zarek</a>
-                </div>
-                <div class="staff-member">
-                    <img src="https://i.imgur.com/X0kdDss.jpeg" alt="Dianne Simental" class="staff-image">
-                    <h4>Dianne Simental</h4>
-                    <p class="staff-title">Science, Math & Spanish Tutor</p>
-                    <p>Graduate from Cal State with a degree in Biology Education. Former middle school science teacher.</p>
-                    <a href="../TutorAboutPages/DianneSimental.html" class="about-link">Learn more or schedule with Dianne</a>
-                </div>
-                <div class="staff-member">
-                    <img src="https://i.imgur.com/zPiwhDv.png" alt="Evan Varan" class="staff-image">
-                    <h4>Evan Varan</h4>
-                    <p class="staff-title">Founder & Tutor</p>
-                    <p>Co-owner and tutor for From the Heart Tutoring. Electrical Engineering college grad from Texas State University.</p>
-                    <a href="../TutorAboutPages/EvanVaran.html" class="about-link">Learn more or schedule with Evan</a>
-                </div>
-            </div>
-
-            <h3>Austin in-person Tutors</h3>
-            <div class="staff-members">
-                <div class="staff-member">
-                    <img src="https://i.imgur.com/Chj0g5s.jpeg" alt="Barbara Garnett-H" class="staff-image">
-                    <h4>Barbara Garnett-H</h4>
-                    <p class="staff-title">English & K-6th Math Tutor</p>
-                    <p>Experienced professional writer and english teacher. Passionate about helping children succeed.</p>
-                    <a href="../TutorAboutPages/BarbaraGarnett-Herrera.html" class="about-link">Learn more about Barbara</a>
-                </div>
-                <div class="staff-member">
-                    <img src="https://i.imgur.com/Gd3mxwZ.jpeg" alt="Myan Nelson" class="staff-image">
-                    <h4>Myan Nelson</h4>
-                    <p class="staff-title">K-7th Math Tutor</p>
-                    <p>Certified tutor and current elementary school teacher. Specialist in helping with student anxieties.</p>
-                    <a href="../TutorAboutPages/MyanNelson.html" class="about-link">Learn more about Myan</a>
-                </div>
-            </div>
-
+            <div class="staff-grid" id="virtualTutorsGrid"></div>
+            
+            <h3>Austin In-Person Tutors</h3>
+            <div class="staff-grid" id="inPersonTutorsGrid"></div>
+            
             <h3>Other Team Members</h3>
-            <div class="staff-members">
-                <div class="staff-member">
-                    <img src="https://i.imgur.com/xiBstb2.png" alt="Emma Varan" class="staff-image">
-                    <h4>Emma Varan</h4>
-                    <p class="staff-title">Freelance Artist and Graphic Designer</p>
-                    <p>Austin Community College student currently studying animation.</p>
-                </div>
-            </div>
+            <div class="staff-grid" id="otherMembersGrid"></div>
         </section>
 
-        <section class="contact-section" style="text-align: center; margin-top: 40px; font-size: 1.2rem;">
-            <p>
-                Want to join our expanding team? 
-                <a href="Contact.html" class="about-link">Contact us here</a>.
-            </p>
-        </section>
-<div class="info-container">
-            <div class="social-container">
-                <h3>Follow Us on Social Media</h3>
-                <div class="social-links">
-                    <a href="https://www.facebook.com/profile.php?id=100066409571827" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" 
-                             alt="Facebook"> Facebook
-                    </a>
-                    <a href="https://www.instagram.com/fromtheheartsocial/" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
-                             alt="Instagram"> Instagram
-                    </a>
-                    <a href="https://www.linkedin.com/company/from-the-heart-tutoring" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" 
-                             alt="LinkedIn"> LinkedIn
-                    </a>
-                    <a href="https://www.tiktok.com/@fromthehearttutoring" target="_blank">
-                        <img src="https://i.imgur.com/3Nga21m.jpeg" 
-                             alt="TikTok"> TikTok
-                    </a>
-                </div>
-            </div>
-        </div>
-        <section class="values-section">
+        <section class="values">
             <h2>Our Values</h2>
             <p>At From the Heart Tutoring, we believe in fostering a supportive, inclusive, and inspiring environment for our students and their families. These values guide everything we do and set us apart as a trusted partner in education.</p>
-            <div class="values-container">
-                <div class="value-item">
-                    <img src="https://i.imgur.com/jPxGP0g.png" alt="Inclusivity" class="value-graphic">
-                    <h3>Inclusivity</h3>
-                    <p>We welcome students from all backgrounds and create a safe space for learning.</p>
-                </div>
-                <div class="value-item">
-                    <img src="https://i.imgur.com/zgIG8ln.png" alt="Innovation" class="value-graphic">
-                    <h3>Innovation</h3>
-                    <p>Our unique teaching methods make learning engaging and effective.</p>
-                </div>
-                <div class="value-item">
-                    <img src="https://i.imgur.com/cStGkwq.png" alt="Community" class="value-graphic">
-                    <h3>Community</h3>
-                    <p>We are more than tutors—we're mentors who build lasting relationships.</p>
-                </div>
-            </div>
-        </section>
-        
-        <section class="credits-section">
-            <h2>Credits</h2>
-            <p class="credits-summary">Icons used on this website are provided by <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</p>
-            <button class="expand-button" onclick="toggleCredits()">Show All Authors</button>
-            <div class="credits-expand" id="credits-details">
-                <ul>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/chattapat" title="chattapat">chattapat</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="smashicons">smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="eucalyp">eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="flat-icons">flat-icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/max.icons" title="max.icons">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/Stockio" title="Stockio">Stockio</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/popo2021" title="popo2021">popo2021</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/prettycons" title="prettycons">prettycons</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/vectors-tank" title="vectors-tank">vectors-tank</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/pixelx" title="pixelx">pixelx</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/awicon" title="awicon">awicon</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/bukeicon" title="bukeicon">bukeicon</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/popcornarts" title="popcornarts">popcornarts</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/wanicon" title="wanicon">wanicon</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/Uniconlabs" title="Uniconlabs">Uniconlabs</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/talha-doger" title="talha-doger">Talha Doger</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/surang" title="surang">surang</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="vectors-market">vectors-market</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/karyative" title="karyative">karyative</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/kerismaker" title="kerismaker">kerismaker</a> from <a href="https://www.flaticon.com/" title="Flaticon">Flaticon</a>.</li>
-                </ul>
-            </div>
+            <div class="values-grid" id="valuesGrid"></div>
         </section>
 
-        
-    </div>
-    <div id="footer-placeholder"></div>
+        <section class="social">
+            <h2>Follow Us on Social Media</h2>
+            <div class="social-links" id="socialLinks"></div>
+        </section>
 
-    <!-- Load Footer -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch("../Footer/Footer.html")
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById("footer-placeholder").innerHTML = html;
-    
-                    // Ensure footer.css is loaded dynamically
-                    if (!document.querySelector('link[href="../CSS/footer.css"]')) {
-                        const link = document.createElement("link");
-                        link.rel = "stylesheet";
-                        link.href = "../CSS/footer.css";
-                        document.head.appendChild(link);
-                    }
-                })
-                .catch(error => console.error("Error loading footer:", error));
-        });
-    </script>
+        <section class="join-team">
+            <h2>Join Our Team</h2>
+            <p>Want to join our expanding team?</p>
+            <a href="Contact.html" class="cta-button">Contact Us</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2023 From the Heart Tutoring. All rights reserved.</p>
+    </footer>
 
     <script>
-        function toggleCredits() {
-            const creditsDetails = document.getElementById('credits-details');
-            creditsDetails.style.display = creditsDetails.style.display === 'none' ? 'block' : 'none';
+        const staffMembers = [
+            {
+                name: "Beth Burgin",
+                title: "Founder",
+                image: "https://i.imgur.com/zNsl3lz.jpeg",
+                description: "Co-owner and tutor for From the Heart Tutoring. Certified teacher in Austin Texas. Civil Engineering college grad from University of Texas at Austin",
+                link: "../TutorAboutPages/BethBurgin.html",
+                category: "founders"
+            },
+            {
+                name: "Zarek Cole",
+                title: "K-College Math Tutor",
+                image: "https://i.imgur.com/5Cuh8SZ.png",
+                description: "Senior mathematics college student. Experienced in teaching high school and college level advanced courses.",
+                link: "../TutorAboutPages/ZarekCole.html",
+                category: "virtualTutors"
+            },
+            {
+                name: "Dianne Simental",
+                title: "Science, Math & Spanish Tutor",
+                image: "https://i.imgur.com/X0kdDss.jpeg",
+                description: "Graduate from Cal State with a degree in Biology Education. Former middle school science teacher.",
+                link: "../TutorAboutPages/DianneSimental.html",
+                category: "virtualTutors"
+            },
+            {
+                name: "Evan Varan",
+                title: "Founder & Tutor",
+                image: "https://i.imgur.com/zPiwhDv.png",
+                description: "Co-owner and tutor for From the Heart Tutoring. Electrical Engineering college grad from Texas State University.",
+                link: "../TutorAboutPages/EvanVaran.html",
+                category: "virtualTutors"
+            },
+            {
+                name: "Evan Varan",
+                title: "Founder & Tutor",
+                image: "https://i.imgur.com/zPiwhDv.png",
+                description: "Co-owner and tutor for From the Heart Tutoring. Electrical Engineering college grad from Texas State University.",
+                link: "../TutorAboutPages/EvanVaran.html",
+                category: "founders"
+            },
+            {
+                name: "Barbara Garnett-H",
+                title: "English & K-6th Math Tutor",
+                image: "https://i.imgur.com/Chj0g5s.jpeg",
+                description: "Experienced professional writer and english teacher. Passionate about helping children succeed.",
+                link: "../TutorAboutPages/BarbaraGarnett-Herrera.html",
+                category: "inPersonTutors"
+            },
+            {
+                name: "Myan Nelson",
+                title: "K-7th Math Tutor",
+                image: "https://i.imgur.com/Gd3mxwZ.jpeg",
+                description: "Certified tutor and current elementary school teacher. Specialist in helping with student anxieties.",
+                link: "../TutorAboutPages/MyanNelson.html",
+                category: "inPersonTutors"
+            },
+            {
+                name: "Emma Varan",
+                title: "Freelance Artist and Graphic Designer",
+                image: "https://i.imgur.com/xiBstb2.png",
+                description: "Austin Community College student currently studying animation.",
+                link: null,
+                category: "otherMembers"
+            }
+        ];
+
+        const values = [
+            {
+                title: "Inclusivity",
+                image: "https://i.imgur.com/jPxGP0g.png",
+                description: "We welcome students from all backgrounds and create a safe space for learning."
+            },
+            {
+                title: "Innovation",
+                image: "https://i.imgur.com/zgIG8ln.png",
+                description: "Our unique teaching methods make learning engaging and effective."
+            },
+            {
+                title: "Community",
+                image: "https://i.imgur.com/cStGkwq.png",
+                description: "We are more than tutors—we're mentors who build lasting relationships."
+            }
+        ];
+
+        const socialLinks = [
+            { name: "Facebook", url: "https://www.facebook.com/profile.php?id=100066409571827", icon: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" },
+            { name: "Instagram", url: "https://www.instagram.com/fromtheheartsocial/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" },
+            { name: "LinkedIn", url: "https://www.linkedin.com/company/from-the-heart-tutoring", icon: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" },
+            { name: "TikTok", url: "https://www.tiktok.com/@fromthehearttutoring", icon: "https://i.imgur.com/3Nga21m.jpeg" }
+        ];
+
+        function createStaffCard(member) {
+            const card = document.createElement('div');
+            card.className = 'staff-card';
+            let buttonText = member.category === 'founders' || member.category === 'otherMembers' || member.category === 'inPersonTutors' 
+                ? `Learn more about ${member.name.split(' ')[0]}` 
+                : `Learn more or schedule with ${member.name.split(' ')[0]}`;
+            card.innerHTML = `
+                <div class="staff-card-header">
+                    <img src="${member.image}" alt="${member.name}">
+                    <h3>${member.name}</h3>
+                    <p class="title">${member.title}</p>
+                </div>
+                <div class="staff-card-content">
+                    <p>${member.description}</p>
+                    ${member.link ? `<a href="${member.link}">${buttonText}</a>` : ''}
+                </div>
+            `;
+            return card;
         }
+
+        function createStaffCards() {
+            const foundersGrid = document.getElementById('foundersGrid');
+            const virtualTutorsGrid = document.getElementById('virtualTutorsGrid');
+            const inPersonTutorsGrid = document.getElementById('inPersonTutorsGrid');
+            const otherMembersGrid = document.getElementById('otherMembersGrid');
+
+            staffMembers.forEach(member => {
+                const card = createStaffCard(member);
+                switch (member.category) {
+                    case 'founders':
+                        foundersGrid.appendChild(card);
+                        break;
+                    case 'virtualTutors':
+                        virtualTutorsGrid.appendChild(card);
+                        break;
+                    case 'inPersonTutors':
+                        inPersonTutorsGrid.appendChild(card);
+                        break;
+                    case 'otherMembers':
+                        otherMembersGrid.appendChild(card);
+                        break;
+                }
+            });
+        }
+
+        function createValueCards() {
+            const valuesGrid = document.getElementById('valuesGrid');
+            values.forEach(value => {
+                const card = document.createElement('div');
+                card.className = 'value-card';
+                card.innerHTML = `
+                    <img src="${value.image}" alt="${value.title}">
+                    <h3>${value.title}</h3>
+                    <p>${value.description}</p>
+                `;
+                valuesGrid.appendChild(card);
+            });
+        }
+
+        function createSocialLinks() {
+            const socialLinksContainer = document.getElementById('socialLinks');
+            socialLinks.forEach(link => {
+                const a = document.createElement('a');
+                a.href = link.url;
+                a.target = "_blank";
+                a.rel = "noopener noreferrer";
+                a.innerHTML = `
+                    <img src="${link.icon}" alt="${link.name}">
+                    ${link.name}
+                `;
+                socialLinksContainer.appendChild(a);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            createStaffCards();
+            createValueCards();
+            createSocialLinks();
+        });
     </script>
 </body>
 </html>
