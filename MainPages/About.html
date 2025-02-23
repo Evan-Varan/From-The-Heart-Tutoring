@@ -15,10 +15,10 @@
         }
 
         *:not(.navbar, .navbar *) {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             font-family: 'Poppins', sans-serif;
@@ -61,6 +61,7 @@
 
         section {
             margin-bottom: 4rem;
+            padding: 0 1rem;
         }
 
         .mission p {
@@ -173,7 +174,7 @@
             justify-content: center;
             gap: 1.5rem;
             flex-wrap: wrap;
-            padding: 0 1rem;
+            padding: 1rem;
         }
 
         .social-links a {
@@ -223,6 +224,10 @@
         @media (max-width: 768px) {
             .staff-grid, .values-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 1rem;
             }
         }
     </style>
@@ -457,4 +462,3 @@
     </script>
 </body>
 </html>
-
