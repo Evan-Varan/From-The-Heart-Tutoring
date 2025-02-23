@@ -5,44 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Student Spotlight | From the Heart Tutoring</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../Navbar/Navbar.css">
     <link rel="stylesheet" href="../CSS/Hero.css">
-    <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../Footer/Footer.css">
     <style>
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
             background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         body::before {
             content: "";
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -1; /* Keep it behind the content */
+            z-index: -1;
             background-image: 
-                url('https://i.imgur.com/YXXdLF8.png'), /* Left Heart */
-                url('https://i.imgur.com/YXXdLF8.png'); /* Right Heart */
+                url('https://i.imgur.com/YXXdLF8.png'),
+                url('https://i.imgur.com/YXXdLF8.png');
             background-repeat: no-repeat, no-repeat;
-            background-position: calc(15% - 175px) 400px, calc(85% + 175px) 400px; /* Ensure even spacing */
-            background-size: 15vw, 15vw; /* Scale with viewport */
-            opacity: 0.5; /* Adjust transparency */
+            background-position: calc(50% - 40vw) 400px, calc(50% + 40vw) 400px;
+            background-size: 15vw, 15vw;
+            opacity: 0.5;
         }
 
         @media (max-width: 1200px) {
             body::before {
-                background-image: none; /* Remove the images */
+                background-image: none;
             }
         }
-        
-
         
         .spotlight-section {
             padding: 60px 20px;
             max-width: 1200px;
-            margin: auto;
+            width: 100%;
             display: flex;
             gap: 20px;
             justify-content: center;
@@ -55,15 +56,16 @@
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             text-align: center;
             width: 300px;
-            flex: 1 1 calc(33% - 40px); /* Responsive layout */
+            flex: 1 1 calc(33% - 40px);
             margin: 20px;
+            max-width: 400px;
         }
         .spotlight-card img {
             width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover; /* Ensures images fill their container without distortion */
-    margin-bottom: 15px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
         }
         .spotlight-card h3 {
             font-size: 1.5rem;
@@ -75,46 +77,50 @@
             color: #333;
             line-height: 1.8;
         }
-    .tutor-working {
-        font-size: 1rem;
-        color: #777;
-        margin-bottom: 10px;
-        font-style: italic;
-        margin: 0 auto; /* Ensure proper alignment */
-    max-width: 260px; /* Keep text aligned and inside the box */
-    }
+        .tutor-working {
+            font-size: 1rem;
+            color: #777;
+            margin-bottom: 10px;
+            font-style: italic;
+            margin: 0 auto;
+            max-width: 260px;
+        }
         .contact-us {
-        display: inline;
-        color: #ff6f61;
-        text-decoration: none;
-        font-weight: bold;
-        text-align: center;
-    margin-top: 40px;
-    font-size: 1.1rem;
-    }
-    .contact-us-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 0px;
-    font-size: 1.2rem;
-    text-align: center;
-}
-
-
-    .contact-us:hover {
-        /* text-decoration: bold; */
-        color: #d9574e;
-    }
+            display: inline;
+            color: #ff6f61;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1rem;
+        }
+        .contact-us-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 0px;
+            font-size: 1.2rem;
+            text-align: center;
+            width: 100%;
+            padding: 0 20px;
+        }
+        .contact-us:hover {
+            color: #d9574e;
+        }
+        .hero {
+            width: 100%;
+            text-align: center;
+        }
+        #navbar-placeholder, #footer-placeholder {
+            width: 100%;
+        }
     </style>
 </head>
 <body>
-<!-- Navbar Placeholder -->
-<div id="navbar-placeholder"></div>
+    <div id="navbar-placeholder"></div>
 
-<!-- JavaScript to Load Navbar -->
-<script src="../Navbar/Navbar.js" defer></script>
+    <script src="../Navbar/Navbar.js" defer></script>
     <div class="hero">
         <h1>Student Spotlight</h1>
         <p>Celebrating the achievements of our students.</p>
@@ -141,27 +147,24 @@
         </p>
     </div>
     
-
     <div id="footer-placeholder"></div>
 
-<!-- Load Footer -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        fetch("../Footer/Footer.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("footer-placeholder").innerHTML = html;
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../Footer/Footer.html")
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById("footer-placeholder").innerHTML = html;
 
-                // Ensure footer.css is loaded dynamically
-                if (!document.querySelector('link[href="../CSS/footer.css"]')) {
-                    const link = document.createElement("link");
-                    link.rel = "stylesheet";
-                    link.href = "../CSS/footer.css";
-                    document.head.appendChild(link);
-                }
-            })
-            .catch(error => console.error("Error loading footer:", error));
-    });
-</script>
+                    if (!document.querySelector('link[href="../CSS/footer.css"]')) {
+                        const link = document.createElement("link");
+                        link.rel = "stylesheet";
+                        link.href = "../CSS/footer.css";
+                        document.head.appendChild(link);
+                    }
+                })
+                .catch(error => console.error("Error loading footer:", error));
+        });
+    </script>
 </body>
 </html>
