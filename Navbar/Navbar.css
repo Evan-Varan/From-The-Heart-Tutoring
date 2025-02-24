@@ -305,11 +305,11 @@
 @media (max-width: 405px) {
     .logo-image {
         height: 30px;
-        transform: translateY(8px);
+        transform: translateY(10px);
     }
     .logo-heart-image {
         height: 20px;
-        transform: translateY(0px);
+        transform: translateY(2px);
     }
 }
 
@@ -346,55 +346,52 @@
 
 
 .mobile-menu {
-    display: none; /* Hidden by default */
+    display: none;
     position: fixed;
-    top: 80px; /* Adjust based on your navbar's height */
+    top: 60px; /* Adjust based on your navbar's height */
     left: 0;
     width: 100%;
-    background-color: #0f172a; /* Dark background for visibility */
-    display: flex; /* Ensure flexbox layout */
-    flex-direction: column; /* Stack items vertically */
-    align-items: center; /* Center horizontally */
-    justify-content: center; /* Center vertically */
-    z-index: 2500; /* Ensure it appears above other elements */
-    padding: 0; /* Remove unnecessary padding for cleaner alignment */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add depth */
-    text-align: center; /* Ensure text aligns properly */
-    transform: translateY(-5%); /* Adjust for perfect vertical centering */
+    background-color: #0f172a;
+    flex-direction: column;
+    align-items: center;
+    z-index: 2500;
+    padding: 20px 0;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .mobile-menu ul {
-    list-style: none; /* Remove default list styling */
+    list-style: none;
     margin: 0;
     padding: 0;
-    width: 100%; /* Take full width of the mobile menu */
+    width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Center items horizontally */
-    justify-content: center; /* Ensure spacing is equal */
+    align-items: center;
 }
 
 .mobile-menu li {
     width: 100%;
-    text-align: center; /* Center text within each list item */
-    padding: 0px 0; /* Add vertical spacing */
+    text-align: center;
 }
 
 .mobile-menu a {
     display: block;
-    width: 100%; /* Ensure links take full width */
-    text-align: center; /* Center text inside links */
+    width: 100%;
+    text-align: center;
     color: white;
-    text-decoration: none; /* Remove underline */
-    font-size: 1.2rem; /* Adjust font size */
-    padding: 15px; /* Add padding for clickable area */
+    text-decoration: none;
+    font-size: 1.2rem;
+    padding: 15px 0;
     transition: background-color 0.3s ease, color 0.3s ease;
-    border-radius: 5px; /* Rounded edges for links */
 }
 
 .mobile-menu a:hover {
-    background-color: #ff6f61; /* Light coral background */
-    color: white; /* Ensure text remains white on hover */
+    background-color: #ff6f61;
+    color: white;
+}
+
+.mobile-menu.show {
+    display: flex;
 }
 
 
