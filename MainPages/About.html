@@ -207,6 +207,7 @@
         }
 
         .join-team {
+            margin-top: 2rem;
             text-align: center;
         }
 
@@ -214,11 +215,72 @@
             margin-bottom: 1rem;
         }
 
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
+        .credits-section {
+            margin-top: 2rem; /* Updated spacing */
+            padding: 0 1rem;
             text-align: center;
-            padding: 1rem;
+        }
+
+        .credits-summary {
+            margin-bottom: 1rem;
+        }
+
+        .expand-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 25px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: bold;
+            font-size: 1rem; /* Updated font size */
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-bottom: 1rem;
+        }
+
+        .expand-button:hover {
+            background-color: #e5635b;
+        }
+
+        .credits-expand {
+            display: none;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            margin: 1rem auto;
+            max-width: 800px;
+            text-align: left;
+        }
+
+        .credits-expand ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .credits-expand li {
+            margin-bottom: 0.75rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .credits-expand li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .credits-expand a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .credits-expand a:hover {
+            color: #e5635b;
         }
 
         @media (max-width: 768px) {
@@ -229,9 +291,24 @@
             .container {
                 padding: 1rem;
             }
+            .credits-expand li {
+                font-size: 0.9rem;
+            }
         }
         .bold {
             font-weight: bold;
+        }
+        @media (max-width: 480px) {
+            .expand-button {
+                width: 100%;
+            }
+        }
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            margin-top: 4rem;
         }
     </style>
 </head>
@@ -285,6 +362,36 @@
             <p>Want to join our expanding team?</p>
             <a href="Contact.html" class="cta-button">Contact Us</a>
         </section>
+        <section class="credits-section">
+            <h2>Credits</h2>
+            <p class="credits-summary">Icons used on this website are provided by <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</p>
+            <button class="expand-button" onclick="toggleCredits()">Show All Authors</button>
+            <div class="credits-expand" id="credits-details">
+                <ul>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/chattapat" title="chattapat" target="_blank">chattapat</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="smashicons" target="_blank">smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="eucalyp" target="_blank">eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="flat-icons" target="_blank">flat-icons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/max.icons" title="max.icons" target="_blank">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/Stockio" title="Stockio" target="_blank">Stockio</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/popo2021" title="popo2021" target="_blank">popo2021</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/prettycons" title="prettycons" target="_blank">prettycons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/vectors-tank" title="vectors-tank" target="_blank">vectors-tank</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/pixelx" title="pixelx" target="_blank">pixelx</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/awicon" title="awicon" target="_blank">awicon</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/bukeicon" title="bukeicon" target="_blank">bukeicon</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/popcornarts" title="popcornarts" target="_blank">popcornarts</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/wanicon" title="wanicon" target="_blank">wanicon</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/Uniconlabs" title="Uniconlabs" target="_blank">Uniconlabs</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/talha-doger" title="talha-doger" target="_blank">Talha Doger</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/surang" title="surang" target="_blank">surang</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="vectors-market" target="_blank">vectors-market</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/karyative" title="karyative" target="_blank">karyative</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                    <li>Icons made by <a href="https://www.flaticon.com/authors/kerismaker" title="kerismaker" target="_blank">kerismaker</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                </ul>
+            </div>
+        </section>
     </main>
 
     <footer>
@@ -292,6 +399,18 @@
     </footer>
 
     <script>
+        function toggleCredits() {
+            const creditsDetails = document.getElementById('credits-details');
+            const expandButton = document.querySelector('.expand-button');
+            
+            if (creditsDetails.style.display === 'none' || creditsDetails.style.display === '') {
+                creditsDetails.style.display = 'block';
+                expandButton.textContent = 'Hide All Authors';
+            } else {
+                creditsDetails.style.display = 'none';
+                expandButton.textContent = 'Show All Authors';
+            }
+        }
         const staffMembers = [
             {
                 name: "Beth Burgin",
@@ -467,3 +586,4 @@
     </script>
 </body>
 </html>
+
