@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <link rel="stylesheet" href="../CSS/Hero.css">
     <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../Footer/Footer.css">
     <style>
         body {
             margin: 0;
@@ -176,24 +177,9 @@
         </p>
     </section>
 
-<!-- Load Footer -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        fetch("../Footer/Footer.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("footer-placeholder").innerHTML = html;
+<div id="footer-placeholder"></div>
 
-                // Ensure footer.css is loaded dynamically
-                if (!document.querySelector('link[href="../CSS/footer.css"]')) {
-                    const link = document.createElement("link");
-                    link.rel = "stylesheet";
-                    link.href = "../CSS/footer.css";
-                    document.head.appendChild(link);
-                }
-            })
-            .catch(error => console.error("Error loading footer:", error));
-    });
-</script>
+<!-- JavaScript to Load Footer -->
+<script src="../Footer/Footer.js" defer></script>
 </body>
 </html>

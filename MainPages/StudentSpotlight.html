@@ -149,22 +149,7 @@
     
     <div id="footer-placeholder"></div>
 
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch("../Footer/Footer.html")
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById("footer-placeholder").innerHTML = html;
-
-                    if (!document.querySelector('link[href="../CSS/footer.css"]')) {
-                        const link = document.createElement("link");
-                        link.rel = "stylesheet";
-                        link.href = "../CSS/footer.css";
-                        document.head.appendChild(link);
-                    }
-                })
-                .catch(error => console.error("Error loading footer:", error));
-        });
-    </script>
+    <!-- JavaScript to Load Footer -->
+    <script src="../Footer/Footer.js" defer></script>
 </body>
 </html>
