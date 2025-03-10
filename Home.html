@@ -86,8 +86,8 @@
     width: 110%;
 }
 .image-3 {
-    object-position: 0% 0%; /* Shift left and slightly up */ /*different image maybe */
-    width: 112%;
+    object-position: 0% 30%; /* Shift left and slightly up */ /*different image maybe */
+    width: 120%;
 }
 .image-4 {
     object-position: 10% 0%; /* Shift left and slightly up */
@@ -687,15 +687,14 @@
                     <img src="https://i.imgur.com/8MqF8tr.jpeg" referrerpolicy="no-referrer" class="fade-image image-1" alt="Image 1">
                 </picture>
     
-               
                 <picture>
                     <source srcset="https://i.imgur.com/krzcJib.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
                     <img src="https://i.imgur.com/eTlFiPU.jpeg" referrerpolicy="no-referrer" class="fade-image image-2 hidden" alt="Image 2">
                 </picture>
                
                 <picture>
-                    <source srcset="https://i.imgur.com/egHIl0D.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
-                    <img src="https://i.imgur.com/fjrnuIF.jpeg" referrerpolicy="no-referrer" class="fade-image image-3 hidden" alt="Image 3">
+                    <source srcset="https://i.imgur.com/egHIl0D.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)"> <!--remove-->
+                    <img src="https://i.imgur.com/U0FkRHz.jpeg" referrerpolicy="no-referrer" class="fade-image image-3 hidden" alt="Image 3">
                 </picture>
                
                 <picture>
@@ -909,17 +908,34 @@
     <script>
         
         document.addEventListener("DOMContentLoaded", function () {
-            const images = document.querySelectorAll(".fade-image");
-            let currentIndex = 0;
+    const images = document.querySelectorAll(".fade-image");
 
-            function showNextImage() {
-                images[currentIndex].classList.add("hidden"); // Hide current image
-                currentIndex = (currentIndex + 1) % images.length; // Move to next image
-                images[currentIndex].classList.remove("hidden"); // Show new image
-            }
+    // Define the exact order you want the images to appear
+    const customOrder = [5, 3, 1, 4, 2, 6]; // Order using their index (1-based)
 
-            setInterval(showNextImage, 5000); // Change image every 5 seconds
-        });
+    let currentIndex = 0;
+
+    // Hide all images initially
+    images.forEach(img => img.classList.add("hidden"));
+
+    // Show the first image in custom order
+    images[customOrder[currentIndex] - 1].classList.remove("hidden");
+
+    function showNextImage() {
+        // Hide the current image
+        images[customOrder[currentIndex] - 1].classList.add("hidden");
+
+        // Move to the next image in the sequence
+        currentIndex = (currentIndex + 1) % customOrder.length;
+
+        // Show new image based on custom order
+        images[customOrder[currentIndex] - 1].classList.remove("hidden");
+    }
+
+    setInterval(showNextImage, 5000); // Change image every 5 seconds
+});
+
+
 
         // Redirection logic for the "Schedule Now" button
         function redirectToSchedule() {
