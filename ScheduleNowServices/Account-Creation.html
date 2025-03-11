@@ -11,35 +11,34 @@
     <link rel="stylesheet" href="../Progress/Progress.css">
     <link rel="stylesheet" href="../CSS/Button.css">
     <style>
+        html {
+            height: 100%;
+        }
+        
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
             background-color: #f9f9f9;
+            min-height: 100%;
+            position: relative;
+            /* Make sure body takes at least full viewport height */
+            display: flex;
+            flex-direction: column;
         }
-        /* body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 120%;
-    z-index: -1; 
-    background-image: 
-        url('https://i.imgur.com/iK8jQVI.png'), 
-        url('https://i.imgur.com/YXXdLF8.png'); 
-    background-repeat: no-repeat, no-repeat;
-    background-position: 20px 350px, right 40px bottom 20px; 
-    background-size: 15vw, 15vw; 
-    opacity: 0.5; 
-} */
-
-/* Medium Screens (Tablets) */
-@media (max-width: 1000px) {
-    body::before {
-        background-image: none; /* Remove the images */
-    }
-}
-
+        
+        /* Create a wrapper for the background pattern */
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/fishnets-and-hearts.png');
+            background-repeat: repeat;
+            opacity: 1;
+            pointer-events: none;
+        }
 
         /* Progress Dots */
         .progress {
@@ -171,6 +170,9 @@
     </style>
 </head>
 <body>
+    <!-- Background Pattern Div -->
+    <div class="background-pattern"></div>
+    
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
@@ -211,37 +213,6 @@
     <div class="widget-wrapper">
         <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9xZFhKMSIsIldlYnNpdGVJRCI6Indic196MjZKViIsIldlYnNpdGVCbG9ja0lEIjoid2JiX1Q0UzFKSCJ9"></script>
     </div>
-    <!-- Mailing List Signup -->
-<!-- <div class="mailing-list-section">
-    <input type="checkbox" id="mailing-list-checkbox">
-    <label for="mailing-list-checkbox">Sign up for our mailing list</label>
-    <button id="submit-email" onclick="submitEmail()">Submit</button>
-</div>
-
-<script>
-    function submitEmail() {
-        const checkbox = document.getElementById("mailing-list-checkbox");
-        const emailInput = document.getElementById("mailing-list-email");
-        const message = document.getElementById("mailing-list-message");
-
-        if (checkbox.checked && emailInput.value.trim() !== "") {
-            fetch('/save-email', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ email: emailInput.value.trim() })
-            })
-            .then(response => response.text())
-            .then(data => {
-                console.log(data);
-                message.style.display = "block";
-                emailInput.value = ""; // Clear input after submission
-            })
-            .catch(error => console.error("Error:", error));
-        } else {
-            alert("Please check the box and enter a valid email.");
-        }
-    }
-</script> -->
 
     <!-- Back Button -->
     <div class="back-button-container">
@@ -280,11 +251,9 @@
         }
     }
     </script>
-    <<div id="footer-placeholder"></div>
+    <div id="footer-placeholder"></div>
 
     <!-- JavaScript to Load Footer -->
     <script src="../Footer/Footer.js" defer></script>
-
-   
 </body>
 </html>

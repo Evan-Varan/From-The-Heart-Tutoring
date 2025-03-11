@@ -25,13 +25,30 @@
             line-height: 1.6;
             color: var(--text-color);
             background-color: var(--background-color);
+            position: relative; /* Added for positioning context */
         }
         
+        /* Background pattern styling */
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/pixel-heart.png');
+            background-repeat: repeat;
+            opacity: 0.3; /* Subtle opacity */
+            pointer-events: none; /* Allows clicking through the background */
+            min-height: 100%;
+        }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 2rem;
+            position: relative; /* Ensures content stays above background */
         }
 
         .hero {
@@ -39,6 +56,8 @@
             color: white;
             text-align: center;
             padding: 4rem 2rem;
+            position: relative; /* Ensures it's above the background */
+            z-index: 1;
         }
 
         .hero h1 {
@@ -63,6 +82,8 @@
         section {
             margin-bottom: 4rem;
             padding: 0 1rem;
+            position: relative; /* Ensures it's above the background */
+            z-index: 1;
         }
 
         .mission p {
@@ -310,10 +331,13 @@
             text-align: center;
             padding: 1rem;
             margin-top: 4rem;
+            position: relative; /* Ensures it's above the background */
+            z-index: 1;
         }
     </style>
 </head>
 <body>
+
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
@@ -400,6 +424,8 @@
     </footer>
 
     <script>
+        
+
         function toggleCredits() {
             const creditsDetails = document.getElementById('credits-details');
             const expandButton = document.querySelector('.expand-button');
@@ -587,4 +613,3 @@
     </script>
 </body>
 </html>
-
