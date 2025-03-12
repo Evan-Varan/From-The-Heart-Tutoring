@@ -19,15 +19,16 @@
         align-items: center;
         justify-content: center;
         position: relative;
+        min-height: 100vh; /* Ensure body takes at least full viewport height */
     }
 
     html {
         height: 100%;
     }
 
-    /* Background pattern styling */
+    /* Fixed background pattern styling */
     .background-pattern {
-        position: absolute;
+        position: fixed; /* Changed from absolute to fixed */
         top: 0;
         left: 0;
         width: 100%;
@@ -37,6 +38,14 @@
         background-repeat: repeat;
         opacity: 0.9; /* Default opacity */
         pointer-events: none;
+    }
+
+    /* Add a min-height to ensure content area stretches */
+    #main-content {
+        min-height: 100vh;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     .hero {
@@ -220,58 +229,61 @@
     <!-- Background Pattern Div -->
     <div class="background-pattern" id="background-pattern"></div>
     
-    <!-- Navbar Placeholder -->
-    <div id="navbar-placeholder"></div>
+    <!-- Main content wrapper to ensure minimum height -->
+    <div id="main-content">
+        <!-- Navbar Placeholder -->
+        <div id="navbar-placeholder"></div>
 
-    <!-- JavaScript to Load Navbar -->
-    <script src="../Navbar/Navbar.js" defer></script>
-    <!-- Hero Section -->
-    <div class="hero" >
-        <h1>Select a Tutor</h1>
-        <p>Based on your selected subjects, here are the best matches for you.</p>
-        <div class="subjects" id="selected-subjects"></div>
-    </div>
-    <div class="progress-steps">
-        <div class="step-container">
-            <div class="step">1</div>
+        <!-- JavaScript to Load Navbar -->
+        <script src="../Navbar/Navbar.js" defer></script>
+        <!-- Hero Section -->
+        <div class="hero" >
+            <h1>Select a Tutor</h1>
+            <p>Based on your selected subjects, here are the best matches for you.</p>
+            <div class="subjects" id="selected-subjects"></div>
         </div>
-        <div class="step-container">
-            <div class="step">2</div>
+        <div class="progress-steps">
+            <div class="step-container">
+                <div class="step">1</div>
+            </div>
+            <div class="step-container">
+                <div class="step">2</div>
+            </div>
+            <div class="step-container">
+                <div class="step">3</div>
+            </div>
+            <div class="step-container">
+                <div class="step">4</div>
+            </div>
         </div>
-        <div class="step-container">
-            <div class="step">3</div>
-        </div>
-        <div class="step-container">
-            <div class="step">4</div>
-        </div>
-    </div>
-    <script src="../Progress/Progress.js"></script>
-<script>
-    // Call updateSteps with the current step number
-    document.addEventListener("DOMContentLoaded", function() {
-        updateSteps(3); // Change 3 to any current step dynamically
-    });
-    
-</script>
+        <script src="../Progress/Progress.js"></script>
+        <script>
+            // Call updateSteps with the current step number
+            document.addEventListener("DOMContentLoaded", function() {
+                updateSteps(3); // Change 3 to any current step dynamically
+            });
+            
+        </script>
 
-<div class="widget-wrapper">
-    <div class="container">
-        <div id="tutor-container"></div>
-        <div class="no-results" id="no-results" style="display: none;">No tutors found for your selected subjects.</div>
-    </div>
+        <div class="widget-wrapper">
+            <div class="container">
+                <div id="tutor-container"></div>
+                <div class="no-results" id="no-results" style="display: none;">No tutors found for your selected subjects.</div>
+            </div>
 
-    <!-- Error Message -->
-    <div class="error-message" id="error-message">Please select a tutor before proceeding.</div>
-    
-    <!-- Missing Subjects Message -->
-    <div id="missing-subjects-message"></div>
+            <!-- Error Message -->
+            <div class="error-message" id="error-message">Please select a tutor before proceeding.</div>
+            
+            <!-- Missing Subjects Message -->
+            <div id="missing-subjects-message"></div>
 
-    <!-- Buttons - Updated to use square-button class -->
-    <div class="buttons-container">
-        <button class="square-button" onclick="redirectToPreviousPage()">Back</button>
-        <button class="square-button" onclick="redirectToNext()">Next</button>
+            <!-- Buttons - Updated to use square-button class -->
+            <div class="buttons-container">
+                <button class="square-button" onclick="redirectToPreviousPage()">Back</button>
+                <button class="square-button" onclick="redirectToNext()">Next</button>
+            </div>
+        </div>
     </div>
-</div>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {

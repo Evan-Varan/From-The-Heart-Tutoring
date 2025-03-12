@@ -10,6 +10,24 @@
     <link rel="stylesheet" href="../Footer/Footer.css">
     <link rel="stylesheet" href="../CSS/HeartBackground.css">
     <style>
+        html, body {
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Fix for heart background to cover entire page */
+        body::after {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -10;
+            background: inherit;
+            pointer-events: none;
+        }
+        
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
@@ -27,6 +45,8 @@
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
         .spotlight-card {
             background-color: white;
@@ -83,6 +103,8 @@
             text-align: center;
             width: 100%;
             padding: 0 20px;
+            position: relative;
+            z-index: 1;
         }
         .contact-us:hover {
             color: #d9574e;
@@ -90,9 +112,22 @@
         .hero {
             width: 100%;
             text-align: center;
+            position: relative;
+            z-index: 1;
         }
         #navbar-placeholder, #footer-placeholder {
             width: 100%;
+        }
+        
+        /* Additional fix for heart background */
+        .heart-background, 
+        [class*="heart-background"] {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 100% !important;
+            z-index: -5 !important;
         }
     </style>
 </head>
@@ -107,13 +142,13 @@
 
     <div class="spotlight-section">
         <div class="spotlight-card">
-            <img src="https://i.imgur.com/2N3LhTt.jpeg" alt="Student Photo">
+            <img src="https://i.imgur.com/2N3LhTt.jpeg" referrerpolicy="no-referrer" alt="Student Photo">
             <h3>Mariame Top</h3>
             <p class="tutor-working">Working with Evan Varan</p>
             <p>Working with Evan has helped her get a better grasp and understanding of the math itself. She is now less confused when approaching a question. She has gained so much confidence and is able to get A grades on algebra tests.</p>
         </div>
         <div class="spotlight-card">
-            <img src="https://i.imgur.com/R1vtVlV.jpeg" alt="Student Photo">
+            <img src="https://i.imgur.com/R1vtVlV.jpeg" referrerpolicy="no-referrer" alt="Student Photo">
             <h3>Madison Self</h3>
             <p class="tutor-working">Working with Evan Varan</p>
             <p>Madison has consistently excelled in her accelerated math classes throughout middle school, and she is really looking forward to continuing her studies with honors math in high school, especially with Evan.</p>
