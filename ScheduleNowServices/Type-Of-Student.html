@@ -121,35 +121,60 @@
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
+    <!-- Wrap all content between navbar and footer in page-content -->
+    <div class="page-content">
+        <!-- Hero Section -->
+        <div class="hero">
+            <h1>Have you worked with From the Heart Tutoring before?</h1>
+            <p>Let us know how we can best assist you on your academic journey.</p>
+        </div>
+        
+        <!-- Progress Steps -->
+        <div class="progress-steps">
+            <div class="step-container">
+                <div class="step">1</div>
+            </div>
+            <div class="step-container">
+                <div class="step">2</div>
+            </div>
+            <div class="step-container">
+                <div class="step">3</div>
+            </div>
+            <div class="step-container">
+                <div class="step">4</div>
+            </div>
+        </div>
+        
+        <!-- Options -->
+        <div class="container">
+            <div class="option" onclick="selectOption(this, 'First-Time Student')">
+                <img src="https://i.imgur.com/02gz1N6.png" referrerpolicy="no-referrer"alt="First-Time Student">
+                <h2>I'm a First-Time Student</h2>
+            </div>
+            <div class="option" onclick="selectOption(this, 'Returning Student')">
+                <img src="https://i.imgur.com/csOwX1V.png"referrerpolicy="no-referrer" alt="Returning Student">
+                <h2>I'm a Returning Student</h2>
+            </div>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error-message" class="error-message">
+            Please select an option before proceeding.
+        </div>
+
+        <!-- Buttons -->
+        <div class="button-container">
+            <button class="square-button" onclick="redirectToScheduleNow()">Back</button>
+            <button class="square-button" onclick="redirectToNext()">Next</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+
     <!-- JavaScript to Load Navbar -->
     <script src="../Navbar/Navbar.js" defer></script>
-     <!-- Hero Section -->
-     <div class="hero">
-        <h1>Have you worked with From the Heart Tutoring before?</h1>
-        <p>Let us know how we can best assist you on your academic journey.</p>
-    </div>
-    <!-- Progress Dots -->
-    <!-- <div class="progress">
-        <span class="dot active"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    </div> -->
-    <div class="progress-steps">
-        <div class="step-container">
-            <div class="step">1</div>
-        </div>
-        <div class="step-container">
-            <div class="step">2</div>
-        </div>
-        <div class="step-container">
-            <div class="step">3</div>
-        </div>
-        <div class="step-container">
-            <div class="step">4</div>
-        </div>
-    </div>
+     
     <script src="../Progress/Progress.js"></script>
 <script>
     // Call updateSteps with the current step number
@@ -161,26 +186,7 @@
     
     
     
-    <!-- Options -->
-    <div class="container">
-        <div class="option" onclick="selectOption(this, 'First-Time Student')">
-            <img src="https://i.imgur.com/02gz1N6.png" referrerpolicy="no-referrer"alt="First-Time Student">
-            <h2>I'm a First-Time Student</h2>
-        </div>
-        <div class="option" onclick="selectOption(this, 'Returning Student')">
-            <img src="https://i.imgur.com/csOwX1V.png"referrerpolicy="no-referrer" alt="Returning Student">
-            <h2>I'm a Returning Student</h2>
-        </div>
-    </div>
-
-    <!-- Error Message -->
-    <div id="error-message" class="error-message">Please select an option before proceeding.</div>
-
-    <!-- Buttons -->
-    <div class="button-container">
-        <button class="square-button" onclick="redirectToScheduleNow()">Back</button>
-        <button class="square-button" onclick="redirectToNext()">Next</button>
-    </div>
+    
 
     <script>
 
@@ -236,9 +242,10 @@
             document.getElementById('error-message').style.display = 'none';
         }
     </script>
-    <div id="footer-placeholder"></div>
+    
 
     <!-- JavaScript to Load Footer -->
     <script src="../Footer/Footer.js" defer></script>
 </body>
 </html>
+

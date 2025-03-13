@@ -13,12 +13,21 @@
     <style>
         /* Reset and base styles */
         *:not(.navbar, .navbar *) {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-        body, html {
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Use viewport height instead of percentage */
             font-family: 'Poppins', sans-serif;
             line-height: 1.6;
             color: #333;
@@ -35,6 +44,7 @@
             color: white;
             padding: 60px 20px;
             text-align: center;
+            margin-bottom: 2rem; /* Add some space between hero and contact section */
         }
 
         .hero h1 {
@@ -54,22 +64,23 @@
 
         /* Contact Section */
         .contact-section {
+            flex: 1 0 auto; /* This ensures the content area takes up available space */
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             align-items: stretch;
-            padding: 40px 20px;
-            margin: 20px auto;
+            padding: 2.5rem 1.25rem; /* Use rem instead of px for better text scaling */
+            margin: 1.25rem auto;
             background-color: white;
             max-width: 1200px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            border-radius: 8px;
+            box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
         }
 
         .form-container, .info-container {
             flex: 1;
             min-width: 300px;
-            padding: 20px;
+            padding: 1.25rem; /* Use rem instead of px */
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -109,14 +120,6 @@
             height: 150px;
             resize: vertical;
         }
-
-        /* Commented out original height settings for input and textarea */
-        /*input {
-            height: 10%;
-        }*/
-        /*textarea{
-            height: 35%;
-        }*/
 
         button {
             background-color: #ff6f61;
@@ -162,7 +165,8 @@
 
         /* Social Media Section */
         .social-container {
-            margin-top: 30px;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
             text-align: center;
         }
 
@@ -235,29 +239,30 @@
         @media (max-width: 768px) {
             .contact-section {
                 flex-direction: column;
+                margin: 1rem auto; /* Reduce margin on mobile */
+                padding: 1.5rem 1rem;
             }
 
             .form-container, .info-container {
                 width: 100%;
                 border-right: none;
                 border-bottom: 2px solid #f3f4f6;
-                padding: 30px 20px;
+                padding: 1rem;
             }
 
             .info-container {
                 border-bottom: none;
             }
-            /* Remove the button height adjustment */
-            /* button {
-                height: 200%;
-            } */
         }
+        
         footer {
+            flex-shrink: 0; /* Prevent footer from shrinking */
             background-color: #1e293b;
             color: white;
             text-align: center;
             padding: 1rem;
-            margin-top: 4rem;
+            width: 100%;
+            margin-top: auto; /* Push footer to bottom */
         }
     </style>
 </head>
@@ -294,7 +299,7 @@
 
         <div class="info-container">
             <h3>Contact Information</h3>
-            <p>Email: <a href="mailto:info@fromthehearttutoring.com">info@fromthehearttutoring.com</a></p>
+            <p>Email: <a href="/cdn-cgi/l/email-protection#5f363139301f392d30322b373a373a3e2d2b2b2a2b302d363138713c3032"><span class="__cf_email__" data-cfemail="8fe6e1e9e0cfe9fde0e2fbe7eae7eaeefdfbfbfafbe0fde6e1e8a1ece0e2">[email&#160;protected]</span></a></p>
             <p>Address: Based and Founded in Austin, Texas</p>
             
             <!-- Social Media Section -->
@@ -335,7 +340,7 @@
         </div>
     </div>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.addEventListener("DOMContentLoaded", function () {
             emailjs.init({
                 publicKey: "hOLJq0ZLwkJlwtTSb",
