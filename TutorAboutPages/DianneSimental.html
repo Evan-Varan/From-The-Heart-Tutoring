@@ -310,19 +310,34 @@
     .tutor-main-section {
         flex-direction: column; /* Stack sections vertically */
         align-items: center; /* Center the stacked sections */
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .tutor-about-container,
     .subjects-container {
-        width: calc(100% - 40px); /* Full width minus padding */
+        width: 100%; /* Full width */
         max-width: 600px; /* Set a reasonable maximum width */
-        margin: 0 auto; /* Center the sections horizontally */
+        margin: 0 auto 20px; /* Center the sections horizontally and add bottom margin */
         box-sizing: border-box; /* Include padding in width calculations */
+        flex: none; /* Remove flex properties that might affect width */
     }
 
     .subjects-container {
         padding: 20px;
         border: 2px solid #1e293b;
+    }
+    
+    .subjects-columns {
+        flex-direction: column; /* Stack the subject lists on very small screens */
+    }
+    
+    /* Only apply two columns if there's enough width */
+    @media (min-width: 480px) {
+        .subjects-columns {
+            flex-direction: row;
+        }
     }
 }
 
@@ -351,7 +366,7 @@
                 <h2>Dianne Simental</h2>
             </div>
             <p>
-                Hello everyone! My name is Dianne Simental and I am a former middle school science teacher from Leander ISD. I graduated from Cal State Long Beach with a degree in Biology Education and my teaching credentials. Through my teaching career, I have had the privilege of working with students of many different abilities and backgrounds. I am here to help you with MS Science, MS Math, and MS English along with HS Biology, HS Chemistry, HS Physics, HS Math, HS English, and Spanish. I am here to aid in your success. Can't wait to meet you!
+                Hello everyone! My name is Dianne Simental and I am a former middle school science teacher from Leander ISD. I graduated from Cal State Long Beach with a degree in Biology Education and my teaching credentials. Through my teaching career, I have had the privilege of working with students of many different abilities and backgrounds. I am here to help you with MS Science, MS Math, and MS English along with HS Biology, HS Chemistry, HS Physics, HS Math, HS English, and Spanish. I am here to aid in your success. Can't wait to meet you!
             </p>
             <p>
                 <!--Hobbies-->

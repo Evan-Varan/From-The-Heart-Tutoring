@@ -313,19 +313,35 @@
     .tutor-main-section {
         flex-direction: column; /* Stack sections vertically */
         align-items: center; /* Center the stacked sections */
+        padding: 20px;
+        width: 100%;
+        box-sizing: border-box;
     }
 
     .tutor-about-container,
     .subjects-container {
-        width: calc(100% - 40px); /* Full width minus padding */
+        width: 100%; /* Full width */
         max-width: 600px; /* Set a reasonable maximum width */
-        margin: 0 auto; /* Center the sections horizontally */
+        margin: 0 auto 20px; /* Center the sections horizontally and add bottom margin */
         box-sizing: border-box; /* Include padding in width calculations */
+        flex: none; /* Remove flex properties that might affect width */
     }
 
     .subjects-container {
         padding: 20px;
         border: 2px solid #1e293b;
+        width: 100%; /* Override the fixed width set earlier */
+    }
+    
+    .subjects-columns {
+        flex-direction: column; /* Stack the subject lists on very small screens */
+    }
+    
+    /* Only apply two columns if there's enough width */
+    @media (min-width: 480px) {
+        .subjects-columns {
+            flex-direction: row;
+        }
     }
 }
 
@@ -456,3 +472,4 @@
     </script>
 </body>
 </html>
+
