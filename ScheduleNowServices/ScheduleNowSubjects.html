@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Select Your Subject | From the Heart Tutoring</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
@@ -14,6 +14,8 @@
     <style>
         html {
             height: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            max-width: 100%;
         }
         
         body {
@@ -25,18 +27,11 @@
             /* Make sure body takes at least full viewport height */
             display: flex;
             flex-direction: column;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            max-width: 100%;
+            width: 100%;
         }
-        /*fixing hero section if need */
-        /* @media (max-width: 480px) {
-            .hero {
-                padding-top: 30px !important;
-                padding-bottom: 30px !important;
-            }
-            
-            .hero h1 {
-                margin-top: 50px !important;
-            }
-        } */
+        
         .background-pattern {
             position: absolute;
             top: 0;
@@ -50,9 +45,6 @@
             pointer-events: none;
         }
 
-
-        
-
         /* Categories */
         .category-container {
             display: flex;
@@ -61,6 +53,8 @@
             gap: 20px; /* Reduce spacing for better fit */
             margin: 30px auto;
             max-width: 90%; /* Ensure it doesn't stretch too wide */
+            box-sizing: border-box;
+            padding: 0 10px;
         }
 
         .category {
@@ -73,6 +67,9 @@
             cursor: pointer;
             font-size: 16px;
             transition: background-color 0.3s, border-color 0.3s;
+            box-sizing: border-box;
+            max-width: 100%;
+            word-wrap: break-word;
         }
 
         .category:hover, .category.active {
@@ -90,6 +87,8 @@
             margin: 20px auto;
             max-width: 1200px;
             padding: 20px;
+            box-sizing: border-box;
+            width: 100%;
         }
 
         .subjects-container.active {
@@ -103,65 +102,73 @@
             font-weight: bold;
         }
 
-
         .subject {
             background-color: white;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    color: black; /* Default black text */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            color: black; /* Default black text */
+            padding: 20px;
+            width: 320px; /* Adjust width as needed */
+            max-width: 100%; /* Prevent overflow */
+            display: flex; /* Enables horizontal layout */
+            align-items: center; /* Centers content vertically */
+            gap: 25px; /* Adds spacing between the image and text */
+            cursor: pointer;
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 1.2rem;
+            box-sizing: border-box;
+        }
+        
+        .subject.selected {
+            background-color: #ff6f61 !important; /* Highlight selected subject */
+            border-color: #d9574e !important;
+            color: white !important; /* Ensure text is visible on red background */
+            transform: scale(1.05) !important;   /* Slightly enlarge selected */
+            box-shadow: none; /* Remove shadow for selected */
+            transition: none !important;        /* Disable transitions on deselect */
+        }
 
-    padding: 20px;
-    width: 320px; /* Adjust width as needed */
-    display: flex; /* Enables horizontal layout */
-    align-items: center; /* Centers content vertically */
-    gap: 25px; /* Adds spacing between the image and text */
-    cursor: pointer;
-    position: relative;
-    transition: transform 0.3s, box-shadow 0.3s;
-    font-size: 1.2rem;
-}
-.subject.selected {
-    background-color: #ff6f61 !important; /* Highlight selected subject */
-    border-color: #d9574e !important;
-    color: white !important; /* Ensure text is visible on red background */
-    transform: scale(1.05) !important;   /* Slightly enlarge selected */
-    box-shadow: none; /* Remove shadow for selected */
-    transition: none !important;        /* Disable transitions on deselect */
-}
+        .subject:hover:not(.selected) {
+            background-color: #f0f0f0; /* Hover effect only applies to unselected subjects */
+            transform: scale(1.05);
+        }
 
-.subject:hover:not(.selected) {
-    background-color: #f0f0f0; /* Hover effect only applies to unselected subjects */
-    transform: scale(1.05);
-}
+        .subject:hover{
+            background-color: #ff6f61;
+            border-color: #d9574e;
+            transform: scale(1.05);
+        }
 
-.subject:hover{
-    background-color: #ff6f61;
-    border-color: #d9574e;
-    transform: scale(1.05);
-}
+        .subject img {
+            width: 75px; /* Adjust image size */
+            height: 75px;
+            border-radius: 10px; /* Optional: keep the rounded style */
+            object-fit: cover;
+            max-width: 100%;
+        }
+        
+        .subject-card-content {
+            text-align: left; /* Align text to the left */
+            max-width: calc(100% - 100px); /* Account for image width and gap */
+            word-wrap: break-word;
+        }
 
+        .subject-card h3 {
+            font-size: 1.3rem;
+            color: #ff6f61;
+            margin: 0 0 5px;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
 
-.subject img {
-    width: 75px; /* Adjust image size */
-    height: 75px;
-    border-radius: 10px; /* Optional: keep the rounded style */
-    object-fit: cover;
-}
-.subject-card-content {
-    text-align: left; /* Align text to the left */
-}
-
-.subject-card h3 {
-    font-size: 1.3rem;
-    color: #ff6f61;
-    margin: 0 0 5px;
-}
-
-.subject-card p {
-    font-size: 1.2rem;
-    margin: 0;
-    color: #333;
-}
+        .subject-card p {
+            font-size: 1.2rem;
+            margin: 0;
+            color: #333;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
 
         /* Buttons */
         .button-container {
@@ -169,6 +176,9 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 10px;
         }
 
         .back-button, .next-button {
@@ -192,57 +202,80 @@
                 flex-direction: column;
                 gap: 15px;
             }
+            
+            .subject {
+                width: 100%;
+                max-width: calc(100% - 20px);
+            }
         }
+        
         .error-message {
             color: #ff6f61;
             font-size: 1rem;
             text-align: center;
             margin-top: 10px;
             display: none;
+            width: 100%;
+            box-sizing: border-box;
         }
         
-    .test-prep-options {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 20px;
-    }
+        .test-prep-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            padding: 0 10px;
+        }
 
-    .test-prep-option {
-        background-color: white;
-        border: 2px solid #d1d1d1;
-        border-radius: 12px;
-        padding: 10px 20px;
-        text-align: center;
-        cursor: pointer;
-        transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
-    }
+        .test-prep-option {
+            background-color: white;
+            border: 2px solid #d1d1d1;
+            border-radius: 12px;
+            padding: 10px 20px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
+            box-sizing: border-box;
+            max-width: 100%;
+            word-wrap: break-word;
+        }
 
-    .test-prep-option:hover {
-        background-color: #ff6f61;
-        border-color: #d9574e;
-        color: white;
-        transform: scale(1.05);
-    }
-    .category.selected, .test-prep-option.selected {
-        background-color: #ff6f61;
-        border-color: #ff6f61;
-        color: white;
-        font-weight: bold;
-    }
-    .contact-link {
-        color: #ff6f61; /* Base color */
-        font-weight: bold;
-        text-decoration: none;
-        transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
-    }
+        .test-prep-option:hover {
+            background-color: #ff6f61;
+            border-color: #d9574e;
+            color: white;
+            transform: scale(1.05);
+        }
+        
+        .category.selected, .test-prep-option.selected {
+            background-color: #ff6f61;
+            border-color: #ff6f61;
+            color: white;
+            font-weight: bold;
+        }
+        
+        .contact-link {
+            color: #ff6f61; /* Base color */
+            font-weight: bold;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
+        }
 
-    .contact-link:hover {
-        color: #d9574e; /* Slightly darker shade on hover */
-    }
-    
-
+        .contact-link:hover {
+            color: #d9574e; /* Slightly darker shade on hover */
+        }
+        
+        /* Ensure all containers respect viewport boundaries */
+        #navbar-placeholder, 
+        #footer-placeholder {
+            width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
+        }
     </style>
 </head>
 <body>
@@ -554,22 +587,17 @@
         const errorMessage = document.getElementById('error-message'); // Define error message element
 
         function toggleSelection(element, subject) {
-    event.stopPropagation(); // Prevent event bubbling
+            event.stopPropagation(); // Prevent event bubbling
 
-    if (element.classList.contains('selected')) {
-        element.classList.remove('selected');
-        selectedSubjects.delete(subject);
-    } else {
-        element.classList.add('selected');
-        selectedSubjects.add(subject);
-        document.getElementById("error-message").style.display = "none"; // Hide error message on selection
-    }
-}
-
-
-
-
-
+            if (element.classList.contains('selected')) {
+                element.classList.remove('selected');
+                selectedSubjects.delete(subject);
+            } else {
+                element.classList.add('selected');
+                selectedSubjects.add(subject);
+                document.getElementById("error-message").style.display = "none"; // Hide error message on selection
+            }
+        }
 
         function showSubjects(category) {
             document.querySelectorAll('.subjects-container').forEach(container => container.classList.remove('active'));
@@ -579,84 +607,84 @@
         }
 
         function redirectToNext() {
-    const tutorSelected = localStorage.getItem('selectedTutorName'); // Check if tutor is selected
+            const tutorSelected = localStorage.getItem('selectedTutorName'); // Check if tutor is selected
 
-    if (selectedSubjects.size === 0) {
-        // Show error message if no subjects are selected
-        document.getElementById("error-message").style.display = "block";
-        return;
-    } else {
-        // Hide error message and save selected subjects
-        document.getElementById("error-message").style.display = "none";
-        localStorage.setItem("selectedSubjects", JSON.stringify([...selectedSubjects]));
+            if (selectedSubjects.size === 0) {
+                // Show error message if no subjects are selected
+                document.getElementById("error-message").style.display = "block";
+                return;
+            } else {
+                // Hide error message and save selected subjects
+                document.getElementById("error-message").style.display = "none";
+                localStorage.setItem("selectedSubjects", JSON.stringify([...selectedSubjects]));
 
-        if (tutorSelected) {
-            // Redirect to TutorAlreadySelected.html if a tutor is already selected
-            window.location.href = "TutorAlreadySelected.html";
-        } else {
-            // Redirect to RecommendedTutor.html if no tutor is selected
-            window.location.href = "RecommendedTutor.html";
-        }
-    }
-}
-
-
-    function redirectToTypeOfStudent() {
-        window.location.href = 'Type-Of-Student.html';
-    }
-        function selectCategory(element, category) {
-    // Deselect all categories
-    document.querySelectorAll('.category').forEach(cat => cat.classList.remove('selected', 'active'));
-
-    // Select the clicked category
-    element.classList.add('selected', 'active');
-    localStorage.setItem('selectedCategory', category); // Store selected category
-
-    // Hide all subjects containers
-    document.querySelectorAll('.subjects-container').forEach(container => {
-        container.classList.remove('active');
-    });
-
-    // Handle Test Prep or other categories
-    if (category === 'Test Prep') {
-        document.getElementById('test-prep-options').style.display = 'flex'; // Show Test Prep options
-
-        // Check if an option is already selected
-        const selectedOption = document.querySelector('.test-prep-option.selected');
-        if (selectedOption) {
-            const selectedExam = selectedOption.textContent.trim(); // Get the text of the selected option
-            const container = document.getElementById(selectedExam.toLowerCase());
-            if (container) {
-                container.classList.add('active'); // Show the previously selected exam's subjects
+                if (tutorSelected) {
+                    // Redirect to TutorAlreadySelected.html if a tutor is already selected
+                    window.location.href = "TutorAlreadySelected.html";
+                } else {
+                    // Redirect to RecommendedTutor.html if no tutor is selected
+                    window.location.href = "RecommendedTutor.html";
+                }
             }
         }
-    } else {
-        document.getElementById('test-prep-options').style.display = 'none'; // Hide Test Prep options
-        const container = document.getElementById(category.toLowerCase());
-        if (container) {
-            container.classList.add('active'); // Show relevant container
+
+        function redirectToTypeOfStudent() {
+            window.location.href = 'Type-Of-Student.html';
         }
-    }
-}
+        
+        function selectCategory(element, category) {
+            // Deselect all categories
+            document.querySelectorAll('.category').forEach(cat => cat.classList.remove('selected', 'active'));
 
-function selectTestPrepOption(element, option) {
-    // Deselect all test prep options
-    document.querySelectorAll('.test-prep-option').forEach(opt => opt.classList.remove('selected'));
+            // Select the clicked category
+            element.classList.add('selected', 'active');
+            localStorage.setItem('selectedCategory', category); // Store selected category
 
-    // Highlight the clicked option
-    element.classList.add('selected');
+            // Hide all subjects containers
+            document.querySelectorAll('.subjects-container').forEach(container => {
+                container.classList.remove('active');
+            });
 
-    // Hide all test prep subject containers
-    document.querySelectorAll('.subjects-container').forEach(container => {
-        container.classList.remove('active');
-    });
+            // Handle Test Prep or other categories
+            if (category === 'Test Prep') {
+                document.getElementById('test-prep-options').style.display = 'flex'; // Show Test Prep options
 
-    // Convert option to lowercase to match container IDs
-    const container = document.getElementById(option.toLowerCase());
-    if (container) {
-        container.classList.add('active'); // Show the selected container
-    }
-}
+                // Check if an option is already selected
+                const selectedOption = document.querySelector('.test-prep-option.selected');
+                if (selectedOption) {
+                    const selectedExam = selectedOption.textContent.trim(); // Get the text of the selected option
+                    const container = document.getElementById(selectedExam.toLowerCase());
+                    if (container) {
+                        container.classList.add('active'); // Show the previously selected exam's subjects
+                    }
+                }
+            } else {
+                document.getElementById('test-prep-options').style.display = 'none'; // Hide Test Prep options
+                const container = document.getElementById(category.toLowerCase());
+                if (container) {
+                    container.classList.add('active'); // Show relevant container
+                }
+            }
+        }
+
+        function selectTestPrepOption(element, option) {
+            // Deselect all test prep options
+            document.querySelectorAll('.test-prep-option').forEach(opt => opt.classList.remove('selected'));
+
+            // Highlight the clicked option
+            element.classList.add('selected');
+
+            // Hide all test prep subject containers
+            document.querySelectorAll('.subjects-container').forEach(container => {
+                container.classList.remove('active');
+            });
+
+            // Convert option to lowercase to match container IDs
+            const container = document.getElementById(option.toLowerCase());
+            if (container) {
+                container.classList.add('active'); // Show the selected container
+            }
+        }
 
         // Automatically display the Math section on page load
         document.addEventListener('DOMContentLoaded', () => {

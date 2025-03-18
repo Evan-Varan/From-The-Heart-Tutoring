@@ -19,13 +19,15 @@ body {
   background-color: #0f172a;
   color: white;
   font-family: "Poppins", sans-serif;
-  padding: 25px 20px 0;
+  padding: 25px 0 0; /* Removed horizontal padding */
   width: 100%;
-  position: relative; /* Changed from fixed to relative */
+  position: relative;
   z-index: 10;
-  margin-top: 3rem !important; /* Space above footer */
+  margin-top: 3rem !important;
   margin-bottom: 0;
   box-sizing: border-box;
+  left: 0; /* Ensure alignment from left edge */
+  right: 0; /* Ensure alignment to right edge */
 }
 
 /* Footer content container */
@@ -36,6 +38,8 @@ body {
   max-width: 1200px;
   margin: 0 auto;
   gap: 20px;
+  padding: 0 20px; /* Move padding from footer to container */
+  width: 100%; /* Ensure container takes full width */
 }
 
 /* Left side with company info - use more specific selectors */
@@ -172,6 +176,7 @@ body {
   font-size: 0.8rem;
   color: #94a3b8;
   background-color: rgba(0, 0, 0, 0.1);
+  width: 100%; /* Ensure full width */
 }
 
 /* Responsive adjustments for footer */
@@ -208,8 +213,12 @@ body {
 
 @media (max-width: 768px) {
   .site-footer {
-    padding: 20px 15px 0;
+    padding: 20px 0 0; /* Removed horizontal padding */
     margin-top: 2rem !important;
+  }
+  
+  .site-footer .footer-container {
+    padding: 0 15px; /* Added padding to container instead */
   }
 
   .site-footer .footer-links {
@@ -274,4 +283,3 @@ body {
     height: 18px;
   }
 }
-

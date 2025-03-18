@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Student Spotlight | From the Heart Tutoring</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css">
@@ -13,6 +13,12 @@
         html, body {
             min-height: 100vh;
             position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         /* Fix for heart background to cover entire page */
@@ -35,6 +41,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            touch-action: pan-y; /* Allow vertical scrolling but prevent horizontal */
         }
         
         .spotlight-section {
@@ -47,7 +54,10 @@
             flex-wrap: wrap;
             position: relative;
             z-index: 1;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
+        
         .spotlight-card {
             background-color: white;
             padding: 20px;
@@ -58,24 +68,34 @@
             flex: 1 1 calc(33% - 40px);
             margin: 20px;
             max-width: 400px;
+            box-sizing: border-box;
         }
+        
         .spotlight-card img {
             width: 150px;
             height: 150px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
+            max-width: 100%;
         }
+        
         .spotlight-card h3 {
             font-size: 1.5rem;
             color: #1e293b;
             margin-bottom: 10px;
+            max-width: 100%;
+            word-wrap: break-word;
         }
+        
         .spotlight-card p {
             font-size: 1rem;
             color: #333;
             line-height: 1.8;
+            max-width: 100%;
+            word-wrap: break-word;
         }
+        
         .tutor-working {
             font-size: 1rem;
             color: #777;
@@ -84,6 +104,7 @@
             margin: 0 auto;
             max-width: 260px;
         }
+        
         .contact-us {
             display: inline;
             color: #ff6f61;
@@ -93,6 +114,7 @@
             margin-top: 40px;
             font-size: 1.1rem;
         }
+        
         .contact-us-section {
             display: flex;
             flex-direction: column;
@@ -105,18 +127,29 @@
             padding: 0 20px;
             position: relative;
             z-index: 1;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
+        
         .contact-us:hover {
             color: #d9574e;
         }
+        
         .hero {
             width: 100%;
             text-align: center;
             position: relative;
             z-index: 1;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
+        
         #navbar-placeholder, #footer-placeholder {
             width: 100%;
+            max-width: 100%;
+            box-sizing: border-box;
+            overflow-x: hidden;
         }
         
         /* Additional fix for heart background */
@@ -128,6 +161,25 @@
             width: 100% !important;
             height: 100% !important;
             z-index: -5 !important;
+            overflow: hidden !important;
+        }
+        
+        /* Ensure text doesn't overflow containers */
+        p, h1, h2, h3 {
+            max-width: 100%;
+            word-wrap: break-word;
+        }
+        
+        /* Media query for smaller screens */
+        @media (max-width: 768px) {
+            .spotlight-card {
+                flex: 1 1 100%;
+                margin: 10px;
+            }
+            
+            .spotlight-section {
+                padding: 30px 10px;
+            }
         }
     </style>
 </head>
