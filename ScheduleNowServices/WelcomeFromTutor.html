@@ -1,531 +1,2254 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
 <script src="../Javascript/analytics.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schedule Now | From the Heart Tutoring</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../CSS/Button.css"> <!-- Link to navbar CSS -->
-    
-    <style>
-        body {
-            margin: 0;
-            font-family: "Poppins", sans-serif;
-            background-image: linear-gradient(to bottom, #f0f4ff, #ffffff);
-            background-repeat: no-repeat;
-            background-size: cover;
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-            box-sizing: border-box;
-            padding-top: 80px; /* Add padding to account for the fixed navbar */
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Schedule Now | From the Heart Tutoring</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+<link rel="stylesheet" href="../CSS/Button.css"> <!-- Link to navbar CSS -->
 
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            background: url("https://i.imgur.com/yZhIx2P.png") center/cover no-repeat;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            opacity: 0.5;
+<style>
+:root {
+    --primary-color: #1e293b;
+    --accent-color: #ff6f61;
+    --accent-hover: #e85a4f;
+    --light-bg: #f8fafc;
+    --white: #ffffff;
+    --text-dark: #1e293b;
+    --text-medium: #475569;
+    --text-light: #64748b;
+    --border-radius: 12px;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --gradient-primary: linear-gradient(135deg, #ff6f61 0%, #e85a4f 100%);
+    --success-color: #10b981;
+    --success-light: #d1fae5;
 }
 
-/* Create a semi-transparent overlay */
-body::after {
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(135deg, #f8fafc 0%, #e9f2f9 100%);
+    color: var(--text-dark);
+    min-height: 100vh;
+    padding: 0;
+    box-sizing: border-box;
+    padding-top: 80px; /* Add padding to account for the fixed navbar */
+    position: relative; /* Add this to make absolute positioning work relative to body */
+}
+
+/* Desktop Styles - Clean Modern Design */
+.desktop-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    display: none; /* Hidden by default, will be shown by JS if needed */
+}
+
+.hero-section {
+    display: flex;
+    align-items: center;
+    background-color: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.hero-content {
+    flex: 1;
+    padding: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Image carousel styles */
+.hero-image-container {
+    flex: 1;
+    position: relative;
+    height: 600px;
+    overflow: hidden;
+    clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 41, 59, 0.4);
+    z-index: 1;
+}
+
+.fade-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Adjusted image positions to move them more to the left */
+.image-1 {
+    object-position: 70% 50%;
+    width: 105%;
+}
+.image-2 {
+    object-position: 70% 0%;
+    width: 110%;
+}
+.image-3 {
+    object-position: 90% 30%;
+    width: 120%;
+}
+.image-4 {
+    object-position: 70% -10%;
+    width: 112%;
+}
+.image-5 {
+    object-position: 70% 14%;
+    width: 112%;
+}
+.image-6 {
+    object-position: 90% 9%;
+    width: 120%;
+}
+
+/* Small Screen Image Adjustments */
+@media (max-width: 1055px) {
+    .image-1 { object-position: -10% 0%; width: 100%; }
+    .image-2 { object-position: -10% 20%; width: 100%; }
+    .image-3 { object-position: -10% 50%; width: 100%; }
+    .image-4 { object-position: -10% 60%; width: 100%; }
+    .image-5 { object-position: -10% 50%; width: 100%; }
+    .image-6 { object-position: -10% 50%; width: 100%; }
+}
+
+/* Hide inactive images */
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.discount-badge {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-md);
+    transform: rotate(5deg);
+    z-index: 10;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Tutor Selected Badge */
+.tutor-selected-badge {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: var(--gradient-primary);
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-md);
+    transform: rotate(5deg);
+    z-index: 10;
+    animation: float 3s ease-in-out infinite;
+}
+
+
+@keyframes float {
+    0% { transform: rotate(5deg) translateY(0px); }
+    50% { transform: rotate(5deg) translateY(-10px); }
+    100% { transform: rotate(5deg) translateY(0px); }
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin: 0 0 20px;
+    color: var(--text-dark);
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.25rem;
+    color: var(--text-medium);
+    margin: 0 0 30px;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+.tutor-info {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background-color: var(--success-light);
+    padding: 15px;
+    border-radius: 12px;
+    margin: 20px 0 30px;
+    border-left: 4px solid var(--success-color);
+}
+
+.tutor-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--success-color);
+    box-shadow: var(--shadow-sm);
+}
+
+.tutor-details {
+    flex: 1;
+}
+
+.tutor-name {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin: 0 0 5px;
+}
+
+.tutor-status {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--success-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.tutor-status svg {
+    width: 16px;
+    height: 16px;
+    fill: var(--success-color);
+}
+
+.cta-primary {
+    display: inline-block;
+    background: var(--gradient-primary);
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    padding: 16px 40px;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-top: 20px;
+    box-shadow: var(--shadow-md);
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    animation: pulse 2s infinite;
+}
+
+.cta-primary::after {
     content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            z-index: -1;
-            background: rgba(255, 255, 255, 0.3); /* Adjust the transparency */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(255,255,255,0.2), rgba(255,255,255,0));
+    transform: translateY(-100%);
+    transition: transform 0.6s ease;
 }
 
-        @media (max-width: 1200px) {
-            body::before {
-                background-image: none;
-            }
-        }
+.cta-primary:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(232, 90, 79, 0.3);
+    animation: none;
+}
 
-        .schedule-container {
-            display: flex;
-            flex-direction: column;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            max-width: 1100px;
-            width: 100%;
-            margin: auto; /* Center the container */
-        }
+.features-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 60px;
+}
 
-        @media (min-width: 768px) {
-            .schedule-container {
-                flex-direction: row;
-            }
-        }
+.feature-card {
+    background-color: var(--white);
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: var(--shadow-md);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
 
-        .left-panel,
-        .right-panel {
-            padding: 30px;
-            box-sizing: border-box;
-        }
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
 
-        .left-panel {
-            background-color: #1e293b;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
+.feature-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: var(--gradient-primary);
+}
 
-        .left-panel-content {
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
+/* Special styling for completed step */
+.feature-card.completed {
+    border: 2px solid var(--success-color);
+}
 
-        .testimonial-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-grow: 1;
-            padding: 20px 0;
-        }
+.feature-card.completed::before {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
 
-        .testimonial {
-            font-style: italic;
-            font-size: 0.9rem;
-            text-align: center;
-            max-width: 80%;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 20px;
-        }
+.feature-number {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
 
-        .testimonial p:last-child {
-            margin-top: 10px;
-            font-weight: bold;
-        }
+/* Completed step number */
+.feature-card.completed .feature-number {
+    background-color: var(--success-color);
+    position: relative;
+}
 
-        @media (min-width: 768px) {
-            .testimonial {
-                font-size: 1rem;
-                padding: 30px;
-            }
-        }
+.feature-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0 0 15px;
+    color: var(--text-dark);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
+.completed-check {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    background-color: var(--success-color);
+    border-radius: 50%;
+}
 
-        .left-panel h2 {
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
+.completed-check svg {
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
 
-        .left-panel p {
-            font-size: 1rem;
-            line-height: 1.6;
-            margin-bottom: 20px;
-        }
+.feature-description {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
 
-        .left-panel ul {
-            list-style: none;
-            padding: 0;
-            margin: 0 0 20px 0;
-        }
+/* Update the opacity of background hearts */
+.bg-heart {
+    position: absolute;
+    opacity: 0.18; /* Increased from 0.08 to 0.18 */
+}
 
-        .left-panel li {
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+/* REDESIGNED TESTIMONIAL SECTION - Removed grey box */
+.testimonial-section {
+    margin: 80px 0;
+    position: relative;
+}
 
-        .left-panel li::before {
-            content: "✔";
-            color: #ff6f61;
-            font-weight: bold;
-        }
+.testimonial-container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
 
-        .right-panel {
-            background-color: #f9f9f9;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.testimonial-image {
+    position: relative;
+    background: url('https://i.imgur.com/yZhIx2P.png') center/cover no-repeat;
+    min-height: 400px;
+}
 
-        .right-panel h1 {
-            font-size: 1.8rem;
-            margin-bottom: 10px;
-            color: #1e293b;
-            text-align: center;
-        }
+.testimonial-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 41, 59, 0.7);
+}
 
-        .right-panel h2 {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
-            color: #555;
-            text-align: center;
-            font-weight: 400;
-        }
+.testimonial-quote-icon {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    width: 60px;
+    height: 60px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    box-shadow: var(--shadow-md);
+}
 
-        .highlight {
-            background-color: #ff6f61;
-            color: white;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-weight: 600;
-            display: inline-block;
-            transform: rotate(-2deg);
-            transition: transform 0.3s ease;
-        }
+.testimonial-quote-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
 
-        .highlight:hover {
-            transform: rotate(0deg) scale(1.05);
-        }
+.testimonial-content-wrapper {
+    background: white;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
-        .steps-outline {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-            align-items: flex-start;
-            width: 100%;
-        }
+.testimonial-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 30px;
+    position: relative;
+}
 
-        .step {
-            display: flex;
-            align-items: flex-start;
-            width: 100%;
-        }
+.testimonial-title::after {
+    content: "";
+    position: absolute;
+    bottom: -15px;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
 
-        .step-text {
-            flex: 1;
-        }
+.testimonial-text {
+    font-size: 1.2rem;
+    color: var(--text-medium);
+    font-style: italic;
+    line-height: 1.8;
+    margin: 0 0 30px;
+}
 
-        .step-text h3 {
-            font-size: 1.1rem;
-            color: #1e293b;
-            margin: 0 0 5px;
-        }
+.testimonial-author-info {
+    display: flex;
+    align-items: center;
+    margin-top: auto;
+}
 
-        .step-text p {
-            font-size: 0.9rem;
-            color: #555;
-            margin: 0;
-            font-style: italic;
-        }
+.testimonial-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    border: 2px solid var(--accent-color);
+    overflow: hidden;
+}
 
-        .step-image-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            flex-shrink: 0;
-        }
+.testimonial-avatar svg {
+    width: 35px;
+    height: 35px;
+    fill: var(--accent-color);
+}
 
-        .step-image {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 10px;
-        }
+.testimonial-author-details {
+    display: flex;
+    flex-direction: column;
+}
 
-        .step-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 0;
-        }
+.testimonial-author {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--text-dark);
+    margin: 0;
+}
 
-        .connector {
-            width: 2px;
-            background-color: #ddd;
-            height: 30px;
-        }
+.testimonial-rating {
+    color: gold;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
 
-        .square-button {
-            background-color: #ff6f61;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            align-self: center;
-            margin-top: 30px;
-        }
+/* Mobile testimonial redesign */
+.mobile-testimonial {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 0;
+    margin-top: 20px;
+    position: relative;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
 
-        .square-button:hover {
-            background-color: #d9574e;
-            transform: translateY(-3px);
-        }
+.mobile-testimonial-header {
+    padding: 20px;
+    position: relative;
+}
 
-        .tutor-info {
-            text-align: center;
-            margin-bottom: 20px;
-        }
+.mobile-testimonial-header::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 4rem;
+    font-family: Georgia, serif;
+    color: var(--accent-color);
+    opacity: 0.2;
+    line-height: 1;
+}
 
-        .tutor-profile {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            margin-bottom: 10px;
-        }
+.mobile-testimonial-content {
+    padding: 20px;
+}
 
-        .checkmark {
-            color: #ff6f61;
-            font-weight: bold;
-            margin-left: 5px;
-        }
+.mobile-testimonial p {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin: 0 0 20px;
+    line-height: 1.6;
+}
 
-        @media (min-width: 768px) {
-            .left-panel,
-            .right-panel {
-                flex: 1;
-                padding: 40px;
-            }
+.mobile-testimonial-footer {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 20px;
+}
 
-            .left-panel h2 {
-                font-size: 2rem;
-            }
+.mobile-testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    border: 2px solid var(--accent-color);
+}
 
-            .left-panel p,
-            .left-panel li {
-                font-size: 1.1rem;
-            }
+.mobile-testimonial-avatar svg {
+    width: 25px;
+    height: 25px;
+    fill: var(--accent-color);
+}
 
-            .right-panel h1 {
-                font-size: 2rem;
-            }
+.mobile-author-details {
+    display: flex;
+    flex-direction: column;
+}
 
-            .right-panel h2 {
-                font-size: 1.2rem;
-            }
+.mobile-testimonial .author {
+    font-weight: 600;
+    margin: 0;
+    color: var(--primary-color);
+    display: block;
+}
 
-            .step-text h3 {
-                font-size: 1.2rem;
-            }
+.mobile-testimonial .rating {
+    color: gold;
+    margin-top: 3px;
+}
 
-            .step-text p {
-                font-size: 1rem;
-            }
+/* REDESIGNED BENEFITS SECTION */
+.benefits-section {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    border-radius: 20px;
+    padding: 50px;
+    color: white;
+    box-shadow: var(--shadow-lg);
+    position: relative;
+    overflow: hidden;
+}
 
-            .step-image {
-                width: 50px;
-                height: 50px;
-            }
+.benefits-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 300px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50%;
+    transform: translate(150px, -150px);
+}
 
-            .connector {
-                height: 40px;
-            }
+.benefits-section::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 50%;
+    transform: translate(-100px, 100px);
+}
 
-            .square-button {
-                padding: 15px 30px;
-            }
+.benefits-title {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 30px;
+    position: relative;
+    display: inline-block;
+}
 
-            .testimonial {
-                font-size: 1rem;
-                padding: 30px;
-            }
+.benefits-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
 
-            .tutor-profile {
-                width: 100px;
-                height: 100px;
-            }
-        }
-        .timezone-notification {
-            display: none;
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            max-width: 600px;
-            width: 100%;
-            padding: 40px;
-            text-align: center;
-            margin: 20px auto;
-        }
+.benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
 
-        .timezone-notification h1 {
-            color: #1e293b;
-            font-size: 2rem;
-            margin-bottom: 20px;
-        }
+.benefits-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 15px;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
 
-        .timezone-notification p {
-            color: #555;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-bottom: 30px;
-        }
+.benefits-list li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
 
-        .contact-button {
-            background-color: #ff6f61;
-            color: white;
-            padding: 12px 24px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
+.benefits-list li::before {
+    content: "✓";
+    flex-shrink: 0;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 24px;
+    font-weight: bold;
+    margin-top: 2px;
+}
 
-        .contact-button:hover {
-            background-color: #d9574e;
-            transform: translateY(-3px);
-        }
-    </style>
-</head>
-<body>
-    <!-- Navbar Placeholder -->
-    <div id="navbar-placeholder"></div>
-    <script src="../Navbar/Navbar.js" defer></script>
+.benefits-list li.learn-more-item::before {
+    content: "→";
+    background-color: #8be9fd;
+}
 
-    <div id="timezone-notification" class="timezone-notification">
-        <h1>Different Timezone Detected</h1>
-        <p>We've noticed you're accessing our site from a timezone outside of CST. To ensure we can provide you with the best possible tutoring experience, please <span class="highlight">contact us directly</span> to schedule a session that works with your timezone.</p>
-        <a href="/cdn-cgi/l/email-protection#2a4945445e4b495e6a4c5845475e424f424f4b585e5e5f5e455843444d04494547" class="contact-button">Contact Us</a>
-    </div>
+.learn-more-button {
+    background-color: #8be9fd;
+    color: var(--primary-color);
+    border: none;
+    border-radius: 6px;
+    padding: 8px 15px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 8px;
+}
 
-    <div class="schedule-container">
-        <!-- Left Panel -->
-        <div class="left-panel">
-            <div class="left-panel-content">
-                <h2>Why Choose Us?</h2>
-                <p>Our tutors are experts in their fields, passionate about teaching, and dedicated to helping you succeed. Here's what we offer:</p>
-                <ul>
-                    <li>Personalized one-on-one sessions</li>
-                    <li>Flexible scheduling to fit your needs</li>
-                    <li>Support for a wide range of subjects</li>
-                    <li>On demand virtual sessions within 48 hours</li>
-                </ul>
-            </div>
-            <div class="testimonial-container">
-                <div class="testimonial">
-                    <p>"From the Heart [Tutoring] seemed like it could be a good match so I reached out. Best decision ever."</p>
-                    <p>- Kelly C.</p>
-                </div>
-            </div>
-        </div>
+.learn-more-button:hover {
+    background-color: #a5f0ff;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
 
-        <!-- Right Panel -->
-        <div class="right-panel">
-            <h1>Schedule a Session</h1>
-            <h2>Just <span class="highlight">3 easy steps</span> and you're done in under 5 minutes!</h2>
-            <div class="steps-outline">
-                <div class="step">
-                    <div class="step-text">
-                        <h3>Tell Us About Yourself</h3>
-                        <p>Let us know if you have worked with us before.</p>
-                    </div>
-                    <div class="step-image-container">
-                        <div class="step-image">
-                            <img src="https://i.imgur.com/02gz1N6.png" alt="Choose Tutor">
-                        </div>
-                        <div class="connector"></div>
-                    </div>
-                </div>
+.final-cta {
+    text-align: center;
+    margin-top: 60px;
+}
 
-                <div class="step">
-                    <div class="step-text">
-                        <h3>Pick your Subject(s)</h3>
-                        <p>Choose the subject(s) you need help with.</p>
-                    </div>
-                    <div class="step-image-container">
-                        <div class="step-image">
-                            <img src="https://i.imgur.com/pnAQZlu.png" alt="Pick Subject">
-                        </div>
-                        <div class="connector"></div>
-                    </div>
-                </div>
+.final-cta-text {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--text-medium);
+    margin-bottom: 30px;
+}
 
-                <div class="step">
-                    <div class="step-text">
-                        <h3>Choose a Tutor - Already Completed! <span class="checkmark">✔</span></h3>
-                        <p>You've already selected to schedule with <span id="tutor-name">Loading...</span>.</p>
-                    </div>
-                    <div class="step-image-container">
-                        <div class="step-image">
-                            <img id="tutor-image" src="default-image.png" alt="Selected Tutor" class="tutor-profile">
-                        </div>
-                        <div class="connector"></div>
-                    </div>
-                </div>
+/* Mobile Styles */
+.mobile-container {
+    display: none; /* Hidden by default, will be shown by JS if needed */
+    flex-direction: column;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
 
-                <div class="step">
-                    <div class="step-text">
-                        <h3>Book on our Student Portal</h3>
-                        <p>Create a student portal account and register for a session.</p>
-                    </div>
-                    <div class="step-image-container">
-                        <div class="step-image">
-                            <img src="https://i.imgur.com/i6VTkkP.png" alt="Confirm Booking">
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button class="square-button" onclick="goToNextStep()">Get Started</button>
-        </div>
-    </div>
- <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        function detectTimezone() {
-    const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
-    console.log("Detected Timezone:", userTimezone); // Debugging output
+.discount-header {
+    background-color: var(--accent-color);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    position: relative;
+    overflow: hidden;
+}
 
-    const cstTimezones = ["America/Chicago", "America/Winnipeg", "America/Regina"]; // CST/CDT time zones
-    const notification = document.getElementById('timezone-notification');
-    const pageContent = document.querySelector('.schedule-container'); // Select the main content
+/* Tutor selected header for mobile */
+.tutor-selected-header {
+    background-color: var(--success-color);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    border-radius: var(--border-radius) var(--border-radius) 0 0;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
 
-    if (!cstTimezones.includes(userTimezone)) {
-        notification.style.display = 'block'; // Show the notification
-        pageContent.style.display = 'none'; // Hide everything else
-        console.log("Hiding main content and showing timezone notification.");
-    } else {
-        notification.style.display = 'none'; // Hide the notification
-        console.log("Showing main content, hiding timezone notification.");
+.tutor-selected-header h1 {
+    font-size: 1.5rem;
+    margin: 0;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.tutor-selected-header p {
+    font-size: 1rem;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.mobile-tutor-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.mobile-tutor-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+}
+
+.mobile-tutor-name {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.discount-header h1 {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+}
+
+.discount-header p {
+    font-size: 1rem;
+    margin: 0;
+    position: relative;
+    z-index: 2;
+}
+
+.mobile-card {
+    background-color: white;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    box-shadow: var(--shadow-md);
+    padding: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.mobile-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.mobile-step {
+    display: flex;
+    align-items: center;
+    background-color: var(--light-bg);
+    border-radius: 8px;
+    padding: 12px;
+    transition: transform 0.2s ease;
+}
+
+.mobile-step:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Completed step styling for mobile */
+.mobile-step.completed {
+    background-color: var(--success-light);
+    border-left: 3px solid var(--success-color);
+}
+
+.step-number {
+    background-color: var(--primary-color);
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+/* Completed step number for mobile */
+.mobile-step.completed .step-number {
+    background-color: var(--success-color);
+}
+
+.mobile-step-content {
+    flex: 1;
+}
+
+.mobile-step-content h3 {
+    font-size: 1rem;
+    color: var(--primary-color);
+    margin: 0 0 3px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.mobile-check-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 18px;
+    height: 18px;
+    background-color: var(--success-color);
+    border-radius: 50%;
+}
+
+.mobile-check-icon svg {
+    width: 12px;
+    height: 12px;
+    fill: white;
+}
+
+.mobile-step-content p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* Pulsing animation for the CTA button */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    }
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
     }
 }
 
-window.onload = detectTimezone;
+.mobile-cta {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 100%;
+    margin-top: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    animation: pulse 2s infinite;
+}
 
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Retrieve tutor data from localStorage
-            const tutorName = localStorage.getItem('selectedTutorName') || 'Your Tutor';
-            const tutorImage = localStorage.getItem('selectedTutorImage') || 'default-image.png';
+.mobile-cta:hover {
+    background-color: var(--accent-hover);
+    animation: none;
+    transform: translateY(-2px);
+}
 
-            // Update the elements with tutor data
-            document.getElementById('tutor-name').textContent = tutorName;
-            document.getElementById('tutor-image').src = tutorImage;
-            document.getElementById('tutor-image').alt = tutorName;
-        });
+.mobile-cta::after {
+    content: "→";
+    font-size: 1.2rem;
+}
 
-        function goToNextStep() {
-            // Store the source page so we know where the user came from
-            localStorage.setItem('previousPage', 'WelcomeFromTutor.html');
+.benefits-card {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+    color: white;
+    border-radius: var(--border-radius);
+    padding: 20px;
+    box-shadow: var(--shadow-md);
+    width: 100%;
+    box-sizing: border-box;
+}
 
-            // Redirect to the next step
-            window.location.href = 'Type-Of-Student.html';
+.benefits-card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.benefits-card h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: var(--accent-color);
+}
+
+/* REDESIGNED MOBILE TESTIMONIAL */
+.mobile-testimonial {
+    background-color: white;
+    border-radius: var(--border-radius);
+    padding: 0;
+    margin-top: 20px;
+    position: relative;
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+}
+
+.mobile-testimonial-header {
+    padding: 20px;
+    position: relative;
+}
+
+.mobile-testimonial-header::before {
+    content: "";
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 4rem;
+    font-family: Georgia, serif;
+    color: var(--accent-color);
+    opacity: 0.2;
+    line-height: 1;
+}
+
+.mobile-testimonial-content {
+    padding: 20px;
+}
+
+.mobile-testimonial p {
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin: 0 0 20px;
+    line-height: 1.6;
+}
+
+.mobile-testimonial-footer {
+    display: flex;
+    align-items: center;
+    padding: 0 20px 20px;
+}
+
+.mobile-testimonial-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--light-bg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    border: 2px solid var(--accent-color);
+}
+
+.mobile-testimonial-avatar svg {
+    width: 25px;
+    height: 25px;
+    fill: var(--accent-color);
+}
+
+.mobile-author-details {
+    display: flex;
+    flex-direction: column;
+}
+
+.mobile-testimonial .author {
+    font-weight: 600;
+    margin: 0;
+    color: var(--primary-color);
+    display: block;
+}
+
+.mobile-testimonial .rating {
+    color: gold;
+    margin-top: 3px;
+}
+
+/* Redesigned Timezone Notification - Desktop */
+.timezone-notification {
+    display: none; /* Hidden by default, will be shown by JS if needed */
+    position: relative;
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    background: var(--white);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+    animation: fadeIn 0.5s ease-out;
+    box-sizing: border-box;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.timezone-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.timezone-image {
+    width: 100%;
+    height: 180px;
+    background: url('https://i.imgur.com/yZhIx2P.png') center/cover no-repeat;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timezone-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(30, 41, 59, 0.6);
+}
+
+.timezone-icon {
+    position: relative;
+    z-index: 2;
+    width: 100px;
+    height: 100px;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.timezone-icon svg {
+    width: 60px;
+    height: 60px;
+    fill: white;
+}
+
+.timezone-content {
+    width: 100%;
+    padding: 30px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.timezone-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin: 0 0 15px;
+    line-height: 1.2;
+}
+
+.timezone-subtitle {
+    font-size: 1rem;
+    color: var(--text-medium);
+    margin: 0 0 25px;
+    line-height: 1.6;
+}
+
+.timezone-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: var(--light-bg);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 30px;
+}
+
+.timezone-option:hover {
+    background-color: #f0f4f8;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+}
+
+.timezone-option-icon {
+    width: 50px;
+    height: 50px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.timezone-option-icon svg {
+    width: 25px;
+    height: 25px;
+    fill: white;
+}
+
+.timezone-option-content {
+    flex: 1;
+}
+
+.timezone-option-title {
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--text-dark);
+    margin: 0 0 5px;
+}
+
+.timezone-option-description {
+    font-size: 0.95rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.timezone-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.timezone-note {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    width: 100%;
+}
+
+.timezone-buttons {
+    display: flex;
+    gap: 10px;
+    width: 100%;
+}
+
+.timezone-button {
+    padding: 12px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    flex: 1;
+    text-align: center;
+}
+
+.timezone-button-primary {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-md);
+}
+
+.timezone-button-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(232, 90, 79, 0.3);
+}
+
+.timezone-button-secondary {
+    background: transparent;
+    color: var(--text-medium);
+    border: 1px solid var(--text-light);
+}
+
+.timezone-button-secondary:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Redesigned Timezone Notification - Mobile */
+.timezone-notification-mobile {
+    display: none; /* Hidden by default, will be shown by JS if needed */
+    width: 100%;
+    max-width: 500px;
+    margin: 20px auto;
+    background: var(--white);
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-md);
+    animation: fadeIn 0.5s ease-out;
+}
+
+.timezone-header-mobile {
+    background: var(--primary-color);
+    color: white;
+    padding: 20px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+}
+
+.timezone-header-mobile::before {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    width: 120px;
+    height: 120px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.timezone-header-mobile::after {
+    content: "";
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    width: 150px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+}
+
+.timezone-icon-mobile {
+    width: 60px;
+    height: 60px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.timezone-icon-mobile svg {
+    width: 30px;
+    height: 30px;
+    fill: white;
+}
+
+.timezone-title-mobile {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 0 0 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.timezone-subtitle-mobile {
+    font-size: 0.95rem;
+    margin: 0;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+}
+
+.timezone-content-mobile {
+    padding: 20px;
+}
+
+.timezone-message-mobile {
+    font-size: 1rem;
+    color: var(--text-medium);
+    line-height: 1.6;
+    margin: 0 0 20px;
+}
+
+.timezone-option-mobile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    border-radius: 10px;
+    background-color: var(--light-bg);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.timezone-option-mobile:hover {
+    background-color: #f0f4f8;
+    transform: translateY(-2px);
+}
+
+.timezone-option-icon-mobile {
+    width: 40px;
+    height: 40px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.timezone-option-icon-mobile svg {
+    width: 20px;
+    height: 20px;
+    fill: white;
+}
+
+.timezone-option-content-mobile {
+    flex: 1;
+}
+
+.timezone-option-title-mobile {
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin: 0 0 3px;
+}
+
+.timezone-option-description-mobile {
+    font-size: 0.85rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+.timezone-footer-mobile {
+    padding: 0 20px 20px;
+}
+
+.timezone-note-mobile {
+    font-size: 0.8rem;
+    color: var(--text-light);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.timezone-buttons-mobile {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.timezone-button-mobile {
+    padding: 14px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: none;
+    text-align: center;
+}
+
+.timezone-button-primary-mobile {
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow-sm);
+}
+
+.timezone-button-primary-mobile:hover {
+    background: var(--accent-hover);
+}
+
+.timezone-button-secondary-mobile {
+    background: transparent;
+    color: var(--text-medium);
+    border: 1px solid var(--text-light);
+}
+
+.timezone-button-secondary-mobile:hover {
+    background-color: var(--light-bg);
+}
+
+/* Media Queries */
+@media (min-width: 768px) {
+    /* These styles will be applied only if JS doesn't set display properties */
+    .desktop-container {
+        display: none;
+    }
+    .mobile-container {
+        display: none;
+    }
+    .timezone-notification {
+        display: none;
+    }
+    .timezone-notification-mobile {
+        display: none;
+    }
+}
+
+@media (min-width: 992px) {
+    .timezone-container {
+        flex-direction: row;
+    }
+
+    .timezone-image {
+        width: 35%;
+        height: auto;
+    }
+
+    .timezone-content {
+        width: 65%;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding: 0;
+        padding-top: 70px;
+        background-color: var(--light-bg);
+    }
+}
+
+/* Responsive adjustments for desktop */
+@media (max-width: 1200px) {
+    .hero-content {
+        padding: 40px;
+    }
+
+    .hero-title {
+        font-size: 2.8rem;
+    }
+
+    .hero-image-container {
+        height: 500px;
+    }
+
+    .timezone-container {
+        flex-direction: column;
+    }
+
+    .timezone-image {
+        width: 100%;
+        height: 200px;
+    }
+
+    .timezone-content {
+        width: 100%;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 992px) {
+    .hero-section {
+        flex-direction: column;
+    }
+
+    .hero-content {
+        order: 2;
+        padding: 40px;
+    }
+
+    .hero-image-container {
+        order: 1;
+        width: 100%;
+        height: 300px;
+        clip-path: none;
+    }
+
+    .tutor-selected-badge {
+        top: 20px;
+        right: 20px;
+    }
+
+    .hero-title {
+        font-size: 2.5rem;
+    }
+
+    .timezone-title {
+        font-size: 1.8rem;
+    }
+
+    .timezone-notification {
+        width: 90%;
+        max-width: 90%;
+        margin: 20px auto;
+    }
+
+    .testimonial-container {
+        grid-template-columns: 1fr;
+    }
+
+    .testimonial-image {
+        min-height: 200px;
+    }
+
+    .testimonial-content-wrapper {
+        padding: 30px;
+    }
+}
+
+/* Fix for medium-sized screens */
+@media (max-width: 1100px) {
+    .timezone-footer {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .timezone-note {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .timezone-buttons {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .timezone-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .timezone-subtitle {
+        font-size: 1rem;
+    }
+
+    .timezone-option-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 850px) {
+    .timezone-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .timezone-button {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .testimonial-header {
+        padding: 25px 30px;
+    }
+
+    .testimonial-title {
+        font-size: 1.6rem;
+    }
+
+    .testimonial-content {
+        padding: 30px;
+    }
+
+    .testimonial-text {
+        font-size: 1.1rem;
+        padding-left: 20px;
+    }
+}
+
+.bg-decoration {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.bg-heart {
+    position: absolute;
+    opacity: 0.18; /* Increased from 0.08 to 0.18 */
+}
+
+.bg-heart-1 {
+    width: 400px;
+    height: 400px;
+    top: 0px;
+    right: -130px;
+    transform: rotate(-35deg);
+    fill: var(--accent-color);
+}
+
+.bg-heart-2 {
+    width: 500px;
+    height: 500px;
+    bottom: 10%;
+    left: -200px;
+    transform: rotate(-10deg);
+    fill: var(--accent-color);
+}
+
+.bg-heart-3 {
+    width: 300px;
+    height: 300px;
+    top: 40%;
+    right: 5%;
+    transform: rotate(20deg);
+    fill: var(--accent-color);
+}
+
+.bg-heart-4 {
+    width: 250px;
+    height: 250px;
+    top: 150px;
+    left: 5%;
+    transform: rotate(-15deg);
+    fill: var(--accent-color);
+}
+
+/* Heart animation styling */
+.heart {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-image: url('https://i.imgur.com/uTVjByi.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    pointer-events: none;
+    z-index: 10;
+}
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(0) scale(0.8);
+        opacity: 0.8;
+    }
+    50% {
+        transform: translateY(-40px) scale(1.2);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translateY(-80px) scale(0.8);
+        opacity: 0;
+    }
+}
+</style>
+</head>
+<body>
+<!-- Navbar Placeholder -->
+<div id="navbar-placeholder"></div>
+<script src="../Navbar/Navbar.js" defer></script>
+
+<div class="bg-decoration">
+    <svg class="bg-heart bg-heart-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+    </svg>
+    <svg class="bg-heart bg-heart-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+    </svg>
+    <svg class="bg-heart bg-heart-3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+    </svg>
+    <svg class="bg-heart bg-heart-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+    </svg>
+</div>
+
+<!-- Redesigned Timezone Notification - Desktop -->
+<div id="timezone-notification" class="timezone-notification">
+    <div class="timezone-container">
+        <div class="timezone-image">
+            <div class="timezone-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12.5,7H11V13L16.2,16.2L17,14.9L12.5,12.2V7Z"/>
+                </svg>
+            </div>
+        </div>
+        <div class="timezone-content">
+            <h1 class="timezone-title">We're in Different Time Zones</h1>
+            <p class="timezone-subtitle">We've noticed you're accessing our site from a timezone outside of CST (Central Standard Time). We'd love to help you find the best tutoring solution for your schedule.</p>
+            
+            <div class="timezone-option" onclick="contactUs()">
+                <div class="timezone-option-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
+                    </svg>
+                </div>
+                <div class="timezone-option-content">
+                    <h3 class="timezone-option-title">Contact Us Directly</h3>
+                    <p class="timezone-option-description">Our team will work with you to find tutoring times that fit your schedule.</p>
+                </div>
+            </div>
+            
+            <div class="timezone-footer">
+                <p class="timezone-note">We offer flexible scheduling and can accommodate most time zones with advance notice.</p>
+                <div class="timezone-buttons">
+                    <button class="timezone-button timezone-button-secondary" onclick="proceedAnyway()">Proceed Anyway</button>
+                    <button class="timezone-button timezone-button-primary" onclick="contactUs()">Contact Us</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Redesigned Timezone Notification - Mobile -->
+<div id="timezone-notification-mobile" class="timezone-notification-mobile">
+    <div class="timezone-header-mobile">
+        <div class="timezone-icon-mobile">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12.5,7H11V13L16.2,16.2L17,14.9L12.5,12.2V7Z"/>
+            </svg>
+        </div>
+        <h1 class="timezone-title-mobile">Different Timezone Detected</h1>
+        <p class="timezone-subtitle-mobile">You're outside of CST (Central Standard Time)</p>
+    </div>
+    
+    <div class="timezone-content-mobile">
+        <p class="timezone-message-mobile">To ensure we can provide you with the best possible tutoring experience, please contact us directly:</p>
+        
+        <div class="timezone-option-mobile" onclick="contactUs()">
+            <div class="timezone-option-icon-mobile">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M20,8L12,13L4,8V6L12,11L20,6M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
+                </svg>
+            </div>
+            <div class="timezone-option-content-mobile">
+                <h3 class="timezone-option-title-mobile">Contact Us</h3>
+                <p class="timezone-option-description-mobile">We'll find times that work for you</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="timezone-footer-mobile">
+        <p class="timezone-note-mobile">We offer flexible scheduling and can accommodate most time zones.</p>
+        <div class="timezone-buttons-mobile">
+            <button class="timezone-button-mobile timezone-button-primary-mobile" onclick="contactUs()">Contact Us</button>
+            <button class="timezone-button-mobile timezone-button-secondary-mobile" onclick="proceedAnyway()">Proceed Anyway</button>
+        </div>
+    </div>
+</div>
+
+<!-- Desktop Layout (Clean Modern Design) -->
+<div class="desktop-container">
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Expert Tutoring<br>Tailored to Your Needs</h1>
+            <p class="hero-subtitle">Schedule a personalized tutoring session with your selected tutor and take the first step toward academic success.</p>
+            
+            <!-- Tutor Info Box -->
+            <div class="tutor-info">
+                <img id="desktop-tutor-image" src="/placeholder.svg?height=60&width=60" alt="Tutor" class="tutor-avatar">
+                <div class="tutor-details">
+                    <h3 class="tutor-name" id="desktop-tutor-name">Your Tutor</h3>
+                    <div class="tutor-status">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                        </svg>
+                        <span>Tutor Selected</span>
+                    </div>
+                </div>
+            </div>
+            
+            <button class="cta-primary" id="schedule-button" onclick="goToNextStep()">Get Started Now</button>
+        </div>
+        <div class="hero-image-container">
+            <div class="hero-overlay"></div>
+            <picture>
+                <source srcset="https://i.imgur.com/y7G7iNx.jpeg" media="(max-width: 1055px)">
+                <img src="https://i.imgur.com/8MqF8tr.jpeg" class="fade-image image-1" alt="Tutoring session">
+            </picture>
+            
+            <picture>
+                <source srcset="https://i.imgur.com/krzcJib.jpeg" media="(max-width: 1055px)">
+                <img src="https://i.imgur.com/eTlFiPU.jpeg" class="fade-image image-2 hidden" alt="Student learning">
+            </picture>
+            
+            <picture>
+                <source srcset="https://i.imgur.com/egHIl0D.jpeg" media="(max-width: 1055px)">
+                <img src="https://i.imgur.com/U0FkRHz.jpeg" class="fade-image image-3 hidden" alt="Teacher and student">
+            </picture>
+            
+            <picture>
+                <source srcset="https://i.imgur.com/GiQm5is.jpeg" media="(max-width: 1055px)">
+                <img src="https://i.imgur.com/0KLlXpE.jpeg" class="fade-image image-4 hidden" alt="Group study">
+            </picture>
+            
+            <picture>
+                <source srcset="https://i.imgur.com/IgeDqKs.jpeg" media="(max-width: 1055px)">
+                <img src="https://i.imgur.com/raoWokV.jpeg" class="fade-image image-5 hidden" alt="Online tutoring">
+            </picture>
+            
+            <picture>
+                <source srcset="https://i.imgur.com/egHIl0D.jpeg" media="(max-width: 1055px)">
+                <img src="https://i.imgur.com/fFalIfN.jpeg" class="fade-image image-6 hidden" alt="Student success">
+            </picture>
+        </div>
+        <div class="discount-badge">50% OFF First Session</div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="feature-card">
+            <div class="feature-number">1</div>
+            <h3 class="feature-title">Tell Us About Yourself</h3>
+            <p class="feature-description">Share your background and learning goals so we can understand your specific needs and preferences.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-number">2</div>
+            <h3 class="feature-title">Pick Your Subject</h3>
+            <p class="feature-description">Select from our wide range of academic subjects where you need support and guidance.</p>
+        </div>
+        
+        <div class="feature-card completed">
+            <div class="feature-number">3</div>
+            <h3 class="feature-title">
+                Choose Your Tutor
+                <span class="completed-check">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                    </svg>
+                </span>
+            </h3>
+            <p class="feature-description">You've already selected your tutor! We'll connect you with them for your personalized learning experience.</p>
+        </div>
+        
+        <div class="feature-card">
+            <div class="feature-number">4</div>
+            <h3 class="feature-title">Book Your Session</h3>
+            <p class="feature-description">Complete your registration and schedule your first session at a time that works for you.</p>
+        </div>
+    </section>
+
+    <!-- Testimonial Section - REDESIGNED -->
+    <section class="testimonial-section">
+        <div class="testimonial-container">
+            <div class="testimonial-image">
+                <div class="testimonial-quote-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M6.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35.208-.086.39-.16.539-.222.302-.125.474-.197.474-.197L9.758 4.03c0 0-.218.052-.597.144C8.97 4.222 8.737 4.278 8.472 4.345c-.271.05-.56.187-.882.312C7.272 4.799 6.904 4.895 6.562 5.123c-.344.218-.741.4-1.091.692C5.132 6.116 4.723 6.377 4.421 6.76c-.33.358-.656.734-.909 1.162C3.219 8.33 3.02 8.778 2.81 9.221c-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539.017.109.025.168.025.168l.026-.006C2.535 17.474 4.338 19 6.5 19c2.485 0 4.5-2.015 4.5-4.5S8.985 10 6.5 10zM17.5 10c-.223 0-.437.034-.65.065.069-.232.14-.468.254-.68.114-.308.292-.575.469-.844.148-.291.409-.488.601-.737.201-.242.475-.403.692-.604.213-.21.492-.315.714-.463.232-.133.434-.28.65-.35.208-.086.39-.16.539-.222.302-.125.474-.197.474-.197L20.758 4.03c0 0-.218.052-.597.144-.191.048-.424.104-.689.171-.271.05-.56.187-.882.312-.317.143-.686.238-1.028.467-.344.218-.741.4-1.091.692-.339.301-.748.562-1.05.944-.33.358-.656.734-.909 1.162C14.219 8.33 14.02 8.778 13.81 9.221c-.19.443-.343.896-.468 1.336-.237.882-.343 1.72-.384 2.437-.034.718-.014 1.315.028 1.747.015.204.043.402.063.539.017.109.025.168.025.168l.026-.006C13.535 17.474 15.338 19 17.5 19c2.485 0 4.5-2.015 4.5-4.5S19.985 10 17.5 10z" />
+                    </svg>
+                </div>
+            </div>
+            <div class="testimonial-content-wrapper">
+                <h2 class="testimonial-title">What Our Students Say</h2>
+                <p class="testimonial-text">"From the Heart [Tutoring] seemed like it could be a good match so I reached out. Best decision ever. The personalized attention and expert guidance has made a tremendous difference in my academic performance."</p>
+                <div class="testimonial-author-info">
+                    <div class="testimonial-avatar">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+                        </svg>
+                    </div>
+                    <div class="testimonial-author-details">
+                        <p class="testimonial-author">Kelly C.</p>
+                        <div class="testimonial-rating">★★★★★</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section - REDESIGNED -->
+    <section class="benefits-section">
+        <h2 class="benefits-title">Why Students Choose Us</h2>
+        <ul class="benefits-list">
+            <li>Personalized one-on-one sessions tailored to your learning style</li>
+            <li>Flexible scheduling options to fit your busy life</li>
+            <li>Expert tutors with deep knowledge in their subject areas</li>
+            <li>On-demand virtual sessions available within 48 hours</li>
+            <li>Proven track record of academic improvement</li>
+            <li class="learn-more-item">
+                <button onclick="window.location.href='../MainPages/About.html'" class="learn-more-button">Learn More</button>
+                about our teaching approach
+            </li>
+        </ul>
+    </section>
+
+    <!-- Final CTA -->
+    <div class="final-cta">
+        <p class="final-cta-text">Ready to transform your learning experience?</p>
+        <button class="cta-primary" onclick="goToNextStep()">Get Started Now</button>
+    </div>
+</div>
+
+<!-- Mobile Layout (Already Redesigned) -->
+<div class="mobile-container">
+    <!-- Tutor Selected Header -->
+    <div class="tutor-selected-header">
+        <h1>Tutor Selected!</h1>
+        <p>You're on your way to academic success</p>
+        <div class="mobile-tutor-info">
+            <img id="mobile-tutor-image" src="/placeholder.svg?height=40&width=40" alt="Tutor" class="mobile-tutor-avatar">
+            <span class="mobile-tutor-name" id="mobile-tutor-name">Your Tutor</span>
+        </div>
+    </div>
+
+    <!-- Main Card -->
+    <div class="mobile-card">
+        <h2 style="text-align: center; color: var(--primary-color); margin-bottom: 20px; font-size: 1.4rem;">
+            Schedule Your Tutoring Session
+        </h2>
+
+        <div class="mobile-steps">
+            <div class="mobile-step">
+                <div class="step-number">1</div>
+                <div class="mobile-step-content">
+                    <h3>Tell Us About Yourself</h3>
+                    <p>Quick info about your tutoring needs</p>
+                </div>
+            </div>
+            
+            <div class="mobile-step">
+                <div class="step-number">2</div>
+                <div class="mobile-step-content">
+                    <h3>Pick Your Subject(s)</h3>
+                    <p>Choose what you need help with</p>
+                </div>
+            </div>
+            
+            <div class="mobile-step completed">
+                <div class="step-number">3</div>
+                <div class="mobile-step-content">
+                    <h3>
+                        Select Your Tutor
+                        <span class="mobile-check-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                <path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/>
+                            </svg>
+                        </span>
+                    </h3>
+                    <p>Your tutor is ready to help you succeed!</p>
+                </div>
+            </div>
+            
+            <div class="mobile-step">
+                <div class="step-number">4</div>
+                <div class="mobile-step-content">
+                    <h3>Book Your Session</h3>
+                    <p>Complete registration in our portal</p>
+                </div>
+            </div>
+        </div>
+
+        <button class="mobile-cta" onclick="goToNextStep()">Get Started</button>
+    </div>
+
+    <!-- Benefits Card - REDESIGNED -->
+    <div class="benefits-card">
+        <h2>Why Students Love Us</h2>
+        <ul class="benefits-list">
+            <li>Personalized one-on-one sessions</li>
+            <li>Flexible scheduling options</li>
+            <li>Expert tutors in all subjects</li>
+            <li>Virtual sessions within 48 hours</li>
+            <li class="learn-more-item">
+                <button onclick="window.location.href='../MainPages/About.html'" class="learn-more-button">Learn More</button>
+                about our approach
+            </li>
+        </ul>
+
+        <!-- REDESIGNED mobile testimonial -->
+        <div class="mobile-testimonial">
+            <div class="mobile-testimonial-header"></div>
+            <div class="mobile-testimonial-content">
+                <p>"From the Heart Tutoring seemed like it could be a good match so I reached out. Best decision ever. The personalized attention and expert guidance has made a tremendous difference."</p>
+            </div>
+            <div class="mobile-testimonial-footer">
+                <div class="mobile-testimonial-avatar">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                        <path d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z" />
+                    </svg>
+                </div>
+                <div class="mobile-author-details">
+                    <span class="author">Kelly C.</span>
+                    <span class="rating">★★★★★</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Flag to track if timezone check has been performed
+    let timezoneCheckPerformed = false;
+    
+    function detectTimezone() {
+        // Skip if already performed
+        if (timezoneCheckPerformed) return;
+        
+        const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        console.log("Detected Timezone:", userTimezone); // Debugging output
+
+        const cstTimezones = ["America/Chicago", "America/Winnipeg", "America/Regina"]; // CST/CDT time zones
+        const notification = document.getElementById('timezone-notification');
+        const notificationMobile = document.getElementById('timezone-notification-mobile');
+        const desktopContent = document.querySelector('.desktop-container');
+        const mobileContent = document.querySelector('.mobile-container');
+
+        // First, hide all elements
+        notification.style.display = 'none';
+        notificationMobile.style.display = 'none';
+        desktopContent.style.display = 'none';
+        mobileContent.style.display = 'none';
+
+        if (!cstTimezones.includes(userTimezone)) {
+            // If NOT in CST timezone: show timezone notification, hide main content
+            console.log("Not in CST timezone, showing notification");
+            if (window.innerWidth < 768) {
+                notificationMobile.style.display = 'block';
+            } else {
+                notification.style.display = 'block';
+            }
+        } else {
+            // If IN CST timezone: hide timezone notification, show main content
+            console.log("In CST timezone, showing main content");
+            if (window.innerWidth < 768) {
+                mobileContent.style.display = 'flex';
+            } else {
+                desktopContent.style.display = 'block';
+            }
         }
-    </script>
+        
+        // Mark timezone check as performed
+        timezoneCheckPerformed = true;
+    }
+
+    // Wait for DOM to be fully loaded before running timezone detection
+    document.addEventListener('DOMContentLoaded', function() {
+        // Retrieve tutor data from localStorage
+        const tutorName = localStorage.getItem('selectedTutorName') || 'Your Tutor';
+        const tutorImage = localStorage.getItem('selectedTutorImage') || '/placeholder.svg?height=60&width=60';
+
+        // Update the elements with tutor data
+        document.getElementById('desktop-tutor-name').textContent = tutorName;
+        document.getElementById('desktop-tutor-image').src = tutorImage;
+        document.getElementById('desktop-tutor-image').alt = tutorName;
+        
+        document.getElementById('mobile-tutor-name').textContent = tutorName;
+        document.getElementById('mobile-tutor-image').src = tutorImage;
+        document.getElementById('mobile-tutor-image').alt = tutorName;
+        
+        // Delay timezone detection slightly to ensure all elements are ready
+        setTimeout(detectTimezone, 100);
+        
+        // Initialize image carousel
+        initImageCarousel();
+        
+        // Heart animation for the schedule button
+        const scheduleButton = document.getElementById("schedule-button");
+        if (scheduleButton) {
+            // Create a container for hearts
+            const heartContainer = document.createElement("div");
+            heartContainer.style.position = "absolute";
+            heartContainer.style.width = "100%";
+            heartContainer.style.height = "100%";
+            heartContainer.style.top = "0";
+            heartContainer.style.left = "0";
+            heartContainer.style.overflow = "visible";
+            heartContainer.style.pointerEvents = "none";
+            scheduleButton.appendChild(heartContainer);
+            
+            let isHovering = false;
+            let heartInterval;
+            
+            // Start creating hearts on hover
+            scheduleButton.addEventListener("mouseenter", function() {
+                isHovering = true;
+                
+                // Create one heart immediately
+                createHeart(heartContainer, scheduleButton);
+                
+                // Create hearts at regular intervals
+                heartInterval = setInterval(function() {
+                    if (isHovering) {
+                        createHeart(heartContainer, scheduleButton);
+                    }
+                }, 300);
+            });
+            
+            // Stop creating hearts when mouse leaves
+            scheduleButton.addEventListener("mouseleave", function() {
+                isHovering = false;
+                clearInterval(heartInterval);
+            });
+        }
+    });
+    
+    // Function to create and animate a heart
+    function createHeart(container, button) {
+        // Create heart element
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        
+        // Calculate random position along the button width
+        const buttonWidth = button.offsetWidth;
+        const randomX = Math.floor(Math.random() * buttonWidth);
+        
+        // Position at bottom of button
+        heart.style.bottom = "-5px";
+        heart.style.left = randomX + "px";
+        
+        // Add animation
+        heart.style.animation = "floatUp 1.5s ease-out forwards";
+        
+        // Add heart to container
+        container.appendChild(heart);
+        
+        // Remove heart after animation completes
+        setTimeout(function() {
+            if (heart.parentNode === container) {
+                container.removeChild(heart);
+            }
+        }, 1500);
+    }
+    
+    // Handle window resize to switch between mobile and desktop layouts
+    window.addEventListener('resize', function() {
+        // Only proceed if timezone check has been performed
+        if (!timezoneCheckPerformed) return;
+        
+        const userTimezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+        const cstTimezones = ["America/Chicago", "America/Winnipeg", "America/Regina"];
+        
+        const notification = document.getElementById('timezone-notification');
+        const notificationMobile = document.getElementById('timezone-notification-mobile');
+        const desktopContent = document.querySelector('.desktop-container');
+        const mobileContent = document.querySelector('.mobile-container');
+        
+        // Hide all elements first
+        notification.style.display = 'none';
+        notificationMobile.style.display = 'none';
+        desktopContent.style.display = 'none';
+        mobileContent.style.display = 'none';
+        
+        if (!cstTimezones.includes(userTimezone)) {
+            // If outside CST timezone, show appropriate notification and hide all content
+            if (window.innerWidth < 768) {
+                notificationMobile.style.display = 'block';
+            } else {
+                notification.style.display = 'block';
+            }
+        } else {
+            // If in CST timezone, show appropriate content based on screen size
+            if (window.innerWidth < 768) {
+                mobileContent.style.display = 'flex';
+            } else {
+                desktopContent.style.display = 'block';
+            }
+        }
+    });
+
+    function goToNextStep() {
+        // Store the source page so we know where the user came from
+        localStorage.setItem('previousPage', 'WelcomeFromTutor.html');
+
+        // Redirect to the next step
+        window.location.href = 'Type-Of-Student.html';
+    }
+    
+    function contactUs() {
+        window.location.href = '../MainPages/Contact.html';
+    }
+    
+    function proceedAnyway() {
+        const desktopContent = document.querySelector('.desktop-container');
+        const mobileContent = document.querySelector('.mobile-container');
+        const notification = document.getElementById('timezone-notification');
+        const notificationMobile = document.getElementById('timezone-notification-mobile');
+        
+        // Hide timezone notifications
+        notification.style.display = 'none';
+        notificationMobile.style.display = 'none';
+        
+        // Show appropriate content based on screen size
+        if (window.innerWidth < 768) {
+            desktopContent.style.display = 'none';
+            mobileContent.style.display = 'flex';
+        } else {
+            desktopContent.style.display = 'block';
+            mobileContent.style.display = 'none';
+        }
+    }
+    
+    // Image carousel functionality
+    function initImageCarousel() {
+        const images = document.querySelectorAll(".fade-image");
+        
+        // Define the exact order you want the images to appear
+        const customOrder = [5, 3, 1, 4, 2, 6]; // Order using their index (1-based)
+        
+        let currentIndex = 0;
+        
+        // Hide all images initially
+        images.forEach(img => img.classList.add("hidden"));
+        
+        // Show the first image in custom order
+        images[customOrder[currentIndex] - 1].classList.remove("hidden");
+        
+        function showNextImage() {
+            // Hide the current image
+            images[customOrder[currentIndex] - 1].classList.add("hidden");
+            
+            // Move to the next image in the sequence
+            currentIndex = (currentIndex + 1) % customOrder.length;
+            
+            // Show new image based on custom order
+            images[customOrder[currentIndex] - 1].classList.remove("hidden");
+        }
+        
+        setInterval(showNextImage, 5000); // Change image every 5 seconds
+    }
+</script>
 </body>
 </html>
 

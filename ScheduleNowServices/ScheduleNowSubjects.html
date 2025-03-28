@@ -2,83 +2,284 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
-<script src="../Javascript/analytics.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
+    <script src="../Javascript/analytics.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Select Your Subject | From the Heart Tutoring</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Navbar/Navbar.css">
     <link rel="stylesheet" href="../Footer/Footer.css">
     <link rel="stylesheet" href="../Progress/Progress.css">
-    <link rel="stylesheet" href="../CSS/Button.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../CSS/Hero.css">
+    <link rel="stylesheet" href="../CSS/FishnetBackground.css">
 
     <style>
-        html {
-            height: 100%;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
-            max-width: 100%;
+        :root {
+            --primary: #ff6f61;
+            --primary-dark: #d9574e;
+            --primary-light: #ffebe9;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --background: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
         }
-        
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            min-height: 100%;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
             position: relative;
-            /* Make sure body takes at least full viewport height */
             display: flex;
             flex-direction: column;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+            overflow-x: hidden;
             max-width: 100%;
             width: 100%;
         }
-        
-        .background-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
+
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: calc(100vh - 200px);
             width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/fishnets-and-hearts.png');
-            background-repeat: repeat;
-            opacity: 1;
-            pointer-events: none;
+            box-sizing: border-box;
+        }
+
+        /* Hero Section - Heart Design */
+        .hero-container {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .hero {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 45px 30px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Heart Shapes */
+        .heart {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .heart-1 {
+            top: 50px;
+            right: 90px;
+            transform: rotate(-10deg);
+        }
+
+        .heart-2 {
+            bottom: 70px;
+            left: -10px;
+            transform: rotate(20deg);
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            background-color: var(--primary-light);
+            border-radius: 50% 50% 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart::before {
+            width: 70px;
+            height: 110px;
+            left: 70px;
+        }
+
+        .heart::after {
+            width: 70px;
+            height: 110px;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+            left: 0;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            max-width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 10px auto 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero .pricing-note {
+            font-style: italic;
+            font-size: 0.9rem;
+            margin-top: 20px;
+            color: var(--text-light);
+        }
+
+        /* Progress Steps */
+        .progress-container {
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-top: 10px;
+            margin-bottom: 30px;
         }
 
         /* Categories */
         .category-container {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Allows categories to move to the next line */
-            gap: 20px; /* Reduce spacing for better fit */
+            flex-wrap: wrap;
+            gap: 15px;
             margin: 30px auto;
-            max-width: 90%; /* Ensure it doesn't stretch too wide */
-            box-sizing: border-box;
-            padding: 0 10px;
+            max-width: 800px;
+            animation: fadeIn 0.6s ease-out forwards;
         }
 
         .category {
-            flex: 1 1 auto; /* Allows categories to grow/shrink dynamically */
-            background: white;
-            border: 2px solid #d1d1d1;
-            border-radius: 12px;
-            padding: 12px;
+            background-color: var(--white);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius);
+            padding: 12px 25px;
             text-align: center;
             cursor: pointer;
-            font-size: 16px;
-            transition: background-color 0.3s, border-color 0.3s;
-            box-sizing: border-box;
-            max-width: 100%;
-            word-wrap: break-word;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            flex: 1 1 auto;
+            min-width: 120px;
+            max-width: 180px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .category:hover, .category.active {
-            background-color: #ff6f61;
-            border-color: #ff6f61;
-            color: white;
+        .category::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .category:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .category:hover::before {
+            transform: scaleX(1);
+        }
+
+        .category.active, .category.selected {
+            background-color: var(--primary);
+            border-color: var(--primary-dark);
+            color: var(--white);
+        }
+
+        .category.active::before, .category.selected::before {
+            transform: scaleX(1);
+        }
+
+        /* Test Prep Options */
+        .test-prep-options {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px auto;
+            max-width: 800px;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .test-prep-option {
+            background-color: var(--white);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius);
+            padding: 10px 20px;
+            text-align: center;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            min-width: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .test-prep-option::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .test-prep-option:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .test-prep-option:hover::before {
+            transform: scaleX(1);
+        }
+
+        .test-prep-option.selected {
+            background-color: var(--primary);
+            border-color: var(--primary-dark);
+            color: var(--white);
+        }
+
+        .test-prep-option.selected::before {
+            transform: scaleX(1);
         }
 
         /* Subjects */
@@ -87,507 +288,654 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
-            margin: 20px auto;
+            margin: 30px auto;
             max-width: 1200px;
-            padding: 20px;
-            box-sizing: border-box;
-            width: 100%;
         }
 
         .subjects-container.active {
             display: flex;
         }
 
-        .test-prep-option.selected {
-            background-color: #ff6f61;
-            border-color: #d9574e;
-            color: white;
-            font-weight: bold;
-        }
-
         .subject {
-            background-color: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            color: black; /* Default black text */
+            background-color: var(--white);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius);
             padding: 20px;
-            width: 320px; /* Adjust width as needed */
-            max-width: 100%; /* Prevent overflow */
-            display: flex; /* Enables horizontal layout */
-            align-items: center; /* Centers content vertically */
-            gap: 25px; /* Adds spacing between the image and text */
+            width: 300px;
+            max-width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 20px;
             cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
             position: relative;
-            transition: transform 0.3s, box-shadow 0.3s;
-            font-size: 1.2rem;
-            box-sizing: border-box;
+            overflow: hidden;
         }
-        
+
+        .subject::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
+
+        .subject:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .subject:hover::before {
+            transform: scaleX(1);
+        }
+
         .subject.selected {
-            background-color: #ff6f61 !important; /* Highlight selected subject */
-            border-color: #d9574e !important;
-            color: white !important; /* Ensure text is visible on red background */
-            transform: scale(1.05) !important;   /* Slightly enlarge selected */
-            box-shadow: none; /* Remove shadow for selected */
-            transition: none !important;        /* Disable transitions on deselect */
+            background-color: var(--primary-light);
+            border-color: var(--primary);
+            transform: translateY(-5px);
         }
 
-        .subject:hover:not(.selected) {
-            background-color: #f0f0f0; /* Hover effect only applies to unselected subjects */
-            transform: scale(1.05);
-        }
-
-        .subject:hover{
-            background-color: #ff6f61;
-            border-color: #d9574e;
-            transform: scale(1.05);
+        .subject.selected::before {
+            transform: scaleX(1);
         }
 
         .subject img {
-            width: 75px; /* Adjust image size */
-            height: 75px;
-            border-radius: 10px; /* Optional: keep the rounded style */
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
             object-fit: cover;
-            max-width: 100%;
+            transition: var(--transition);
+            background-color: var(--primary-light);
+            padding: 5px;
         }
-        
+
+        .subject.selected img {
+            background-color: var(--primary);
+        }
+
         .subject-card-content {
-            text-align: left; /* Align text to the left */
-            max-width: calc(100% - 100px); /* Account for image width and gap */
-            word-wrap: break-word;
+            flex: 1;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            transition: var(--transition);
         }
 
-        .subject-card h3 {
-            font-size: 1.3rem;
-            color: #ff6f61;
-            margin: 0 0 5px;
-            max-width: 100%;
-            word-wrap: break-word;
+        .subject.selected .subject-card-content {
+            color: var(--primary-dark);
+            font-weight: 600;
         }
 
-        .subject-card p {
-            font-size: 1.2rem;
-            margin: 0;
-            color: #333;
-            max-width: 100%;
-            word-wrap: break-word;
+        /* Error Message */
+        .error-message {
+            color: var(--primary);
+            font-size: 1rem;
+            text-align: center;
+            display: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            background-color: var(--primary-light);
+            margin: 20px auto;
+            max-width: 500px;
+            font-weight: 500;
+            animation: fadeIn 0.4s ease-out forwards;
         }
 
         /* Buttons */
         .button-container {
-            margin-top: 30px;
+            margin: 40px auto;
             display: flex;
             justify-content: center;
             gap: 20px;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 0 10px;
+            animation: fadeIn 0.6s ease-out forwards;
+            animation-delay: 0.4s;
         }
 
-        .back-button, .next-button {
-            background-color: #ff6f61;
-            color: white;
-            padding: 12px 25px;
+        .square-button {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
             font-size: 1rem;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
         }
 
-        .back-button:hover, .next-button:hover {
-            background-color: #d9574e;
-            transform: scale(1.05);
+        .square-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
 
-        @media (max-width: 600px) {
-            .container {
-                flex-direction: column;
-                gap: 15px;
+        .square-button:first-child {
+            background-color: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--text-light);
+        }
+
+        .square-button:first-child:hover {
+            background-color: var(--background);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            animation: fadeIn 0.6s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        .contact-link {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .contact-link::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: right;
+        }
+
+        .contact-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .contact-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(-10deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+            100% { transform: translateY(0px) rotate(-10deg); }
+        }
+
+        .heart-1 {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float2 {
+            0% { transform: translateY(0px) rotate(20deg); }
+            50% { transform: translateY(-8px) rotate(15deg); }
+            100% { transform: translateY(0px) rotate(20deg); }
+        }
+
+        .heart-2 {
+            animation: float2 6s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+                max-width: 85%;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .category-container {
+                gap: 10px;
+            }
+            
+            .category {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+                min-width: 90px;
+            }
+
+            .category:hover {
+                box-shadow: var(--shadow-hover);
+                transform: none;
             }
             
             .subject {
                 width: 100%;
-                max-width: calc(100% - 20px);
+                max-width: 300px;
+            }
+
+            .subject:hover {
+                box-shadow: var(--shadow-hover);
+                transform: none;
+            }
+            
+            .subject.selected {
+                background-color: var(--primary-light);
+                border-color: var(--primary);
+                transform: none;
+            }
+            
+            .heart::before,
+            .heart::after {
+                width: 55px;
+                height: 85px;
+            }
+            
+            .heart::before {
+                left: 55px;
+            }
+            
+            .heart-1 {
+                top: 35px;
+                right: 60px;
+            }
+            
+            .heart-2 {
+                bottom: 50px;
+                left: -5px;
             }
         }
-        
-        .error-message {
-            color: #ff6f61;
-            font-size: 1rem;
-            text-align: center;
-            margin-top: 10px;
-            display: none;
-            width: 100%;
-            box-sizing: border-box;
-        }
-        
-        .test-prep-options {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-            width: 100%;
-            box-sizing: border-box;
-            padding: 0 10px;
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 30px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+                max-width: 90%;
+            }
+            
+            .category {
+                min-width: 70px;
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .square-button {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .subject img {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .heart::before,
+            .heart::after {
+                width: 45px;
+                height: 70px;
+            }
+            
+            .heart::before {
+                left: 45px;
+            }
+            
+            .heart-1 {
+                top: 25px;
+                right: 40px;
+            }
+            
+            .heart-2 {
+                bottom: 35px;
+                left: -5px;
+            }
         }
 
-        .test-prep-option {
-            background-color: white;
-            border: 2px solid #d1d1d1;
-            border-radius: 12px;
-            padding: 10px 20px;
-            text-align: center;
-            cursor: pointer;
-            transition: background-color 0.3s, border-color 0.3s, transform 0.3s;
-            box-sizing: border-box;
-            max-width: 100%;
-            word-wrap: break-word;
-        }
-
-        .test-prep-option:hover {
-            background-color: #ff6f61;
-            border-color: #d9574e;
-            color: white;
-            transform: scale(1.05);
-        }
-        
-        .category.selected, .test-prep-option.selected {
-            background-color: #ff6f61;
-            border-color: #ff6f61;
-            color: white;
-            font-weight: bold;
-        }
-        
-        .contact-link {
-            color: #ff6f61; /* Base color */
-            font-weight: bold;
-            text-decoration: none;
-            transition: color 0.3s ease, transform 0.3s ease; /* Add smooth transitions */
-        }
-
-        .contact-link:hover {
-            color: #d9574e; /* Slightly darker shade on hover */
-        }
-        
-        /* Ensure all containers respect viewport boundaries */
-        #navbar-placeholder, 
-        #footer-placeholder {
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow-x: hidden;
+        /* Fix for mobile rendering */
+        @media (max-width: 768px) {
+            .category-container {
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+            }
+            
+            .category {
+                transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            }
+            
+            .category:hover, 
+            .category.active, 
+            .category.selected {
+                transform: none !important;
+            }
+            
+            .test-prep-option {
+                transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            }
+            
+            .test-prep-option:hover, 
+            .test-prep-option.selected {
+                transform: none !important;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="background-pattern"></div>
-<!-- Navbar Placeholder -->
-<div id="navbar-placeholder"></div>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+    <script src="../Navbar/Navbar.js" defer></script>
 
-<!-- JavaScript to Load Navbar -->
-<script src="../Navbar/Navbar.js" defer></script>
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>Select Your Subject(s)</h1>
-        <p>Choose which subject(s) below you would need help with.</p>
-        <p style="font-style: italic; font-size: 0.9rem;margin-top: 20px;">All services are priced at a standard rate of $70 for an hour long session. Current specials apply.</p>
-    </div>
-    <!-- Progress Dots -->
-    <div class="progress-steps">
-        <div class="step-container">
-            <div class="step">1</div>
-        </div>
-        <div class="step-container">
-            <div class="step">2</div>
-        </div>
-        <div class="step-container">
-            <div class="step">3</div>
-        </div>
-        <div class="step-container">
-            <div class="step">4</div>
-        </div>
-    </div>
-    <script src="../Progress/Progress.js"></script>
-<script>
-    // Call updateSteps with the current step number
-    document.addEventListener("DOMContentLoaded", function() {
-        updateSteps(2); // Change 3 to any current step dynamically
-    });
-</script>
-
-    <!-- Categories -->
-    <div class="category-container">
-        <div class="category active" onclick="selectCategory(this, 'math')">Math</div>
-        <div class="category" onclick="selectCategory(this, 'science')">Science</div>
-        <div class="category" onclick="selectCategory(this, 'Test Prep')">Test Prep</div>
-        <div class="category" onclick="selectCategory(this, 'languages')">Languages</div>
-        <div class="category" onclick="selectCategory(this, 'other')">Electives</div>
-    </div>
-    <div id="test-prep-options" class="test-prep-options" style="display: none;">
-        <div class="test-prep-option" onclick="selectTestPrepOption(this, 'SAT')">SAT</div>
-        <div class="test-prep-option" onclick="selectTestPrepOption(this, 'ACT')">ACT</div>
-        <div class="test-prep-option" onclick="selectTestPrepOption(this, 'TSI')">TSI</div>
-        <div class="test-prep-option" onclick="selectTestPrepOption(this, 'GED')">GED</div>
-        <div class="test-prep-option" onclick="selectTestPrepOption(this, 'AP')">AP</div>
-    </div>
-    
-
-    <!-- Subjects -->
-    <div id="sat" class="subjects-container">
-        <!-- <div class="subject" onclick="toggleSelection(this, 'Full SAT Prep')">
-            <img src="https://i.imgur.com/k9E7HCd.png" alt="Full SAT Prep">
-            Full SAT Prep
-        </div> -->
-        <div class="subject" onclick="toggleSelection(this, 'SAT Math Sections')">
-            <img src="https://i.imgur.com/3Yvz086.png" alt="SAT Math">
-            SAT Math Sections
-        </div>
-        <!-- <div class="subject" onclick="toggleSelection(this, 'SAT English Sections')">
-            <img src="https://i.imgur.com/k9E7HCd.png" alt="SAT English">
-            SAT English Sections
-        </div> -->
-    </div>
-    
-    <!-- ACT Subject Cards -->
-    <div id="act" class="subjects-container">
-        <!-- <div class="subject" onclick="toggleSelection(this, 'Full ACT Prep')">
-            <img src="https://i.imgur.com/VTmTgcO.png" alt="Full ACT Prep">
-            Full ACT Prep
-        </div> -->
-        <div class="subject" onclick="toggleSelection(this, 'ACT Math Section')">
-            <img src="https://i.imgur.com/aDmePOB.png" alt="ACT Math Section">
-            ACT Math Section
-        </div>
-        <!-- <div class="subject" onclick="toggleSelection(this, 'ACT English Sections')">
-            <img src="https://i.imgur.com/VTmTgcO.png" alt="ACT English Sections">
-            ACT English Sections
-        </div> -->
-        <div class="subject" onclick="toggleSelection(this, 'ACT Science Section')">
-            <img src="https://i.imgur.com/aDmePOB.png" alt="ACT Science Section">
-            ACT Science Section
-        </div>
-    </div>
-
-    <!-- TSI Subject Cards -->
-    <div id="tsi" class="subjects-container">
-        <!-- <div class="subject" onclick="toggleSelection(this, 'Full TSI Prep')">
-            <img src="https://i.imgur.com/TyfD1Bl.png" alt="Full TSI Prep">
-            Full TSI Prep
-        </div> -->
-        <div class="subject" onclick="toggleSelection(this, 'TSI Math Section')">
-            <img src="https://i.imgur.com/pnAQZlu.png" alt="TSI Math Section">
-            TSI Math Section
-        </div>
-        <!-- <div class="subject" onclick="toggleSelection(this, 'TSI English Sections')">
-            <img src="https://i.imgur.com/TyfD1Bl.png" alt="TSI English Sections">
-            TSI English Sections
-        </div> -->
-    </div>
-
-    <!-- GED Subject Cards -->
-    <div id="ged" class="subjects-container">
-        <!-- <div class="subject" onclick="toggleSelection(this, 'Full GED Prep')">
-            <img src="https://i.imgur.com/twcJwOD.png" alt="Full GED Prep">
-            Full GED Prep
-        </div> -->
-        <div class="subject" onclick="toggleSelection(this, 'GED Mathematical Reasoning Section')">
-            <img src="https://i.imgur.com/yBpCgJ9.png" alt="GED Mathematical Reasoning Section">
-            GED Mathematical Reasoning Section
-        </div>
-        <!-- <div class="subject" onclick="toggleSelection(this, 'GED Reasoning Through Language Arts Sections')">
-            <img src="https://i.imgur.com/twcJwOD.png" alt="GED Reasoning Through Language Arts Sections">
-            GED Reasoning Through Language Arts Sections
-        </div> -->
-        <div class="subject" onclick="toggleSelection(this, 'GED Science Section')">
-            <img src="https://i.imgur.com/yBpCgJ9.png" alt="GED Science Section">
-            GED Science Section
-        </div>
-        <!-- <div class="subject" onclick="toggleSelection(this, 'GED Social Studies Section')">
-            <img src="https://i.imgur.com/twcJwOD.png" alt="GED Social Studies Section">
-            GED Social Studies Section
-        </div> -->
-    </div>
-
-    <!-- AP exams Subject Cards -->
-    <div id="ap" class="subjects-container">
-        <div class="subject" onclick="toggleSelection(this, 'AP Biology Exam')">
-            <img src="https://i.imgur.com/ONv8nlz.png" alt="AP Biology Exam">
-            AP Biology Exam
-        </div>
-    </div>
-
-    <div id="math" class="subjects-container">
-        <div class="subject" onclick="toggleSelection(this, 'K-8th Math')">
-            <img src="https://i.imgur.com/6Dytwj6.png" alt="Math Icon">
-            <div class="subject-card-content">
-                K-8th Math
+    <div class="page-content">
+        <!-- Hero Section - Heart Design -->
+        <div class="hero-container">
+            <div class="hero">
+                <div class="heart heart-1"></div>
+                <div class="heart heart-2"></div>
+                <div class="hero-content">
+                    <h1>Select Your Subject(s)</h1>
+                    <p>Choose which subject(s) below you would need help with.</p>
+                    <p class="pricing-note">All services are priced at a standard rate of $70 for an hour long session. Current specials apply.</p>
+                </div>
             </div>
-            
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'Algebra 1')">
-            <img src="https://i.imgur.com/Xv4540s.png" alt="Math Icon">
-            Algebra 1
+
+        <!-- Progress Steps -->
+        <div class="progress-container">
+            <div class="progress-steps">
+                <div class="step-container">
+                    <div class="step">1</div>
+                </div>
+                <div class="step-container">
+                    <div class="step">2</div>
+                </div>
+                <div class="step-container">
+                    <div class="step">3</div>
+                </div>
+                <div class="step-container">
+                    <div class="step">4</div>
+                </div>
+            </div>
+            <div class="progress-text">Step 2 of 4</div>
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'Geometry')">
-            <img src="https://i.imgur.com/3E9liLI.png" alt="Math Icon">
-            Geometry
+
+        <!-- Categories -->
+        <div class="category-container">
+            <div class="category active" onclick="selectCategory(this, 'math')">Math</div>
+            <div class="category" onclick="selectCategory(this, 'science')">Science</div>
+            <div class="category" onclick="selectCategory(this, 'Test Prep')">Test Prep</div>
+            <div class="category" onclick="selectCategory(this, 'languages')">Languages</div>
+            <div class="category" onclick="selectCategory(this, 'other')">Electives</div>
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'Algebra 2')">
-            <img src="https://i.imgur.com/AWF0iHD.png" alt="Math Icon">
-            Algebra 2
+
+        <!-- Test Prep Options -->
+        <div id="test-prep-options" class="test-prep-options" style="display: none;">
+            <div class="test-prep-option" onclick="selectTestPrepOption(this, 'SAT')">SAT</div>
+            <div class="test-prep-option" onclick="selectTestPrepOption(this, 'ACT')">ACT</div>
+            <div class="test-prep-option" onclick="selectTestPrepOption(this, 'TSI')">TSI</div>
+            <div class="test-prep-option" onclick="selectTestPrepOption(this, 'GED')">GED</div>
+            <div class="test-prep-option" onclick="selectTestPrepOption(this, 'AP')">AP</div>
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'Pre-Calculus')">
-            <img src="https://i.imgur.com/uTHDNTt.png" alt="Math Icon">
-            Pre-Calculus
+
+        <!-- SAT Subjects -->
+        <div id="sat" class="subjects-container">
+            <div class="subject" onclick="toggleSelection(this, 'SAT Math Sections')">
+                <img src="https://i.imgur.com/3Yvz086.png" alt="SAT Math">
+                <div class="subject-card-content">SAT Math Sections</div>
+            </div>
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'Calculus 1 (AB)')">
-            <img src="https://i.imgur.com/GATFj1s.png" alt="Math Icon">
-            Calculus 1 (AB)     
+        
+        <!-- ACT Subject Cards -->
+        <div id="act" class="subjects-container">
+            <div class="subject" onclick="toggleSelection(this, 'ACT Math Section')">
+                <img src="https://i.imgur.com/aDmePOB.png" alt="ACT Math Section">
+                <div class="subject-card-content">ACT Math Section</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'ACT Science Section')">
+                <img src="https://i.imgur.com/aDmePOB.png" alt="ACT Science Section">
+                <div class="subject-card-content">ACT Science Section</div>
+            </div>
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'Calculus 2 (BC)')">
-            <img src="https://i.imgur.com/mXJsKdg.png" alt="Math Icon">
-            Calculus 2 (BC)
+
+        <!-- TSI Subject Cards -->
+        <div id="tsi" class="subjects-container">
+            <div class="subject" onclick="toggleSelection(this, 'TSI Math Section')">
+                <img src="https://i.imgur.com/pnAQZlu.png" alt="TSI Math Section">
+                <div class="subject-card-content">TSI Math Section</div>
+            </div>
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'Statistics')">
-            <img src="https://i.imgur.com/DXYrFd5.png" alt="Math Icon">
-            Statistics
+
+        <!-- GED Subject Cards -->
+        <div id="ged" class="subjects-container">
+            <div class="subject" onclick="toggleSelection(this, 'GED Mathematical Reasoning Section')">
+                <img src="https://i.imgur.com/yBpCgJ9.png" alt="GED Mathematical Reasoning Section">
+                <div class="subject-card-content">GED Mathematical Reasoning Section</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'GED Science Section')">
+                <img src="https://i.imgur.com/yBpCgJ9.png" alt="GED Science Section">
+                <div class="subject-card-content">GED Science Section</div>
+            </div>
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'AP Statistics')">
-            <img src="https://i.imgur.com/E7J74pl.png" alt="Math Icon">
-            AP Statistics
+
+        <!-- AP exams Subject Cards -->
+        <div id="ap" class="subjects-container">
+            <div class="subject" onclick="toggleSelection(this, 'AP Biology Exam')">
+                <img src="https://i.imgur.com/ONv8nlz.png" alt="AP Biology Exam">
+                <div class="subject-card-content">AP Biology Exam</div>
+            </div>
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'College Algebra')">
-            <img src="https://i.imgur.com/nd8xGtz.png" alt="College Algebra Icon">
-            College Algebra
+
+        <!-- Math Subjects -->
+        <div id="math" class="subjects-container">
+            <div class="subject" onclick="toggleSelection(this, 'K-8th Math')">
+                <img src="https://i.imgur.com/6Dytwj6.png" alt="Math Icon">
+                <div class="subject-card-content">K-8th Math</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Algebra 1')">
+                <img src="https://i.imgur.com/Xv4540s.png" alt="Math Icon">
+                <div class="subject-card-content">Algebra 1</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Geometry')">
+                <img src="https://i.imgur.com/3E9liLI.png" alt="Math Icon">
+                <div class="subject-card-content">Geometry</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Algebra 2')">
+                <img src="https://i.imgur.com/AWF0iHD.png" alt="Math Icon">
+                <div class="subject-card-content">Algebra 2</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Pre-Calculus')">
+                <img src="https://i.imgur.com/uTHDNTt.png" alt="Math Icon">
+                <div class="subject-card-content">Pre-Calculus</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Calculus 1 (AB)')">
+                <img src="https://i.imgur.com/GATFj1s.png" alt="Math Icon">
+                <div class="subject-card-content">Calculus 1 (AB)</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Calculus 2 (BC)')">
+                <img src="https://i.imgur.com/mXJsKdg.png" alt="Math Icon">
+                <div class="subject-card-content">Calculus 2 (BC)</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Statistics')">
+                <img src="https://i.imgur.com/DXYrFd5.png" alt="Math Icon">
+                <div class="subject-card-content">Statistics</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'AP Statistics')">
+                <img src="https://i.imgur.com/E7J74pl.png" alt="Math Icon">
+                <div class="subject-card-content">AP Statistics</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'College Algebra')">
+                <img src="https://i.imgur.com/nd8xGtz.png" alt="College Algebra Icon">
+                <div class="subject-card-content">College Algebra</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Calculus 3')">
+                <img src="https://i.imgur.com/en5bUUT.png" alt="Calculus 3 Icon">
+                <div class="subject-card-content">Calculus 3</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Differential Equations')">
+                <img src="https://i.imgur.com/vWdoEHU.png" alt="Differential Equations Icon">
+                <div class="subject-card-content">Differential Equations</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Abstract Algebra')">
+                <img src="https://i.imgur.com/YcYH4WW.png" alt="Abstract Algebra Icon">
+                <div class="subject-card-content">Abstract Algebra</div>
+            </div>
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'Calculus 3')">
-            <img src="https://i.imgur.com/en5bUUT.png" alt="Calculus 3 Icon">
-            Calculus 3
+
+        <!-- Science Subjects -->
+        <div id="science" class="subjects-container">        
+            <div class="subject" onclick="toggleSelection(this, 'Biology')">
+                <img src="https://i.imgur.com/uQqGIMw.png" alt="Science Icon">
+                <div class="subject-card-content">Biology</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Chemistry')">
+                <img src="https://i.imgur.com/Lf147IR.png" alt="Science Icon">
+                <div class="subject-card-content">Chemistry</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Physics')">
+                <img src="https://i.imgur.com/nw1YKye.png" alt="Science Icon">
+                <div class="subject-card-content">Physics</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'AP Biology')">
+                <img src="https://i.imgur.com/ONv8nlz.png" alt="Science Icon">
+                <div class="subject-card-content">AP Biology</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'AP Chemistry')">
+                <img src="https://i.imgur.com/m0BZCOd.png" alt="Science Icon">
+                <div class="subject-card-content">AP Chemistry</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'AP Physics')">
+                <img src="https://i.imgur.com/3DOw5Pc.png" alt="Science Icon">
+                <div class="subject-card-content">AP Physics</div>
+            </div>
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'Differential Equations')">
-            <img src="https://i.imgur.com/vWdoEHU.png" alt="Differential Equations Icon">
-            Differential Equations
+
+        <!-- Test Prep Subjects -->
+        <div id="testprep" class="subjects-container">
+            <div class="subject" onclick="toggleSelection(this, 'SAT English')">
+                <img src="https://i.imgur.com/3Yvz086.png" alt="Test Prep Icon">
+                <div class="subject-card-content">SAT English</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'SAT Math')">
+                <img src="https://i.imgur.com/3Yvz086.png" alt="Test Prep Icon">
+                <div class="subject-card-content">SAT Math</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'ACT English')">
+                <img src="https://i.imgur.com/aDmePOB.png" alt="Test Prep Icon">
+                <div class="subject-card-content">ACT English</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'ACT Math')">
+                <img src="https://i.imgur.com/aDmePOB.png" alt="Test Prep Icon">
+                <div class="subject-card-content">ACT Math</div>
+            </div>
         </div>
-        <div class="subject" onclick="toggleSelection(this, 'Abstract Algebra')">
-            <img src="https://i.imgur.com/YcYH4WW.png" alt="Abstract Algebra Icon">
-            Abstract Algebra
+
+        <!-- Languages Subjects -->
+        <div id="languages" class="subjects-container">
+            <div class="subject" onclick="toggleSelection(this, 'K-8th English')">
+                <img src="https://i.imgur.com/IeKkw9Y.png" alt="Languages Icon">
+                <div class="subject-card-content">K-8th English</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Spanish')">
+                <img src="https://i.imgur.com/3Fb83GI.png" alt="Languages Icon">
+                <div class="subject-card-content">Spanish</div>
+            </div>
         </div>
+
+        <!-- Other Subjects -->
+        <div id="other" class="subjects-container">
+            <div class="subject" onclick="toggleSelection(this, 'Computer Science')">
+                <img src="https://i.imgur.com/tY1r7GT.png" alt="Other Icon">
+                <div class="subject-card-content">Computer Science</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Circuits')">
+                <img src="https://i.imgur.com/t1PWTUE.png" alt="Other Icon">
+                <div class="subject-card-content">Circuits</div>
+            </div>
+            <div class="subject" onclick="toggleSelection(this, 'Engineering')">
+                <img src="https://i.imgur.com/owY1qoc.png" alt="Other Icon">
+                <div class="subject-card-content">Engineering</div>
+            </div>
+        </div>
+        
+        <!-- Error Message -->
+        <div class="error-message" id="error-message">Please select at least one subject before proceeding.</div>    
+        
+        <!-- Buttons -->
+        <div class="button-container">
+            <button class="square-button" onclick="redirectToTypeOfStudent()">Back</button>
+            <button class="square-button" onclick="redirectToNext()">Next</button>
+        </div>
+
+        <!-- Contact Section -->
+        <section class="contact-section">
+            <p>
+                Can't find the subject you're looking for? 
+                <a href="../MainPages/Contact.html" class="contact-link">Contact us here</a>.
+            </p>
+        </section>
     </div>
 
-    <div id="science" class="subjects-container">        
-        <div class="subject" onclick="toggleSelection(this, 'Biology')">
-            <img src="https://i.imgur.com/uQqGIMw.png" alt="Science Icon">
-            Biology
-        </div>
-        <div class="subject" onclick="toggleSelection(this, 'Chemistry')">
-            <img src="https://i.imgur.com/Lf147IR.png" alt="Science Icon">
-            Chemistry
-        </div>
-        <div class="subject" onclick="toggleSelection(this, 'Physics')">
-            <img src="https://i.imgur.com/nw1YKye.png" alt="Science Icon">
-            Physics
-        </div>
-        <div class="subject" onclick="toggleSelection(this, 'AP Biology')">
-            <img src="https://i.imgur.com/ONv8nlz.png" alt="Science Icon">
-            AP Biology
-        </div>
-        <div class="subject" onclick="toggleSelection(this, 'AP Chemistry')">
-            <img src="https://i.imgur.com/m0BZCOd.png" alt="Science Icon">
-            AP Chemistry
-        </div>
-        <div class="subject" onclick="toggleSelection(this, 'AP Physics')">
-            <img src="https://i.imgur.com/3DOw5Pc.png" alt="Science Icon">
-            AP Physics
-        </div>
-    </div>
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="../Footer/Footer.js" defer></script>
 
-    <div id="testprep" class="subjects-container">
-        <div class="subject" onclick="toggleSelection(this, 'SAT English')">
-            <img src="https://i.imgur.com/3Yvz086.png" alt="Test Prep Icon">
-            SAT English
-        </div>
-        <div class="subject" onclick="toggleSelection(this, 'SAT Math')">
-            <img src="https://i.imgur.com/3Yvz086.png" alt="Test Prep Icon">
-            SAT Math
-        </div>
-        <div class="subject" onclick="toggleSelection(this, 'ACT English')">
-            <img src="https://i.imgur.com/aDmePOB.png" alt="Test Prep Icon">
-            ACT English
-        </div>
-        <div class="subject" onclick="toggleSelection(this, 'ACT Math')">
-            <img src="https://i.imgur.com/aDmePOB.png" alt="Test Prep Icon">
-            ACT Math
-        </div>
-    </div>
-
-    <div id="languages" class="subjects-container">
-        <div class="subject" onclick="toggleSelection(this, 'K-8th English')">
-            <img src="https://i.imgur.com/IeKkw9Y.png" alt="Languages Icon">
-            K-8th English
-        </div>
-        <!-- <div class="subject" onclick="toggleSelection(this, '9-12th English')">
-            <img src="https://i.imgur.com/yBpCgJ9.png" alt="Languages Icon">
-            9-12th English
-        </div> -->
-        <div class="subject" onclick="toggleSelection(this, 'Spanish')">
-            <img src="https://i.imgur.com/3Fb83GI.png" alt="Languages Icon">
-            Spanish
-        </div>
-    </div>
-
-    <div id="other" class="subjects-container">
-        <div class="subject" onclick="toggleSelection(this, 'Computer Science')">
-            <img src="https://i.imgur.com/tY1r7GT.png" alt="Other Icon">
-            Computer Science
-        </div>
-        <div class="subject" onclick="toggleSelection(this, 'Circuits')">
-            <img src="https://i.imgur.com/t1PWTUE.png" alt="Other Icon">
-            Circuits
-        </div>
-        <div class="subject" onclick="toggleSelection(this, 'Engineering')">
-            <img src="https://i.imgur.com/owY1qoc.png" alt="Other Icon">
-            Engineering
-        </div>
-    </div>
-    
-    <!-- Error Message -->
-    <div class="error-message" id="error-message">Please select at least one subject before proceeding.</div>    
-    
-    <div class="button-container">
-        <button class="square-button" onclick="redirectToTypeOfStudent()">Back</button>
-        <button class="square-button" onclick="redirectToNext()">Next</button>
-    </div>
-    <section class="contact-section" style="text-align: center; margin-top: 40px; font-size: 1.2rem;">
-        <p>
-            Can't find the subject you're looking for? 
-            <a href="../Contact.html" class="contact-link">Contact us here</a>.
-        </p>
-    </section>
-
-    <script>
-        // Retrieve student type from localStorage
-        const studentType = localStorage.getItem('studentType');
-
-        // Adjust progress dots
-        document.addEventListener('DOMContentLoaded', () => {
-            const progressContainer = document.querySelector('.progress');
-
-            if (studentType === 'Returning Student') {
-                // Reduce the number of dots to 4 for Returning Students
-                progressContainer.innerHTML = `
-                    <span class="dot"></span>
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                `;
-            }
-        });
-    </script>
+    <script src="../Progress/Progress.js"></script>
     <script>
         const selectedSubjects = new Set();
-        const errorMessage = document.getElementById('error-message'); // Define error message element
+        const errorMessage = document.getElementById('error-message');
+
+        // Call updateSteps with the current step number
+        document.addEventListener("DOMContentLoaded", function() {
+            updateSteps(2); // Set to step 2
+            
+            // Check for previously selected subjects
+            const savedSubjects = JSON.parse(localStorage.getItem('selectedSubjects') || '[]');
+            if (savedSubjects.length > 0) {
+                savedSubjects.forEach(subject => {
+                    selectedSubjects.add(subject);
+                    
+                    // Find and mark the subject as selected
+                    document.querySelectorAll('.subject').forEach(element => {
+                        const subjectText = element.textContent.trim();
+                        if (subjectText === subject) {
+                            element.classList.add('selected');
+                        }
+                    });
+                });
+            }
+            
+            // Show the initial active container (math by default)
+            const mathContainer = document.getElementById('math');
+            if (mathContainer) {
+                mathContainer.classList.add('active');
+            }
+        });
 
         function toggleSelection(element, subject) {
             event.stopPropagation(); // Prevent event bubbling
@@ -598,50 +946,26 @@
             } else {
                 element.classList.add('selected');
                 selectedSubjects.add(subject);
-                document.getElementById("error-message").style.display = "none"; // Hide error message on selection
+                
+                // Hide error message on selection
+                errorMessage.style.display = "none";
             }
         }
 
-        function showSubjects(category) {
-            document.querySelectorAll('.subjects-container').forEach(container => container.classList.remove('active'));
-            document.querySelectorAll('.category').forEach(cat => cat.classList.remove('active'));
-            document.getElementById(category).classList.add('active');
-            document.querySelector(`.category[onclick="showSubjects('${category}')"]`).classList.add('active');
-        }
-
-        function redirectToNext() {
-            const tutorSelected = localStorage.getItem('selectedTutorName'); // Check if tutor is selected
-
-            if (selectedSubjects.size === 0) {
-                // Show error message if no subjects are selected
-                document.getElementById("error-message").style.display = "block";
-                return;
-            } else {
-                // Hide error message and save selected subjects
-                document.getElementById("error-message").style.display = "none";
-                localStorage.setItem("selectedSubjects", JSON.stringify([...selectedSubjects]));
-
-                if (tutorSelected) {
-                    // Redirect to TutorAlreadySelected.html if a tutor is already selected
-                    window.location.href = "TutorAlreadySelected.html";
-                } else {
-                    // Redirect to RecommendedTutor.html if no tutor is selected
-                    window.location.href = "RecommendedTutor.html";
-                }
-            }
-        }
-
-        function redirectToTypeOfStudent() {
-            window.location.href = 'Type-Of-Student.html';
-        }
-        
         function selectCategory(element, category) {
-            // Deselect all categories
-            document.querySelectorAll('.category').forEach(cat => cat.classList.remove('selected', 'active'));
+            // Get all category elements
+            const allCategories = document.querySelectorAll('.category');
+            
+            // Remove active and selected classes from all categories
+            allCategories.forEach(cat => {
+                cat.classList.remove('selected', 'active');
+            });
 
-            // Select the clicked category
+            // Add active and selected classes to clicked category
             element.classList.add('selected', 'active');
-            localStorage.setItem('selectedCategory', category); // Store selected category
+            
+            // Store selected category
+            localStorage.setItem('selectedCategory', category);
 
             // Hide all subjects containers
             document.querySelectorAll('.subjects-container').forEach(container => {
@@ -671,13 +995,18 @@
         }
 
         function selectTestPrepOption(element, option) {
-            // Deselect all test prep options
-            document.querySelectorAll('.test-prep-option').forEach(opt => opt.classList.remove('selected'));
+            // Get all test prep options
+            const allOptions = document.querySelectorAll('.test-prep-option');
+            
+            // Remove selected class from all options
+            allOptions.forEach(opt => {
+                opt.classList.remove('selected');
+            });
 
-            // Highlight the clicked option
+            // Add selected class to clicked option
             element.classList.add('selected');
 
-            // Hide all test prep subject containers
+            // Hide all subjects containers
             document.querySelectorAll('.subjects-container').forEach(container => {
                 container.classList.remove('active');
             });
@@ -689,18 +1018,45 @@
             }
         }
 
+        function redirectToNext() {
+            const tutorSelected = localStorage.getItem('selectedTutorName'); // Check if tutor is selected
+
+            if (selectedSubjects.size === 0) {
+                // Show error message if no subjects are selected
+                errorMessage.style.display = "block";
+                
+                // Add shake animation
+                errorMessage.style.animation = 'shake 0.5s ease-in-out';
+                setTimeout(() => {
+                    errorMessage.style.animation = '';
+                }, 500);
+                
+                return;
+            } else {
+                // Hide error message and save selected subjects
+                errorMessage.style.display = "none";
+                localStorage.setItem("selectedSubjects", JSON.stringify([...selectedSubjects]));
+
+                if (tutorSelected) {
+                    // Redirect to TutorAlreadySelected.html if a tutor is already selected
+                    window.location.href = "TutorAlreadySelected.html";
+                } else {
+                    // Redirect to RecommendedTutor.html if no tutor is selected
+                    window.location.href = "RecommendedTutor.html";
+                }
+            }
+        }
+
+        function redirectToTypeOfStudent() {
+            window.location.href = 'Type-Of-Student.html';
+        }
+
         // Automatically display the Math section on page load
         document.addEventListener('DOMContentLoaded', () => {
             // Set the Math category as selected
             const mathCategory = document.querySelector('.category[onclick="selectCategory(this, \'math\')"]');
             if (mathCategory) {
                 mathCategory.classList.add('selected', 'active');
-            }
-
-            // Show the Math subjects container
-            const mathContainer = document.getElementById('math');
-            if (mathContainer) {
-                mathContainer.classList.add('active');
             }
 
             // Hide Test Prep options if they are visible
@@ -710,11 +1066,6 @@
             }
         });
     </script>
-
-
-<div id="footer-placeholder"></div>
-
-<!-- JavaScript to Load Footer -->
-<script src="../Footer/Footer.js" defer></script>
 </body>
 </html>
+

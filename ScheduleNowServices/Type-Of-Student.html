@@ -2,122 +2,448 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
-<script src="../Javascript/analytics.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
+    <script src="../Javascript/analytics.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Select Your Student Status | From the Heart Tutoring</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../CSS/Hero.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Navbar/Navbar.css">
     <link rel="stylesheet" href="../Progress/Progress.css">
-    <link rel="stylesheet" href="../CSS/Button.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../CSS/Button.css">
     <link rel="stylesheet" href="../Footer/Footer.css">
     <link rel="stylesheet" href="../CSS/FishnetBackground.css">
     
     <style>
+        :root {
+            --primary: #ff6f61;
+            --primary-dark: #d9574e;
+            --primary-light: #ffebe9;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --background: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
 
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
         }
-        
+
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: calc(100vh - 200px); /* Adjust based on your navbar/footer height */
+        }
+
+        /* Hero Section - Heart Design */
+        .hero-container {
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .hero {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 45px 30px;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Heart Shapes - Repositioned */
+        .heart {
+            position: absolute;
+            z-index: 1;
+        }
+
+        .heart-1 {
+            top: 50px;
+            right: 90px;
+            transform: rotate(-10deg);
+        }
+
+        .heart-2 {
+            bottom: 70px;
+            left: -10px;
+            transform: rotate(20deg);
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            background-color: var(--primary-light);
+            border-radius: 50% 50% 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
+
+        .heart::before {
+            width: 70px;
+            height: 110px;
+            left: 70px;
+        }
+
+        .heart::after {
+            width: 70px;
+            height: 110px;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+            left: 0;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            max-width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 10px auto 0;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Progress Steps with Step Text */
+        .progress-container {
+            margin: 30px auto;
+            position: relative;
+        }
+
+        .progress-steps {
+            margin-bottom: 10px;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
 
         /* Options Container */
-        .container {
+        .options-container {
             display: flex;
             justify-content: center;
-            align-items: center;
             gap: 30px;
-            margin-top: 20px;
+            margin: 30px auto;
             flex-wrap: wrap;
+            max-width: 800px;
         }
 
-        .option {
-            background-color: white;
-            border: 2px solid white;
-            border-radius: 12px;
-            padding: 20px;
+        .option-card {
+            background-color: var(--white);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius);
+            padding: 30px 25px;
             text-align: center;
             cursor: pointer;
-            width: 250px;
-            transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 280px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
         }
 
-        .option:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            border-color: #ff6f61;
+        .option-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
         }
 
-        .option.selected {
-            background-color: #ff6f61;
-            color: white;
-            border-color: #d9574e;
+        .option-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .option img {
-            width: 60px;
-            height: 60px;
-            margin-bottom: 15px;
+        .option-card:hover::before {
+            transform: scaleX(1);
         }
 
-        .option h2 {
-            font-size: 1.2rem;
-            margin: 10px 0;
-            color: #1e293b;
+        .option-card.selected {
+            background-color: var(--primary-light);
+            border-color: var(--primary);
         }
 
-        .option.selected h2 {
-            color: white;
+        .option-card.selected::before {
+            transform: scaleX(1);
+        }
+
+        .option-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-light);
+            border-radius: 50%;
+            transition: var(--transition);
+        }
+
+        .option-card.selected .option-icon {
+            background-color: var(--primary);
+        }
+
+        .option-card img {
+            width: 50px;
+            height: 50px;
+            transition: var(--transition);
+        }
+
+        .option-card.selected img {
+            filter: brightness(1.1);
+        }
+
+        .option-card h2 {
+            font-size: 1.3rem;
+            margin: 15px 0 10px;
+            color: var(--text-dark);
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .option-card.selected h2 {
+            color: var(--primary-dark);
+        }
+
+        .option-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin: 0;
         }
 
         /* Error Message */
-        /* Center the error message */
-    .error-message {
-        color: red;
-        font-size: 1rem;
-        margin: 20px auto; /* Centers horizontally */
-        text-align: center; /* Ensures text alignment */
-        display: none; /* Hidden by default */
-        width: 100%; /* Ensures it spans the container */
-    }
-
+        .error-message {
+            color: var(--primary);
+            font-size: 1rem;
+            text-align: center;
+            display: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            background-color: var(--primary-light);
+            margin: 20px auto;
+            max-width: 500px;
+            font-weight: 500;
+        }
 
         /* Buttons */
         .button-container {
-            margin-top: 30px;
+            margin: 40px auto;
             display: flex;
             justify-content: center;
             gap: 20px;
         }
 
-        .back-button, .next-button {
-            background-color: #ff6f61;
-            color: white;
-            padding: 12px 25px;
+        .btn {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
             font-size: 1rem;
             border: none;
-            border-radius: 25px;
+            border-radius: 30px;
             cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
         }
 
-        .back-button:hover, .next-button:hover {
-            background-color: #d9574e;
-            transform: scale(1.05);
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
         }
 
-        @media (max-width: 600px) {
-            .container {
-                flex-direction: column;
-                gap: 15px;
+        .btn-back {
+            background-color: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--text-light);
+        }
+
+        .btn-back:hover {
+            background-color: var(--background);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Responsive Design - Updated heart positions */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+                max-width: 85%;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .options-container {
+                gap: 20px;
+            }
+            
+            .option-card {
+                width: 100%;
+                max-width: 320px;
+            }
+            
+            .hero {
+                padding: 35px 20px;
+            }
+            
+            .heart::before,
+            .heart::after {
+                width: 55px;
+                height: 85px;
+            }
+            
+            .heart::before {
+                left: 55px;
+            }
+            
+            /* Updated heart positions for tablet */
+            .heart-1 {
+                top: 35px;
+                right: 60px;
+            }
+            
+            .heart-2 {
+                bottom: 50px;
+                left: -5px;
             }
         }
 
+        @media (max-width: 480px) {
+            .hero {
+                padding: 30px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+                max-width: 90%;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .option-icon {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .option-card img {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .heart::before,
+            .heart::after {
+                width: 45px;
+                height: 70px;
+            }
+            
+            .heart::before {
+                left: 45px;
+            }
+            
+            /* Updated heart positions for mobile */
+            .heart-1 {
+                top: 25px;
+                right: 40px;
+            }
+            
+            .heart-2 {
+                bottom: 35px;
+                left: -5px;
+            }
+        }
 
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero-container, .options-container, .button-container {
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .option-card:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .option-card:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(-10deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+            100% { transform: translateY(0px) rotate(-10deg); }
+        }
+        
+        .heart-1 {
+            animation: float 8s ease-in-out infinite;
+        }
+        
+        @keyframes float2 {
+            0% { transform: translateY(0px) rotate(20deg); }
+            50% { transform: translateY(-8px) rotate(15deg); }
+            100% { transform: translateY(0px) rotate(20deg); }
+        }
+        
+        .heart-2 {
+            animation: float2 6s ease-in-out infinite;
+        }
     </style>
 </head>
 <body>
@@ -126,37 +452,52 @@
 
     <!-- Wrap all content between navbar and footer in page-content -->
     <div class="page-content">
-        <!-- Hero Section -->
-        <div class="hero">
-            <h1>Have you worked with From the Heart Tutoring before?</h1>
-            <p>Let us know how we can best assist you on your academic journey.</p>
+        <!-- Hero Section - Heart Design -->
+        <div class="hero-container">
+            <div class="hero">
+                <div class="heart heart-1"></div>
+                <div class="heart heart-2"></div>
+                <div class="hero-content">
+                    <h1>Have you worked with From the Heart Tutoring before?</h1>
+                    <p>Let us know how we can best assist you on your academic journey.</p>
+                </div>
+            </div>
         </div>
         
-        <!-- Progress Steps -->
-        <div class="progress-steps">
-            <div class="step-container">
-                <div class="step">1</div>
+        <!-- Progress Steps with Step Text -->
+        <div class="progress-container">
+            <div class="progress-steps">
+                <div class="step-container">
+                    <div class="step">1</div>
+                </div>
+                <div class="step-container">
+                    <div class="step">2</div>
+                </div>
+                <div class="step-container">
+                    <div class="step">3</div>
+                </div>
+                <div class="step-container">
+                    <div class="step">4</div>
+                </div>
             </div>
-            <div class="step-container">
-                <div class="step">2</div>
-            </div>
-            <div class="step-container">
-                <div class="step">3</div>
-            </div>
-            <div class="step-container">
-                <div class="step">4</div>
-            </div>
+            <div class="progress-text">Step 1 of 4</div>
         </div>
         
         <!-- Options -->
-        <div class="container">
-            <div class="option" onclick="selectOption(this, 'First-Time Student')">
-                <img src="https://i.imgur.com/02gz1N6.png" referrerpolicy="no-referrer"alt="First-Time Student">
+        <div class="options-container">
+            <div class="option-card" onclick="selectOption(this, 'First-Time Student')">
+                <div class="option-icon">
+                    <img src="https://i.imgur.com/02gz1N6.png" referrerpolicy="no-referrer" alt="First-Time Student">
+                </div>
                 <h2>I'm a First-Time Student</h2>
+                <p>New to From the Heart Tutoring? Start your journey here.</p>
             </div>
-            <div class="option" onclick="selectOption(this, 'Returning Student')">
-                <img src="https://i.imgur.com/csOwX1V.png"referrerpolicy="no-referrer" alt="Returning Student">
+            <div class="option-card" onclick="selectOption(this, 'Returning Student')">
+                <div class="option-icon">
+                    <img src="https://i.imgur.com/csOwX1V.png" referrerpolicy="no-referrer" alt="Returning Student">
+                </div>
                 <h2>I'm a Returning Student</h2>
+                <p>Welcome back! Continue your academic success with us.</p>
             </div>
         </div>
 
@@ -167,8 +508,8 @@
 
         <!-- Buttons -->
         <div class="button-container">
-            <button class="square-button" onclick="redirectToScheduleNow()">Back</button>
-            <button class="square-button" onclick="redirectToNext()">Next</button>
+            <button class="btn btn-back" onclick="redirectToScheduleNow()">Back</button>
+            <button class="btn" onclick="redirectToNext()">Continue</button>
         </div>
     </div>
 
@@ -179,34 +520,44 @@
     <script src="../Navbar/Navbar.js" defer></script>
      
     <script src="../Progress/Progress.js"></script>
-<script>
-    // Call updateSteps with the current step number
-    document.addEventListener("DOMContentLoaded", function() {
-        updateSteps(1); // Change 3 to any current step dynamically
-    });
-</script>
-
-    
-    
-    
-    
-
     <script>
+        // Call updateSteps with the current step number
+        document.addEventListener("DOMContentLoaded", function() {
+            updateSteps(1); // Set to step 1
+            
+            // Add animation classes
+            document.querySelectorAll('.option-card').forEach((card, index) => {
+                card.style.opacity = '0';
+                setTimeout(() => {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, 200 + (index * 200));
+            });
+        });
 
         let selectedStudentType = null; // Variable to store the selected type
 
         function selectOption(element, type) {
+            // Hide error message when user makes a selection
+            hideErrorMessage();
+            
             if (element.classList.contains('selected')) {
                 // Deselect the current option
                 element.classList.remove('selected');
                 selectedStudentType = null; // Clear the selected type
             } else {
                 // Deselect previously selected option
-                document.querySelectorAll('.option').forEach(option => option.classList.remove('selected'));
+                document.querySelectorAll('.option-card').forEach(option => option.classList.remove('selected'));
 
                 // Select the new option
                 element.classList.add('selected');
                 selectedStudentType = type; // Update the selected type
+                
+                // Add a small animation to show selection
+                element.style.transform = 'scale(1.03)';
+                setTimeout(() => {
+                    element.style.transform = 'translateY(-5px)';
+                }, 150);
             }
         }
 
@@ -222,11 +573,18 @@
             }
         }
 
-
         function redirectToNext() {
             if (!selectedStudentType) {
                 // Show error if no option is selected
-                document.getElementById('error-message').style.display = 'block';
+                showErrorMessage();
+                
+                // Add a small shake animation to the error message
+                const errorElement = document.getElementById('error-message');
+                errorElement.style.animation = 'shake 0.5s ease-in-out';
+                setTimeout(() => {
+                    errorElement.style.animation = '';
+                }, 500);
+                
                 return;
             }
 
@@ -238,17 +596,46 @@
         }
 
         function showErrorMessage() {
-            document.getElementById('error-message').style.display = 'block';
+            const errorElement = document.getElementById('error-message');
+            errorElement.style.display = 'block';
+            
+            // Add fade-in animation
+            errorElement.style.opacity = '0';
+            errorElement.style.transform = 'translateY(-10px)';
+            
+            setTimeout(() => {
+                errorElement.style.opacity = '1';
+                errorElement.style.transform = 'translateY(0)';
+            }, 10);
         }
     
         function hideErrorMessage() {
             document.getElementById('error-message').style.display = 'none';
         }
+        
+        // Add keydown event listener for accessibility
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter' || event.key === ' ') {
+                const focused = document.activeElement;
+                if (focused && focused.classList.contains('option-card')) {
+                    focused.click();
+                }
+            }
+        });
+        
+        // Add shake animation for error message
+        document.head.insertAdjacentHTML('beforeend', `
+            <style>
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+                    20%, 40%, 60%, 80% { transform: translateX(5px); }
+                }
+            </style>
+        `);
     </script>
-    
 
     <!-- JavaScript to Load Footer -->
     <script src="../Footer/Footer.js" defer></script>
 </body>
 </html>
-

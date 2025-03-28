@@ -234,24 +234,24 @@
                 text-align: center;
                 background: rgba(0, 0, 0, 0.5); /* Darker background for better readability */
                 color: #ffffff;
-                padding: 25px 20px; /* Balanced padding */
+                padding: clamp(15px, 3vw, 25px); /* Responsive padding */
                 border-radius: 10px; /* Smooth rounded edges */
-                max-width: 90%; /* Wider on mobile for better readability */
+                width: clamp(280px, 90%, 500px); /* Responsive width */
                 box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
             }
 
             /* Title (H1) Adjustments */
             .modern-hero-content h1 {
-                font-size: 2rem; /* Larger font size for impact */
+                font-size: clamp(1.8rem, 4vw, 2rem); /* Responsive font size */
                 line-height: 1.3; /* Improved line height */
-                margin-bottom: 15px; /* Space below the title */
+                margin-bottom: clamp(10px, 2vw, 15px); /* Responsive spacing */
             }
 
             /* Paragraph (P) Adjustments */
             .modern-hero-content p {
-                font-size: 1.1rem; /* Larger text for better readability */
+                font-size: clamp(0.9rem, 2vw, 1.1rem); /* Responsive text size */
                 line-height: 1.5;
-                margin-bottom: 20px; /* Add space below the paragraph */
+                margin-bottom: clamp(15px, 3vw, 20px); /* Responsive spacing */
             }
 
             /* Button Container */
@@ -259,15 +259,15 @@
                 display: flex; /* Use flexbox */
                 flex-direction: column; /* Stack buttons vertically */
                 align-items: center;
-                gap: 15px; /* Space between buttons */
+                gap: clamp(10px, 2vw, 15px); /* Responsive spacing */
                 width: 100%;
             }
 
             .cta-main, .cta-secondary {
                 width: 100%; /* Full width buttons */
                 max-width: 280px; /* Limit maximum width */
-                padding: 16px 20px; /* Larger touch targets */
-                font-size: 1.1rem; /* Larger text */
+                padding: clamp(12px, 2vw, 16px) clamp(15px, 3vw, 20px); /* Responsive padding */
+                font-size: clamp(0.9rem, 1.5vw, 1.1rem); /* Responsive text */
                 text-align: center;
                 border-radius: 8px;
                 transition: all 0.3s ease-in-out;
@@ -285,6 +285,38 @@
                 background: transparent;
                 color: white;
                 border: 2px solid white; /* Bold outline */
+            }
+            
+            /* Discount Badge Adjustments */
+            .discount-badge {
+                font-size: clamp(0.7rem, 1vw, 0.85rem); /* Responsive text */
+                padding: clamp(3px, 1vw, 4px) clamp(6px, 1vw, 8px); /* Responsive padding */
+            }
+        }
+
+        /* Height-based adjustments for very small screens */
+        @media (max-height: 600px) and (max-width: 1055px) {
+            .modern-hero-content {
+                padding: 10px 15px;
+            }
+            
+            .modern-hero-content h1 {
+                margin-bottom: 8px;
+                font-size: 1.6rem;
+            }
+            
+            .modern-hero-content p {
+                margin-bottom: 12px;
+                font-size: 0.9rem;
+            }
+            
+            .modern-hero-buttons {
+                gap: 8px;
+            }
+            
+            .cta-main, .cta-secondary {
+                padding: 10px 15px;
+                font-size: 0.9rem;
             }
         }
 
@@ -655,8 +687,8 @@
             width: 100%;
             background-color: #ffffff;
             background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/pixel-heart.png');
-            background-size: 80px; /* Smaller pattern size for subtlety */
-            background-blend-mode: overlay; /* Blend the pattern with the background */
+            background-size: 100px; /* Larger pattern size to be more visible */
+            background-repeat: repeat;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
             padding: 15px 0; /* Increased vertical padding */
             z-index: 1000;
@@ -871,6 +903,14 @@
             }
         }
 
+        /* Update this to change when the mobile CTA appears */
+        @media (max-width: 430px) {
+            /* Show mobile CTA only on very small screens */
+            .mobile-sticky-cta.visible {
+                display: block;
+            }
+        }
+
         /* Extra small screens (≤ 400px) */
         @media (max-width: 400px) {
             .mobile-sticky-cta-button {
@@ -905,6 +945,33 @@
             
             .mobile-subjects-grid {
                 gap: 10px;
+            }
+        }
+
+        /* Heart animation styling */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url('https://i.imgur.com/uTVjByi.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-40px) scale(1.2);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-80px) scale(0.8);
+                opacity: 0;
             }
         }
     </style>
@@ -1213,6 +1280,43 @@
         window.addEventListener('DOMContentLoaded', updateHeroText);
         window.addEventListener('resize', updateHeroText);
         
+        // Dynamically adjust hero content size based on viewport
+        function adjustHeroContentSize() {
+            const heroContent = document.querySelector('.modern-hero-content');
+            const viewportWidth = window.innerWidth;
+            const viewportHeight = window.innerHeight;
+            
+            // Only apply dynamic sizing for mobile
+            if (viewportWidth <= 1055) {
+                // Adjust width based on viewport width
+                const widthPercentage = viewportWidth < 768 ? 90 : 80;
+                
+                // Adjust padding based on viewport height
+                const paddingValue = viewportHeight < 600 ? '15px' : 
+                                   viewportHeight < 800 ? '20px' : '25px';
+                
+                // Apply dynamic styles
+                heroContent.style.width = `${widthPercentage}%`;
+                heroContent.style.padding = paddingValue;
+                
+                // Adjust font sizes for very small screens
+                if (viewportHeight < 500) {
+                    heroContent.style.fontSize = '0.9em';
+                } else {
+                    heroContent.style.fontSize = '1em';
+                }
+            } else {
+                // Reset to default desktop styles
+                heroContent.style.width = '';
+                heroContent.style.padding = '20px';
+                heroContent.style.fontSize = '1em';
+            }
+        }
+        
+        // Run the adjustment function on load and resize
+        window.addEventListener('DOMContentLoaded', adjustHeroContentSize);
+        window.addEventListener('resize', adjustHeroContentSize);
+        
         // Scroll progress indicator
         window.addEventListener('scroll', function() {
             const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -1222,7 +1326,7 @@
             
             // Show mobile CTA only when scrolling starts
             const mobileCta = document.getElementById('mobileCta');
-            if (window.innerWidth <= 768) { // Only for mobile devices
+            if (window.innerWidth <= 430) { // Changed from 768px to 430px
                 if (winScroll > 100) { // Show after scrolling down a bit
                     mobileCta.style.display = 'block';
                     // Add the visible class after a small delay to trigger the animation
@@ -1238,6 +1342,10 @@
                         }
                     }, 300); // Match this to the transition duration
                 }
+            } else {
+                // Hide on larger screens
+                mobileCta.style.display = 'none';
+                mobileCta.classList.remove('visible');
             }
         });
 
@@ -1302,44 +1410,74 @@
             window.top.location.href = 'Welcome.html';
         }
         
-        document.addEventListener("DOMContentLoaded", function () {
-            const button = document.getElementById("schedule-button");
-            let heartInterval; // Store interval
-
-            // Start generating hearts when hovering
-            button.addEventListener("mouseenter", function () {
-                heartInterval = setInterval(() => {
-                    createHeart(button);
-                }, 300); // Generate a heart every 300ms
-            });
-
-            // Stop generating hearts when mouse leaves
-            button.addEventListener("mouseleave", function () {
-                clearInterval(heartInterval);
-            });
+        // Heart animation - completely rewritten
+        document.addEventListener("DOMContentLoaded", function() {
+            const scheduleButton = document.getElementById("schedule-button");
+            
+            if (scheduleButton) {
+                // Create a container for hearts
+                const heartContainer = document.createElement("div");
+                heartContainer.style.position = "absolute";
+                heartContainer.style.width = "100%";
+                heartContainer.style.height = "100%";
+                heartContainer.style.top = "0";
+                heartContainer.style.left = "0";
+                heartContainer.style.overflow = "visible";
+                heartContainer.style.pointerEvents = "none";
+                scheduleButton.appendChild(heartContainer);
+                
+                let isHovering = false;
+                let heartInterval;
+                
+                // Start creating hearts on hover
+                scheduleButton.addEventListener("mouseenter", function() {
+                    isHovering = true;
+                    
+                    // Create one heart immediately
+                    createHeart(heartContainer, scheduleButton);
+                    
+                    // Create hearts at regular intervals
+                    heartInterval = setInterval(function() {
+                        if (isHovering) {
+                            createHeart(heartContainer, scheduleButton);
+                        }
+                    }, 300);
+                });
+                
+                // Stop creating hearts when mouse leaves
+                scheduleButton.addEventListener("mouseleave", function() {
+                    isHovering = false;
+                    clearInterval(heartInterval);
+                });
+            }
         });
 
-        function createHeart(button) {
+        // Function to create and animate a heart
+        function createHeart(container, button) {
+            // Create heart element
             const heart = document.createElement("div");
-            heart.classList.add("heart");
-
-            // Ensure button is relatively positioned
-            button.style.position = "relative";
-
-            // Position heart relative to the button
-            heart.style.position = "absolute";
-            heart.style.top = "110%"; // Slightly below the button
-
-            // Generate a random offset within the button width
-            const randomX = (Math.random() - 0.5) * button.offsetWidth; // Evenly distributed across both sides
-            heart.style.left = `calc(50% + ${randomX}px)`;
-
-            // Append heart to button so it stays in place while scrolling
-            button.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove(); // Remove after animation ends
-            }, 2500); // Hearts last longer before disappearing
+            heart.className = "heart";
+            
+            // Calculate random position along the button width
+            const buttonWidth = button.offsetWidth;
+            const randomX = Math.floor(Math.random() * buttonWidth);
+            
+            // Position at bottom of button
+            heart.style.bottom = "-5px";
+            heart.style.left = randomX + "px";
+            
+            // Add animation
+            heart.style.animation = "floatUp 1.5s ease-out forwards";
+            
+            // Add heart to container
+            container.appendChild(heart);
+            
+            // Remove heart after animation completes
+            setTimeout(function() {
+                if (heart.parentNode === container) {
+                    container.removeChild(heart);
+                }
+            }, 1500);
         }
 
         document.addEventListener("DOMContentLoaded", function () {
@@ -1359,3 +1497,4 @@
     </script>
 </body>
 </html>
+

@@ -2,489 +2,785 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
-<script src="../Javascript/analytics.js"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
+    <script src="../Javascript/analytics.js"></script>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Recommended Tutors | From the Heart Tutoring</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Select Your Tutor | From the Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Navbar/Navbar.css">
+    <link rel="stylesheet" href="../Footer/Footer.css">
     <link rel="stylesheet" href="../Progress/Progress.css">
-    <link rel="stylesheet" href="../CSS/Button.css"> <!-- Added Button CSS -->
-    
+    <link rel="stylesheet" href="../CSS/FishnetBackground.css">
+
     <style>
-    body {
-        margin: 0;
-        font-family: 'Poppins', sans-serif;
-        background-color: #f9f9f9;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        min-height: 100vh; /* Ensure body takes at least full viewport height */
-    }
+        :root {
+            --primary: #ff6f61;
+            --primary-dark: #d9574e;
+            --primary-light: #ffebe9;
+            --text-dark: #1e293b;
+            --text-light: #64748b;
+            --background: #f9f9f9;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.15);
+            --border-radius: 12px;
+            --transition: all 0.3s ease;
+        }
 
-    html {
-        height: 100%;
-    }
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--background);
+            color: var(--text-dark);
+            line-height: 1.6;
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            overflow-x: hidden;
+            max-width: 100%;
+            width: 100%;
+        }
 
-    /* Fixed background pattern styling */
-    .background-pattern {
-        position: fixed; /* Changed from absolute to fixed */
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/fishnets-and-hearts.png');
-        background-repeat: repeat;
-        opacity: 0.9; /* Default opacity */
-        pointer-events: none;
-    }
+        .page-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            min-height: calc(100vh - 200px);
+            width: 100%;
+            box-sizing: border-box;
+        }
 
-    /* Add a min-height to ensure content area stretches */
-    #main-content {
-        min-height: 100vh;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-    }
+        /* Hero Section - Heart Design */
+        .hero-container {
+            margin-bottom: 40px;
+            position: relative;
+        }
 
-    .hero {
-        background-color: #1e293b;
-        color: white;
-        padding: 60px 20px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        width: 100vw;
-        height: 300px; /* Ensure the correct static height */
-        box-sizing: border-box;
-        position: relative; /* Prevents shifting */
-        z-index: 2; /* Ensures it's above other content */
-    }
+        .hero {
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            padding: 45px 30px;
+        }
 
-    .hero h1, .hero p {
-        max-width: 90%;
-        width: auto;
-        text-align: center;
-        margin: 0 auto; /* Ensures proper centering */
-        display: block;
-    }
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
 
-    .hero .subjects {
-        text-align: center;
-        width: 100%;
-        margin-top: 10px;
-        font-size: 1rem;
-        font-weight: bold;
-        color: #ff6f61;
-    }
+        /* Heart Shapes */
+        .heart {
+            position: absolute;
+            z-index: 1;
+        }
 
-    /* Tutor Cards */
-    .container {
-        width: 90%;
-        max-width: 1200px;
-        margin-top: 20px;
-    }
+        .heart-1 {
+            top: 50px;
+            right: 90px;
+            transform: rotate(-10deg);
+        }
 
-    .tutor-card {
-        background-color: white;
-        border-radius: 12px;
-        padding: 20px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 20px;
-        transition: transform 0.3s, box-shadow 0.3s, background-color 0.3s;
-        cursor: pointer;
-    }
+        .heart-2 {
+            bottom: 70px;
+            left: -10px;
+            transform: rotate(20deg);
+        }
 
-    .tutor-card:hover {
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        background-color: #ffeae6; /* Light red highlight */
-    }
+        .heart::before,
+        .heart::after {
+            content: "";
+            position: absolute;
+            background-color: var(--primary-light);
+            border-radius: 50% 50% 0 0;
+            transform: rotate(-45deg);
+            transform-origin: 0 100%;
+        }
 
-    .tutor-card.selected {
-        background-color: #a6d4fa; /* Softer blue for selected cards */
-        color: black;
-        border: 2px solid black; /* Slightly darker border for contrast */
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    }
+        .heart::before {
+            width: 70px;
+            height: 110px;
+            left: 70px;
+        }
 
-    .tutor-info a {
-        color: #1e293b; /* Blue from your website */
-        text-decoration: none;
-        font-weight: bold;
-        font-size: 1.1rem;
-        transition: font-weight 0.3s, color 0.3s;
-    }
+        .heart::after {
+            width: 70px;
+            height: 110px;
+            transform: rotate(45deg);
+            transform-origin: 100% 100%;
+            left: 0;
+        }
 
-    .tutor-card:hover {
-        transform: scale(1.05);
-        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-        background-color: #dceffd; /* Light blue highlight */
-    }
-    .tutor-info a:hover {
-        text-decoration: underline; /* Add underline on hover */
-        color: #ff6f61; /* Change color for hover */
-    }
+        .hero h1 {
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            margin-bottom: 15px;
+            font-weight: 700;
+            position: relative;
+            z-index: 2;
+            max-width: 75%;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-    .tutor-card.selected .tutor-info a:hover {
-        color: #f7f7f7; /* Light gray hover for links on selected cards */
-        text-decoration: underline;
-    }
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 10px auto 0;
+            position: relative;
+            z-index: 2;
+        }
 
-    .tutor-card img {
-        width: 100px; /* Adjusted size for better proportion */
-        height: 100px;
-        border-radius: 50%;
-        object-fit: cover;
-        flex-shrink: 0; /* Ensures the image doesn't shrink when resizing */
-    }
+        .selected-subjects {
+            margin-top: 15px;
+            font-weight: 500;
+            color: var(--primary);
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
 
-    .tutor-info {
-        flex-grow: 1;
-        margin-left: 15px;
-    }
+        /* Progress Steps */
+        .progress-container {
+            margin: 30px auto;
+            position: relative;
+        }
 
-    .tutor-info h3 {
-        margin: 0;
-        color: inherit;
-    }
+        .progress-text {
+            text-align: center;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--primary-dark);
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
 
-    .tutor-info p {
-        margin: 5px 0;
-        color: inherit;
-    }
-    .tutor-info p strong {
-        /*content: "Subjects:";  Dynamically adds "Subjects:" */
-        display: inline-block; /* Badge-like appearance */
-        background-color: #1e293b; /* Highlighted background */
-        color: white; /* White text for contrast */
-        font-size: 0.9rem; /* Slightly smaller than the list */
-        font-weight: bold; /* Makes it stand out */
-        padding: 3px 8px; /* Adds spacing inside the badge */
-        border-radius: 12px; /* Rounded design */
-        margin-right: 8px; /* Space between "Subjects:" and the list */
-        vertical-align: middle; /* Aligns with the list text */
-    }
+        /* Tutor Cards */
+        .tutors-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin: 30px auto;
+            max-width: 800px;
+            animation: fadeIn 0.6s ease-out forwards;
+        }
 
-    .buttons-container {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-        margin: 30px auto;
-    }
+        .tutor-card {
+            background-color: var(--white);
+            border: 2px solid transparent;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            cursor: pointer;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+            position: relative;
+            overflow: hidden;
+        }
 
-    .error-message {
-        color: #ff6f61;
-        font-size: 1rem;
-        text-align: center;
-        margin-top: 10px;
-        display: none;
-    }
-    .widget-wrapper {
-        flex-grow: 1; /* Keeps content flowing below without affecting hero */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        min-height: calc(100vh - 400px); /* Adjust for consistent layout */
-        width: 100%;
-    }
+        .tutor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
+        }
 
-    .content {
-        width: auto; /* Allow the widget to size itself */
-    }
-    .no-results {
-        color: #ff6f61;
-        font-size: 1.2rem;
-        text-align: center;
-        margin-top: 20px;
-        font-weight: bold;
-        display: none;
-        width: 100%;
-    }
-    .buttons-container {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
+        .tutor-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
 
-    /* Add missing subjects message container */
-    #missing-subjects-message {
-        display: none;
-        text-align: center;
-        margin: 20px 0;
-        padding: 10px;
-        border-radius: 8px;
-        background-color: #fff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-    }
+        .tutor-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .tutor-card.selected {
+            background-color: var(--primary-light);
+            border-color: var(--primary);
+            transform: translateY(-5px);
+        }
+
+        .tutor-card.selected::before {
+            transform: scaleX(1);
+        }
+
+        .tutor-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            transition: var(--transition);
+            background-color: var(--primary-light);
+            padding: 5px;
+        }
+
+        .tutor-card.selected img {
+            background-color: var(--primary);
+        }
+
+        .tutor-info {
+            flex: 1;
+        }
+
+        .tutor-info h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            color: var(--text-dark);
+        }
+
+        .tutor-info p {
+            margin: 5px 0;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .tutor-info p strong {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 12px;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+
+        .tutor-info a {
+            display: inline-block;
+            margin-top: 10px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .tutor-info a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--primary);
+            transform: scaleX(0);
+            transition: var(--transition);
+            transform-origin: right;
+        }
+
+        .tutor-info a:hover {
+            color: var(--primary-dark);
+        }
+
+        .tutor-info a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        /* Error Message */
+        .error-message {
+            color: var(--primary);
+            font-size: 1rem;
+            text-align: center;
+            display: none;
+            width: 100%;
+            padding: 10px;
+            border-radius: var(--border-radius);
+            background-color: var(--primary-light);
+            margin: 20px auto;
+            max-width: 500px;
+            font-weight: 500;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+
+        /* No Results Message */
+        .no-results {
+            text-align: center;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            display: none;
+        }
+
+        .no-results h3 {
+            color: var(--primary);
+            margin-top: 0;
+        }
+
+        .no-results p {
+            color: var(--text-light);
+            margin-bottom: 0;
+        }
+
+        /* Missing Subjects Message */
+        .missing-subjects {
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: var(--white);
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            display: none;
+        }
+
+        .missing-subjects p {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        /* Buttons */
+        .button-container {
+            margin: 40px auto;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            animation: fadeIn 0.6s ease-out forwards;
+            animation-delay: 0.4s;
+        }
+
+        .square-button {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 30px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+        }
+
+        .square-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .square-button:first-child {
+            background-color: transparent;
+            color: var(--text-dark);
+            border: 1px solid var(--text-light);
+        }
+
+        .square-button:first-child:hover {
+            background-color: var(--background);
+            color: var(--primary);
+            border-color: var(--primary);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(-10deg); }
+            50% { transform: translateY(-10px) rotate(-5deg); }
+            100% { transform: translateY(0px) rotate(-10deg); }
+        }
+
+        .heart-1 {
+            animation: float 8s ease-in-out infinite;
+        }
+
+        @keyframes float2 {
+            0% { transform: translateY(0px) rotate(20deg); }
+            50% { transform: translateY(-8px) rotate(15deg); }
+            100% { transform: translateY(0px) rotate(20deg); }
+        }
+
+        .heart-2 {
+            animation: float2 6s ease-in-out infinite;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+            20%, 40%, 60%, 80% { transform: translateX(5px); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 1.8rem;
+                max-width: 85%;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .tutor-card {
+                flex-direction: column;
+                text-align: center;
+                padding: 25px 15px;
+            }
+            
+            .tutor-card img {
+                margin-bottom: 15px;
+            }
+            
+            .tutor-info {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tutor-card:hover {
+                transform: none;
+            }
+            
+            .tutor-card.selected {
+                transform: none;
+            }
+            
+            .heart::before,
+            .heart::after {
+                width: 55px;
+                height: 85px;
+            }
+            
+            .heart::before {
+                left: 55px;
+            }
+            
+            .heart-1 {
+                top: 35px;
+                right: 60px;
+            }
+            
+            .heart-2 {
+                bottom: 50px;
+                left: -5px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                padding: 30px 15px;
+            }
+            
+            .hero h1 {
+                font-size: 1.5rem;
+                max-width: 90%;
+            }
+            
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
+            }
+            
+            .square-button {
+                width: 100%;
+                max-width: 250px;
+            }
+            
+            .heart::before,
+            .heart::after {
+                width: 45px;
+                height: 70px;
+            }
+            
+            .heart::before {
+                left: 45px;
+            }
+            
+            .heart-1 {
+                top: 25px;
+                right: 40px;
+            }
+            
+            .heart-2 {
+                bottom: 35px;
+                left: -5px;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Background Pattern Div -->
-    <div class="background-pattern" id="background-pattern"></div>
-    
-    <!-- Main content wrapper to ensure minimum height -->
-    <div id="main-content">
-        <!-- Navbar Placeholder -->
-        <div id="navbar-placeholder"></div>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+    <script src="../Navbar/Navbar.js" defer></script>
 
-        <!-- JavaScript to Load Navbar -->
-        <script src="../Navbar/Navbar.js" defer></script>
-        <!-- Hero Section -->
-        <div class="hero" >
-            <h1>Select a Tutor</h1>
-            <p>Based on your selected subjects, here are the best matches for you.</p>
-            <div class="subjects" id="selected-subjects"></div>
-        </div>
-        <div class="progress-steps">
-            <div class="step-container">
-                <div class="step">1</div>
-            </div>
-            <div class="step-container">
-                <div class="step">2</div>
-            </div>
-            <div class="step-container">
-                <div class="step">3</div>
-            </div>
-            <div class="step-container">
-                <div class="step">4</div>
+    <div class="page-content">
+        <!-- Hero Section - Heart Design -->
+        <div class="hero-container">
+            <div class="hero">
+                <div class="heart heart-1"></div>
+                <div class="heart heart-2"></div>
+                <div class="hero-content">
+                    <h1>Select a Tutor</h1>
+                    <p>Based on your selected subjects, here are the best matches for you.</p>
+                    <div class="selected-subjects" id="selected-subjects"></div>
+                </div>
             </div>
         </div>
-        <script src="../Progress/Progress.js"></script>
-        <script>
-            // Call updateSteps with the current step number
-            document.addEventListener("DOMContentLoaded", function() {
-                updateSteps(3); // Change 3 to any current step dynamically
-            });
-            
-        </script>
 
-        <div class="widget-wrapper">
-            <div class="container">
-                <div id="tutor-container"></div>
-                <div class="no-results" id="no-results" style="display: none;">No tutors found for your selected subjects.</div>
+        <!-- Progress Steps -->
+        <div class="progress-container">
+            <div class="progress-steps">
+                <div class="step-container">
+                    <div class="step">1</div>
+                </div>
+                <div class="step-container">
+                    <div class="step">2</div>
+                </div>
+                <div class="step-container">
+                    <div class="step">3</div>
+                </div>
+                <div class="step-container">
+                    <div class="step">4</div>
+                </div>
             </div>
+            <div class="progress-text">Step 3 of 4</div>
+        </div>
 
-            <!-- Error Message -->
-            <div class="error-message" id="error-message">Please select a tutor before proceeding.</div>
-            
-            <!-- Missing Subjects Message -->
-            <div id="missing-subjects-message"></div>
-
-            <!-- Buttons - Updated to use square-button class -->
-            <div class="buttons-container">
-                <button class="square-button" onclick="redirectToPreviousPage()">Back</button>
-                <button class="square-button" onclick="redirectToNext()">Next</button>
-            </div>
+        <!-- Tutors Container -->
+        <div class="tutors-container" id="tutors-container"></div>
+        
+        <!-- No Results Message -->
+        <div class="no-results" id="no-results">
+            <h3>No Tutors Found</h3>
+            <p>We couldn't find any tutors that match all your selected subjects. Please go back and adjust your subject selection.</p>
+        </div>
+        
+        <!-- Missing Subjects Message -->
+        <div class="missing-subjects" id="missing-subjects-message"></div>
+        
+        <!-- Error Message -->
+        <div class="error-message" id="error-message">Please select a tutor before proceeding.</div>
+        
+        <!-- Buttons -->
+        <div class="button-container">
+            <button class="square-button" onclick="redirectToPreviousPage()">Back</button>
+            <button class="square-button" id="next-button" onclick="redirectToNext()">Next</button>
         </div>
     </div>
 
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <script src="../Footer/Footer.js" defer></script>
+
+    <script src="../Progress/Progress.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-    const buttonsContainer = document.querySelector(".buttons-container");
-    const tutorContainer = document.getElementById("tutor-container");
-
-    function adjustButtonPosition() {
-        const tutorCards = document.querySelectorAll(".tutor-card");
-        if (tutorCards.length > 0) {
-            const lastTutorCard = tutorCards[tutorCards.length - 1];
-            buttonsContainer.style.marginTop = "30px"; // Creates spacing from last card
-            buttonsContainer.style.position = "relative"; // Ensures it doesn't overlap
-        }
-    }
-
-    adjustButtonPosition();
-});
-
-        document.addEventListener('DOMContentLoaded', () => {
+        const selectedSubjects = new Set();
+        const errorMessage = document.getElementById('error-message');
+        const selectedTutor = { name: null }; // Store selected tutor
+        
+        // Call updateSteps with the current step number
+        document.addEventListener("DOMContentLoaded", function() {
+            updateSteps(3); // Set to step 3
+            
+            // Display selected subjects
             const subjectsDisplay = document.getElementById("selected-subjects");
-            const selectedSubjects = JSON.parse(localStorage.getItem("selectedSubjects")) || [];
-    
-            if (selectedSubjects.length > 0) {
-                subjectsDisplay.textContent = "Selected Subjects: " + selectedSubjects.join(", ");
+            const selectedSubjectsList = JSON.parse(localStorage.getItem("selectedSubjects")) || [];
+            
+            if (selectedSubjectsList.length > 0) {
+                subjectsDisplay.textContent = "Selected Subjects: " + selectedSubjectsList.join(", ");
             } else {
                 subjectsDisplay.textContent = "No subjects selected.";
             }
-    
-            // Ensure proper alignment by forcing width and display settings
-            subjectsDisplay.style.maxWidth = "90%";
-            subjectsDisplay.style.textAlign = "center";
-            subjectsDisplay.style.display = "block";
+            
+            // Load tutors
+            loadTutors();
         });
-    
-        // Retrieve student type from localStorage
-        const studentType = localStorage.getItem('studentType');
-    
-        // Adjust progress dots
-        document.addEventListener('DOMContentLoaded', () => {
-            const progressContainer = document.querySelector('.progress');
-    
-            if (studentType === 'Returning Student') {
-                // Reduce the number of dots to 4 for Returning Students
-                progressContainer.innerHTML = `
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                `;
-            }
-        });
-    
+        
+        // Tutor data
         const tutors = [
-            { name: "Dianne Simental", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Biology", "AP Biology","AP Biology Exam", "Chemistry", "Physics", "Spanish", "K-8th English", "SAT Math Sections", "ACT Math Section", "ACT Science Section", "GED Mathematical Reasoning Section", "GED Science Section" ], image: "https://i.imgur.com/X0kdDss.jpeg" },
-            { name: "Zarek Cole", subjects: ["Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus","Statistics","AP Statistics", "Calculus 1 (AB)", "Calculus 2 (BC)","Calculus 3","College Algebra","Differential Equations","Abstract Algebra", "Physics", "AP Physics", "Chemistry", "AP Chemistry", "ACT Math Section", "GED Mathematcal Reasoning Section", "TSI Math"], image: "https://i.imgur.com/5Cuh8SZ.png" },
-            { name: "Evan Varan", subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus","Statistics", "Calculus 1 (AB)", "Calculus 2 (BC)","College Algebra", "Biology", "Chemistry", "Physics", "AP Physics", "SAT Math Sections", "ACT Math Section", "TSI Math Section", "ACT Science Section", "GED Mathematcal Reasoning Section", "GED Science Section", "Computer Science", "Circuits", "Engineering"], image: "https://i.imgur.com/zPiwhDv.png" },
+            { 
+                name: "Dianne Simental", 
+                subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Biology", "AP Biology", "AP Biology Exam", "Chemistry", "Physics", "Spanish", "K-8th English", "SAT Math Sections", "ACT Math Section", "ACT Science Section", "GED Mathematical Reasoning Section", "GED Science Section"], 
+                image: "https://i.imgur.com/X0kdDss.jpeg" 
+            },
+            { 
+                name: "Zarek Cole", 
+                subjects: ["Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Statistics", "AP Statistics", "Calculus 1 (AB)", "Calculus 2 (BC)", "Calculus 3", "College Algebra", "Differential Equations", "Abstract Algebra", "Physics", "AP Physics", "Chemistry", "AP Chemistry", "ACT Math Section", "GED Mathematical Reasoning Section", "TSI Math Section"], 
+                image: "https://i.imgur.com/5Cuh8SZ.png" 
+            },
+            { 
+                name: "Evan Varan", 
+                subjects: ["K-8th Math", "Algebra 1", "Geometry", "Algebra 2", "Pre-Calculus", "Statistics", "Calculus 1 (AB)", "Calculus 2 (BC)", "College Algebra", "Biology", "Chemistry", "Physics", "AP Physics", "SAT Math Sections", "ACT Math Section", "TSI Math Section", "ACT Science Section", "GED Mathematical Reasoning Section", "GED Science Section", "Computer Science", "Circuits", "Engineering"], 
+                image: "https://i.imgur.com/zPiwhDv.png" 
+            },
         ];
-    
-        const selectedSubjects = JSON.parse(localStorage.getItem("selectedSubjects")) || [];
-        const selectedTutor = { name: null }; // Store selected tutor
-        const container = document.getElementById("tutor-container");
-        const errorMessage = document.getElementById("error-message");
-    
-        const noResultsMessage = document.getElementById("no-results");
-        const nextButton = document.querySelector('.buttons-container .square-button:nth-child(2)'); // Updated selector
-        const backButton = document.querySelector('.buttons-container .square-button:nth-child(1)'); // Updated selector
-    
-        // Filter tutors based on selected subjects
-        const matchingTutors = tutors.filter(tutor =>
-            selectedSubjects.every(subject => tutor.subjects.includes(subject))
-        );
-    
-        // If no tutors match, show "No tutors found" message and adjust buttons
-        if (matchingTutors.length === 0) {
-            noResultsMessage.style.display = "block"; // Show error message
-            nextButton.style.display = "none"; // Hide "Next" button
-            backButton.style.margin = "0 auto"; // Center "Back" button
-            backButton.style.display = "block"; // Ensure it's visible
-        } else {
-            noResultsMessage.style.display = "none"; // Hide error message
-            nextButton.style.display = "inline-block"; // Show "Next" button
-            backButton.style.margin = ""; // Reset margin
+        
+        // Function to load tutors
+        function loadTutors() {
+            const selectedSubjectsList = JSON.parse(localStorage.getItem("selectedSubjects")) || [];
+            const tutorsContainer = document.getElementById("tutors-container");
+            const noResultsMessage = document.getElementById("no-results");
+            const nextButton = document.getElementById("next-button");
+            
+            // Filter tutors based on selected subjects
+            const matchingTutors = tutors.filter(tutor =>
+                selectedSubjectsList.every(subject => tutor.subjects.includes(subject))
+            );
+            
+            // If no tutors match, show "No tutors found" message and adjust buttons
+            if (matchingTutors.length === 0) {
+                noResultsMessage.style.display = "block"; // Show error message
+                nextButton.style.display = "none"; // Hide "Next" button
+                tutorsContainer.style.display = "none"; // Hide tutors container
+            } else {
+                noResultsMessage.style.display = "none"; // Hide error message
+                nextButton.style.display = "inline-block"; // Show "Next" button
+                tutorsContainer.style.display = "flex"; // Show tutors container
+                
+                // Function to sort subjects (selected ones first)
+                function sortSubjects(tutorSubjects, selectedSubjects) {
+                    const selectedFirst = tutorSubjects.filter(subject => selectedSubjects.includes(subject));
+                    const remaining = tutorSubjects.filter(subject => !selectedSubjects.includes(subject));
+                    return [...selectedFirst, ...remaining];
+                }
+                
+                // Display tutors
+                tutorsContainer.innerHTML = ''; // Clear container
+                matchingTutors.forEach(tutor => {
+                    const sortedSubjects = sortSubjects(tutor.subjects, selectedSubjectsList); // Sort subjects
+                    const card = document.createElement("div");
+                    card.classList.add("tutor-card");
+                    card.innerHTML = `
+                        <img src="${tutor.image}" alt="${tutor.name}">
+                        <div class="tutor-info">
+                            <h3>${tutor.name}</h3>
+                            <p><strong>Teaches:</strong> ${sortedSubjects.join(", ")}</p>
+                            <a href="../TutorAboutPages/${tutor.name.replace(/\s+/g, "")}.html" target="_blank">Read more about me here</a>
+                        </div>
+                    `;
+                    card.onclick = () => selectTutor(card, tutor.name); // Select the tutor
+                    tutorsContainer.appendChild(card);
+                });
+            }
         }
-    
-        // Function to sort subjects (selected ones first)
-        function sortSubjects(tutorSubjects, selectedSubjects) {
-            const selectedFirst = tutorSubjects.filter(subject => selectedSubjects.includes(subject));
-            const remaining = tutorSubjects.filter(subject => !selectedSubjects.includes(subject));
-            return [...selectedFirst, ...remaining];
-        }
-    
-        // Function to display tutors
-        function displayTutors() {
-            matchingTutors.forEach(tutor => {
-                const sortedSubjects = sortSubjects(tutor.subjects, selectedSubjects); // Sort subjects
-                const card = document.createElement("div");
-                card.classList.add("tutor-card");
-                card.innerHTML = `
-                    <img src="${tutor.image}" alt="${tutor.name}">
-                    <div class="tutor-info">
-                        <h3>${tutor.name}</h3>
-                        <p><strong>Teaches:</strong> ${sortedSubjects.join(", ")}</p>
-                        <a href="../TutorAboutPages/${tutor.name.replace(/\s+/g, "")}.html" target="_blank" style="color: #1e293b;">Read more about me here</a>
-                    </div>
-                `;
-                card.onclick = () => selectTutor(card, tutor.name); // Select the tutor
-                container.appendChild(card);
-            });
-        }
-    
-        // Only display tutors if there are matches
-        if (matchingTutors.length > 0) {
-            displayTutors();
-        }
-    
-        // Select a tutor
+        
+        // Function to select a tutor
         function selectTutor(card, name) {
+            const selectedSubjectsList = JSON.parse(localStorage.getItem("selectedSubjects")) || [];
             const tutor = tutors.find(t => t.name === name);
+            const missingSubjectsMessage = document.getElementById("missing-subjects-message");
+            const nextButton = document.getElementById("next-button");
+            
             if (!tutor) return;
-
+            
             // Determine subjects that the selected tutor does NOT teach
-            const missingSubjects = selectedSubjects.filter(subject => !tutor.subjects.includes(subject));
-
+            const missingSubjects = selectedSubjectsList.filter(subject => !tutor.subjects.includes(subject));
+            
             // If the tutor is already selected, deselect them
             if (card.classList.contains("selected")) {
                 card.classList.remove("selected");
                 selectedTutor.name = null;
-
-                // Hide "Next" button (same logic as when no tutor is selected)
+                
+                // Hide "Next" button
                 nextButton.style.display = "none";
-                backButton.style.margin = "0 auto";
-
+                
                 // Hide missing subjects message
-                document.getElementById("missing-subjects-message").style.display = "none";
-
+                missingSubjectsMessage.style.display = "none";
             } else {
                 // Deselect any previously selected tutor
                 document.querySelectorAll(".tutor-card").forEach(c => c.classList.remove("selected"));
-
+                
                 // Select the clicked tutor
                 card.classList.add("selected");
                 selectedTutor.name = name;
-
-                // If the tutor does NOT teach all selected subjects, replicate the logic for hiding "Next"
+                
+                // If the tutor does NOT teach all selected subjects
                 if (missingSubjects.length > 0) {
                     nextButton.style.display = "none"; // Hide "Next" button
-                    backButton.style.margin = "0 auto"; // Center "Back" button
-
+                    
                     // Display missing subjects message
-                    document.getElementById("missing-subjects-message").innerHTML =
-                        `<p style="color: #ff6f61; font-weight: bold;">
-                            The selected tutor does not teach the following subjects: ${missingSubjects.join(", ")}.
-                        </p>
-                        <button class="square-button" onclick="deselectTutor()">Schedule with a Different Tutor</button>`; // Updated to square-button
-                    document.getElementById("missing-subjects-message").style.display = "block";
-
+                    missingSubjectsMessage.innerHTML = `
+                        <p>The selected tutor does not teach the following subjects: ${missingSubjects.join(", ")}.</p>
+                        <button class="square-button" onclick="deselectTutor()">Schedule with a Different Tutor</button>
+                    `;
+                    missingSubjectsMessage.style.display = "block";
                 } else {
                     // If the tutor teaches all selected subjects, show "Next" button
                     nextButton.style.display = "inline-block";
-                    backButton.style.margin = "";
-                    document.getElementById("missing-subjects-message").style.display = "none"; // Hide message
+                    missingSubjectsMessage.style.display = "none"; // Hide message
                 }
             }
+            
+            // Hide error message when a tutor is selected
+            errorMessage.style.display = "none";
         }
-
-        // Function to deselect the tutor when "Schedule with a Different Tutor" is clicked
+        
+        // Function to deselect the tutor
         function deselectTutor() {
             document.querySelectorAll(".tutor-card").forEach(c => c.classList.remove("selected"));
             selectedTutor.name = null;
-
-            // Reapply the same logic used when no tutor is selected
-            nextButton.style.display = "none";
-            backButton.style.margin = "0 auto";
+            
+            // Hide "Next" button
+            document.getElementById("next-button").style.display = "none";
+            
+            // Hide missing subjects message
             document.getElementById("missing-subjects-message").style.display = "none";
         }
-    
-        // Redirect to the next page
+        
+        // Function to redirect to the next page
         function redirectToNext() {
             if (!selectedTutor.name) {
                 errorMessage.style.display = "block"; // Show error message if no tutor is selected
+                
+                // Add shake animation
+                errorMessage.style.animation = 'shake 0.5s ease-in-out';
+                setTimeout(() => {
+                    errorMessage.style.animation = '';
+                }, 500);
+                
                 return;
             }
-    
+            
             errorMessage.style.display = "none"; // Hide error message if a tutor is selected
-    
-            localStorage.setItem("selectedTutor", selectedTutor.name); // Store selected tutor
-    
+            
+            // Store selected tutor
+            localStorage.setItem("selectedTutor", selectedTutor.name);
+            
+            // Redirect based on student type
+            const studentType = localStorage.getItem('studentType');
             if (studentType === 'Returning Student') {
                 window.location.href = "Student-Portal-First-Time.html"; // Redirect returning students
             } else {
                 window.location.href = "Account-Creation.html"; // Redirect first-time students
             }
         }
-    
-        // Redirect to the previous page
+        
+        // Function to redirect to the previous page
         function redirectToPreviousPage() {
             window.location.href = "ScheduleNowSubjects.html";
         }
     </script>
 </body>
 </html>
+
