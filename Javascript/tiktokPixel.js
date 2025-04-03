@@ -1,27 +1,27 @@
 !function (w, d, t) {
-    w.TiktokAnalyticsObject = t;
-    var ttq = w[t] = w[t] || [];
-    ttq.methods = [
+  w.TiktokAnalyticsObject = t;
+  var ttq = w[t] = w[t] || [];
+  ttq.methods = [
       "page", "track", "identify", "instances", "debug", "on", "off", "once",
       "ready", "alias", "group", "enableCookie", "disableCookie", "holdConsent",
       "revokeConsent", "grantConsent"
-    ];
-    ttq.setAndDefer = function (t, e) {
+  ];
+  ttq.setAndDefer = function (t, e) {
       t[e] = function () {
-        t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
+          t.push([e].concat(Array.prototype.slice.call(arguments, 0)))
       }
-    };
-    for (var i = 0; i < ttq.methods.length; i++) {
+  };
+  for (var i = 0; i < ttq.methods.length; i++) {
       ttq.setAndDefer(ttq, ttq.methods[i])
-    }
-    ttq.instance = function (t) {
+  }
+  ttq.instance = function (t) {
       var e = ttq._i[t] || [];
       for (var n = 0; n < ttq.methods.length; n++) {
-        ttq.setAndDefer(e, ttq.methods[n])
+          ttq.setAndDefer(e, ttq.methods[n])
       }
       return e
-    };
-    ttq.load = function (e, n) {
+  };
+  ttq.load = function (e, n) {
       var r = "https://analytics.tiktok.com/i18n/pixel/events.js",
           o = n && n.partner;
       ttq._i = ttq._i || {};
@@ -37,9 +37,12 @@
       n.src = r + "?sdkid=" + e + "&lib=" + t;
       e = document.getElementsByTagName("script")[0];
       e.parentNode.insertBefore(n, e)
-    };
-  
-    ttq.load('CVMO74JC77U7H4FD3I70');
-    ttq.page();
-  }(window, document, 'ttq');
-  
+  };
+
+  ttq.load('CVMO74JC77U7H4FD3I70');
+  ttq.page({
+      page_name: document.title,
+      page_url: window.location.href,
+      page_path: window.location.pathname
+  });
+}(window, document, 'ttq');
