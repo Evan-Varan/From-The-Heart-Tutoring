@@ -40,9 +40,20 @@
   };
 
   ttq.load('CVMO74JC77U7H4FD3I70');
-  ttq.page({
+  document.addEventListener('DOMContentLoaded', function () {
+    ttq.page({
       page_name: document.title,
       page_url: window.location.href,
       page_path: window.location.pathname
+    });
+  
+    console.log("Sent PageView:", {
+      page_name: document.title,
+      page_url: window.location.href,
+      page_path: window.location.pathname
+    });
   });
+  
+  
+  
 }(window, document, 'ttq');

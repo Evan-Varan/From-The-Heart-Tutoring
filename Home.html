@@ -1,121 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
-    <script src="Javascript/analytics.js"></script>
-    <script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"d815cbba45950ea301730faef0513abe"})});</script>
-    <script src="/Javascript/metaPixel.js"></script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
-</noscript>
-<script src="/Javascript/tiktokPixel.js"></script>
-<noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
-  </noscript>
-  
-
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>From the Heart Tutoring | Virtual On-Demand Tutoring for All Subjects</title>
     <meta name="description" content="Get expert tutoring in math, science, English, and more. On-demand, virtual tutoring with experienced tutors. Book a session now!">
     <meta name="keywords" content="online tutoring, on-demand tutoring, virtual tutor, homework help, live tutoring, private tutoring, SAT tutor, ACT tutor, math tutor online">
     <meta name="author" content="From the Heart Tutoring">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Navbar/Navbar.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="Footer/Footer.css">
+    
+    <!-- Preload critical resources -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://d3r7ksou5fmir9.cloudfront.net">
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    
+    <!-- Preload critical fonts with font-display: swap -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap&font-display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap&font-display=swap"></noscript>
+    
+    <!-- Preload LCP image -->
+    <link rel="preload" as="image" 
+          href="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=480&quality=75" 
+          media="(max-width: 640px)" 
+          type="image/webp">
+    <link rel="preload" as="image" 
+          href="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungBoyLaptopPlant.webp?width=800&quality=75" 
+          media="(min-width: 641px)" 
+          type="image/webp">
+    
+    <!-- Critical CSS inline -->
     <style>
+        /* Critical CSS for above-the-fold content */
+        :root {
+            --primary-color: #ff6f61;
+            --primary-dark: #d9574e;
+            --text-dark: #1e293b;
+            --text-light: #f0f0f0;
+            --bg-light: #f5f5f5;
+            --bg-dark: #334155;
+        }
+        
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f5f5f5;
+            background-color: var(--bg-light);
             overflow-x: hidden;
-            overflow-y: auto;
+            text-rendering: optimizeSpeed;
         }
 
         /* Hero Section (Parent Container) */
-        /* Overlay Background */
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.32); /* Dark semi-transparent overlay */
-            z-index: 1; /* Ensures it sits above images but below text */
+            background: rgba(0, 0, 0, 0.32);
+            z-index: 1;
         }
 
         .modern-hero {
             position: relative;
             width: 100%;
-            height: 100vh; /* Adjusted height for consistent cropping */
+            height: 100vh;
             display: flex;
-            align-items: center; /* Vertical centering */
-            justify-content: center; /* Horizontal centering */
-            overflow: hidden; /* Ensures images do not overflow */
-            color: #ffffff;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--text-light);
         }
 
         /* Image Fader (Image Container) */
         .image-fader {
             position: absolute;
-            top: 0; /* Align to the top of the parent container */
-            left: 0; /* Align to the left of the parent container */
-            width: 100%; /* Fill the width of the parent container */
-            height: 100%; /* Fill the height of the parent container */
-            display: block; /* Ensure no flexbox interference */
-            overflow: hidden; /* Crop overflowing content */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            overflow: hidden;
         }
 
         /* Individual Images */
         .fade-image {
             position: absolute;
-            top: 0; /* Align the image to the top of the container */
-            left: 0; /* Align the image to the left of the container */
-            width: 100%; /* Ensure the image fills the container width */
-            height: 100%; /* Ensure the image fills the container height */
-            object-fit: cover; /* Crop the image while maintaining its aspect ratio */
-            object-position: center center; /* Center the image content */
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
             transition: opacity 1s ease-in-out;
+            will-change: opacity;
+            content-visibility: auto;
         }
+        
+        /* Image positioning */
         .image-1 {
-            object-position: 0% 50%; /* Shift left and slightly up */
+            object-position: 0% 50%;
             width: 105%;
         }
         .image-2 {
-            object-position: 0% 10%; /* Shift left and slightly up */ /*different image maybe */
+            object-position: 0% 10%;
             width: 110%;
         }
         .image-3 {
-            object-position: 0% 30%; /* Shift left and slightly up */ /*different image maybe */
+            object-position: 0% 30%;
             width: 120%;
         }
         .image-4 {
-            object-position: 10% 0%; /* Shift left and slightly up */
+            object-position: 10% 0%;
             width: 112%;
         }
         .image-5 {
-            object-position: 10% 14%; /* Shift left and slightly up */
+            object-position: 10% 14%;
             width: 112%;
         }
         .image-6 {
-            object-position: 10% 9%; /* Shift left and slightly up */
+            object-position: 10% 9%;
             width: 120%;
         }
 
-        /* 🔹 Small Screen Image Adjustments (≤ 1055px) */
+        /* Small Screen Image Adjustments */
         @media (max-width: 1055px) {
-            .image-1 { object-position: 0% 0%; width: 100%; } /* Small screen version */
+            .image-1 { object-position: 0% 0%; width: 100%; }
             .image-2 { object-position: 0% 20%; width: 100%; }
             .image-3 { object-position: 0% 50%; width: 100%; }
             .image-4 { object-position: 0% 60%; width: 100%; }
             .image-5 { object-position: 0% 50%; width: 100%; }
             .image-6 { object-position: 0% 50%; width: 100%; }
         }
-
+        
         /* Hide inactive images */
         .hidden {
             opacity: 0;
@@ -124,15 +139,16 @@
 
         /* Hero Content */
         .modern-hero-content {
-            position: absolute; /* Position absolutely relative to the parent container */
-            top: 50%; /* Center vertically */
-            left: 50%; /* Center horizontally */
-            transform: translate(-50%, -50%); /* Offset by 50% of its width and height */
-            text-align: center; /* Center text inside */
-            padding: 20px; /* Optional: Adjust padding as needed */
-            max-width: 800px; /* Optional: Constrain the width */
-            border-radius: 10px; /* Optional: Rounded corners */
-            z-index: 2; /* Make sure it's above the background image */
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            border-radius: 10px;
+            z-index: 2;
+            will-change: transform;
         }
 
         .modern-hero-content h1, .modern-hero-content p {
@@ -152,13 +168,11 @@
             font-weight: 400;
             margin-bottom: 30px;
             line-height: 1.6;
-            color: #f0f0f0;
+            color: var(--text-light);
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
         }
 
         /* Buttons */
-        /* Button Container */
-        /* Updated styles for the hero buttons */
         .modern-hero-buttons {
             display: flex;
             flex-direction: column;
@@ -166,7 +180,7 @@
             justify-content: center;
             gap: 15px;
             width: 100%;
-            max-width: 600px; /* Increased max-width for better spacing on larger screens */
+            max-width: 600px;
             margin: 0 auto;
         }
 
@@ -181,20 +195,20 @@
             font-size: 1rem;
             font-weight: bold;
             text-decoration: none;
-            transition: all 0.3s ease;
-            width: 100%; /* Full width on mobile */
-            max-width: 250px; /* Max width for larger screens */
+            transition: transform 0.3s ease;
+            width: 100%;
+            max-width: 250px;
             position: relative;
             overflow: hidden;
         }
 
         .cta-main {
-            background-color: #ff6f61;
+            background-color: var(--primary-color);
             color: white;
         }
 
         .cta-main:hover {
-            background-color: #d9574e;
+            background-color: var(--primary-dark);
             transform: scale(1.05);
         }
 
@@ -206,11 +220,10 @@
 
         .cta-secondary:hover {
             background-color: #ffffff;
-            color: #1e293b;
+            color: var(--text-dark);
             transform: scale(1.05);
         }
 
-        /* Discount Badge for Desktop */
         .discount-badge {
             display: inline-flex;
             align-items: center;
@@ -233,77 +246,391 @@
 
             .cta-main,
             .cta-secondary {
-                width: auto; /* Allow buttons to shrink on larger screens */
+                width: auto;
             }
         }
 
+        /* Scroll Progress Indicator (Mobile Only) */
+        .scroll-progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: 1001;
+            display: none;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 0%;
+            transition: width 0.2s;
+            will-change: width;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-progress-container {
+                display: block;
+            }
+        }
+
+        /* Animation for CTA button */
+        @keyframes contained-pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            }
+        }
+
+        .pulse-animation {
+            animation: contained-pulse 2s infinite;
+            transform-origin: center;
+        }
+        
+        /* Optimize for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .pulse-animation {
+                animation: none !important;
+            }
+            
+            .fade-image {
+                transition: opacity 0.5s ease-in-out !important;
+            }
+        }
+        
+        /* Optimize image rendering */
+        img {
+            content-visibility: auto; /* Modern browsers will defer offscreen images */
+        }
+    </style>
+    
+    <!-- Load critical CSS asynchronously -->
+    <link rel="preload" href="Navbar/Navbar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="Navbar/Navbar.css"></noscript>
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="Footer/Footer.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="Footer/Footer.css"></noscript>
+    
+    <!-- Remaining styles loaded asynchronously -->
+    <style media="print" onload="this.media='all'">
+        /* Semi-Transparent Bar at Bottom of Hero Section */
+        .hero-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 3;
+            pointer-events: auto;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Adjust Hero Section to Prevent White Part Extending Up */
+        .modern-hero {
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 60px;
+        }
+
+        /* Overlapping Why Choose Us Section */
+        .why-choose-us {
+            position: relative;
+            margin-top: -30px;
+            background: white;
+            padding: 60px 20px;
+            border-radius: 15px;
+            z-index: 4;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            will-change: transform;
+        }
+
+        .why-choose-us h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        /* Ensure Stats are Centered */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .stats-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .stat p {
+            font-size: 1rem;
+            color: #333;
+            margin: 10px 0 0;
+        }
+
+        /* Subjects Section */
+        .subjects-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .subjects-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .subjects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .subject {
+            text-align: center;
+            width: 120px;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .subject img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .subject p {
+            font-size: 1rem;
+            margin: 0;
+            color: #333;
+        }
+
+        .subjects-footer {
+            margin-top: 30px;
+        }
+
+        .subjects-footer a {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 5px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .subjects-footer a:hover {
+            text-decoration: underline;
+            color: var(--primary-dark);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: var(--text-dark);
+            color: white;
+        }
+
+        .testimonials-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            padding: 0 20px;
+        }
+
+        .testimonial {
+            background-color: var(--bg-dark);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 300px;
+            text-align: left;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .testimonial p {
+            margin: 10px 0;
+        }
+
+        .testimonial strong, .testimonial-horizontal strong {
+            margin-top: bottom;
+            font-size: 1.1rem;
+            display: block;
+            font-style: italic;
+        }
+        
+        .testimonial, .testimonial-horizontal {
+            background-color: var(--bg-dark);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            color: white;
+            max-width: 300px;
+            text-align: center;
+            justify-content: space-between;
+            margin: 20px auto;
+        }
+
+        .testimonial-summary {
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin-top: 10px;
+        }
+        
+        .testimonial-horizontal {
+            max-width: 90%;
+            margin-top: 30px;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+        
+        .testimonial-horizontal .testimonial-summary {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        
+        .gold-star {
+            color: gold;
+            font-size: 1.2em;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        /* Mobile-specific styles */
         @media (max-width: 1055px) {
-            /* Modern Hero Content */
             .modern-hero-content {
                 position: absolute;
-                top: 50%; /* Will be adjusted by JS to account for navbar */
+                top: 50%;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 text-align: center;
-                background: rgba(0, 0, 0, 0.5); /* Darker background for better readability */
+                background: rgba(0, 0, 0, 0.5);
                 color: #ffffff;
-                padding: clamp(15px, 3vw, 25px); /* Responsive padding */
-                border-radius: 10px; /* Smooth rounded edges */
-                width: clamp(280px, 90%, 500px); /* Responsive width */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+                padding: clamp(15px, 3vw, 25px);
+                border-radius: 10px;
+                width: clamp(280px, 90%, 500px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             }
 
-            /* Title (H1) Adjustments */
             .modern-hero-content h1 {
-                font-size: clamp(1.8rem, 4vw, 2rem); /* Responsive font size */
-                line-height: 1.3; /* Improved line height */
-                margin-bottom: clamp(10px, 2vw, 15px); /* Responsive spacing */
+                font-size: clamp(1.8rem, 4vw, 2rem);
+                line-height: 1.3;
+                margin-bottom: clamp(10px, 2vw, 15px);
             }
 
-            /* Paragraph (P) Adjustments */
             .modern-hero-content p {
-                font-size: clamp(0.9rem, 2vw, 1.1rem); /* Responsive text size */
+                font-size: clamp(0.9rem, 2vw, 1.1rem);
                 line-height: 1.5;
-                margin-bottom: clamp(15px, 3vw, 20px); /* Responsive spacing */
+                margin-bottom: clamp(15px, 3vw, 20px);
             }
 
-            /* Button Container */
             .modern-hero-buttons {
-                display: flex; /* Use flexbox */
-                flex-direction: column; /* Stack buttons vertically */
+                display: flex;
+                flex-direction: column;
                 align-items: center;
-                gap: clamp(10px, 2vw, 15px); /* Responsive spacing */
+                gap: clamp(10px, 2vw, 15px);
                 width: 100%;
             }
 
             .cta-main, .cta-secondary {
-                width: 100%; /* Full width buttons */
-                max-width: 280px; /* Limit maximum width */
-                padding: clamp(12px, 2vw, 16px) clamp(15px, 3vw, 20px); /* Responsive padding */
-                font-size: clamp(0.9rem, 1.5vw, 1.1rem); /* Responsive text */
+                width: 100%;
+                max-width: 280px;
+                padding: clamp(12px, 2vw, 16px) clamp(15px, 3vw, 20px);
+                font-size: clamp(0.9rem, 1.5vw, 1.1rem);
                 text-align: center;
                 border-radius: 8px;
                 transition: all 0.3s ease-in-out;
             }
-
+            
             /* Button Styling Adjustments */
             .cta-main {
-                background: #ff6f61; /* Bright primary button */
+                background: var(--primary-color);
                 color: #ffffff;
                 border: none;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add depth */
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             }
 
             .cta-secondary {
                 background: transparent;
                 color: white;
-                border: 2px solid white; /* Bold outline */
+                border: 2px solid white;
             }
             
             /* Discount Badge Adjustments */
             .discount-badge {
-                font-size: clamp(0.7rem, 1vw, 0.85rem); /* Responsive text */
-                padding: clamp(3px, 1vw, 4px) clamp(6px, 1vw, 8px); /* Responsive padding */
+                font-size: clamp(0.7rem, 1vw, 0.85rem);
+                padding: clamp(3px, 1vw, 4px) clamp(6px, 1vw, 8px);
             }
         }
 
@@ -332,386 +659,30 @@
                 font-size: 0.9rem;
             }
         }
-
-        /* Semi-Transparent Bar at Bottom of Hero Section */
-        .hero-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 40px; /* Height of the bar */
-            background: rgba(0, 0, 0, 0.4); /* Semi-transparent dark bar */
-            z-index: 3; /* Ensure it's above the hero section */
-            pointer-events: auto; /* Allow interaction initially */
-            transition: opacity 0.5s ease; /* Smooth fade-in/out */
-        }
-
-        /* Adjust Hero Section to Prevent White Part Extending Up */
-        .modern-hero {
-            position: relative;
-            overflow: hidden; /* Ensures content stays within bounds */
-            padding-bottom: 60px; /* Matches bar height to avoid overlap issues */
-        }
-
-        /* Overlapping Why Choose Us Section */
-        .why-choose-us {
-            position: relative;
-            margin-top: -30px; /* Slight overlap effect */
-            background: white;
-            padding: 60px 20px;
-            border-radius: 15px;
-            z-index: 4;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .why-choose-us h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #1e293b;
-        }
-
-        /* Ensure Stats are Centered */
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            background: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            width: 200px;
-            text-align: center;
-        }
-
-        /* Stats Section */
-        .stats-section {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: #f9f9f9;
-        }
-
-        .stats-section h2 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #1e293b;
-        }
-
-        .stats-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
-        .stat {
-            background: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            width: 200px;
-            text-align: center;
-        }
-
-        .stat h3 {
-            font-size: 2.5rem;
-            color: #ff6f61;
-            margin: 0;
-        }
-
-        .stat p {
-            font-size: 1rem;
-            color: #333;
-            margin: 10px 0 0;
-        }
-
-        /* Subjects Section */
-        .subjects-section {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: #f9f9f9;
-        }
-
-        .subjects-section h2 {
-            font-size: 1.8rem;
-            margin-bottom: 30px;
-            color: #1e293b;
-        }
-
-        .subjects-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 20px;
-        }
-
-        .subject {
-            text-align: center;
-            width: 120px;
-        }
-
-        .subject img {
-            width: 80px; /* Set a smaller width for the box */
-            height: 80px; /* Match height to width for a square */
-            margin: 0 auto 10px;
-            border-radius: 10px; /* Rounded corners for the box */
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            object-fit: cover; /* Ensures the image fits nicely within the box */
-            object-position: center; /* Centers the image within the box */
-            display: block; /* Ensures proper centering */
-        }
-
-        .subject p {
-            font-size: 1rem;
-            margin: 0;
-            color: #333;
-        }
-
-        .subjects-footer {
-            margin-top: 30px;
-        }
-
-        .subjects-footer a {
-            display: inline-block;
-            color: #ff6f61;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 5px;
-            font-size: 1.2rem;
-            transition: color 0.3s;
-        }
-
-        .subjects-footer a:hover {
-            text-decoration: underline;
-            color: #d9574e;
-        }
-
-        /* Testimonials Section */
-        .testimonials-section {
-            text-align: center;
-            padding: 50px 20px;
-            background-color: #1e293b;
-            color: white;
-        }
-
-        .testimonials-section h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
-        }
-
-        .testimonials-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 20px;
-            justify-items: center;
-            padding: 0 20px;
-        }
-
-        .testimonial {
-            background-color: #334155;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            max-width: 300px;
-            text-align: left;
-        }
-
-        .testimonial p {
-            margin: 10px 0;
-        }
-
-        .testimonial strong, .testimonial-horizontal strong {
-            margin-top: bottom; /* Pushes the name to the bottom */
-            font-size: 1.1rem;
-            display: block;
-            font-style: italic;
-        }
-        .testimonial, .testimonial-horizontal {
-            background-color: #334155;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            padding: 20px;
-            color: white;
-            max-width: 300px; /* Constrain width for grid testimonials */
-            text-align: center;
-            justify-content: space-between; /* Ensures content is spaced, with name at the bottom */
-            margin: 20px auto;
-        }
-
-        .testimonial-summary {
-            font-style: italic;
-            font-size: 1rem;
-            color: #d9574e; /* Highlighted color */
-            margin-top: 10px; /* Add space between testimonial and summary */
-        }
-        .testimonial-horizontal {
-            max-width: 90%; /* Full width for horizontal testimonial */
-            margin-top: 30px;
-        }
-        .testimonial-horizontal .testimonial-summary {
-            font-size: 1.2rem; /* Larger font size for horizontal summary */
-            margin-top: 20px;
-        }
         
-        /* Overlay Section */
-        .overlay-bar {
-            position: fixed; /* Stick to the bottom of the viewport */
-            bottom: 0;
-            left: 0;
-            width: 100%; /* Full width */
-            background-color: #0f172a; /* Match a dark theme */
-            color: #f1f5f9; /* Light text for contrast */
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2); /* Shadow for depth */
-            z-index: 1000; /* Ensure it stays above other content */
-            display: flex; /* Flexbox for alignment */
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            padding: 10px 20px; /* Adjust padding for better spacing */
-            border-top-left-radius: 12px; /* Smooth rounded corners */
-            border-top-right-radius: 12px; /* Smooth rounded corners */
-            font-family: 'Poppins', sans-serif; /* Match your webpage's font */
-            font-size: 1rem; /* Uniform font size */
-        }
-
-        /* Content Inside the Overlay */
-        .overlay-content {
-            display: flex; /* Horizontal layout for text and arrow */
-            align-items: center; /* Align text and arrow vertically */
-            gap: 8px; /* Space between text and arrow */
-            text-align: center; /* Center-align the text */
-        }
-
-        /* Informative Text */
-        .overlay-content p {
-            margin: 0; /* Remove default margin */
-            font-weight: 500; /* Slightly bold text */
-            color: #f8fafc; /* Light color for readability */
-        }
-
-        /* Scroll Indicator (Arrow) */
-        .scroll-indicator {
-            font-size: 1.4rem; /* Larger size for emphasis */
-            animation: bounce 1.5s infinite; /* Add a bouncing effect */
-            color: #ff6f61; /* Accent color matching the page's theme */
-        }
-
-        /* Bounce Animation for the Arrow */
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-6px); /* Move the arrow slightly up */
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .overlay-bar {
-                font-size: 0.9rem; /* Slightly smaller font for mobile */
-                padding: 8px 16px; /* Adjust padding for smaller screens */
-            }
-
-            .overlay-content {
-                gap: 6px; /* Reduce spacing between elements */
-            }
-        }
-
-        /* Scroll Arrow */
-        .scroll-arrow {
-            margin-top: 0px; /* Space between text and arrow */
-            animation: bounce 1.5s infinite; /* Add bounce animation */
-        }
-
-        .scroll-arrow img {
-            width: 30px; /* Adjust arrow size */
-            height: auto;
-        }
-
-        .schedule-button {
-            display: inline-block;
-            background-color: #ff6f61;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            text-decoration: none;
-            transition: background-color 0.3s, transform 0.3s;
-            margin-top: 15px;
-        }
-
-        .schedule-button:hover {
-            background-color: #d9574e;
-            transform: scale(1.05);
-        }
-            
-        /* Container for Hearts */
-        .heart-container {
-            position: absolute;
-            pointer-events: none; /* Prevent interaction */
-            width: 20px;
-            height: 20px;
-        }
-
-        @keyframes floatDown {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(40px) scale(1.2);
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100px) scale(0);
-                opacity: 0;
-            }
-        }
-
-        /* Miniature Heart Styling */
-        .heart {
-            width: 20px;
-            height: 20px;
-            background-image: url('https://i.imgur.com/uTVjByi.png'); /* Heart image */
-            background-size: contain;
-            background-repeat: no-repeat;
-            position: absolute;
-            animation: floatDown 2.5s ease-out forwards; /* Falling effect */
-        }
-        .gold-star {
-            color: gold; /* Gold color for the star */
-            font-size: 1.2em; /* Slightly larger than the text */
-            margin-left: 5px; /* Space between the name and the star */
-            vertical-align: middle; /* Aligns the star with the text */
-        }
-
         /* NEW MOBILE STYLES - REDESIGNED FOR CLEANER UI */
         /* Mobile Sticky CTA */
         .mobile-sticky-cta {
-            display: none; /* Hidden by default */
+            display: none;
             position: fixed;
             bottom: 0;
             left: 0;
             width: 100%;
             background-color: #ffffff;
             background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/pixel-heart.png');
-            background-size: 100px; /* Larger pattern size to be more visible */
+            background-size: 100px;
             background-repeat: repeat;
             box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
-            padding: 15px 0; /* Increased vertical padding */
+            padding: 15px 0;
             z-index: 1000;
             text-align: center;
-            transform: translateY(100%); /* Start off-screen */
-            transition: transform 0.3s ease-in-out; /* Smooth transition */
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+            will-change: transform;
         }
 
         .mobile-sticky-cta.visible {
-            transform: translateY(0); /* Slide in from bottom */
+            transform: translateY(0);
         }
 
         .mobile-sticky-cta-inner {
@@ -719,16 +690,16 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            max-width: 500px; /* Limit width on larger screens */
+            max-width: 500px;
             margin: 0 auto;
-            overflow: hidden; /* Prevent content from overflowing */
+            overflow: hidden;
         }
 
         .mobile-sticky-cta-button {
             display: flex;
             align-items: center;
             justify-content: center;
-            background-color: #ff6f61;
+            background-color: var(--primary-color);
             color: white;
             font-weight: 600;
             padding: 14px 20px;
@@ -740,28 +711,7 @@
             width: 85%;
             max-width: 360px;
             position: relative;
-            overflow: hidden; /* Ensure the pulse effect stays contained */
-        }
-
-        /* Contained Pulse Animation */
-        @keyframes contained-pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            }
-            50% {
-                transform: scale(1.03); /* Reduced scale to prevent overflow */
-                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-            }
-        }
-
-        .pulse-animation {
-            animation: contained-pulse 2s infinite;
-            transform-origin: center; /* Ensure scaling happens from center */
+            overflow: hidden;
         }
 
         /* Mobile Content Sections - Redesigned */
@@ -771,6 +721,7 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            will-change: transform;
         }
 
         /* Mobile Quick Stats */
@@ -792,7 +743,7 @@
 
         .mobile-quick-stat h4 {
             font-size: 1.8rem;
-            color: #ff6f61;
+            color: var(--primary-color);
             margin: 0 0 5px 0;
             font-weight: 600;
         }
@@ -805,7 +756,7 @@
 
         /* Mobile Testimonial Highlight */
         .mobile-testimonial-highlight {
-            background-color: #1e293b;
+            background-color: var(--text-dark);
             color: white;
             padding: 25px 20px;
             text-align: center;
@@ -834,7 +785,7 @@
             font-size: 1.3rem;
             text-align: center;
             margin: 0 0 20px 0;
-            color: #1e293b;
+            color: var(--text-dark);
             font-weight: 600;
         }
 
@@ -860,25 +811,6 @@
             font-size: 0.85rem;
             margin: 0;
             color: #4b5563;
-        }
-
-        /* Mobile scroll progress indicator */
-        .scroll-progress-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 4px;
-            background-color: rgba(255, 255, 255, 0.2);
-            z-index: 1001;
-            display: none;
-        }
-
-        .scroll-progress-bar {
-            height: 100%;
-            background-color: #ff6f61;
-            width: 0%;
-            transition: width 0.2s;
         }
 
         /* Mobile-specific media queries */
@@ -908,11 +840,6 @@
             /* Add padding to the bottom to account for sticky CTA */
             body {
                 padding-bottom: 75px;
-            }
-            
-            /* Show scroll progress indicator */
-            .scroll-progress-container {
-                display: block;
             }
         }
 
@@ -987,13 +914,15 @@
                 opacity: 0;
             }
         }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .heart {
+                animation: none !important;
+            }
+        }
     </style>
 </head>
 <body>
-    <script>
-        localStorage.clear();
-    </script>
-
     <!-- Scroll Progress Indicator (Mobile Only) -->
     <div class="scroll-progress-container">
         <div class="scroll-progress-bar" id="scrollProgressBar"></div>
@@ -1002,42 +931,143 @@
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
 
-    <!-- JavaScript to Load Navbar -->
-    <script src="../Navbar/Navbar.js" defer></script>
-
-    <!-- Hero Section with Rotating Images -->
+    <!-- Hero Section with Optimized Images -->
     <section class="modern-hero">
-        <div class="hero-overlay"></div> <!-- Hero overlay -->
+        <div class="hero-overlay"></div>
         <div class="carousel-images">
             <div class="image-fader">
+                <!-- First image optimized for immediate loading -->
                 <picture>
-                    <source srcset="https://i.imgur.com/y7G7iNx.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
-                    <img src="https://i.imgur.com/8MqF8tr.jpeg" referrerpolicy="no-referrer" class="fade-image image-1" alt="Image 1">
+                    <source 
+                        srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=480&quality=75" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungBoyLaptopPlant.webp?width=1200&quality=75" 
+                        class="fade-image image-1" 
+                        alt="Student with laptop" 
+                        width="1200" 
+                        height="800" 
+                        fetchpriority="high"
+                        decoding="async"
+                    >
                 </picture>
     
+                <!-- Other images set to lazy load -->
                 <picture>
-                    <source srcset="https://i.imgur.com/krzcJib.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
-                    <img src="https://i.imgur.com/eTlFiPU.jpeg" referrerpolicy="no-referrer" class="fade-image image-2 hidden" alt="Image 2">
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/ManBlueJacketVertical.webp?width=480&quality=75" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/ManBlueJacketVertical.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/TeacherDrinkingCoffee.webp?width=1200&quality=75" 
+                        class="fade-image image-2 hidden" 
+                        alt="Teacher with coffee" 
+                        width="1200" 
+                        height="800" 
+                        loading="lazy"
+                        decoding="async"
+                    >
                 </picture>
                
                 <picture>
-                    <source srcset="https://i.imgur.com/egHIl0D.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)"> <!--remove-->
-                    <img src="https://i.imgur.com/U0FkRHz.jpeg" referrerpolicy="no-referrer" class="fade-image image-3 hidden" alt="Image 3">
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp?width=480&quality=75" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMother.webp?width=1200&quality=75" 
+                        class="fade-image image-3 hidden" 
+                        alt="Girl with mother" 
+                        width="1200" 
+                        height="800" 
+                        loading="lazy"
+                        decoding="async"
+                    >
                 </picture>
                
                 <picture>
-                    <source srcset="https://i.imgur.com/GiQm5is.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
-                    <img src="https://i.imgur.com/0KLlXpE.jpeg" referrerpolicy="no-referrer" class="fade-image image-4 hidden" alt="Image 4">
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlCurlyHairBlueShirt.webp?width=480&quality=75" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlCurlyHairBlueShirt.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlOrangeShirt.webp?width=1200&quality=75" 
+                        class="fade-image image-4 hidden" 
+                        alt="Girl in orange shirt" 
+                        width="1200" 
+                        height="800" 
+                        loading="lazy"
+                        decoding="async"
+                    >
                 </picture>
                 
                 <picture>
-                    <source srcset="https://i.imgur.com/IgeDqKs.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
-                    <img src="https://i.imgur.com/raoWokV.jpeg" referrerpolicy="no-referrer" class="fade-image image-5 hidden" alt="Image 5">
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/TeenageBoyLaptop.webp?width=480&quality=75" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/TeenageBoyLaptop.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/CollageManFlannel.webp?width=1200&quality=75" 
+                        class="fade-image image-5 hidden" 
+                        alt="Man in flannel" 
+                        width="1200" 
+                        height="800" 
+                        loading="lazy"
+                        decoding="async"
+                    >
                 </picture>
                 
                 <picture>
-                    <source srcset="https://i.imgur.com/egHIl0D.jpeg" referrerpolicy="no-referrer" media="(max-width: 1055px)">
-                    <img src="https://i.imgur.com/fFalIfN.jpeg" referrerpolicy="no-referrer" class="fade-image image-6 hidden" alt="Image 6">
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp?width=480&quality=75" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/TeenageGirlOrangeShirt.webp?width=1200&quality=75" 
+                        class="fade-image image-6 hidden" 
+                        alt="Teenage girl" 
+                        width="1200" 
+                        height="800" 
+                        loading="lazy"
+                        decoding="async"
+                    >
                 </picture> 
             </div>
         </div>
@@ -1086,27 +1116,27 @@
         <h3>Popular Subjects</h3>
         <div class="mobile-subjects-grid">
             <div class="mobile-subject-item">
-                <img src="https://i.imgur.com/6Dytwj6.png" referrerpolicy="no-referrer" alt="K-8th Math">
+                <img src="https://i.imgur.com/6Dytwj6.png" width="50" height="50" alt="K-8th Math" loading="lazy">
                 <p>K-8 Math</p>
             </div>
             <div class="mobile-subject-item">
-                <img src="https://i.imgur.com/8Uc14U3.png" referrerpolicy="no-referrer" alt="High School Math">
+                <img src="https://i.imgur.com/8Uc14U3.png" width="50" height="50" alt="High School Math" loading="lazy">
                 <p>HS Math</p>
             </div>
             <div class="mobile-subject-item">
-                <img src="https://i.imgur.com/nd8xGtz.png" referrerpolicy="no-referrer" alt="College Math">
+                <img src="https://i.imgur.com/nd8xGtz.png" width="50" height="50" alt="College Math" loading="lazy">
                 <p>College Math</p>
             </div>
             <div class="mobile-subject-item">
-                <img src="https://i.imgur.com/iWB9nOK.png" referrerpolicy="no-referrer" alt="Science">
+                <img src="https://i.imgur.com/iWB9nOK.png" width="50" height="50" alt="Science" loading="lazy">
                 <p>Science</p>
             </div>
             <div class="mobile-subject-item">
-                <img src="https://i.imgur.com/nKixzmW.png" referrerpolicy="no-referrer" alt="English">
+                <img src="https://i.imgur.com/nKixzmW.png" width="50" height="50" alt="English" loading="lazy">
                 <p>English</p>
             </div>
             <div class="mobile-subject-item">
-                <img src="https://i.imgur.com/3Yvz086.png" referrerpolicy="no-referrer" alt="SAT Prep">
+                <img src="https://i.imgur.com/3Yvz086.png" width="50" height="50" alt="SAT Prep" loading="lazy">
                 <p>SAT® Prep</p>
             </div>
         </div>
@@ -1217,43 +1247,43 @@
         <h2>Master Subjects, Ace Tests, and Unlock Your Potential!</h2>
         <div class="subjects-container">
             <div class="subject">
-                <img src="https://i.imgur.com/6Dytwj6.png" referrerpolicy="no-referrer" alt="K-8th Math">
+                <img src="https://i.imgur.com/6Dytwj6.png" width="80" height="80" alt="K-8th Math" loading="lazy">
                 <p>K-8th Math</p>
             </div>
             <div class="subject">
-                <img src="https://i.imgur.com/8Uc14U3.png" referrerpolicy="no-referrer" alt="Languages">
+                <img src="https://i.imgur.com/8Uc14U3.png" width="80" height="80" alt="Languages" loading="lazy">
                 <p>High School Math</p>
             </div>
             <div class="subject">
-                <img src="https://i.imgur.com/nd8xGtz.png" referrerpolicy="no-referrer" alt="Algebra 2">
+                <img src="https://i.imgur.com/nd8xGtz.png" width="80" height="80" alt="Algebra 2" loading="lazy">
                 <p>College Math</p>
             </div>
             <div class="subject">
-                <img src="https://i.imgur.com/iWB9nOK.png" referrerpolicy="no-referrer" alt="Geometry">
+                <img src="https://i.imgur.com/iWB9nOK.png" width="80" height="80" alt="Geometry" loading="lazy">
                 <p>Science</p>
             </div>
             <div class="subject">
-                <img src="https://i.imgur.com/nKixzmW.png" referrerpolicy="no-referrer" alt="Physics">
+                <img src="https://i.imgur.com/nKixzmW.png" width="80" height="80" alt="Physics" loading="lazy">
                 <p>English</p>
             </div>
             <div class="subject">
-                <img src="https://i.imgur.com/3Fb83GI.png" referrerpolicy="no-referrer" alt="Pre-Calculus">
+                <img src="https://i.imgur.com/3Fb83GI.png" width="80" height="80" alt="Pre-Calculus" loading="lazy">
                 <p>Spanish</p>
             </div>
             <div class="subject">
-                <img src="https://i.imgur.com/3Yvz086.png" referrerpolicy="no-referrer" alt="Calculus">
+                <img src="https://i.imgur.com/3Yvz086.png" width="80" height="80" alt="Calculus" loading="lazy">
                 <p>SAT® Prep</p>
             </div>
             <div class="subject">
-                <img src="https://i.imgur.com/EXV9vp2.png" referrerpolicy="no-referrer" alt="AP Exams">
+                <img src="https://i.imgur.com/EXV9vp2.png" width="80" height="80" alt="AP Exams" loading="lazy">
                 <p>AP Exams</p>
             </div>
             <div class="subject">
-                <img src="https://i.imgur.com/tY1r7GT.png" referrerpolicy="no-referrer" alt="AP Exams">
+                <img src="https://i.imgur.com/tY1r7GT.png" width="80" height="80" alt="Computer Science" loading="lazy">
                 <p>Computer Science</p>
             </div>
             <div class="subject">
-                <img src="https://i.imgur.com/cYz1WDI.png" referrerpolicy="no-referrer" alt="And Many More">
+                <img src="https://i.imgur.com/cYz1WDI.png" width="80" height="80" alt="And Many More" loading="lazy">
                 <p>Any Many More!</p>
             </div>
         </div>
@@ -1274,157 +1304,205 @@
     <div id="footer-placeholder"></div>
 
     <!-- JavaScript to Load Footer -->
-    <script src="../Footer/Footer.js" defer></script>
     <script>
+        // Load components after DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar with fetch API
+            const navbarPlaceholder = document.getElementById('navbar-placeholder');
+            fetch('../Navbar/Navbar.html')
+                .then(response => response.text())
+                .then(html => {
+                    navbarPlaceholder.innerHTML = html;
+                    // Execute navbar initialization if needed
+                    if (typeof initNavbar === 'function') {
+                        initNavbar();
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading navbar:', error);
+                });
+
+            // Load footer with fetch API
+            const footerPlaceholder = document.getElementById('footer-placeholder');
+            fetch('../Footer/Footer.html')
+                .then(response => response.text())
+                .then(html => {
+                    footerPlaceholder.innerHTML = html;
+                })
+                .catch(error => {
+                    console.error('Error loading footer:', error);
+                });
+                
+            // Initialize image carousel with lazy loading
+            initImageCarousel();
+            
+            // Initialize scroll progress indicator
+            initScrollProgress();
+            
+            // Initialize mobile CTA
+            initMobileCTA();
+            
+            // Update hero text based on screen size
+            updateHeroText();
+            window.addEventListener('resize', updateHeroText);
+            
+            // Initialize heart animation for CTA button
+            initHeartAnimation();
+            
+            // Center hero content vertically accounting for navbar
+            centerHeroContent();
+            window.addEventListener('resize', centerHeroContent);
+            
+            // Hero bar visibility on scroll
+            initHeroBarVisibility();
+        });
+
+        // Update hero text based on screen size
         function updateHeroText() {
             const heroTitle = document.querySelector('.modern-hero-content h1');
             const heroParagraph = document.querySelector('.modern-hero-content p');
 
             if (window.innerWidth <= 1055) {
-                heroTitle.textContent = "Virtual Tutoring That Works"; // Updated mobile title
-                heroParagraph.textContent = "Expert tutors ready to help you succeed. Join 250+ students achieving their goals."; // Updated mobile paragraph
+                heroTitle.textContent = "Virtual Tutoring That Works";
+                heroParagraph.textContent = "Expert tutors ready to help you succeed. Join 250+ students achieving their goals.";
             } else {
-                heroTitle.textContent = "Achieve More with Virtual Tutoring"; // Original title
-                heroParagraph.textContent = "Transform your learning journey with expert guidance tailored to your goals. Empower your success today."; // Original paragraph
-            }
-        }
-
-        // Run on page load and window resize
-        window.addEventListener('DOMContentLoaded', updateHeroText);
-        window.addEventListener('resize', updateHeroText);
-        
-        // Dynamically adjust hero content size based on viewport
-        function adjustHeroContentSize() {
-            const heroContent = document.querySelector('.modern-hero-content');
-            const viewportWidth = window.innerWidth;
-            const viewportHeight = window.innerHeight;
-            
-            // Only apply dynamic sizing for mobile
-            if (viewportWidth <= 1055) {
-                // Adjust width based on viewport width
-                const widthPercentage = viewportWidth < 768 ? 90 : 80;
-                
-                // Adjust padding based on viewport height
-                const paddingValue = viewportHeight < 600 ? '15px' : 
-                                   viewportHeight < 800 ? '20px' : '25px';
-                
-                // Apply dynamic styles
-                heroContent.style.width = `${widthPercentage}%`;
-                heroContent.style.padding = paddingValue;
-                
-                // Adjust font sizes for very small screens
-                if (viewportHeight < 500) {
-                    heroContent.style.fontSize = '0.9em';
-                } else {
-                    heroContent.style.fontSize = '1em';
-                }
-            } else {
-                // Reset to default desktop styles
-                heroContent.style.width = '';
-                heroContent.style.padding = '20px';
-                heroContent.style.fontSize = '1em';
+                heroTitle.textContent = "Achieve More with Virtual Tutoring";
+                heroParagraph.textContent = "Transform your learning journey with expert guidance tailored to your goals. Empower your success today.";
             }
         }
         
-        // Run the adjustment function on load and resize
-        window.addEventListener('DOMContentLoaded', adjustHeroContentSize);
-        window.addEventListener('resize', adjustHeroContentSize);
-        
-        // Scroll progress indicator
-        window.addEventListener('scroll', function() {
-            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrolled = (winScroll / height) * 100;
-            document.getElementById("scrollProgressBar").style.width = scrolled + "%";
-            
-            // Show mobile CTA only when scrolling starts
-            const mobileCta = document.getElementById('mobileCta');
-            if (window.innerWidth <= 430) { // Changed from 768px to 430px
-                if (winScroll > 100) { // Show after scrolling down a bit
-                    mobileCta.style.display = 'block';
-                    // Add the visible class after a small delay to trigger the animation
-                    setTimeout(() => {
-                        mobileCta.classList.add('visible');
-                    }, 10);
-                } else {
-                    mobileCta.classList.remove('visible');
-                    // Hide the element after the transition completes
-                    setTimeout(() => {
-                        if (!mobileCta.classList.contains('visible')) {
-                            mobileCta.style.display = 'none';
-                        }
-                    }, 300); // Match this to the transition duration
-                }
-            } else {
-                // Hide on larger screens
-                mobileCta.style.display = 'none';
-                mobileCta.classList.remove('visible');
-            }
-        });
-
-        // Center hero content vertically accounting for navbar
-        function centerHeroContent() {
-            const navbar = document.getElementById('navbar-placeholder');
-            const heroContent = document.querySelector('.modern-hero-content');
-            const navbarHeight = navbar.offsetHeight || 0;
-            
-            // Adjust the top position to account for navbar
-            if (window.innerWidth <= 1055) {
-                // For mobile, center in the visible area
-                const visibleAreaCenter = (window.innerHeight - navbarHeight) / 2;
-                heroContent.style.top = `calc(${navbarHeight}px + ${visibleAreaCenter}px)`;
-                heroContent.style.transform = 'translate(-50%, -50%)';
-            } else {
-                // For desktop, reset to default centering
-                heroContent.style.top = '50%';
-                heroContent.style.transform = 'translate(-50%, -50%)';
-            }
-        }
-
-        // Run on page load, resize, and after navbar loads
-        window.addEventListener('DOMContentLoaded', function() {
-            // Wait a short time for navbar to load
-            setTimeout(centerHeroContent, 300);
-        });
-        window.addEventListener('resize', centerHeroContent);
-    </script>
-
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
+        // Initialize image carousel with Intersection Observer for lazy loading
+        function initImageCarousel() {
             const images = document.querySelectorAll(".fade-image");
-
-            // Define the exact order you want the images to appear
             const customOrder = [5, 3, 1, 4, 2, 6]; // Order using their index (1-based)
-
             let currentIndex = 0;
 
-            // Hide all images initially
-            images.forEach(img => img.classList.add("hidden"));
+            // Show only the first image initially
+            images.forEach((img, index) => {
+                if (index !== 0) { // First image is already visible
+                    img.classList.add("hidden");
+                }
+            });
 
-            // Show the first image in custom order
-            images[customOrder[currentIndex] - 1].classList.remove("hidden");
+            // Use Intersection Observer for lazy loading
+            if ('IntersectionObserver' in window) {
+                const imageObserver = new IntersectionObserver((entries, observer) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            if (img.dataset.src) {
+                                img.src = img.dataset.src;
+                                img.removeAttribute('data-src');
+                            }
+                            
+                            const sources = img.parentElement.querySelectorAll('source[data-srcset]');
+                            sources.forEach(source => {
+                                source.srcset = source.dataset.srcset;
+                                source.removeAttribute('data-srcset');
+                            });
+                            
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+                
+                // Observe all images with data-src attribute
+                document.querySelectorAll('img[data-src]').forEach(img => {
+                    imageObserver.observe(img);
+                });
+            }
 
+            // Preload the next image in sequence
+            function preloadNextImage(nextIndex) {
+                const nextImg = images[customOrder[nextIndex] - 1];
+                
+                // If the image has data-src attributes, load them
+                if (nextImg.hasAttribute('data-src')) {
+                    const tempImg = new Image();
+                    tempImg.src = nextImg.getAttribute('data-src');
+                    tempImg.onload = function() {
+                        nextImg.setAttribute('src', nextImg.getAttribute('data-src'));
+                        nextImg.removeAttribute('data-src');
+                    };
+                }
+                
+                // Load source sets if they exist
+                const sources = nextImg.parentElement.querySelectorAll('source[data-srcset]');
+                sources.forEach(source => {
+                    if (source.hasAttribute('data-srcset')) {
+                        source.setAttribute('srcset', source.getAttribute('data-srcset'));
+                        source.removeAttribute('data-srcset');
+                    }
+                });
+            }
+
+            // Function to show next image
             function showNextImage() {
                 // Hide the current image
                 images[customOrder[currentIndex] - 1].classList.add("hidden");
-
+                
                 // Move to the next image in the sequence
                 currentIndex = (currentIndex + 1) % customOrder.length;
-
-                // Show new image based on custom order
+                
+                // Show the next image
                 images[customOrder[currentIndex] - 1].classList.remove("hidden");
+                
+                // Preload the image that will be shown next
+                const nextIndex = (currentIndex + 1) % customOrder.length;
+                preloadNextImage(nextIndex);
             }
 
-            setInterval(showNextImage, 5000); // Change image every 5 seconds
-        });
+            // Preload the second image after a short delay
+            setTimeout(() => {
+                preloadNextImage(1);
+            }, 2000);
 
-        // Redirection logic for the "Schedule Now" button
-        function redirectToSchedule() {
-            window.top.location.href = 'Welcome.html';
+            // Start the carousel after a longer delay
+            setTimeout(() => {
+                // Change image every 7 seconds (increased from 5 for better performance)
+                setInterval(showNextImage, 7000);
+            }, 5000);
         }
         
-        // Heart animation - completely rewritten
-        document.addEventListener("DOMContentLoaded", function() {
+        // Initialize scroll progress indicator
+        function initScrollProgress() {
+            window.addEventListener('scroll', function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                document.getElementById("scrollProgressBar").style.width = scrolled + "%";
+            });
+        }
+        
+        // Initialize mobile CTA
+        function initMobileCTA() {
+            window.addEventListener('scroll', function() {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const mobileCta = document.getElementById('mobileCta');
+                
+                if (window.innerWidth <= 430) {
+                    if (winScroll > 100) {
+                        mobileCta.style.display = 'block';
+                        setTimeout(() => {
+                            mobileCta.classList.add('visible');
+                        }, 10);
+                    } else {
+                        mobileCta.classList.remove('visible');
+                        setTimeout(() => {
+                            if (!mobileCta.classList.contains('visible')) {
+                                mobileCta.style.display = 'none';
+                            }
+                        }, 300);
+                    }
+                } else {
+                    mobileCta.style.display = 'none';
+                    mobileCta.classList.remove('visible');
+                }
+            });
+        }
+        
+        // Initialize heart animation for CTA button
+        function initHeartAnimation() {
             const scheduleButton = document.getElementById("schedule-button");
             
             if (scheduleButton) {
@@ -1463,8 +1541,8 @@
                     clearInterval(heartInterval);
                 });
             }
-        });
-
+        }
+        
         // Function to create and animate a heart
         function createHeart(container, button) {
             // Create heart element
@@ -1492,10 +1570,30 @@
                 }
             }, 1500);
         }
-
-        document.addEventListener("DOMContentLoaded", function () {
+        
+        // Center hero content vertically accounting for navbar
+        function centerHeroContent() {
+            const navbar = document.getElementById('navbar-placeholder');
+            const heroContent = document.querySelector('.modern-hero-content');
+            const navbarHeight = navbar.offsetHeight || 0;
+            
+            // Adjust the top position to account for navbar
+            if (window.innerWidth <= 1055) {
+                // For mobile, center in the visible area
+                const visibleAreaCenter = (window.innerHeight - navbarHeight) / 2;
+                heroContent.style.top = `calc(${navbarHeight}px + ${visibleAreaCenter}px)`;
+                heroContent.style.transform = 'translate(-50%, -50%)';
+            } else {
+                // For desktop, reset to default centering
+                heroContent.style.top = '50%';
+                heroContent.style.transform = 'translate(-50%, -50%)';
+            }
+        }
+        
+        // Hero bar visibility on scroll
+        function initHeroBarVisibility() {
             const heroBar = document.querySelector(".hero-bar");
-
+            
             // Listen for scroll events
             window.addEventListener("scroll", function () {
                 if (window.scrollY > 50) {
@@ -1506,8 +1604,74 @@
                     heroBar.style.pointerEvents = "auto"; // Re-enable interaction
                 }
             });
-        });
+        }
+    </script>
+
+    <!-- Deferred JavaScript Loading -->
+    <script>
+        // Function to load non-critical scripts
+        function loadDeferredScripts() {
+            // Create a promise to track when all scripts are loaded
+            const loadPromises = [];
+            
+            // Helper function to create and load a script
+            function createScript(src, delay = 0, async = true) {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        const script = document.createElement('script');
+                        script.src = src;
+                        script.async = async; // Make scripts load asynchronously
+                        script.onload = resolve;
+                        document.body.appendChild(script);
+                    }, delay);
+                });
+            }
+            
+            // Check connection quality before loading non-essential scripts
+            if (navigator.connection && (navigator.connection.saveData || 
+                (navigator.connection.effectiveType && navigator.connection.effectiveType.includes('2g')))) {
+                // Skip or delay further for users on data-saving mode or slow connections
+                console.log("Data saver mode detected, delaying non-essential scripts");
+                setTimeout(() => {
+                    loadPromises.push(createScript('https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S', 5000, true));
+                }, 5000);
+            } else {
+                // Normal loading for other users
+                loadPromises.push(createScript('https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S', 3000, true));
+                loadPromises.push(createScript('/Javascript/analytics.js', 3500, true));
+                loadPromises.push(createScript('/Javascript/metaPixel.js', 4000, true));
+                loadPromises.push(createScript('/Javascript/tiktokPixel.js', 4500, true));
+                
+                // Load Metricool after a delay
+                setTimeout(() => {
+                    function loadScript(a) {
+                        var b = document.getElementsByTagName("head")[0],
+                            c = document.createElement("script");
+                        c.type = "text/javascript", 
+                        c.src = "https://tracker.metricool.com/resources/be.js", 
+                        c.async = true,
+                        c.onreadystatechange = a, 
+                        c.onload = a, 
+                        b.appendChild(c)
+                    }
+                    loadScript(function() {
+                        beTracker.t({
+                            hash: "d815cbba45950ea301730faef0513abe"
+                        })
+                    });
+                }, 5000);
+            }
+            
+            return Promise.all(loadPromises);
+        }
+        
+        // Load scripts when the page is idle or after a timeout
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => loadDeferredScripts(), { timeout: 5000 });
+        } else {
+            // Fallback for browsers that don't support requestIdleCallback
+            setTimeout(loadDeferredScripts, 5000);
+        }
     </script>
 </body>
 </html>
-
