@@ -937,27 +937,20 @@
         <div class="carousel-images">
             <div class="image-fader">
                 <!-- First image optimized for immediate loading -->
-                <picture>
-                    <source 
-                        srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=480&quality=75" 
-                        media="(max-width: 640px)" 
-                        type="image/webp"
-                    >
-                    <source 
-                        srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=768&quality=75" 
-                        media="(max-width: 1055px)" 
-                        type="image/webp"
-                    >
-                    <img 
-                        src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungBoyLaptopPlant.webp?width=1200&quality=75" 
-                        class="fade-image image-1" 
-                        alt="Student with laptop" 
-                        width="1200" 
-                        height="800" 
-                        fetchpriority="high"
-                        decoding="async"
-                    >
-                </picture>
+                <img 
+                    src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=480&quality=75" 
+                    srcset="https://d3r7ksou5fmir9.cloudfront.net
+                    srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=480&quality=75 480w,
+                            https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=768&quality=75 768w,
+                            https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=1200&quality=75 1200w"
+                    sizes="(max-width: 640px) 480px, (max-width: 1055px) 768px, 1200px"
+                    class="fade-image image-1" 
+                    alt="Student with laptop" 
+                    width="480" 
+                    height="320" 
+                    fetchpriority="high"
+                    decoding="async"
+                >
     
                 <!-- Other images set to lazy load -->
                 <picture>
