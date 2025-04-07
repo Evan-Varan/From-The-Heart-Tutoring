@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -24,7 +25,7 @@
           media="(max-width: 640px)" 
           type="image/webp">
     <link rel="preload" as="image" 
-          href="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungBoyLaptopPlant.webp?width=800&quality=75" 
+          href="https://d3r7ksou5fmir9.cloudfront.net/StockImages/CollageManFlannel.webp?width=800&quality=75" 
           media="(min-width: 641px)" 
           type="image/webp">
     
@@ -937,20 +938,27 @@
         <div class="carousel-images">
             <div class="image-fader">
                 <!-- First image optimized for immediate loading -->
-                <img 
-                    src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=480&quality=75" 
-                    srcset="https://d3r7ksou5fmir9.cloudfront.net
-                    srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=480&quality=75 480w,
-                            https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=768&quality=75 768w,
-                            https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphones.webp?width=1200&quality=75 1200w"
-                    sizes="(max-width: 640px) 480px, (max-width: 1055px) 768px, 1200px"
-                    class="fade-image image-1" 
-                    alt="Student with laptop" 
-                    width="480" 
-                    height="320" 
-                    fetchpriority="high"
-                    decoding="async"
-                >
+                <picture>
+                    <source 
+                        srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp " 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BGirlRedHairLaptop.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/CollageManFlannel.webp?width=1200&quality=75" 
+                        class="fade-image image-5" 
+                        alt="Student with laptop" 
+                        width="1200" 
+                        height="800" 
+                        fetchpriority="high"
+                        decoding="async"
+                    >
+                </picture>
     
                 <!-- Other images set to lazy load -->
                 <picture>
@@ -977,12 +985,12 @@
                
                 <picture>
                     <source 
-                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp?width=480&quality=75" 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphone800x600.webp?width=480&quality=75" 
                         media="(max-width: 640px)" 
                         type="image/webp"
                     >
                     <source 
-                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp?width=768&quality=75" 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphone800x600.webp?width=768&quality=75" 
                         media="(max-width: 1055px)" 
                         type="image/webp"
                     >
@@ -1031,9 +1039,9 @@
                         type="image/webp"
                     >
                     <img 
-                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/CollageManFlannel.webp?width=1200&quality=75" 
-                        class="fade-image image-5 hidden" 
-                        alt="Man in flannel" 
+                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungBoyLaptopPlant.webp?width=1200&quality=75" 
+                        class="fade-image image-1 hidden" 
+                        alt="Young boy laptop plant" 
                         width="1200" 
                         height="800" 
                         loading="lazy"
@@ -1365,97 +1373,104 @@
         }
         
         // Initialize image carousel with Intersection Observer for lazy loading
-        function initImageCarousel() {
-            const images = document.querySelectorAll(".fade-image");
-            const customOrder = [5, 3, 1, 4, 2, 6]; // Order using their index (1-based)
-            let currentIndex = 0;
+       // Find this function in your HTML file:
+function initImageCarousel() {
+  const images = document.querySelectorAll(".fade-image")
 
-            // Show only the first image initially
-            images.forEach((img, index) => {
-                if (index !== 0) { // First image is already visible
-                    img.classList.add("hidden");
-                }
-            });
+ 
+  const customOrder = [1,3,5,4,2,6] // THE ORDER IS THE ORDER IN WHICH THE HTML IS WRITTEN CLASS NAMES (image-1) DO NOT MATTER
 
-            // Use Intersection Observer for lazy loading
-            if ('IntersectionObserver' in window) {
-                const imageObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            if (img.dataset.src) {
-                                img.src = img.dataset.src;
-                                img.removeAttribute('data-src');
-                            }
-                            
-                            const sources = img.parentElement.querySelectorAll('source[data-srcset]');
-                            sources.forEach(source => {
-                                source.srcset = source.dataset.srcset;
-                                source.removeAttribute('data-srcset');
-                            });
-                            
-                            observer.unobserve(img);
-                        }
-                    });
-                });
-                
-                // Observe all images with data-src attribute
-                document.querySelectorAll('img[data-src]').forEach(img => {
-                    imageObserver.observe(img);
-                });
-            }
+  let currentIndex = 0
 
-            // Preload the next image in sequence
-            function preloadNextImage(nextIndex) {
-                const nextImg = images[customOrder[nextIndex] - 1];
-                
-                // If the image has data-src attributes, load them
-                if (nextImg.hasAttribute('data-src')) {
-                    const tempImg = new Image();
-                    tempImg.src = nextImg.getAttribute('data-src');
-                    tempImg.onload = function() {
-                        nextImg.setAttribute('src', nextImg.getAttribute('data-src'));
-                        nextImg.removeAttribute('data-src');
-                    };
-                }
-                
-                // Load source sets if they exist
-                const sources = nextImg.parentElement.querySelectorAll('source[data-srcset]');
-                sources.forEach(source => {
-                    if (source.hasAttribute('data-srcset')) {
-                        source.setAttribute('srcset', source.getAttribute('data-srcset'));
-                        source.removeAttribute('data-srcset');
-                    }
-                });
-            }
+  // Rest of your function remains the same...
 
-            // Function to show next image
-            function showNextImage() {
-                // Hide the current image
-                images[customOrder[currentIndex] - 1].classList.add("hidden");
-                
-                // Move to the next image in the sequence
-                currentIndex = (currentIndex + 1) % customOrder.length;
-                
-                // Show the next image
-                images[customOrder[currentIndex] - 1].classList.remove("hidden");
-                
-                // Preload the image that will be shown next
-                const nextIndex = (currentIndex + 1) % customOrder.length;
-                preloadNextImage(nextIndex);
-            }
+  // Show only the first image initially
+  images.forEach((img, index) => {
+    if (index !== 0) {
+      // First image is already visible
+      img.classList.add("hidden")
+    }
+  })
 
-            // Preload the second image after a short delay
-            setTimeout(() => {
-                preloadNextImage(1);
-            }, 2000);
+  // Use Intersection Observer for lazy loading
+  if ("IntersectionObserver" in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const img = entry.target
+          if (img.dataset.src) {
+            img.src = img.dataset.src
+            img.removeAttribute("data-src")
+          }
 
-            // Start the carousel after a longer delay
-            setTimeout(() => {
-                // Change image every 7 seconds (increased from 5 for better performance)
-                setInterval(showNextImage, 7000);
-            }, 5000);
+          const sources = img.parentElement.querySelectorAll("source[data-srcset]")
+          sources.forEach((source) => {
+            source.srcset = source.dataset.srcset
+            source.removeAttribute("data-srcset")
+          })
+
+          observer.unobserve(img)
         }
+      })
+    })
+
+    // Observe all images with data-src attribute
+    document.querySelectorAll("img[data-src]").forEach((img) => {
+      imageObserver.observe(img)
+    })
+  }
+
+  // Function to preload the next image
+  function preloadNextImage(nextIndex) {
+    const nextImg = images[customOrder[nextIndex] - 1]
+
+    // If the image has data-src attributes, load them
+    if (nextImg.hasAttribute("data-src")) {
+      const tempImg = new Image()
+      tempImg.src = nextImg.getAttribute("data-src")
+      tempImg.onload = () => {
+        nextImg.setAttribute("src", nextImg.getAttribute("data-src"))
+        nextImg.removeAttribute("data-src")
+      }
+    }
+
+    // Load source sets if they exist
+    const sources = nextImg.parentElement.querySelectorAll("source[data-srcset]")
+    sources.forEach((source) => {
+      if (source.hasAttribute("data-srcset")) {
+        source.setAttribute("srcset", source.getAttribute("data-srcset"))
+        source.removeAttribute("data-srcset")
+      }
+    })
+  }
+
+  // Function to show next image
+  function showNextImage() {
+    // Hide the current image
+    images[customOrder[currentIndex] - 1].classList.add("hidden")
+
+    // Move to the next image in the sequence
+    currentIndex = (currentIndex + 1) % customOrder.length
+
+    // Show the next image
+    images[customOrder[currentIndex] - 1].classList.remove("hidden")
+
+    // Preload the image that will be shown next
+    const nextIndex = (currentIndex + 1) % customOrder.length
+    preloadNextImage(nextIndex)
+  }
+
+  // Preload the second image after a short delay
+  setTimeout(() => {
+    preloadNextImage(1)
+  }, 2000)
+
+  // Start the carousel after a longer delay
+  setTimeout(() => {
+    // Change image every 7 seconds
+    setInterval(showNextImage, 7000)
+  }, 5000)
+}
         
         // Initialize scroll progress indicator
         function initScrollProgress() {

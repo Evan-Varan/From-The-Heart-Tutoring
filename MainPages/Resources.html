@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
+    <script src="../Javascript/analytics.js"></script>
+    <script src="../Javascript/metaPixel.js"></script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
+</noscript>
+<script src="../Javascript/tiktokPixel.js"></script>
+<noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
+  </noscript>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources | From The Heart Tutoring</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Navbar/Navbar.css">
+    <link rel="stylesheet" href="../Footer/Footer.css">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;
+            background-color: #f8f8f8;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 0 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: #0a1a2f;
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 3px;
+            background-color: #ff6b6b;
+            margin: 10px auto 0;
+        }
+
+        /* Resources Grid */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .resource-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .resource-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .resource-content {
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .resource-content h3 {
+            margin-bottom: 10px;
+            color: #0a1a2f;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .resource-content p {
+            color: #666;
+            margin-bottom: 15px;
+            font-size: 0.95rem;
+            font-family: 'Montserrat', sans-serif;
+            flex-grow: 1;
+        }
+
+        .button-container {
+            margin-top: auto;
+            margin-bottom: 15px;
+        }
+
+        .resource-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: #777;
+            width: 100%;
+        }
+
+        .resource-credit {
+            font-style: italic;
+            text-align: right;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+            font-family: 'Montserrat', sans-serif;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        .download-btn:hover {
+            background-color: #ff5252;
+        }
+
+        /* Categories */
+        .categories {
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .category-btn {
+            background-color: #eee;
+            border: none;
+            padding: 8px 15px;
+            margin: 5px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .category-btn:hover, .category-btn.active {
+            background-color: #0a1a2f;
+            color: white;
+        }
+
+        /* Search */
+        .search-container {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box {
+            display: flex;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .search-input {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+            font-family: 'Montserrat', sans-serif;
+            box-sizing: border-box;
+        }
+
+        .search-btn {
+            background-color: #0a1a2f;
+            color: white;
+            border: none;
+            padding: 0 20px;
+            border-radius: 0 5px 5px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .search-btn:hover {
+            background-color: #152a43;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero {
+                height: 250px;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .section-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+    <script src="../Navbar/Navbar.js" defer></script>
+    
+    <!-- Hero Section with apple image -->
+    <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
+        <h1>Educational Resources</h1>
+        <p>Free downloadable materials to support your learning journey</p>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+        <!-- Search -->
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" id="searchInput" class="search-input" placeholder="Search resources...">
+                <button class="search-btn" id="searchBtn">Search</button>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="categories">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="math">Mathematics</button>
+            <button class="category-btn" data-category="science">Science</button>
+            <button class="category-btn" data-category="english">English</button>
+            <button class="category-btn" data-category="history">History</button>
+            <button class="category-btn" data-category="test-prep">Test Prep</button>
+        </div>
+
+        <!-- Section Title -->
+        <div class="section-title">
+            <h2>Downloadable Resources</h2>
+        </div>
+
+        <!-- Resources Grid -->
+        <div class="resources-grid" id="resourcesGrid">
+            <!-- AP Calculus Formula Sheet (NEW) -->
+            <div class="resource-card" data-category="math">
+                <div class="resource-img" style="background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Epic%20AP%20Calculus%20Formul%20Sheet%20AB%20Derivatives%20Limits%20Integrals-1-ylORrqhs1oEyoE3nbYCxjp78XPqdZ5.png');"></div>
+                <div class="resource-content">
+                    <h3>AP Calculus Formula Sheet</h3>
+                    <p>Comprehensive reference sheet covering limits, derivatives, integrals, and key calculus theorems. Perfect for AP Calculus AB/BC students.</p>
+                    <div class="button-container">
+                        <a href="https://apcentral.collegeboard.org/media/pdf/ap-calculus-ab-and-bc-course-and-exam-description.pdf" target="_blank" class="download-btn">Download PDF</a>
+                    </div>
+                    <div class="resource-meta">
+                        <span>PDF • 3.5 MB</span>
+                        <span class="resource-credit">Credit: MathGotServed.com</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Resource 1
+            <div class="resource-card" data-category="math">
+                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="resource-content">
+                    <h3>Algebra Fundamentals Workbook</h3>
+                    <p>A comprehensive workbook covering all essential algebra concepts for high school students.</p>
+                    <div class="button-container">
+                        <a href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:foundation-algebra/x2f8bb11595b61c86:intro-variables/e/writing-expressions-with-variables-2" target="_blank" class="download-btn">Access Resource</a>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Online Resource</span>
+                        <span class="resource-credit">Credit: Khan Academy</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="resource-card" data-category="science">
+                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="resource-content">
+                    <h3>Chemistry Formula Sheet</h3>
+                    <p>A handy reference sheet with all important chemistry formulas and equations for quick revision.</p>
+                    <div class="button-container">
+                        <a href="https://www.ck12.org/book/ck-12-chemistry-concepts-intermediate/section/24.0/" target="_blank" class="download-btn">Access Resource</a>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Online Resource</span>
+                        <span class="resource-credit">Credit: CK-12 Foundation</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="resource-card" data-category="english">
+                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="resource-content">
+                    <h3>Essay Writing Guide</h3>
+                    <p>Learn how to structure and write compelling essays with this comprehensive guide for students.</p>
+                    <div class="button-container">
+                        <a href="https://owl.purdue.edu/owl/general_writing/academic_writing/essay_writing/index.html" target="_blank" class="download-btn">Access Resource</a>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Online Resource</span>
+                        <span class="resource-credit">Credit: Purdue OWL</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="resource-card" data-category="history">
+                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1447069387593-a5de0862481e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="resource-content">
+                    <h3>U.S. History Timeline</h3>
+                    <p>A detailed timeline of major events in U.S. history from the colonial period to the present day.</p>
+                    <div class="button-container">
+                        <a href="https://www.archives.gov/files/historical-docs/doc-content/images/timeline-of-us-history.pdf" target="_blank" class="download-btn">Download PDF</a>
+                    </div>
+                    <div class="resource-meta">
+                        <span>PDF • 2.1 MB</span>
+                        <span class="resource-credit">Credit: National Archives</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="resource-card" data-category="test-prep">
+                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="resource-content">
+                    <h3>SAT Practice Test</h3>
+                    <p>Full-length SAT practice test with answer key and detailed explanations for each question.</p>
+                    <div class="button-container">
+                        <a href="https://satsuite.collegeboard.org/media/pdf/sat-practice-test-1.pdf" target="_blank" class="download-btn">Download PDF</a>
+                    </div>
+                    <div class="resource-meta">
+                        <span>PDF • 7.3 MB</span>
+                        <span class="resource-credit">Credit: College Board</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="resource-card" data-category="math">
+                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="resource-content">
+                    <h3>Geometry Cheat Sheet</h3>
+                    <p>Quick reference guide for geometry formulas, theorems, and properties for middle and high school students.</p>
+                    <div class="button-container">
+                        <a href="https://www.mathsisfun.com/geometry/geometry-formulas.html" target="_blank" class="download-btn">Access Resource</a>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Online Resource</span>
+                        <span class="resource-credit">Credit: Math is Fun</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="resource-card" data-category="science">
+                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1581093458791-9d15482aae9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="resource-content">
+                    <h3>Biology Study Guide</h3>
+                    <p>Comprehensive study guide covering key biology concepts for high school and early college students.</p>
+                    <div class="button-container">
+                        <a href="https://openstax.org/details/books/biology-2e" target="_blank" class="download-btn">Access Resource</a>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Online Resource</span>
+                        <span class="resource-credit">Credit: OpenStax</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="resource-card" data-category="test-prep">
+                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="resource-content">
+                    <h3>ACT Practice Test</h3>
+                    <p>Complete ACT practice test with questions, strategies, and tips for success.</p>
+                    <div class="button-container">
+                        <a href="https://www.act.org/content/dam/act/unsecured/documents/Preparing-for-the-ACT.pdf" target="_blank" class="download-btn">Download PDF</a>
+                    </div>
+                    <div class="resource-meta">
+                        <span>PDF • 5.2 MB</span>
+                        <span class="resource-credit">Credit: ACT.org</span>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="resource-card" data-category="english">
+                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="resource-content">
+                    <h3>Grammar and Punctuation Guide</h3>
+                    <p>Comprehensive guide to English grammar rules, punctuation, and common writing mistakes to avoid.</p>
+                    <div class="button-container">
+                        <a href="https://www.grammarly.com/blog/punctuation-guide/" target="_blank" class="download-btn">Access Resource</a>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Online Resource</span>
+                        <span class="resource-credit">Credit: Grammarly</span>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+   <!-- Footer -->
+   <div id="footer-placeholder"></div>
+   <script src="../Footer/Footer.js" defer></script>
+
+
+    <script>
+        // Category filtering
+        const categoryButtons = document.querySelectorAll('.category-btn');
+        const resourceCards = document.querySelectorAll('.resource-card');
+
+        categoryButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                categoryButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const category = button.getAttribute('data-category');
+                
+                // Show all resources if 'all' category is selected
+                if (category === 'all') {
+                    resourceCards.forEach(card => {
+                        card.style.display = 'block';
+                    });
+                } else {
+                    // Filter resources by category
+                    resourceCards.forEach(card => {
+                        if (card.getAttribute('data-category') === category) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+
+        // Search functionality
+        const searchInput = document.getElementById('searchInput');
+        const searchBtn = document.getElementById('searchBtn');
+
+        function performSearch() {
+            const searchTerm = searchInput.value.toLowerCase();
+            
+            resourceCards.forEach(card => {
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const description = card.querySelector('p').textContent.toLowerCase();
+                
+                if (title.includes(searchTerm) || description.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        searchBtn.addEventListener('click', performSearch);
+        searchInput.addEventListener('keyup', (e) => {
+            if (e.key === 'Enter') {
+                performSearch();
+            }
+        });
+
+        // Download button functionality - modified to open links in new tab
+        const downloadButtons = document.querySelectorAll('.download-btn');
+        
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', (e) => {
+                // Let the default link behavior work (opening in new tab)
+                const resourceName = button.closest('.resource-content').querySelector('h3').textContent;
+                console.log(`Resource accessed: ${resourceName}`);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -42,6 +42,7 @@
                 <div class="dropdown">
                     <a href="../MainPages/FAQ.html" data-page="faq">FAQ</a>
                     <a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a>
+                    <a href="../MainPages/Resources.html" data-page="resources">Resources</a>
                 </div>
             </li>
         </ul>
@@ -55,6 +56,7 @@
                     <a href="../MainPages/Contact.html" data-page="contact">Contact</a>
                     <a href="../MainPages/FAQ.html" data-page="faq">FAQ</a>
                     <a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a>
+                    <a href="../MainPages/Resources.html" data-page="resources">Resources</a>
                 </div>
             </li>
         </ul>
@@ -69,6 +71,7 @@
                     <a href="../MainPages/Contact.html" data-page="contact">Contact</a>
                     <a href="../MainPages/FAQ.html" data-page="faq">FAQ</a>
                     <a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a>
+                    <a href="../MainPages/Resources.html" data-page="resources">Resources</a>
                 </div>
             </li>
         </ul>
@@ -88,115 +91,9 @@
             <li><a href="../MainPages/Contact.html" data-page="contact">Contact</a></li>
             <li><a href="../MainPages/FAQ.html" data-page="faq">FAQ</a></li>
             <li><a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a></li>
+            <li><a href="../MainPages/Resources.html" data-page="resources">Resources</a></li>
         </ul>
     </div>
 
     </body>
 </html>
-
-
-<!-- <script>
-document.addEventListener("DOMContentLoaded", function () {
-    const navbarRight = document.querySelector(".navbar-right");
-    const navbarDropdown2 = document.querySelector(".navbar-dropdown2");
-
-    function checkScreenSize() {
-        if (window.innerWidth <= 1305) {
-            navbarRight.style.display = "none"; // Hide navbar-right
-            navbarDropdown2.style.display = "flex"; // Show menu button
-        } else {
-            navbarRight.style.display = "flex"; // Show navbar-right
-            navbarDropdown2.style.display = "none"; // Hide menu button
-        }
-    }
-
-    // Run check on load
-    checkScreenSize();
-
-    // Listen for window resize events
-    window.addEventListener("resize", checkScreenSize);
-});
-document.addEventListener("DOMContentLoaded", function () {
-    console.log('Hello World');
-    const hamburgerMenu = document.querySelector(".hamburger-menu");
-    const mobileMenu = document.querySelector(".mobile-menu");
-
-    if (hamburgerMenu && mobileMenu) {
-        console.log("Hamburger menu and mobile menu found. Adding event listener.");
-
-        hamburgerMenu.addEventListener("click", function () {
-            console.log("Hamburger menu clicked!");
-            mobileMenu.classList.toggle("show"); // Toggle the 'show' class
-        });
-    } else {
-        console.error("Hamburger menu or mobile menu not found.");
-    }
-});
-document.addEventListener("DOMContentLoaded", function () {
-    
-    const navbarLinks = document.querySelectorAll(".navbar a");
-    const dropdownLinks = document.querySelectorAll(".dropdown a, .dropdown2 a, .dropdown3 a, .mobile-menu a");
-    const dropdownMenus = document.querySelectorAll(".dropdown, .dropdown2, .dropdown3, .mobile-menu");
-
-    function highlightCurrentPage() {
-        const path = window.location.pathname.split("/").pop(); // Get current filename
-        const currentPage = path.replace(".html", ""); // Remove .html for matching
-
-        // Reset previous highlights
-        navbarLinks.forEach(link => link.classList.remove("highlighted-link"));
-        dropdownLinks.forEach(link => link.classList.remove("highlighted-link"));
-        dropdownMenus.forEach(dropdown => dropdown.classList.remove("highlighted-dropdown"));
-
-        let activeDropdown = null;
-
-        // Highlight direct navbar links
-        navbarLinks.forEach(link => {
-            if (link.dataset.page === currentPage) {
-                link.classList.add("highlighted-link");
-
-                // Check if inside a dropdown
-                const parentDropdown = link.closest(".dropdown, .dropdown2, .dropdown3, .mobile-menu");
-                if (parentDropdown) {
-                    activeDropdown = parentDropdown;
-                }
-            }
-        });
-
-        // Highlight dropdown links
-        dropdownLinks.forEach(link => {
-            if (link.dataset.page === currentPage) {
-                link.classList.add("highlighted-link");
-
-                // Get dropdown container and trigger link
-                const parentDropdown = link.closest(".dropdown, .dropdown2, .dropdown3, .mobile-menu");
-                if (parentDropdown) {
-                    activeDropdown = parentDropdown;
-                    const parentMenu = parentDropdown.closest("li")?.querySelector("a");
-                    if (parentMenu) parentMenu.classList.add("highlighted-link");
-                }
-            }
-        });
-
-        // Highlight the dropdown itself
-        if (activeDropdown) {
-            activeDropdown.classList.add("highlighted-dropdown");
-        }
-    }
-
-    // Run highlighting on page load
-    highlightCurrentPage();
-
-    // Ensure highlighting updates on resize
-    window.addEventListener("resize", highlightCurrentPage);
-}); -->
-
-
-
-
-
-</script>
-
-
-
-
-
