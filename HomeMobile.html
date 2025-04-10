@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From the Heart Tutoring | Virtual On-Demand Tutoring for All Subjects</title>
+    <meta name="description" content="Get expert tutoring in math, science, English, and more. On-demand, virtual tutoring with experienced tutors. Book a session now!">
+    <meta name="keywords" content="online tutoring, on-demand tutoring, virtual tutor, homework help, live tutoring, private tutoring, SAT tutor, ACT tutor, math tutor online">
+    <meta name="author" content="From the Heart Tutoring">
+    
+    <!-- Critical CSS inlined to eliminate render-blocking CSS -->
+    <style>
+        /* Critical styles only */
+        :root {
+            --primary-color: #ff6f61;
+            --primary-dark: #d9574e;
+            --secondary-color: #4a7c9b;
+            --secondary-dark: #3a6a89;
+            --text-color: #333;
+            --light-text: #666;
+            --background: #fff;
+            --light-background: #f9f9f9;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Font fallback to prevent layout shift */
+        @font-face {
+            font-family: 'Poppins Fallback';
+            src: local('Arial');
+            size-adjust: 105%;
+            ascent-override: 103%;
+            descent-override: 28%;
+            line-gap-override: normal;
+        }
+        
+        body {
+            font-family: 'Poppins', 'Poppins Fallback', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            background-color: var(--background);
+        }
+        
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: center;
+            padding: 5rem 1.5rem;
+            background-color: var(--light-background);
+            margin-top: 60px; /* Add margin to account for fixed navbar */
+        }
+        
+        .hero-content {
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: 100%;
+        }
+        
+        .hero h2 {
+            font-size: 1.8rem;
+            margin: 0 0 1rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .hero p {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--light-text);
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            box-shadow: 0 6px 15px rgba(255, 111, 97, 0.4);
+            text-align: center;
+            min-width: 180px;
+            animation: mobile-pulse 2s infinite;
+        }
+        
+        @keyframes mobile-pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 6px 15px rgba(255, 111, 97, 0.4);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 6px 20px rgba(255, 111, 97, 0.6);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 6px 15px rgba(255, 111, 97, 0.4);
+            }
+        }
+        
+        .discount-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffd700;
+            color: #000000;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 12px;
+            margin-left: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .hero-image {
+            width: 100%;
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .hero-image img {
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        /* Services Section - Included in critical CSS for tall screens */
+        .services {
+            background-color: var(--background);
+            padding: 3rem 1.5rem;
+        }
+
+        .services h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            color: var(--text-color);
+            font-weight: 600;
+        }
+
+        .service-cards {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+        }
+
+        .card {
+            background-color: var(--light-background);
+            padding: 1.5rem;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card:nth-child(2) .icon {
+            color: var(--secondary-color);
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .card p {
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            margin-top: 0;
+        }
+        
+        .view-services-container {
+            text-align: center;
+            padding: 1.5rem 0 0;
+            background-color: var(--background);
+        }
+        
+        .secondary-button {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(74, 124, 155, 0.3);
+            text-align: center;
+            margin-top: 1rem;
+            text-decoration: none;
+        }
+        
+        @media (min-width: 768px) {
+            .hero {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+                padding: 5rem 2rem;
+            }
+            
+            .hero-content {
+                flex: 1;
+                margin-right: 2rem;
+                margin-bottom: 0;
+                text-align: left;
+                width: auto;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                margin-left: 0;
+                margin-right: 0;
+            }
+            
+            .hero-image {
+                flex: 1;
+                text-align: right;
+            }
+            
+            .service-cards {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    </style>
+    
+    <!-- Preconnect to critical domains -->
+    <link rel="preconnect" href="https://d3r7ksou5fmir9.cloudfront.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://i.imgur.com">
+    
+    <!-- Preload critical hero image with high priority -->
+    <link rel="preload" as="image" href="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherMobile.webp" fetchpriority="high">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"></noscript>
+    <link rel="stylesheet" href="../Navbar/Navbar.css">
+    <link rel="stylesheet" href="../Footer/Footer.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="../Footer/Footer.css"></noscript>
+</head>
+<body>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+    <script src="../Navbar/Navbar.js" defer></script>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Virtual Tutoring Made Simple</h2>
+                <p>Expert online tutoring for all ages, available 24/7. From elementary to college level, we cover every subject to help you succeed on your schedule.</p>
+                <a href="/MainPages/Welcome.html" class="cta-button">Schedule Now <span class="discount-badge">50% OFF</span></a>
+            </div>
+            <div class="hero-image">
+                <img 
+                    src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherMobile.webp" 
+                    alt="Young girl studying with her mother" 
+                    width="450" 
+                    height="300" 
+                    fetchpriority="high"
+                    decoding="async"
+                    style="background-color: #f9f9f9;"
+                >
+            </div>
+        </section>
+        
+        <!-- What We Offer section loaded immediately for tall screens -->
+        <section id="services" class="services">
+            <h2>What We Offer</h2>
+            <div class="service-cards">
+                <div class="card">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#ff6f61" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path>
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path>
+                        </svg>
+                    </div>
+                    <h3>K-12 Tutoring</h3>
+                    <p>One-on-one tutoring for elementary, middle, and high school students in all subjects including math, science, English, test prep, and foreign languages.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#4a7c9b" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="9 11 12 14 22 4"></polyline>
+                            <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+                        </svg>
+                    </div>
+                    <h3>Test Preparation</h3>
+                    <p>Focused preparation for SAT, ACT, AP exams, and other standardized tests with practice questions, content review, and test-taking strategies.</p>
+                </div>
+                <div class="card">
+                    <div class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#6b7f3e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>College Tutoring</h3>
+                    <p>Support for university students in all subjects from introductory courses to advanced topics. Help with assignments, exam prep, and understanding complex concepts.</p>
+                </div>
+            </div>
+            <div class="view-services-container">
+                <a href="/MainPages/Services.html" class="secondary-button">View Services We Offer</a>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Non-critical CSS -->
+    <style>
+        /* Font fallback to prevent layout shift */
+        @font-face {
+            font-family: 'Poppins Fallback';
+            src: local('Arial');
+            size-adjust: 105%;
+            ascent-override: 103%;
+            descent-override: 28%;
+            line-gap-override: normal;
+        }
+        
+        /* Base Styles */
+        h1, h2, h3 {
+            font-weight: 600;
+            line-height: 1.3;
+            margin: 0;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            color: var(--light-text);
+            margin-top: 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--border-radius);
+            display: block;
+        }
+
+        section {
+            padding: 3rem 1.5rem;
+        }
+
+        /* About Section */
+        .about {
+            background-color: var(--light-background);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .about-image {
+            width: 100%;
+            max-width: 400px;
+            margin-bottom: 2rem;
+        }
+
+        .benefits li {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+
+        .check {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        /* Testimonials Section */
+        .testimonials {
+            background-color: var(--background);
+            text-align: center;
+        }
+
+        .testimonial-slider {
+            position: relative;
+            max-width: 600px;
+            margin: 0 auto;
+            height: 250px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .testimonial {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            width: 100%;
+            max-width: 500px;
+            padding: 1.5rem;
+            background-color: var(--light-background);
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+            padding-bottom: 2rem;
+            box-sizing: border-box;
+            display: block;
+            text-align: center;
+        }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            z-index: 2;
+            margin: 0;
+        }
+
+        .testimonial.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 1rem;
+            text-align: center;
+            padding: 0;
+            display: block;
+            width: 100%;
+        }
+
+        .author {
+            text-align: center;
+            width: 100%;
+            display: block;
+        }
+
+        .author .name {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 0.2rem;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .author .role {
+            font-size: 0.9rem;
+            margin-bottom: 0;
+            text-align: center;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            background-color: #ddd;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: var(--secondary-color);
+        }
+
+        /* Gold star for testimonials */
+        .gold-star {
+            color: gold;
+            font-size: 1.2em;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        /* Schedule Section */
+        .schedule {
+            background-color: var(--secondary-color);
+            color: white;
+            text-align: center;
+            padding: 3rem 1.5rem;
+        }
+
+        .schedule h2 {
+            color: white;
+        }
+
+        .schedule p {
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+        }
+
+        .schedule .cta-button {
+            background-color: white;
+            color: var(--secondary-color);
+            min-width: 250px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .schedule .cta-button:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Subjects Section */
+        .subjects-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .subjects-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--text-color);
+        }
+
+        .subjects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .subject {
+            text-align: center;
+            width: 120px;
+        }
+
+        .subject img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .subject p {
+            font-size: 1rem;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Sticky CTA */
+        .sticky-cta {
+            position: fixed;
+            bottom: 1.5rem;
+            right: 1.5rem;
+            z-index: 99;
+            display: none;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease;
+        }
+
+        .sticky-cta.visible {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .sticky-cta .cta-button {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            padding: 1rem 1.8rem;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            }
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+            }
+        }
+
+        /* Tutor Image Section */
+        .tutor-image-section {
+            padding: 3rem 1.5rem;
+            background-color: var(--background);
+            text-align: center;
+        }
+
+        .tutor-image-container {
+            width: 100%;
+            max-width: 450px;
+            margin: 0 auto;
+        }
+
+        .tutor-image {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: var(--box-shadow);
+            display: block;
+        }
+
+        /* Use content-visibility for off-screen content */
+        .subjects-section,
+        .testimonials,
+        .tutor-image-section {
+            content-visibility: auto;
+            contain-intrinsic-size: 1px 500px;
+        }
+
+        /* Improved About/Why Choose Us Section */
+        .about {
+            background-color: var(--light-background);
+            position: relative;
+            overflow: hidden;
+            padding: 3rem 1.5rem;
+        }
+
+        .about h2 {
+            text-align: center;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .benefits {
+            width: 100%;
+        }
+
+        .benefits li {
+            display: flex;
+            margin-bottom: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .check {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            border-radius: 50%;
+            margin-right: 1rem;
+            flex-shrink: 0;
+        }
+
+        .benefits h3 {
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .benefits p {
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        /* Responsive improvements for tablet sizes */
+        @media (min-width: 768px) and (max-width: 1055px) {
+            .about {
+                padding: 4rem 2rem;
+            }
+            
+            .benefits {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 2rem;
+            }
+            
+            .benefits li {
+                margin-bottom: 0;
+            }
+            
+            .check {
+                width: 35px;
+                height: 35px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            section {
+                padding: 5rem 2rem;
+            }
+
+            .tutor-image-section {
+                padding: 5rem 2rem;
+            }
+        }
+
+        /* Improved service cards for tablet view */
+        @media (min-width: 600px) and (max-width: 1055px) {
+            .service-cards {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 2rem;
+            }
+            
+            .card {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            .card .icon {
+                margin-bottom: 1.5rem;
+            }
+            
+            .card h3 {
+                margin-bottom: 1rem;
+            }
+            
+            .card p {
+                flex-grow: 1;
+            }
+        }
+
+        /* Footer alignment fix */
+        #footer-placeholder footer {
+            margin-top: 0;
+            border-top: 1px solid #eaeaea;
+        }
+
+        /* Improved sticky CTA for tablets */
+        @media (min-width: 768px) and (max-width: 1055px) {
+            .sticky-cta {
+                bottom: 2rem;
+                right: 2rem;
+            }
+            
+            .sticky-cta .cta-button {
+                padding: 1.2rem 2.2rem;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Ensure navbar elements are visible and properly positioned */
+        #navbar-placeholder {
+            position: relative;
+            z-index: 2000;
+        }
+
+        /* Fix for hamburger menu in mobile view */
+        @media (max-width: 768px) {
+            .logo-container {
+                display: flex;
+                align-items: center;
+                position: relative;
+                top: 0;
+                left: 0;
+                padding: 10px;
+                z-index: 1100;
+                background-color: transparent;
+                width: auto;
+            }
+            
+            .logo-heart-image {
+                height: 30px;
+                width: auto;
+                margin-right: 8px;
+                transform: translateY(0);
+            }
+            
+            .logo-image {
+                height: 35px;
+                width: auto;
+                transform: translateY(0);
+            }
+            
+            /* Ensure hamburger menu is properly positioned */
+            .hamburger-menu {
+                position: absolute;
+                right: 25px; /* Moved slightly to the left from 20px */
+                top: 50%;
+                transform: translateY(-50%);
+                display: flex !important;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+                z-index: 3000;
+            }
+            
+            .hamburger-menu span {
+                width: 30px;
+                height: 3px;
+                background-color: white;
+                border-radius: 3px;
+                transition: transform 0.3s ease, opacity 0.3s ease;
+            }
+            
+            /* Ensure navbar has proper height */
+            .navbar {
+                height: 60px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                padding: 10px 20px;
+                background-color: #0f172a;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 1500;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                overflow: visible;
+            }
+        }
+
+        /* Add specific styles for tablet sizes */
+        @media (min-width: 769px) and (max-width: 1055px) {
+            .hamburger-menu {
+                right: 20px !important;
+            }
+            
+            .navbar {
+                padding: 10px 15px !important;
+            }
+            
+            .logo-container {
+                margin-left: 5px !important;
+                display: flex;
+                align-items: center;
+            }
+            
+            /* Ensure logo and menu are properly spaced */
+            .logo-heart-image {
+                height: 28px;
+                margin-right: 10px;
+                transform: translateY(0px) !important; /* Move the logo text up slightly */
+            }
+            
+            .logo-image {
+                height: 30px;
+                transform: translateY(0px) !important; /* Move the logo text up slightly */
+            }
+        }
+
+        /* Override any conflicting styles */
+        @media (max-width: 405px) {
+            .logo-container {
+                display: flex;
+                align-items: center;
+            }
+            
+            .logo-image {
+                height: 30px;
+                transform: translateY(0) !important;
+            }
+            
+            .logo-heart-image {
+                height: 25px;
+                transform: translateY(0) !important;
+                margin-right: 8px;
+            }
+            
+            .hamburger-menu {
+                right: 25px !important; /* Ensure it's consistent */
+            }
+        }
+
+        /* Fix navbar positioning to match Services page */
+        .navbar {
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+
+        .logo-container {
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+        }
+    </style>
+    
+    <!-- Deferred loading of non-critical content -->
+    <script>
+        // Check screen size and redirect to desktop version if needed
+        function checkScreenSize() {
+            if (window.innerWidth > 1055) {
+                window.location.href = 'HomeDesktop.html';
+            }
+        }
+        
+        // Check on page load
+        checkScreenSize();
+        
+        // Check on window resize
+        window.addEventListener('resize', checkScreenSize);
+        
+        // Function to load non-critical content
+        function loadNonCriticalContent() {
+            const nonCriticalContent = document.createElement('div');
+            nonCriticalContent.innerHTML = `
+                <section class="about">
+    <h2>Why Choose Us</h2>
+    <div class="about-content">
+        <ul class="benefits">
+            <li>
+                <span class="check">✓</span>
+                <div>
+                    <h3>Personalized Approach</h3>
+                    <p>Customized learning plans based on individual needs and goals.</p>
+                </div>
+            </li>
+            <li>
+                <span class="check">✓</span>
+                <div>
+                    <h3>Experienced Tutors</h3>
+                    <p>Highly qualified educators with proven track records of success.</p>
+                </div>
+            </li>
+            <li>
+                <span class="check">✓</span>
+                <div>
+                    <h3>Flexible Scheduling</h3>
+                    <p>In-person and online sessions available at times that work for you.</p>
+                </div>
+            </li>
+            <li>
+                <span class="check">✓</span>
+                <div>
+                    <h3>Proven Results</h3>
+                    <p>Our students consistently improve their grades and test scores.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+                <section class="subjects-section">
+                    <h2>Expert Tutoring in Every Subject</h2>
+                    <div class="subjects-container">
+                        <div class="subject">
+                            <img src="https://i.imgur.com/6Dytwj6.png" width="80" height="80" alt="K-8th Math" loading="lazy">
+                            <p>K-8th Math</p>
+                        </div>
+                        <div class="subject">
+                            <img src="https://i.imgur.com/8Uc14U3.png" width="80" height="80" alt="High School Math" loading="lazy">
+                            <p>High School Math</p>
+                        </div>
+                        <div class="subject">
+                            <img src="https://i.imgur.com/nd8xGtz.png" width="80" height="80" alt="College Math" loading="lazy">
+                            <p>College Math</p>
+                        </div>
+                        <div class="subject">
+                            <img src="https://i.imgur.com/iWB9nOK.png" width="80" height="80" alt="Science" loading="lazy">
+                            <p>Science</p>
+                        </div>
+                        <div class="subject">
+                            <img src="https://i.imgur.com/nKixzmW.png" width="80" height="80" alt="English" loading="lazy">
+                            <p>English</p>
+                        </div>
+                        <div class="subject">
+                            <img src="https://i.imgur.com/3Yvz086.png" width="80" height="80" alt="SAT Prep" loading="lazy">
+                            <p>SAT® Prep</p>
+                        </div>
+                        <div class="subject">
+                            <img src="https://i.imgur.com/EXV9vp2.png" width="80" height="80" alt="AP Exams" loading="lazy">
+                            <p>AP Exams</p>
+                        </div>
+                        <div class="subject">
+                            <img src="https://i.imgur.com/tY1r7GT.png" width="80" height="80" alt="Computer Science" loading="lazy">
+                            <p>Computer Science</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="tutor-image-section">
+                    <div class="tutor-image-container">
+                        <img src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/CollageManFlannelMobile.webp" alt="Tutor helping student" class="tutor-image" width="450" height="300" loading="lazy">
+                    </div>
+                </section>
+
+                <section class="testimonials">
+                    <h2>What Our Students Say</h2>
+                    <div class="testimonial-slider">
+                        <div class="testimonial active">
+                            <p>"My daughter's confidence in math has skyrocketed. She got straight A's and has a 97 in math. Best decision ever!"</p>
+                            <div class="author">
+                                <p class="name">Kelly C. <span class="gold-star">⭐⭐⭐⭐⭐</span></p>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p>"Thank you!!! We finished homework this weekend with ZERO fights or breakdowns!!! You are great at breaking it down for my son to understand it."</p>
+                            <div class="author">
+                                <p class="name">Maerie A. <span class="gold-star">⭐⭐⭐⭐⭐</span></p>
+                            </div>
+                        </div>
+                        <div class="testimonial">
+                            <p>"My son likes Sam. He wasn't excited that I signed him up for Math in the Summer. However, they bonded over an Xbox video game so that opened his mind a bit. He said Sam explains things better than his 6th grade teacher ever did."</p>
+                            <div class="author">
+                                <p class="name">K.Fulkes <span class="gold-star">⭐⭐⭐⭐⭐</span></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-dots">
+                        <span class="dot active" data-index="0"></span>
+                        <span class="dot" data-index="1"></span>
+                        <span class="dot" data-index="2"></span>
+                    </div>
+                </section>
+
+                <section id="schedule" class="schedule">
+                    <div class="schedule-content">
+                        <h2>Ready to Excel?</h2>
+                        <p>Take the first step toward academic success today.</p>
+                        <a href="/MainPages/Welcome.html" class="cta-button" id="bottomCta">Schedule Your First Session <span class="discount-badge">50% OFF</span></a>
+                    </div>
+                </section>
+                
+                <div class="sticky-cta" id="stickyCta">
+                    <a href="/MainPages/Welcome.html" class="cta-button">Schedule Now <span class="discount-badge">50% OFF</span></a>
+                </div>
+            `;
+            
+            document.querySelector('main').appendChild(nonCriticalContent);
+            
+            // Initialize testimonial slider and other interactive elements
+            initInteractiveElements();
+        }
+        
+        // Function to initialize interactive elements
+        function initInteractiveElements() {
+            // Store references to intervals and event listeners for proper cleanup
+            let testimonialInterval;
+            let scrollListener;
+            let resizeListener;
+            
+            // Testimonial slider
+            const testimonials = document.querySelectorAll('.testimonial');
+            const dots = document.querySelectorAll('.dot');
+            let currentTestimonial = 0;
+            
+            function showTestimonial(index) {
+                testimonials.forEach(testimonial => {
+                    testimonial.classList.remove('active');
+                });
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                testimonials[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentTestimonial = index;
+            }
+            
+            function nextTestimonial() {
+                currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+                showTestimonial(currentTestimonial);
+            }
+            
+            // Initialize testimonial slider
+            testimonialInterval = setInterval(nextTestimonial, 5000);
+            
+            // Add click event to dots
+            dots.forEach(dot => {
+                dot.addEventListener('click', function() {
+                    clearInterval(testimonialInterval);
+                    showTestimonial(parseInt(this.getAttribute('data-index')));
+                    testimonialInterval = setInterval(nextTestimonial, 5000);
+                });
+            });
+            
+            // Pause slider on hover
+            const testimonialSlider = document.querySelector('.testimonial-slider');
+            if (testimonialSlider) {
+                testimonialSlider.addEventListener('mouseenter', function() {
+                    clearInterval(testimonialInterval);
+                });
+                
+                testimonialSlider.addEventListener('mouseleave', function() {
+                    testimonialInterval = setInterval(nextTestimonial, 5000);
+                });
+            }
+            
+            // Scroll animation for sections
+            const sections = document.querySelectorAll('section:not(.hero):not(#services)');
+            
+            function checkSections() {
+                const triggerBottom = window.innerHeight * 0.8;
+                
+                sections.forEach(section => {
+                    const sectionTop = section.getBoundingClientRect().top;
+                    
+                    if (sectionTop < triggerBottom) {
+                        section.style.opacity = '1';
+                        section.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Set initial styles for animation
+            sections.forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Check sections on load
+            checkSections();
+            
+            // Check sections on scroll
+            scrollListener = checkSections;
+            window.addEventListener('scroll', scrollListener);
+            
+            // Show/hide sticky CTA based on scroll position and bottom CTA visibility
+            const stickyCta = document.getElementById('stickyCta');
+            const bottomCta = document.getElementById('bottomCta');
+            
+            function isElementInViewport(el) {
+                if (!el) return false;
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.left >= 0 &&
+                    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                    rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                );
+            }
+            
+            function checkStickyCta() {
+                // Only show sticky CTA if we've scrolled down AND bottom CTA is not visible
+                if (window.scrollY > 300 && !isElementInViewport(bottomCta)) {
+                    stickyCta.classList.add('visible');
+                } else {
+                    stickyCta.classList.remove('visible');
+                }
+            }
+            
+            // Check on scroll and resize
+            window.addEventListener('scroll', checkStickyCta);
+            resizeListener = checkStickyCta;
+            window.addEventListener('resize', resizeListener);
+            
+            // Initial check
+            checkStickyCta();
+        }
+        
+        // Load non-critical content after the page has loaded
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', function() {
+                // Use requestIdleCallback to load non-critical content when the browser is idle
+                if ('requestIdleCallback' in window) {
+                    requestIdleCallback(loadNonCriticalContent);
+                } else {
+                    // Fallback for browsers that don't support requestIdleCallback
+                    setTimeout(loadNonCriticalContent, 200);
+                }
+            });
+        } else {
+            // Use requestIdleCallback to load non-critical content when the browser is idle
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadNonCriticalContent);
+            } else {
+                // Fallback for browsers that don't support requestIdleCallback
+                setTimeout(loadNonCriticalContent, 200);
+            }
+        }
+    </script>
+    
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="../Footer/Footer.js" defer></script>
+    
+    <!-- Tracking and Analytics Scripts - Loaded Deferred -->
+    <script>
+        // Function to load non-critical scripts
+        function loadDeferredScripts() {
+            // Create a promise to track when all scripts are loaded
+            const loadPromises = [];
+            
+            // Helper function to create and load a script
+            function createScript(src, delay = 0, async = true) {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        const script = document.createElement('script');
+                        script.src = src;
+                        script.async = async;
+                        script.onload = resolve;
+                        document.body.appendChild(script);
+                    }, delay);
+                });
+            }
+            
+            // Check connection quality before loading non-essential scripts
+            if (navigator.connection && (navigator.connection.saveData || 
+                (navigator.connection.effectiveType && navigator.connection.effectiveType.includes('2g')))) {
+                // Skip or delay further for users on data-saving mode or slow connections
+                console.log("Data saver mode detected, delaying non-essential scripts");
+                setTimeout(() => {
+                    loadPromises.push(createScript('https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S', 5000, true));
+                }, 5000);
+            } else {
+                // Normal loading for other users - but with increased delays
+                loadPromises.push(createScript('https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S', 5000, true));
+                loadPromises.push(createScript('/Javascript/analytics.js', 5500, true));
+                loadPromises.push(createScript('/Javascript/metaPixel.js', 6000, true));
+                loadPromises.push(createScript('/Javascript/tiktokPixel.js', 6500, true));
+                
+                // Load Metricool after a delay
+                setTimeout(() => {
+                    function loadScript(a) {
+                        var b = document.getElementsByTagName("head")[0],
+                            c = document.createElement("script");
+                        c.type = "text/javascript", 
+                        c.src = "https://tracker.metricool.com/resources/be.js", 
+                        c.async = true,
+                        c.onreadystatechange = a, 
+                        c.onload = a, 
+                        b.appendChild(c)
+                    }
+                    loadScript(function() {
+                        beTracker.t({
+                            hash: "d815cbba45950ea301730faef0513abe"
+                        })
+                    });
+                }, 7000);
+            }
+            
+            return Promise.all(loadPromises);
+        }
+        
+        // Load scripts when the page is idle or after a timeout
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => loadDeferredScripts(), { timeout: 5000 });
+        } else {
+            // Fallback for browsers that don't support requestIdleCallback
+            setTimeout(loadDeferredScripts, 5000);
+        }
+    </script>
+</body>
+</html>

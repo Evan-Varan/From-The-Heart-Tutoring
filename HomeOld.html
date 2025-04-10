@@ -1,0 +1,1667 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From the Heart Tutoring | Virtual On-Demand Tutoring for All Subjects</title>
+    <meta name="description" content="Get expert tutoring in math, science, English, and more. On-demand, virtual tutoring with experienced tutors. Book a session now!">
+    <meta name="keywords" content="online tutoring, on-demand tutoring, virtual tutor, homework help, live tutoring, private tutoring, SAT tutor, ACT tutor, math tutor online">
+    <meta name="author" content="From the Heart Tutoring">
+    
+    <!-- Critical preloads for LCP image -->
+    <link rel="preload" as="image" 
+          href="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp?width=480&quality=60" 
+          fetchpriority="high">
+    
+    <!-- Preconnect to critical domains -->
+    <link rel="preconnect" href="https://d3r7ksou5fmir9.cloudfront.net" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com">
+    <link rel="preconnect" href="https://i.imgur.com">
+    
+    <!-- Load fonts asynchronously -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"></noscript>
+    
+    <!-- Critical CSS inline -->
+    <style>
+        /* Critical CSS for above-the-fold content */
+        :root {
+            --primary-color: #ff6f61;
+            --primary-dark: #d9574e;
+            --text-dark: #1e293b;
+            --text-light: #f0f0f0;
+            --bg-light: #f5f5f5;
+            --bg-dark: #334155;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+            text-rendering: optimizeSpeed;
+        }
+
+        /* Hero Section (Parent Container) */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.32);
+            z-index: 1;
+        }
+
+        .modern-hero {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            color: var(--text-light);
+            content-visibility: auto;
+            contain-intrinsic-size: 100vh;
+        }
+
+        /* Image Fader (Image Container) */
+        .image-fader {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: block;
+            overflow: hidden;
+            min-height: 320px;
+        }
+
+        /* Individual Images */
+        .fade-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center center;
+            transition: opacity 1s ease-in-out;
+            will-change: opacity;
+            content-visibility: auto;
+        }
+        
+        /* Only style the LCP image initially */
+        .fade-image.image-5 {
+            content-visibility: auto;
+            contain: layout paint;
+            will-change: opacity;
+        }
+        
+        /* Image positioning */
+        .image-1 {
+            object-position: 0% 50%;
+            width: 105%;
+        }
+        .image-2 {
+            object-position: 0% 10%;
+            width: 110%;
+        }
+        .image-3 {
+            object-position: 0% 30%;
+            width: 120%;
+        }
+        .image-4 {
+            object-position: 10% 0%;
+            width: 112%;
+        }
+        .image-5 {
+            object-position: 10% 14%;
+            width: 112%;
+        }
+        .image-6 {
+            object-position: 10% 9%;
+            width: 120%;
+        }
+
+        /* Small Screen Image Adjustments */
+        @media (max-width: 1055px) {
+            .image-1 { object-position: 0% 0%; width: 100%; }
+            .image-2 { object-position: 0% 20%; width: 100%; }
+            .image-3 { object-position: 0% 50%; width: 100%; }
+            .image-4 { object-position: 0% 60%; width: 100%; }
+            .image-5 { object-position: 0% 50%; width: 100%; }
+            .image-6 { object-position: 0% 50%; width: 100%; }
+        }
+        
+        /* Hide inactive images */
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Hero Content */
+        .modern-hero-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            padding: 20px;
+            max-width: 800px;
+            border-radius: 10px;
+            z-index: 2;
+            will-change: transform;
+        }
+
+        .modern-hero-content h1, .modern-hero-content p {
+            text-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+        }
+
+        .modern-hero-content h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .modern-hero-content p {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            color: var(--text-light);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Buttons */
+        .modern-hero-buttons {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .cta-main,
+        .cta-secondary {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: bold;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+            width: 100%;
+            max-width: 250px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-main {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .cta-main:hover {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+
+        .cta-secondary {
+            background-color: transparent;
+            border: 2px solid #ffffff;
+            color: #ffffff;
+        }
+
+        .cta-secondary:hover {
+            background-color: #ffffff;
+            color: var(--text-dark);
+            transform: scale(1.05);
+        }
+
+        .discount-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #ffd700;
+            color: #000000;
+            font-size: 0.85rem;
+            font-weight: bold;
+            padding: 4px 8px;
+            border-radius: 12px;
+            margin-left: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Media query for screens wider than 640px */
+        @media (min-width: 640px) {
+            .modern-hero-buttons {
+                flex-direction: row;
+            }
+
+            .cta-main,
+            .cta-secondary {
+                width: auto;
+            }
+        }
+
+        /* Scroll Progress Indicator (Mobile Only) */
+        .scroll-progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background-color: rgba(255, 255, 255, 0.2);
+            z-index: 1001;
+            display: none;
+        }
+
+        .scroll-progress-bar {
+            height: 100%;
+            background-color: var(--primary-color);
+            width: 0%;
+            transition: width 0.2s;
+            will-change: width;
+        }
+
+        @media (max-width: 768px) {
+            .scroll-progress-container {
+                display: block;
+            }
+        }
+
+        /* Disable animations initially */
+        .pulse-animation {
+            animation: none !important;
+        }
+        
+        /* Mobile-specific styles */
+        @media (max-width: 1055px) {
+            .modern-hero-content {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                text-align: center;
+                background: rgba(0, 0, 0, 0.5);
+                color: #ffffff;
+                padding: clamp(15px, 3vw, 25px);
+                border-radius: 10px;
+                width: clamp(280px, 90%, 500px);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .modern-hero-content h1 {
+                font-size: clamp(1.8rem, 4vw, 2rem);
+                line-height: 1.3;
+                margin-bottom: clamp(10px, 2vw, 15px);
+            }
+
+            .modern-hero-content p {
+                font-size: clamp(0.9rem, 2vw, 1.1rem);
+                line-height: 1.5;
+                margin-bottom: clamp(15px, 3vw, 20px);
+            }
+
+            .modern-hero-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: clamp(10px, 2vw, 15px);
+                width: 100%;
+            }
+
+            .cta-main, .cta-secondary {
+                width: 100%;
+                max-width: 280px;
+                padding: clamp(12px, 2vw, 16px) clamp(15px, 3vw, 20px);
+                font-size: clamp(0.9rem, 1.5vw, 1.1rem);
+                text-align: center;
+                border-radius: 8px;
+                transition: all 0.3s ease-in-out;
+            }
+            
+            /* Button Styling Adjustments */
+            .cta-main {
+                background: var(--primary-color);
+                color: #ffffff;
+                border: none;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            }
+
+            .cta-secondary {
+                background: transparent;
+                color: white;
+                border: 2px solid white;
+            }
+            
+            /* Discount Badge Adjustments */
+            .discount-badge {
+                font-size: clamp(0.7rem, 1vw, 0.85rem);
+                padding: clamp(3px, 1vw, 4px) clamp(6px, 1vw, 8px);
+            }
+        }
+    </style>
+    
+    <!-- Load critical CSS asynchronously -->
+    <link rel="preload" href="Navbar/Navbar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="Navbar/Navbar.css"></noscript>
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="Footer/Footer.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="Footer/Footer.css"></noscript>
+    
+    <!-- Remaining styles loaded asynchronously -->
+    <style media="print" onload="this.media='all'">
+        /* Semi-Transparent Bar at Bottom of Hero Section */
+        .hero-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 3;
+            pointer-events: auto;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Adjust Hero Section to Prevent White Part Extending Up */
+        .modern-hero {
+            position: relative;
+            overflow: hidden;
+            padding-bottom: 60px;
+        }
+
+        /* Overlapping Why Choose Us Section */
+        .why-choose-us {
+            position: relative;
+            margin-top: -30px;
+            background: white;
+            padding: 60px 20px;
+            border-radius: 15px;
+            z-index: 4;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            will-change: transform;
+        }
+
+        .why-choose-us h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        /* Ensure Stats are Centered */
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        /* Stats Section */
+        .stats-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .stats-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .stat {
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 200px;
+            text-align: center;
+        }
+
+        .stat h3 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin: 0;
+        }
+
+        .stat p {
+            font-size: 1rem;
+            color: #333;
+            margin: 10px 0 0;
+        }
+
+        /* Subjects Section */
+        .subjects-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .subjects-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 30px;
+            color: var(--text-dark);
+        }
+
+        .subjects-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .subject {
+            text-align: center;
+            width: 120px;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .subject img {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            object-fit: cover;
+            object-position: center;
+            display: block;
+        }
+
+        .subject p {
+            font-size: 1rem;
+            margin: 0;
+            color: #333;
+        }
+
+        .subjects-footer {
+            margin-top: 30px;
+        }
+
+        .subjects-footer a {
+            display: inline-block;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 5px;
+            font-size: 1.2rem;
+            transition: color 0.3s;
+        }
+
+        .subjects-footer a:hover {
+            text-decoration: underline;
+            color: var(--primary-dark);
+        }
+
+        /* Testimonials Section */
+        .testimonials-section {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: var(--text-dark);
+            color: white;
+        }
+
+        .testimonials-section h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .testimonials-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            justify-items: center;
+            padding: 0 20px;
+        }
+
+        .testimonial {
+            background-color: var(--bg-dark);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 300px;
+            text-align: left;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+
+        .testimonial p {
+            margin: 10px 0;
+        }
+
+        .testimonial strong, .testimonial-horizontal strong {
+            margin-top: bottom;
+            font-size: 1.1rem;
+            display: block;
+            font-style: italic;
+        }
+        
+        .testimonial, .testimonial-horizontal {
+            background-color: var(--bg-dark);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            color: white;
+            max-width: 300px;
+            text-align: center;
+            justify-content: space-between;
+            margin: 20px auto;
+        }
+
+        .testimonial-summary {
+            font-style: italic;
+            font-size: 1rem;
+            color: var(--primary-dark);
+            margin-top: 10px;
+        }
+        
+        .testimonial-horizontal {
+            max-width: 90%;
+            margin-top: 30px;
+            will-change: transform;
+            transform: translateZ(0);
+        }
+        
+        .testimonial-horizontal .testimonial-summary {
+            font-size: 1.2rem;
+            margin-top: 20px;
+        }
+        
+        .gold-star {
+            color: gold;
+            font-size: 1.2em;
+            margin-left: 5px;
+            vertical-align: middle;
+        }
+
+        /* Height-based adjustments for very small screens */
+        @media (max-height: 600px) and (max-width: 1055px) {
+            .modern-hero-content {
+                padding: 10px 15px;
+            }
+            
+            .modern-hero-content h1 {
+                margin-bottom: 8px;
+                font-size: 1.6rem;
+            }
+            
+            .modern-hero-content p {
+                margin-bottom: 12px;
+                font-size: 0.9rem;
+            }
+            
+            .modern-hero-buttons {
+                gap: 8px;
+            }
+            
+            .cta-main, .cta-secondary {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+        }
+        
+        /* NEW MOBILE STYLES - REDESIGNED FOR CLEANER UI */
+        /* Mobile Sticky CTA */
+        .mobile-sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: #ffffff;
+            background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/pixel-heart.png');
+            background-size: 100px;
+            background-repeat: repeat;
+            box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+            padding: 15px 0;
+            z-index: 1000;
+            text-align: center;
+            transform: translateY(100%);
+            transition: transform 0.3s ease-in-out;
+            will-change: transform;
+        }
+
+        .mobile-sticky-cta.visible {
+            transform: translateY(0);
+        }
+
+        .mobile-sticky-cta-inner {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .mobile-sticky-cta-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-color);
+            color: white;
+            font-weight: 600;
+            padding: 14px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 1.1rem;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            width: 85%;
+            max-width: 360px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Mobile Content Sections - Redesigned */
+        .mobile-section {
+            display: none;
+            margin: 20px 15px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            will-change: transform;
+        }
+
+        /* Mobile Quick Stats */
+        .mobile-quick-stats {
+            background-color: white;
+            padding: 20px;
+        }
+
+        .mobile-quick-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .mobile-quick-stat {
+            text-align: center;
+            padding: 12px 8px;
+        }
+
+        .mobile-quick-stat h4 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin: 0 0 5px 0;
+            font-weight: 600;
+        }
+
+        .mobile-quick-stat p {
+            font-size: 0.9rem;
+            margin: 0;
+            color: #4b5563;
+        }
+
+        /* Mobile Testimonial Highlight */
+        .mobile-testimonial-highlight {
+            background-color: var(--text-dark);
+            color: white;
+            padding: 25px 20px;
+            text-align: center;
+        }
+
+        .mobile-testimonial-highlight p {
+            font-size: 1rem;
+            line-height: 1.6;
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+
+        .mobile-testimonial-highlight .author {
+            font-weight: 600;
+            display: block;
+            margin-top: 15px;
+        }
+
+        /* Mobile Subject Highlights */
+        .mobile-subject-highlights {
+            background-color: white;
+            padding: 25px 15px;
+        }
+
+        .mobile-subject-highlights h3 {
+            font-size: 1.3rem;
+            text-align: center;
+            margin: 0 0 20px 0;
+            color: var(--text-dark);
+            font-weight: 600;
+        }
+
+        .mobile-subjects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+        }
+
+        .mobile-subject-item {
+            text-align: center;
+        }
+
+        .mobile-subject-item img {
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .mobile-subject-item p {
+            font-size: 0.85rem;
+            margin: 0;
+            color: #4b5563;
+        }
+
+        /* Mobile-specific media queries */
+        @media (max-width: 768px) {
+            /* Show mobile components */
+            .mobile-section {
+                display: block;
+            }
+            
+            /* Adjust hero section height */
+            .modern-hero {
+                height: 80vh;
+            }
+            
+            /* Adjust spacing for mobile layout */
+            .why-choose-us {
+                padding: 30px 15px;
+                margin-bottom: 0;
+                margin-top: -15px;
+            }
+            
+            /* Hide the hero bar on mobile */
+            .hero-bar {
+                display: none;
+            }
+            
+            /* Add padding to the bottom to account for sticky CTA */
+            body {
+                padding-bottom: 75px;
+            }
+        }
+
+        /* Update this to change when the mobile CTA appears */
+        @media (max-width: 430px) {
+            /* Show mobile CTA only on very small screens */
+            .mobile-sticky-cta.visible {
+                display: block;
+            }
+        }
+
+        /* Extra small screens (≤ 400px) */
+        @media (max-width: 400px) {
+            .mobile-sticky-cta-button {
+                font-size: 1rem;
+                padding: 12px 15px;
+                width: 90%;
+            }
+            
+            .discount-badge {
+                font-size: 0.75rem;
+                padding: 3px 6px;
+            }
+            
+            .mobile-quick-stat h4 {
+                font-size: 1.6rem;
+            }
+        }
+
+        /* Very small screens (≤ 360px) */
+        @media (max-width: 360px) {
+            .mobile-sticky-cta-button {
+                width: 92%;
+                font-size: 0.9rem;
+                padding: 12px 10px;
+            }
+            
+            .discount-badge {
+                font-size: 0.7rem;
+                padding: 2px 5px;
+                margin-left: 6px;
+            }
+            
+            .mobile-subjects-grid {
+                gap: 10px;
+            }
+        }
+
+        /* Heart animation styling */
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-image: url('https://i.imgur.com/uTVjByi.png');
+            background-size: contain;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0) scale(0.8);
+                opacity: 0.8;
+            }
+            50% {
+                transform: translateY(-40px) scale(1.2);
+                opacity: 0.9;
+            }
+            100% {
+                transform: translateY(-80px) scale(0.8);
+                opacity: 0;
+            }
+        }
+        
+        @media (prefers-reduced-motion: reduce) {
+            .heart {
+                animation: none !important;
+            }
+        }
+        
+        /* Animation for CTA button */
+        @keyframes contained-pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            }
+            50% {
+                transform: scale(1.03);
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+            100% {
+                transform: scale(1);
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            }
+        }
+        
+        /* Optimize for reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            .pulse-animation {
+                animation: none !important;
+            }
+            
+            .fade-image {
+                transition: opacity 0.5s ease-in-out !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Scroll Progress Indicator (Mobile Only) -->
+    <div class="scroll-progress-container">
+        <div class="scroll-progress-bar" id="scrollProgressBar"></div>
+    </div>
+
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- Hero Section with Optimized Images -->
+    <section class="modern-hero">
+        <div class="hero-overlay"></div>
+        <div class="carousel-images">
+            <div class="image-fader">
+                <!-- Highly optimized first image for LCP -->
+                <picture>
+                    <source 
+                        srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp?width=480&quality=60" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                        fetchpriority="high"
+                    >
+                    <source 
+                        srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BGirlRedHairLaptop.webp?width=768&quality=60"                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/CollageManFlannel.webp?width=1200&quality=60" 
+                        media="(min-width: 1056px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp?width=480&quality=60" 
+                        class="fade-image image-5" 
+                        alt="Student with laptop" 
+                        width="480" 
+                        height="320" 
+                        fetchpriority="high"
+                        loading="eager"
+                        decoding="async"
+                        importance="high"
+                        style="content-visibility: auto; contain: layout paint;"
+                    >
+                </picture>
+    
+                <!-- Other images with data-srcset instead of srcset to defer loading -->
+                <picture>
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/ManBlueJacketVertical.webp?width=480&quality=75" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/ManBlueJacketVertical.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/TeacherDrinkingCoffee.webp?width=1200&quality=75" 
+                        class="fade-image image-2 hidden" 
+                        alt="Teacher with coffee" 
+                        width="1200" 
+                        height="800" 
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </picture>
+               
+                <picture>
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphone800x600.webp?width=480&quality=75" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/BoyWithHeadphone800x600.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMother.webp?width=1200&quality=75" 
+                        class="fade-image image-3 hidden" 
+                        alt="Girl with mother" 
+                        width="1200" 
+                        height="800" 
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </picture>
+               
+                <picture>
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlCurlyHairBlueShirt.webp?width=480&quality=75" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlCurlyHairBlueShirt.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlOrangeShirt.webp?width=1200&quality=75" 
+                        class="fade-image image-4 hidden" 
+                        alt="Girl in orange shirt" 
+                        width="1200" 
+                        height="800" 
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </picture>
+                
+                <picture>
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/TeenageBoyLaptop.webp?width=480&quality=75" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/TeenageBoyLaptop.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungBoyLaptopPlant.webp?width=1200&quality=75" 
+                        class="fade-image image-1 hidden" 
+                        alt="Young boy laptop plant" 
+                        width="1200" 
+                        height="800" 
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </picture>
+                
+                <picture>
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp?width=480&quality=75" 
+                        media="(max-width: 640px)" 
+                        type="image/webp"
+                    >
+                    <source 
+                        data-srcset="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlRedHairLaptop.webp?width=768&quality=75" 
+                        media="(max-width: 1055px)" 
+                        type="image/webp"
+                    >
+                    <img 
+                        data-src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/TeenageGirlOrangeShirt.webp?width=1200&quality=75" 
+                        class="fade-image image-6 hidden" 
+                        alt="Teenage girl" 
+                        width="1200" 
+                        height="800" 
+                        loading="lazy"
+                        decoding="async"
+                    >
+                </picture> 
+            </div>
+        </div>
+        <div class="modern-hero-content">
+            <h1>Achieve More with Virtual Tutoring</h1>
+            <p>Transform your learning journey with expert guidance tailored to your goals. Empower your success today.</p>
+            <div class="modern-hero-buttons">
+                <a href="MainPages/Welcome.html" class="cta-main" id="schedule-button">Schedule Now <span class="discount-badge">50% OFF</span></a>
+                <a href="MainPages/Services.html" class="cta-secondary">View Services</a>
+            </div>
+        </div>
+        <!-- Semi-Transparent Bar -->
+        <div class="hero-bar"></div>
+    </section>
+    
+    <!-- Mobile Quick Stats (Mobile Only) -->
+    <div class="mobile-quick-stats mobile-section">
+        <div class="mobile-quick-stats-grid">
+            <div class="mobile-quick-stat">
+                <h4>250+</h4>
+                <p>Students Helped</p>
+            </div>
+            <div class="mobile-quick-stat">
+                <h4>99%</h4>
+                <p>Success Rate</p>
+            </div>
+            <div class="mobile-quick-stat">
+                <h4>50+</h4>
+                <p>Subjects</p>
+            </div>
+            <div class="mobile-quick-stat">
+                <h4>10+ yrs</h4>
+                <p>Experience</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Mobile Testimonial Highlight (Mobile Only) -->
+    <div class="mobile-testimonial-highlight mobile-section">
+        <p>"My daughter's confidence in math has skyrocketed. She got straight A's and has a 97 in math. Best decision ever!"</p>
+        <span class="author">- Kelly C. <span class="gold-star">⭐⭐⭐⭐⭐</span></span>
+    </div>
+    
+    <!-- Mobile Subject Highlights (Mobile Only) -->
+    <div class="mobile-subject-highlights mobile-section">
+        <h3>Popular Subjects</h3>
+        <div class="mobile-subjects-grid">
+            <div class="mobile-subject-item">
+                <img src="https://i.imgur.com/6Dytwj6.png" width="50" height="50" alt="K-8th Math" loading="lazy">
+                <p>K-8 Math</p>
+            </div>
+            <div class="mobile-subject-item">
+                <img src="https://i.imgur.com/8Uc14U3.png" width="50" height="50" alt="High School Math" loading="lazy">
+                <p>HS Math</p>
+            </div>
+            <div class="mobile-subject-item">
+                <img src="https://i.imgur.com/nd8xGtz.png" width="50" height="50" alt="College Math" loading="lazy">
+                <p>College Math</p>
+            </div>
+            <div class="mobile-subject-item">
+                <img src="https://i.imgur.com/iWB9nOK.png" width="50" height="50" alt="Science" loading="lazy">
+                <p>Science</p>
+            </div>
+            <div class="mobile-subject-item">
+                <img src="https://i.imgur.com/nKixzmW.png" width="50" height="50" alt="English" loading="lazy">
+                <p>English</p>
+            </div>
+            <div class="mobile-subject-item">
+                <img src="https://i.imgur.com/3Yvz086.png" width="50" height="50" alt="SAT Prep" loading="lazy">
+                <p>SAT® Prep</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 15px;">
+            <a href="MainPages/Services.html" style="color: #ff6f61; text-decoration: none; font-weight: 600;">See All Subjects →</a>
+        </div>
+    </div>
+    
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us">
+        <h2>Why Choose Us?</h2>
+        <div class="stats-container">
+            <div class="stat">
+                <h3>250+</h3>
+                <p>Students Helped</p>
+            </div>
+            <div class="stat">
+                <h3>99%</h3>
+                <p>Success Rate</p>
+            </div>
+            <div class="stat">
+                <h3>50+</h3>
+                <p>Subjects Tutored</p>
+            </div>
+            <div class="stat">
+                <h3>10+ yrs</h3>
+                <p>Average Tutor Experience</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <h2>What Our Students Say</h2>
+        <div class="testimonial-horizontal">
+            <p>"My Daughter started 7th grade Excel math this year. Within the first couple of weeks, she had such a bad panic attack over a test I had to pick her up from school. 
+                So I went online and read so many reviews and reached out to friends for recommendations. 
+                Something about From the Heart seemed like it could be a good match so I reached out. 
+                Best decision ever. 
+                Beth guided me through everything. Listened to my story and we did our first session with Evan and we were hooked 
+                He was so amazing with my daughter. Knew all of the math. Helped her to figure out what her math teacher wanted at times and was patient and so KIND! Madison took to him so well. 
+                Her confidence in math has skyrocketed. She got straight A's and has a 97 in math. 
+                And the cherry 📷 on top she took the 8th-grade star test since she is in Excel 7th-grade math and came home saying it was easy! 
+                Can't wait to work with Evan next year and any other years he is willing to assist us. Bravo Evan."</p>
+            <p><strong>- Kelly C.</strong></p><span class="gold-star">⭐⭐⭐⭐⭐</span>
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonial">
+                <p>"Thank you!!!  We finished homework this weekend with ZERO fights or breakdowns!!! You (Beth) are great at breaking it down for my son to understand it."</p>
+                <br><br><br><br>
+                <p><strong>- Maerie A.</strong></p><span class="gold-star">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="testimonial">
+                <p>"My son likes Sam. He wasn't excited that I signed him up for Math in the Summer. However, they bonded over an Xbox video game so that opened his mind a bit.  He said Sam explains things better than his 6th grade teacher ever did."</p>
+                <br><br>
+                <p><strong>- K.Fulkes.</strong></p><span class="gold-star">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="testimonial">
+                <p>"I just wanted to let you know that we loved our new tutor Jason! He is very knowledgeable about dysgraphia and had some great ideas and tips moving forward. He really connected with Jason."</p>
+                <br><br><br>
+                <p><strong>- A.Garcia.</strong></p><span class="gold-star">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="testimonial">
+                <p> "Hi! Just wanted to send you a quick message to let you know that Evan got it out of the park with Leo last night. Leo says Evan is a genius and he felt so much more confident with the material. Thank you so much for making that happen! Cheers!"</p>
+                <br><br>
+                <p><strong>- Diana L.</strong></p><span class="gold-star">⭐⭐⭐⭐⭐</span>
+            </div>
+            <!-- Additional Testimonials -->
+            <div class="testimonial">
+                <p>"BETH!!!!!!!
+                    Gabe's SAT Math score is a 510!!!
+                    Up from 370!!!!
+                    Total score 1100!!!!!!"</p>
+                    <br><br><br><br><br><br>
+                <p><strong>- Melanie Skipper-Relyea.</strong></p><span class="gold-star">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="testimonial">
+                <p>"Both my kids (7th grade and 9th grade) were tutored in Math last summer by Evan. I really appreciated Beth's flexibility on working with our summer schedule. Both my kids enjoyed their sessions with Evan and said they felt well-prepared when they started the school year"</p>
+                <br>
+                <p><strong>- Michelle W.</strong></p><span class="gold-star">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="testimonial">
+                <p>"Julia has really enjoyed tutoring with Dianne. She's a fantastic tutor. Dianne is attentive and patient and Julia values her time with her. 
+                    We look forward to starting again next school year for geometry. 
+                    I have recommended Dianne and From the Heart tutoring to my friends."</p>
+                    <br>
+                <p><strong>- Ruth G.</strong></p><span class="gold-star">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="testimonial">
+                <p>"Beth is a great teacher helping my son with his 3rd-grade math.  Very patient and explains well.  My son prefers her helping him to me!  On-time and with no issues."</p>
+                <br><br><br><br>
+                <p><strong>- Anonymous.</strong></p><span class="gold-star">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="testimonial">
+                <p>"Beth! This is Ana! I passed my certification exam! 😭🙏🏼🙌 Thanks so much for your help and guidance. You're wonderful!  Have an amazing weekend!"</p>
+                <br><br><br><br>
+                <p><strong>- Ana.</strong></p><span class="gold-star">⭐⭐⭐⭐⭐</span>
+            </div>
+            <div class="testimonial">
+                <p>"I have never seen him excited about a class with anyone else before, so you [Evan] know how to get to him and thanks for that!"</p>
+                <br><br><br><br><br>
+                <p><strong>- Ndeye T.</strong></p><span class="gold-star">⭐⭐⭐⭐⭐</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Subjects Section -->
+    <section class="subjects-section">
+        <h2>Master Subjects, Ace Tests, and Unlock Your Potential!</h2>
+        <div class="subjects-container">
+            <div class="subject">
+                <img src="https://i.imgur.com/6Dytwj6.png" width="80" height="80" alt="K-8th Math" loading="lazy">
+                <p>K-8th Math</p>
+            </div>
+            <div class="subject">
+                <img src="https://i.imgur.com/8Uc14U3.png" width="80" height="80" alt="Languages" loading="lazy">
+                <p>High School Math</p>
+            </div>
+            <div class="subject">
+                <img src="https://i.imgur.com/nd8xGtz.png" width="80" height="80" alt="Algebra 2" loading="lazy">
+                <p>College Math</p>
+            </div>
+            <div class="subject">
+                <img src="https://i.imgur.com/iWB9nOK.png" width="80" height="80" alt="Geometry" loading="lazy">
+                <p>Science</p>
+            </div>
+            <div class="subject">
+                <img src="https://i.imgur.com/nKixzmW.png" width="80" height="80" alt="Physics" loading="lazy">
+                <p>English</p>
+            </div>
+            <div class="subject">
+                <img src="https://i.imgur.com/3Fb83GI.png" width="80" height="80" alt="Pre-Calculus" loading="lazy">
+                <p>Spanish</p>
+            </div>
+            <div class="subject">
+                <img src="https://i.imgur.com/3Yvz086.png" width="80" height="80" alt="Calculus" loading="lazy">
+                <p>SAT® Prep</p>
+            </div>
+            <div class="subject">
+                <img src="https://i.imgur.com/EXV9vp2.png" width="80" height="80" alt="AP Exams" loading="lazy">
+                <p>AP Exams</p>
+            </div>
+            <div class="subject">
+                <img src="https://i.imgur.com/tY1r7GT.png" width="80" height="80" alt="Computer Science" loading="lazy">
+                <p>Computer Science</p>
+            </div>
+            <div class="subject">
+                <img src="https://i.imgur.com/cYz1WDI.png" width="80" height="80" alt="And Many More" loading="lazy">
+                <p>Any Many More!</p>
+            </div>
+        </div>
+        <div class="subjects-footer">
+            <a href="MainPages/Services.html">See All Subjects &rarr;</a>
+        </div>
+    </section>
+
+    <!-- Mobile Sticky CTA (Mobile Only) -->
+    <div class="mobile-sticky-cta" id="mobileCta">
+        <div class="mobile-sticky-cta-inner">
+            <a href="MainPages/Welcome.html" class="mobile-sticky-cta-button pulse-animation">
+                Schedule Your First Session <span class="discount-badge">50% OFF</span>
+            </a>
+        </div>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <!-- Optimized JavaScript Loading -->
+    <script>
+        // Immediately optimize LCP image
+        (function() {
+            const lcpImage = document.querySelector(".fade-image.image-5");
+            if (lcpImage) {
+                // Force layout calculation
+                lcpImage.getBoundingClientRect();
+                
+                // Ensure visibility
+                lcpImage.style.opacity = "1";
+                lcpImage.style.visibility = "visible";
+            }
+            
+            // Set font once Poppins is loaded
+            document.fonts.ready.then(() => {
+                if (document.fonts.check('1em Poppins')) {
+                    document.body.style.fontFamily = "'Poppins', sans-serif";
+                }
+            });
+        })();
+    </script>
+    
+    <!-- Deferred JavaScript Loading -->
+    <script>
+        // Load components after DOM is ready
+        document.addEventListener('DOMContentLoaded', function() {
+            // Load navbar with fetch API - delayed
+            setTimeout(() => {
+                const navbarPlaceholder = document.getElementById('navbar-placeholder');
+                fetch('../Navbar/Navbar.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        navbarPlaceholder.innerHTML = html;
+                        // Execute navbar initialization if needed
+                        if (typeof initNavbar === "function") {
+                            initNavbar();
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error loading navbar:', error);
+                    });
+            }, 300);
+
+            // Load footer with fetch API - delayed even more
+            setTimeout(() => {
+                const footerPlaceholder = document.getElementById('footer-placeholder');
+                fetch('../Footer/Footer.html')
+                    .then(response => response.text())
+                    .then(html => {
+                        footerPlaceholder.innerHTML = html;
+                    })
+                    .catch(error => {
+                        console.error('Error loading footer:', error);
+                    });
+            }, 600);
+                
+            // Update hero text based on screen size
+            function updateHeroText() {
+                const heroTitle = document.querySelector('.modern-hero-content h1');
+                const heroParagraph = document.querySelector('.modern-hero-content p');
+
+                if (window.innerWidth <= 1055) {
+                    heroTitle.textContent = "Virtual Tutoring That Works";
+                    heroParagraph.textContent = "Expert tutors ready to help you succeed. Join 250+ students achieving their goals.";
+                } else {
+                    heroTitle.textContent = "Achieve More with Virtual Tutoring";
+                    heroParagraph.textContent = "Transform your learning journey with expert guidance tailored to your goals. Empower your success today.";
+                }
+            }
+            
+            // Call immediately
+            updateHeroText();
+            window.addEventListener('resize', updateHeroText);
+            
+            // Optimized image carousel with delayed initialization
+            function initImageCarousel() {
+                const images = document.querySelectorAll(".fade-image");
+                const customOrder = [1, 3, 5, 4, 2, 6];
+                let currentIndex = 0;
+                
+                // First image is already visible, don't touch it
+                
+                // Lazy load other images after a delay
+                setTimeout(() => {
+                    // Preload the second image
+                    const nextImg = images[customOrder[1] - 1];
+                    if (nextImg && nextImg.dataset.src) {
+                        const tempImg = new Image();
+                        tempImg.src = nextImg.dataset.src;
+                        tempImg.onload = () => {
+                            nextImg.src = nextImg.dataset.src;
+                            nextImg.removeAttribute("data-src");
+                        };
+                    }
+                    
+                    // Start carousel after a longer delay
+                    setTimeout(() => {
+                        // Function to show next image
+                        function showNextImage() {
+                            // Hide the current image
+                            images[customOrder[currentIndex] - 1].classList.add("hidden");
+                            
+                            // Move to the next image in the sequence
+                            currentIndex = (currentIndex + 1) % customOrder.length;
+                            
+                            // Show the next image
+                            images[customOrder[currentIndex] - 1].classList.remove("hidden");
+                            
+                            // Preload the image that will be shown next
+                            const nextIndex = (currentIndex + 1) % customOrder.length;
+                            const nextImg = images[customOrder[nextIndex] - 1];
+                            
+                            if (nextImg && nextImg.dataset.src) {
+                                const tempImg = new Image();
+                                tempImg.src = nextImg.dataset.src;
+                                tempImg.onload = () => {
+                                    nextImg.src = nextImg.dataset.src;
+                                    nextImg.removeAttribute("data-src");
+                                };
+                            }
+                        }
+                        
+                        // Change image every 7 seconds
+                        setInterval(showNextImage, 7000);
+                    }, 5000);
+                }, 2000);
+            }
+            
+            // Delay carousel initialization
+            setTimeout(() => {
+                initImageCarousel();
+            }, 1000);
+            
+            // Re-enable animations after critical content is loaded
+            setTimeout(() => {
+                document.querySelectorAll(".pulse-animation").forEach(el => {
+                    el.style.animation = "";
+                });
+            }, 2000);
+            
+            // Initialize other components with progressive loading
+            setTimeout(() => {
+                // Center hero content vertically accounting for navbar
+                function centerHeroContent() {
+                    const navbar = document.getElementById('navbar-placeholder');
+                    const heroContent = document.querySelector('.modern-hero-content');
+                    const navbarHeight = navbar.offsetHeight || 0;
+                    
+                    if (window.innerWidth <= 1055) {
+                        const visibleAreaCenter = (window.innerHeight - navbarHeight) / 2;
+                        heroContent.style.top = `calc(${navbarHeight}px + ${visibleAreaCenter}px)`;
+                    } else {
+                        heroContent.style.top = '50%';
+                    }
+                }
+                
+                centerHeroContent();
+                window.addEventListener('resize', centerHeroContent);
+            }, 800);
+            
+            // Initialize lowest priority components last
+            setTimeout(() => {
+                // Initialize scroll progress indicator
+                function initScrollProgress() {
+                    window.addEventListener('scroll', function() {
+                        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                        const scrolled = (winScroll / height) * 100;
+                        const scrollBar = document.getElementById("scrollProgressBar");
+                        if (scrollBar) {
+                            scrollBar.style.width = scrolled + "%";
+                        }
+                    });
+                }
+                
+                // Initialize mobile CTA
+                function initMobileCTA() {
+                    window.addEventListener('scroll', function() {
+                        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                        const mobileCta = document.getElementById('mobileCta');
+                        if (!mobileCta) return;
+                        
+                        if (window.innerWidth <= 430) {
+                            if (winScroll > 100) {
+                                mobileCta.style.display = 'block';
+                                setTimeout(() => {
+                                    mobileCta.classList.add('visible');
+                                }, 10);
+                            } else {
+                                mobileCta.classList.remove('visible');
+                                setTimeout(() => {
+                                    if (!mobileCta.classList.contains('visible')) {
+                                        mobileCta.style.display = 'none';
+                                    }
+                                }, 300);
+                            }
+                        } else {
+                            mobileCta.style.display = 'none';
+                            mobileCta.classList.remove('visible');
+                        }
+                    });
+                }
+                
+                // Initialize heart animation for CTA button
+                function initHeartAnimation() {
+                    const scheduleButton = document.getElementById("schedule-button");
+                    if (!scheduleButton) return;
+                    
+                    // Create a container for hearts
+                    const heartContainer = document.createElement("div");
+                    heartContainer.style.position = "absolute";
+                    heartContainer.style.width = "100%";
+                    heartContainer.style.height = "100%";
+                    heartContainer.style.top = "0";
+                    heartContainer.style.left = "0";
+                    heartContainer.style.overflow = "visible";
+                    heartContainer.style.pointerEvents = "none";
+                    scheduleButton.appendChild(heartContainer);
+                    
+                    let isHovering = false;
+                    let heartInterval;
+                    
+                    // Start creating hearts on hover
+                    scheduleButton.addEventListener("mouseenter", function() {
+                        isHovering = true;
+                        createHeart(heartContainer, scheduleButton);
+                        heartInterval = setInterval(function() {
+                            if (isHovering) {
+                                createHeart(heartContainer, scheduleButton);
+                            }
+                        }, 300);
+                    });
+                    
+                    // Stop creating hearts when mouse leaves
+                    scheduleButton.addEventListener("mouseleave", function() {
+                        isHovering = false;
+                        clearInterval(heartInterval);
+                    });
+                }
+                
+                // Function to create and animate a heart
+                function createHeart(container, button) {
+                    const heart = document.createElement("div");
+                    heart.className = "heart";
+                    
+                    const buttonWidth = button.offsetWidth;
+                    const randomX = Math.floor(Math.random() * buttonWidth);
+                    
+                    heart.style.bottom = "-5px";
+                    heart.style.left = randomX + "px";
+                    heart.style.animation = "floatUp 1.5s ease-out forwards";
+                    
+                    container.appendChild(heart);
+                    
+                    setTimeout(function() {
+                        if (heart.parentNode === container) {
+                            container.removeChild(heart);
+                        }
+                    }, 1500);
+                }
+                
+                // Hero bar visibility on scroll
+                function initHeroBarVisibility() {
+                    const heroBar = document.querySelector(".hero-bar");
+                    if (!heroBar) return;
+                    
+                    window.addEventListener("scroll", function () {
+                        if (window.scrollY > 50) {
+                            heroBar.style.opacity = "0";
+                            heroBar.style.pointerEvents = "none";
+                        } else {
+                            heroBar.style.opacity = "1";
+                            heroBar.style.pointerEvents = "auto";
+                        }
+                    });
+                }
+                
+                // Initialize low-priority components
+                initScrollProgress();
+                initMobileCTA();
+                initHeartAnimation();
+                initHeroBarVisibility();
+            }, 1500);
+        });
+        
+        // Function to load non-critical scripts
+        function loadDeferredScripts() {
+            // Create a promise to track when all scripts are loaded
+            const loadPromises = [];
+            
+            // Helper function to create and load a script
+            function createScript(src, delay = 0, async = true) {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        const script = document.createElement('script');
+                        script.src = src;
+                        script.async = async;
+                        script.onload = resolve;
+                        document.body.appendChild(script);
+                    }, delay);
+                });
+            }
+            
+            // Check connection quality before loading non-essential scripts
+            if (navigator.connection && (navigator.connection.saveData || 
+                (navigator.connection.effectiveType && navigator.connection.effectiveType.includes('2g')))) {
+                // Skip or delay further for users on data-saving mode or slow connections
+                console.log("Data saver mode detected, delaying non-essential scripts");
+                setTimeout(() => {
+                    loadPromises.push(createScript('https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S', 5000, true));
+                }, 5000);
+            } else {
+                // Normal loading for other users - but with increased delays
+                loadPromises.push(createScript('https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S', 5000, true));
+                loadPromises.push(createScript('/Javascript/analytics.js', 5500, true));
+                loadPromises.push(createScript('/Javascript/metaPixel.js', 6000, true));
+                loadPromises.push(createScript('/Javascript/tiktokPixel.js', 6500, true));
+                
+                // Load Metricool after a delay
+                setTimeout(() => {
+                    function loadScript(a) {
+                        var b = document.getElementsByTagName("head")[0],
+                            c = document.createElement("script");
+                        c.type = "text/javascript", 
+                        c.src = "https://tracker.metricool.com/resources/be.js", 
+                        c.async = true,
+                        c.onreadystatechange = a, 
+                        c.onload = a, 
+                        b.appendChild(c)
+                    }
+                    loadScript(function() {
+                        beTracker.t({
+                            hash: "d815cbba45950ea301730faef0513abe"
+                        })
+                    });
+                }, 7000);
+            }
+            
+            return Promise.all(loadPromises);
+        }
+        
+        // Load scripts when the page is idle or after a timeout
+        if ('requestIdleCallback' in window) {
+            requestIdleCallback(() => loadDeferredScripts(), { timeout: 5000 });
+        } else {
+            // Fallback for browsers that don't support requestIdleCallback
+            setTimeout(loadDeferredScripts, 5000);
+        }
+    </script>
+</body>
+</html>
