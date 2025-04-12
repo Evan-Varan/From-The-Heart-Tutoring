@@ -1012,7 +1012,7 @@
             initHeroBarVisibility();
             initHeartAnimation();
         });
-        
+
         // Function to load non-critical scripts
         function loadDeferredScripts() {
             // Create a promise to track when all scripts are loaded
@@ -1043,6 +1043,27 @@
                 // Normal loading for other users - but with increased delays
                 loadPromises.push(createScript('https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S', 5000, true));
                 loadPromises.push(createScript('/Javascript/analytics.js', 5500, true));
+                loadPromises.push(createScript('/Javascript/metaPixel.js', 6000, true));
+                loadPromises.push(createScript('/Javascript/tiktokPixel.js', 6500, true));
+                
+                // Load Metricool after a delay
+                setTimeout(() => {
+                    function loadScript(a) {
+                        var b = document.getElementsByTagName("head")[0],
+                            c = document.createElement("script");
+                        c.type = "text/javascript", 
+                        c.src = "https://tracker.metricool.com/resources/be.js", 
+                        c.async = true,
+                        c.onreadystatechange = a, 
+                        c.onload = a, 
+                        b.appendChild(c)
+                    }
+                    loadScript(function() {
+                        beTracker.t({
+                            hash: "d815cbba45950ea301730faef0513abe"
+                        })
+                    });
+                }, 7000);
             }
             
             return Promise.all(loadPromises);

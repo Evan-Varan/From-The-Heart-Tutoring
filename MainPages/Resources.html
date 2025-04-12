@@ -1,24 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
-    <script src="../Javascript/analytics.js"></script>
-    <script src="../Javascript/metaPixel.js"></script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
-</noscript>
-<script src="../Javascript/tiktokPixel.js"></script>
-<noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
-  </noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Resources | From The Heart Tutoring</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css">
-    <link rel="stylesheet" href="../Footer/Footer.css">
     <style>
         html, body {
             margin: 0;
@@ -130,6 +116,9 @@
             margin-bottom: 10px;
             color: #0a1a2f;
             font-family: 'Montserrat', sans-serif;
+            height: 50px; /* Fixed height for title to ensure alignment */
+            display: flex;
+            align-items: center;
         }
 
         .resource-content p {
@@ -138,11 +127,13 @@
             font-size: 0.95rem;
             font-family: 'Montserrat', sans-serif;
             flex-grow: 1;
+            min-height: 80px; /* Minimum height for description to ensure alignment */
         }
 
         .button-container {
             margin-top: auto;
             margin-bottom: 15px;
+            height: 45px; /* Fixed height for button container */
         }
 
         .resource-meta {
@@ -152,6 +143,7 @@
             font-size: 0.85rem;
             color: #777;
             width: 100%;
+            height: 20px; /* Fixed height for meta info */
         }
 
         .resource-credit {
@@ -252,6 +244,15 @@
             .resources-grid {
                 grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
             }
+            
+            .resource-content h3 {
+                height: auto;
+                min-height: 50px;
+            }
+            
+            .resource-content p {
+                min-height: 100px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -270,13 +271,18 @@
             .resources-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .resource-content h3,
+            .resource-content p {
+                height: auto;
+                min-height: 0;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
-    <script src="../Navbar/Navbar.js" defer></script>
     
     <!-- Hero Section with apple image -->
     <section class="hero" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
@@ -302,6 +308,7 @@
             <button class="category-btn" data-category="english">English</button>
             <button class="category-btn" data-category="history">History</button>
             <button class="category-btn" data-category="test-prep">Test Prep</button>
+            <button class="category-btn" data-category="learning">Learning Skills</button>
         </div>
 
         <!-- Section Title -->
@@ -311,7 +318,23 @@
 
         <!-- Resources Grid -->
         <div class="resources-grid" id="resourcesGrid">
-            <!-- AP Calculus Formula Sheet (NEW) -->
+            <!-- NEW RESOURCE: Memory Techniques -->
+            <div class="resource-card" data-category="learning">
+                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
+                <div class="resource-content">
+                    <h3>Master the Art of Learning: Memory Techniques</h3>
+                    <p>Learn powerful memory techniques to improve retention and recall. Perfect for students and lifelong learners looking to enhance their study skills.</p>
+                    <div class="button-container">
+                        <a href="https://www.linkedin.com/posts/joshejsanders_master-the-art-of-learning-how-to-remember-activity-7228722567425986560-kxPk/" target="_blank" class="download-btn">View Resource</a>
+                    </div>
+                    <div class="resource-meta">
+                        <span>Online Resource</span>
+                        <span class="resource-credit">Credit: Josh Sanders</span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AP Calculus Formula Sheet -->
             <div class="resource-card" data-category="math">
                 <div class="resource-img" style="background-image: url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Epic%20AP%20Calculus%20Formul%20Sheet%20AB%20Derivatives%20Limits%20Integrals-1-ylORrqhs1oEyoE3nbYCxjp78XPqdZ5.png');"></div>
                 <div class="resource-content">
@@ -327,156 +350,12 @@
                 </div>
             </div>
             
-            <!-- Resource 1
-            <div class="resource-card" data-category="math">
-                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1596495577886-d920f1fb7238?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="resource-content">
-                    <h3>Algebra Fundamentals Workbook</h3>
-                    <p>A comprehensive workbook covering all essential algebra concepts for high school students.</p>
-                    <div class="button-container">
-                        <a href="https://www.khanacademy.org/math/algebra/x2f8bb11595b61c86:foundation-algebra/x2f8bb11595b61c86:intro-variables/e/writing-expressions-with-variables-2" target="_blank" class="download-btn">Access Resource</a>
-                    </div>
-                    <div class="resource-meta">
-                        <span>Online Resource</span>
-                        <span class="resource-credit">Credit: Khan Academy</span>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="resource-card" data-category="science">
-                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1532094349884-543bc11b234d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="resource-content">
-                    <h3>Chemistry Formula Sheet</h3>
-                    <p>A handy reference sheet with all important chemistry formulas and equations for quick revision.</p>
-                    <div class="button-container">
-                        <a href="https://www.ck12.org/book/ck-12-chemistry-concepts-intermediate/section/24.0/" target="_blank" class="download-btn">Access Resource</a>
-                    </div>
-                    <div class="resource-meta">
-                        <span>Online Resource</span>
-                        <span class="resource-credit">Credit: CK-12 Foundation</span>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="resource-card" data-category="english">
-                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="resource-content">
-                    <h3>Essay Writing Guide</h3>
-                    <p>Learn how to structure and write compelling essays with this comprehensive guide for students.</p>
-                    <div class="button-container">
-                        <a href="https://owl.purdue.edu/owl/general_writing/academic_writing/essay_writing/index.html" target="_blank" class="download-btn">Access Resource</a>
-                    </div>
-                    <div class="resource-meta">
-                        <span>Online Resource</span>
-                        <span class="resource-credit">Credit: Purdue OWL</span>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="resource-card" data-category="history">
-                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1447069387593-a5de0862481e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="resource-content">
-                    <h3>U.S. History Timeline</h3>
-                    <p>A detailed timeline of major events in U.S. history from the colonial period to the present day.</p>
-                    <div class="button-container">
-                        <a href="https://www.archives.gov/files/historical-docs/doc-content/images/timeline-of-us-history.pdf" target="_blank" class="download-btn">Download PDF</a>
-                    </div>
-                    <div class="resource-meta">
-                        <span>PDF • 2.1 MB</span>
-                        <span class="resource-credit">Credit: National Archives</span>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="resource-card" data-category="test-prep">
-                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="resource-content">
-                    <h3>SAT Practice Test</h3>
-                    <p>Full-length SAT practice test with answer key and detailed explanations for each question.</p>
-                    <div class="button-container">
-                        <a href="https://satsuite.collegeboard.org/media/pdf/sat-practice-test-1.pdf" target="_blank" class="download-btn">Download PDF</a>
-                    </div>
-                    <div class="resource-meta">
-                        <span>PDF • 7.3 MB</span>
-                        <span class="resource-credit">Credit: College Board</span>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="resource-card" data-category="math">
-                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="resource-content">
-                    <h3>Geometry Cheat Sheet</h3>
-                    <p>Quick reference guide for geometry formulas, theorems, and properties for middle and high school students.</p>
-                    <div class="button-container">
-                        <a href="https://www.mathsisfun.com/geometry/geometry-formulas.html" target="_blank" class="download-btn">Access Resource</a>
-                    </div>
-                    <div class="resource-meta">
-                        <span>Online Resource</span>
-                        <span class="resource-credit">Credit: Math is Fun</span>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="resource-card" data-category="science">
-                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1581093458791-9d15482aae9e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="resource-content">
-                    <h3>Biology Study Guide</h3>
-                    <p>Comprehensive study guide covering key biology concepts for high school and early college students.</p>
-                    <div class="button-container">
-                        <a href="https://openstax.org/details/books/biology-2e" target="_blank" class="download-btn">Access Resource</a>
-                    </div>
-                    <div class="resource-meta">
-                        <span>Online Resource</span>
-                        <span class="resource-credit">Credit: OpenStax</span>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="resource-card" data-category="test-prep">
-                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="resource-content">
-                    <h3>ACT Practice Test</h3>
-                    <p>Complete ACT practice test with questions, strategies, and tips for success.</p>
-                    <div class="button-container">
-                        <a href="https://www.act.org/content/dam/act/unsecured/documents/Preparing-for-the-ACT.pdf" target="_blank" class="download-btn">Download PDF</a>
-                    </div>
-                    <div class="resource-meta">
-                        <span>PDF • 5.2 MB</span>
-                        <span class="resource-credit">Credit: ACT.org</span>
-                    </div>
-                </div>
-            </div>
-
-            
-            <div class="resource-card" data-category="english">
-                <div class="resource-img" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');"></div>
-                <div class="resource-content">
-                    <h3>Grammar and Punctuation Guide</h3>
-                    <p>Comprehensive guide to English grammar rules, punctuation, and common writing mistakes to avoid.</p>
-                    <div class="button-container">
-                        <a href="https://www.grammarly.com/blog/punctuation-guide/" target="_blank" class="download-btn">Access Resource</a>
-                    </div>
-                    <div class="resource-meta">
-                        <span>Online Resource</span>
-                        <span class="resource-credit">Credit: Grammarly</span>
-                    </div>
-                </div>
-            </div> -->
+            <!-- Add your other resource cards here -->
         </div>
     </div>
 
-   <!-- Footer -->
-   <div id="footer-placeholder"></div>
-   <script src="../Footer/Footer.js" defer></script>
-
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
 
     <script>
         // Category filtering
@@ -546,6 +425,22 @@
                 const resourceName = button.closest('.resource-content').querySelector('h3').textContent;
                 console.log(`Resource accessed: ${resourceName}`);
             });
+        });
+
+        // Load navbar and footer if needed
+        document.addEventListener('DOMContentLoaded', function() {
+            // If you have external navbar and footer files
+            // fetch('../Navbar/Navbar.html')
+            //     .then(response => response.text())
+            //     .then(data => {
+            //         document.getElementById('navbar-placeholder').innerHTML = data;
+            //     });
+            
+            // fetch('../Footer/Footer.html')
+            //     .then(response => response.text())
+            //     .then(data => {
+            //         document.getElementById('footer-placeholder').innerHTML = data;
+            //     });
         });
     </script>
 </body>
