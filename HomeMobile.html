@@ -8,320 +8,86 @@
     <meta name="keywords" content="online tutoring, on-demand tutoring, virtual tutor, homework help, live tutoring, private tutoring, SAT tutor, ACT tutor, math tutor online">
     <meta name="author" content="From the Heart Tutoring">
     
-    <!-- Critical CSS inlined to eliminate render-blocking CSS -->
-    <style>
-        /* Critical styles only */
-        :root {
-            --primary-color: #ff6f61;
-            --primary-dark: #d9574e;
-            --secondary-color: #4a7c9b;
-            --secondary-dark: #3a6a89;
-            --text-color: #333;
-            --light-text: #666;
-            --background: #fff;
-            --light-background: #f9f9f9;
-            --border-radius: 8px;
-            --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
-        
-        /* Font fallback to prevent layout shift */
-        @font-face {
-            font-family: 'Poppins Fallback';
-            src: local('Arial');
-            size-adjust: 105%;
-            ascent-override: 103%;
-            descent-override: 28%;
-            line-gap-override: normal;
-        }
-        
-        body {
-            font-family: 'Poppins', 'Poppins Fallback', sans-serif;
-            margin: 0;
-            padding: 0;
-            color: var(--text-color);
-            background-color: var(--background);
-        }
-        
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            text-align: center;
-            padding: 5rem 1.5rem;
-            background-color: var(--light-background);
-            margin-top: 60px; /* Add margin to account for fixed navbar */
-        }
-        
-        .hero-content {
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            width: 100%;
-        }
-        
-        .hero h2 {
-            font-size: 1.8rem;
-            margin: 0 0 1rem;
-            color: var(--secondary-color);
-            font-weight: 600;
-        }
-        
-        .hero p {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            color: var(--light-text);
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            text-decoration: none;
-            box-shadow: 0 6px 15px rgba(255, 111, 97, 0.4);
-            text-align: center;
-            min-width: 180px;
-            animation: mobile-pulse 2s infinite;
-        }
-        
-        @keyframes mobile-pulse {
-            0% {
-                transform: scale(1);
-                box-shadow: 0 6px 15px rgba(255, 111, 97, 0.4);
-            }
-            50% {
-                transform: scale(1.05);
-                box-shadow: 0 6px 20px rgba(255, 111, 97, 0.6);
-            }
-            100% {
-                transform: scale(1);
-                box-shadow: 0 6px 15px rgba(255, 111, 97, 0.4);
-            }
-        }
-        
-        .discount-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #ffd700;
-            color: #000000;
-            font-size: 0.85rem;
-            font-weight: bold;
-            padding: 4px 8px;
-            border-radius: 12px;
-            margin-left: 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-        
-        .hero-image {
-            width: 100%;
-            position: relative;
-            z-index: 1;
-            text-align: center;
-        }
-        
-        .hero-image img {
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            max-width: 100%;
-            width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
-        
-        /* Services Section - Included in critical CSS for tall screens */
-        .services {
-            background-color: var(--background);
-            padding: 3rem 1.5rem;
-            position: relative; /* Added for proper positioning context */
-        }
-
-        .services h2 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            text-align: center;
-            color: var(--text-color);
-            font-weight: 600;
-        }
-
-        .service-cards {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-            margin-bottom: 3rem; /* Added to create space for the button */
-        }
-
-        .card {
-            background-color: var(--light-background);
-            padding: 1.5rem;
-            border-radius: var(--border-radius);
-            box-shadow: var(--box-shadow);
-            transition: all 0.3s ease;
-            text-align: center;
-            height: auto; /* Ensure proper height */
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card:nth-child(2) .icon {
-            color: var(--secondary-color);
-        }
-
-        .icon {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-        }
-        
-        .card p {
-            margin-bottom: 1rem;
-            color: var(--light-text);
-            margin-top: 0;
-        }
-        
-        .view-services-container {
-            text-align: center;
-            padding: 1.5rem 0 0;
-            background-color: var(--background);
-            clear: both; /* Ensure it clears any floats */
-            position: relative; /* Proper positioning */
-            z-index: 1; /* Ensure it's above other elements */
-        }
-        
-        .secondary-button {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 10px rgba(74, 124, 155, 0.3);
-            text-align: center;
-            margin-top: 1rem;
-            text-decoration: none;
-        }
-        
-        @media (min-width: 768px) {
-            .hero {
-                flex-direction: row;
-                justify-content: space-between;
-                text-align: left;
-                padding: 5rem 2rem;
-            }
-            
-            .hero-content {
-                flex: 1;
-                margin-right: 2rem;
-                margin-bottom: 0;
-                text-align: left;
-                width: auto;
-            }
-            
-            .hero h2 {
-                font-size: 2rem;
-            }
-            
-            .hero p {
-                margin-left: 0;
-                margin-right: 0;
-            }
-            
-            .hero-image {
-                flex: 1;
-                text-align: right;
-            }
-            
-            .service-cards {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        /* Add this CSS to the media query for tablet sizes (768px-1055px) */
-        @media (min-width: 768px) and (max-width: 1055px) {
-            .hero-content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                margin-right: 0;
-            }
-            
-            .hero h2, .hero p {
-                text-align: center;
-                margin-left: auto;
-                margin-right: auto;
-            }
-            
-            .cta-button {
-                margin: 0 auto;
-                display: block;
-            }
-            
-            /* Fix for service cards in tablet view */
-            .service-cards {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 2rem;
-                margin-bottom: 5rem; /* Increased space for button */
-            }
-            
-            /* Third card in tablet view */
-            .service-cards .card:nth-child(3) {
-                grid-column: 1 / -1; /* Make the third card span full width */
-                max-width: 450px; /* Limit width for better appearance */
-                margin: 0 auto; /* Center the card */
-            }
-            
-            .view-services-container {
-                margin-top: 2rem;
-                padding-top: 0;
-                position: relative;
-                clear: both;
-            }
-        }
-    </style>
-    
     <!-- Preconnect to critical domains -->
     <link rel="preconnect" href="https://d3r7ksou5fmir9.cloudfront.net" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://www.googletagmanager.com">
     
-    <!-- Preload critical hero image with high priority -->
-    <script>
-        // Determine which image to preload based on screen size
-        const isTablet = window.innerWidth >= 530 && window.innerWidth <= 1055;
-        const preloadImage = isTablet 
-            ? "https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherTablet.webp"
-            : "https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherMobile.webp";
-
-        // Create and append preload link
-        const preloadLink = document.createElement('link');
-        preloadLink.rel = 'preload';
-        preloadLink.as = 'image';
-        preloadLink.href = preloadImage;
-        preloadLink.fetchpriority = 'high';
-        document.head.appendChild(preloadLink);
-    </script>
+    <!-- Preload critical hero images with media queries -->
+    <link rel="preload" as="image" href="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherMobile.webp" type="image/webp" fetchpriority="high" media="(max-width: 529px)">
+    <link rel="preload" as="image" href="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherTablet.webp" type="image/webp" fetchpriority="high" media="(min-width: 530px) and (max-width: 1055px)">
     
     <!-- Preload critical fonts -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" as="style">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"></noscript>
+    
+    <!-- Critical CSS inlined to eliminate render-blocking CSS -->
+    <style>
+        /* Critical styles only */
+        :root{--primary-color:#ff6f61;--primary-dark:#d9574e;--secondary-color:#4a7c9b;--secondary-dark:#3a6a89;--text-color:#333;--light-text:#666;--background:#fff;--light-background:#f9f9f9;--border-radius:8px;--box-shadow:0 4px 12px rgba(0,0,0,0.1)}
+        
+        /* Minified font fallback to prevent layout shift */
+        @font-face{font-family:'Poppins Fallback';src:local('Arial');size-adjust:105%;ascent-override:103%;descent-override:28%;line-gap-override:normal}
+        
+        body{font-family:'Poppins','Poppins Fallback',sans-serif;margin:0;padding:0;color:var(--text-color);background-color:var(--background)}
+        
+        .hero{display:flex;flex-direction:column;align-items:flex-start;text-align:center;padding:5rem 1.5rem;background-color:var(--light-background);margin-top:60px}
+        
+        .hero-content{margin-bottom:1.5rem;position:relative;z-index:2;text-align:center;width:100%}
+        
+        .hero h2{font-size:1.8rem;margin:0 0 1rem;color:var(--secondary-color);font-weight:600}
+        
+        .hero p{font-size:1rem;margin-bottom:1.5rem;color:var(--light-text);margin-left:auto;margin-right:auto}
+        
+        .cta-button{display:inline-block;background-color:var(--primary-color);color:white;padding:0.8rem 1.5rem;border-radius:50px;font-weight:600;font-size:1rem;text-decoration:none;box-shadow:0 6px 15px rgba(255,111,97,0.4);text-align:center;min-width:180px;animation:none}
+        
+        /* Animation will be enabled after LCP */
+        .lcp-loaded .cta-button{animation:mobile-pulse 2s infinite}
+        
+        @keyframes mobile-pulse{0%{transform:scale(1);box-shadow:0 6px 15px rgba(255,111,97,0.4)}50%{transform:scale(1.05);box-shadow:0 6px 20px rgba(255,111,97,0.6)}100%{transform:scale(1);box-shadow:0 6px 15px rgba(255,111,97,0.4)}}
+        
+        .discount-badge{display:inline-flex;align-items:center;justify-content:center;background-color:#ffd700;color:#000000;font-size:0.85rem;font-weight:bold;padding:4px 8px;border-radius:12px;margin-left:10px;box-shadow:0 2px 4px rgba(0,0,0,0.1)}
+        
+        .hero-image{width:100%;position:relative;z-index:1;text-align:center}
+        
+        /* Optimized hero image styles */
+        .hero-image img{border-radius:var(--border-radius);box-shadow:var(--box-shadow);max-width:100%;width:100%;height:auto;display:block;margin:0 auto;background-color:#f9f9f9;contain-intrinsic-size:450px 300px}
+        
+        /* Services Section - Included in critical CSS for tall screens */
+        .services{background-color:var(--background);padding:3rem 1.5rem;position:relative}
+        .services h2{font-size:1.8rem;margin-bottom:1.5rem;text-align:center;color:var(--text-color);font-weight:600}
+        .service-cards{display:grid;grid-template-columns:1fr;gap:1.5rem;margin-bottom:3rem}
+        .card{background-color:var(--light-background);padding:1.5rem;border-radius:var(--border-radius);box-shadow:var(--box-shadow);transition:all 0.3s ease;text-align:center;height:auto}
+        .card:hover{transform:translateY(-5px)}
+        .card:nth-child(2) .icon{color:var(--secondary-color)}
+        .icon{font-size:2rem;margin-bottom:1rem}
+        .card h3{font-size:1.2rem;margin-bottom:0.5rem;font-weight:600}
+        .card p{margin-bottom:1rem;color:var(--light-text);margin-top:0}
+        .view-services-container{text-align:center;padding:1.5rem 0 0;background-color:var(--background);clear:both;position:relative;z-index:1}
+        .secondary-button{display:inline-block;background-color:var(--secondary-color);color:white;padding:0.8rem 1.5rem;border-radius:50px;font-weight:600;font-size:1rem;transition:all 0.3s ease;box-shadow:0 4px 10px rgba(74,124,155,0.3);text-align:center;margin-top:1rem;text-decoration:none}
+        
+        @media (min-width:768px){
+            .hero{flex-direction:row;justify-content:space-between;text-align:left;padding:5rem 2rem}
+            .hero-content{flex:1;margin-right:2rem;margin-bottom:0;text-align:left;width:auto}
+            .hero h2{font-size:2rem}
+            .hero p{margin-left:0;margin-right:0}
+            .hero-image{flex:1;text-align:right}
+            .service-cards{grid-template-columns:repeat(3,1fr)}
+        }
+
+        /* Add this CSS to the media query for tablet sizes (768px-1055px) */
+        @media (min-width:768px) and (max-width:1055px){
+            .hero-content{display:flex;flex-direction:column;align-items:center;text-align:center;margin-right:0}
+            .hero h2,.hero p{text-align:center;margin-left:auto;margin-right:auto}
+            .cta-button{margin:0 auto;display:block}
+            .service-cards{grid-template-columns:repeat(2,1fr);gap:2rem;margin-bottom:5rem}
+            .service-cards .card:nth-child(3){grid-column:1/-1;max-width:450px;margin:0 auto}
+            .view-services-container{margin-top:2rem;padding-top:0;position:relative;clear:both}
+        }
+    </style>
+    
     <link rel="stylesheet" href="../Navbar/Navbar.css">
     <link rel="stylesheet" href="../Footer/Footer.css" media="print" onload="this.media='all'">
     <noscript><link rel="stylesheet" href="../Footer/Footer.css"></noscript>
@@ -338,17 +104,20 @@
                 <a href="/MainPages/Welcome.html" class="cta-button">Schedule Now <span class="discount-badge">50% OFF</span></a>
             </div>
             <div class="hero-image">
-    <img 
-        src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherMobile.webp" 
-        alt="Young girl studying with her mother" 
-        width="450" 
-        height="300" 
-        fetchpriority="high"
-        decoding="async"
-        style="background-color: #f9f9f9;"
-        id="hero-img"
-    >
-</div>
+                <!-- Optimized hero image with proper attributes -->
+                <img 
+                    src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherMobile.webp" 
+                    alt="Young girl studying with her mother" 
+                    width="450" 
+                    height="300" 
+                    fetchpriority="high"
+                    decoding="async"
+                    loading="eager"
+                    style="background-color: #f9f9f9;"
+                    id="hero-img"
+                    onload="performance.mark('hero-image-loaded')"
+                >
+            </div>
         </section>
         
         <!-- What We Offer section loaded immediately for tall screens -->
@@ -392,6 +161,10 @@
             </div>
         </section>
     </main>
+    
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+    <script src="../Footer/Footer.js" defer></script>
     
     <!-- Non-critical CSS -->
     <style>
@@ -1014,8 +787,74 @@
         }
     </style>
     
-    <!-- Deferred loading of non-critical content -->
+    <!-- Optimized JavaScript for performance monitoring and responsive images -->
     <script>
+        // Performance monitoring
+        document.addEventListener('DOMContentLoaded', () => {
+            // Create a PerformanceObserver to detect LCP
+            if ('PerformanceObserver' in window) {
+                const lcpObserver = new PerformanceObserver((entryList) => {
+                    const entries = entryList.getEntries();
+                    const lastEntry = entries[entries.length - 1];
+                    
+                    // Mark when LCP occurs
+                    performance.mark('lcp-detected');
+                    console.log('LCP detected:', lastEntry.startTime);
+                    console.log('LCP element:', lastEntry.element);
+                    
+                    // Add class to body to enable animations after LCP
+                    document.body.classList.add('lcp-loaded');
+                    
+                    // Disconnect observer after LCP is detected
+                    lcpObserver.disconnect();
+                    
+                    // Now load non-critical content
+                    if ('requestIdleCallback' in window) {
+                        requestIdleCallback(loadNonCriticalContent);
+                    } else {
+                        setTimeout(loadNonCriticalContent, 200);
+                    }
+                });
+                
+                // Start observing LCP
+                lcpObserver.observe({ type: 'largest-contentful-paint', buffered: true });
+            } else {
+                // Fallback for browsers without PerformanceObserver
+                setTimeout(() => {
+                    document.body.classList.add('lcp-loaded');
+                    loadNonCriticalContent();
+                }, 2000);
+            }
+        });
+        
+        // Set correct image based on screen size using media queries
+        function setResponsiveImage() {
+            const heroImg = document.getElementById('hero-img');
+            if (!heroImg) return;
+            
+            // Use media query to determine which image to show
+            const isTablet = window.matchMedia('(min-width: 530px) and (max-width: 1055px)').matches;
+            
+            // Only change the source if needed
+            const newSrc = isTablet 
+                ? "https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherTablet.webp"
+                : "https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherMobile.webp";
+                
+            if (heroImg.src !== newSrc) {
+                heroImg.src = newSrc;
+            }
+        }
+        
+        // Set initial image
+        setResponsiveImage();
+        
+        // Update image on resize, but with debounce to avoid excessive calls
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(setResponsiveImage, 100);
+        });
+        
         // Check screen size and redirect to desktop version if needed
         function checkScreenSize() {
             if (window.innerWidth > 1055) {
@@ -1026,8 +865,12 @@
         // Check on page load
         checkScreenSize();
         
-        // Check on window resize
-        window.addEventListener('resize', checkScreenSize);
+        // Check on window resize with debounce
+        let screenSizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(screenSizeTimer);
+            screenSizeTimer = setTimeout(checkScreenSize, 100);
+        });
         
         // Function to load non-critical content
         function loadNonCriticalContent() {
@@ -1173,6 +1016,15 @@
             
             // Initialize testimonial slider and other interactive elements
             initInteractiveElements();
+            
+            // Update tutor image for tablet view if needed
+            const tutorImg = document.getElementById('tutor-img');
+            if (tutorImg) {
+                const isTablet = window.matchMedia('(min-width: 530px) and (max-width: 1055px)').matches;
+                if (isTablet) {
+                    tutorImg.src = "https://d3r7ksou5fmir9.cloudfront.net/StockImages/CollageManFlannelTablet.webp";
+                }
+            }
         }
         
         // Function to initialize interactive elements
@@ -1294,29 +1146,20 @@
         
         // Load non-critical content after the page has loaded
         if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                // Use requestIdleCallback to load non-critical content when the browser is idle
-                if ('requestIdleCallback' in window) {
-                    requestIdleCallback(loadNonCriticalContent);
-                } else {
-                    // Fallback for browsers that don't support requestIdleCallback
-                    setTimeout(loadNonCriticalContent, 200);
-                }
-            });
+            // Wait for DOMContentLoaded event - LCP observer will handle loading non-critical content
         } else {
-            // Use requestIdleCallback to load non-critical content when the browser is idle
-            if ('requestIdleCallback' in window) {
-                requestIdleCallback(loadNonCriticalContent);
+            // Page already loaded, check if LCP observer is supported
+            if ('PerformanceObserver' in window) {
+                // LCP observer will handle loading non-critical content
             } else {
-                // Fallback for browsers that don't support requestIdleCallback
-                setTimeout(loadNonCriticalContent, 200);
+                // Fallback for browsers without PerformanceObserver
+                setTimeout(() => {
+                    document.body.classList.add('lcp-loaded');
+                    loadNonCriticalContent();
+                }, 2000);
             }
         }
     </script>
-    
-    <!-- Footer Placeholder -->
-    <div id="footer-placeholder"></div>
-    <script src="../Footer/Footer.js" defer></script>
     
     <!-- Tracking and Analytics Scripts - Loaded Deferred -->
     <script>
@@ -1384,40 +1227,5 @@
             setTimeout(loadDeferredScripts, 5000);
         }
     </script>
-    
-<script>
-    // Function to set the correct images based on screen size
-    function setResponsiveImages() {
-        const isTablet = window.innerWidth >= 530 && window.innerWidth <= 1055;
-        
-        // Hero image
-        const heroImg = document.getElementById('hero-img');
-        if (heroImg) {
-            heroImg.src = isTablet 
-                ? "https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherTablet.webp"
-                : "https://d3r7ksou5fmir9.cloudfront.net/StockImages/YoungGirlAndMotherMobile.webp";
-        }
-        
-        // Tutor image (if loaded)
-        const tutorImg = document.getElementById('tutor-img');
-        if (tutorImg) {
-            tutorImg.src = isTablet 
-                ? "https://d3r7ksou5fmir9.cloudfront.net/StockImages/CollageManFlannelTablet.webp"
-                : "https://d3r7ksou5fmir9.cloudfront.net/StockImages/CollageManFlannelMobile.webp";
-        }
-    }
-    
-    // Run on page load
-    setResponsiveImages();
-    
-    // Run on window resize
-    window.addEventListener('resize', setResponsiveImages);
-    
-    // Also run when the deferred content is loaded
-    document.addEventListener('DOMContentLoaded', function() {
-        // This will handle the tutor image once it's loaded
-        setTimeout(setResponsiveImages, 500);
-    });
-</script>
 </body>
 </html>
