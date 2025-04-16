@@ -1,0 +1,1028 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>From The Heart Tutoring - Blog</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
+<script src="../Javascript/analytics.js"></script>
+<script src="../Javascript/metaPixel.js"></script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
+</noscript>
+<script src="../Javascript/tiktokPixel.js"></script>
+<link rel="stylesheet" href="../Footer/Footer.css">
+  <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+<noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
+  </noscript>
+    <style>
+        /* Base Styles */
+        html, body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: #2a4365;
+            margin-top: 0;
+        }
+        
+        a {
+            text-decoration: none;
+            color: #2a4365;
+            transition: color 0.3s ease;
+        }
+        
+        a:hover {
+            color: #ed8b00;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        /* Container */
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-color: #f8fafc;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+            margin-top: 80px; /* Added margin-top to account for fixed navbar */
+        }
+        
+        .hero-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2a4365;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            color: #4a5568;
+        }
+        
+        /* Blog Grid */
+        .blog-section {
+            padding: 20px 0 60px;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 32px;
+            color: #2a4365;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+        
+        .blog-card {
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            height: 100%;
+            cursor: pointer;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-card-link {
+            display: block;
+            height: 100%;
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .blog-card-image {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .blog-card-frame {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .blog-card:hover .blog-card-frame {
+            opacity: 1;
+        }
+        
+        .frame-corner {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        .frame-corner.top-left {
+            top: 0;
+            left: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAwSDIwVjJIMlYyMEgwVjBaIiBmaWxsPSIjZWQ4YjAwIi8+PC9zdmc+');
+        }
+        
+        .frame-corner.top-right {
+            top: 0;
+            right: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgMEgwVjJIMThWMjBIMjBWMFoiIGZpbGw9IiNlZDhiMDAiLz48L3N2Zz4=');
+        }
+        
+        .frame-corner.bottom-left {
+            bottom: 0;
+            left: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMCAyMEgyMFYxOEgyVjBIMFYyMFoiIGZpbGw9IiNlZDhiMDAiLz48L3N2Zz4=');
+        }
+        
+        .frame-corner.bottom-right {
+            bottom: 0;
+            right: 0;
+            background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZpZXdCb3g9IjAgMCAyMCAyMCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgMjBIMFYxOEgxOFYwSDIwVjIwWiIgZmlsbD0iI2VkOGIwMCIvPjwvc3ZnPg==');
+        }
+        
+        .frame-edge {
+            position: absolute;
+            background-color: #ed8b00;
+        }
+        
+        .frame-edge.top {
+            top: 0;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+        }
+        
+        .frame-edge.right {
+            top: 20px;
+            right: 0;
+            bottom: 20px;
+            width: 2px;
+        }
+        
+        .frame-edge.bottom {
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            height: 2px;
+        }
+        
+        .frame-edge.left {
+            top: 20px;
+            left: 0;
+            bottom: 20px;
+            width: 2px;
+        }
+        
+        .blog-card-content {
+            padding: 20px;
+        }
+        
+        .blog-card-category {
+            display: inline-block;
+            background-color: #e2e8f0;
+            color: #2a4365;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        
+        .blog-card-title {
+            font-size: 18px;
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        
+        .blog-card-excerpt {
+            font-size: 14px;
+            color: #4a5568;
+            margin-bottom: 15px;
+        }
+        
+        .blog-card-meta {
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            color: #718096;
+        }
+        
+        .blog-card-date {
+            margin-right: 15px;
+        }
+        
+        .blog-card-author {
+            display: flex;
+            align-items: center;
+        }
+        
+        .blog-card-author-img {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            margin-right: 8px;
+            object-fit: cover;
+        }
+        
+        /* Featured Post */
+        .featured-post {
+            margin-bottom: 60px;
+        }
+        
+        .featured-post-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            background-color: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .featured-post-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .featured-post-link {
+            display: contents;
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        .featured-post-image {
+            height: 100%;
+            min-height: 400px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+        
+        .featured-post-content {
+            padding: 40px;
+        }
+        
+        .featured-label {
+            display: inline-block;
+            background-color: #ed8b00;
+            color: #fff;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin-bottom: 15px;
+        }
+        
+        .featured-post-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+        
+        .featured-post-excerpt {
+            font-size: 16px;
+            color: #4a5568;
+            margin-bottom: 20px;
+        }
+        
+        .read-more-btn {
+            display: inline-block;
+            background-color: #2a4365;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .read-more-btn:hover {
+            background-color: #ed8b00;
+            color: #fff;
+        }
+        
+        /* Newsletter */
+        .newsletter {
+            background-color: #f8fafc;
+            padding: 60px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+        
+        .newsletter-title {
+            font-size: 28px;
+            margin-bottom: 15px;
+            color: #2a4365;
+        }
+        
+        .newsletter-description {
+            font-size: 16px;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            color: #4a5568;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input {
+            flex: 1;
+            padding: 12px 15px;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px 0 0 4px;
+            font-size: 16px;
+            outline: none;
+        }
+        
+        .newsletter-btn {
+            background-color: #ed8b00;
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 16px;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .newsletter-btn:hover {
+            background-color: #d67e00;
+        }
+        
+        /* Dynamic Frame Layout */
+        .dynamic-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+            gap: 20px;
+            transition: all 0.4s ease;
+            margin-bottom: 40px;
+        }
+        
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            transition: all 0.4s ease;
+            aspect-ratio: 16/9;
+            cursor: pointer;
+        }
+        
+        .grid-item:hover {
+            transform: scale(1.05);
+            z-index: 10;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .grid-item-link {
+            display: block;
+            height: 100%;
+        }
+        
+        .grid-item-content {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        .grid-item-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .grid-item:hover .grid-item-image {
+            transform: scale(1.1);
+        }
+        
+        .grid-item-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 20px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: #fff;
+            transition: opacity 0.4s ease;
+        }
+        
+        .grid-item-title {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #fff;
+        }
+        
+        .grid-item-category {
+            font-size: 12px;
+            color: #ed8b00;
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 960px;
+            }
+        }
+        
+        @media (max-width: 992px) {
+            .container {
+                max-width: 720px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .featured-post-card {
+                grid-template-columns: 1fr;
+            }
+            
+            .featured-post-image {
+                min-height: 300px;
+            }
+            
+            .dynamic-grid {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(3, 1fr);
+            }
+            
+            .hero-title {
+                font-size: 32px;
+            }
+            
+            .section-title {
+                font-size: 28px;
+            }
+            
+            .hero {
+                margin-top: 80px; /* Maintain spacing on medium screens */
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                max-width: 540px;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .featured-post-content {
+                padding: 30px;
+            }
+            
+            .featured-post-title {
+                font-size: 24px;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+            }
+            
+            .newsletter-input {
+                border-radius: 4px;
+                margin-bottom: 10px;
+            }
+            
+            .newsletter-btn {
+                border-radius: 4px;
+            }
+            
+            .dynamic-grid {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, 1fr);
+            }
+            
+            .hero {
+                margin-top: 90px; /* Increase spacing on smaller screens */
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 15px;
+            }
+            
+            .hero {
+                padding: 30px 0;
+                margin-top: 100px; /* Further increase spacing on very small screens */
+            }
+            
+            .hero-title {
+                font-size: 28px;
+            }
+            
+            .hero-subtitle {
+                font-size: 16px;
+            }
+            
+            .featured-post-content {
+                padding: 20px;
+            }
+            
+            .featured-post-title {
+                font-size: 22px;
+            }
+            
+            .section-title {
+                font-size: 24px;
+                margin-bottom: 30px;
+            }
+            
+            .blog-card-image {
+                height: 180px;
+            }
+            
+            .newsletter {
+                padding: 40px 0;
+            }
+            
+            .newsletter-title {
+                font-size: 24px;
+            }
+            
+            .newsletter-description {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- JavaScript to Load Navbar -->
+    <script src="../Navbar/Navbar.js" defer></script>
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">From The Heart Tutoring Blog</h1>
+            <p class="hero-subtitle">Insights, tips, and resources to help your child succeed academically and build confidence in their learning journey.</p>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="featured-post">
+        <div class="container">
+            <div class="featured-post-card">
+                <a href="../BlogPages/how-to-know-if-your-child-needs-a-tutor.html" class="featured-post-link">
+                    <div class="featured-post-image" style="background-image: url('https://images.unsplash.com/photo-1516979187457-637abb4f9353?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1022&q=80');"></div>
+                    <div class="featured-post-content">
+                        <span class="featured-label">Featured</span>
+                        <h2 class="featured-post-title">How to Know If Your Child Needs a Tutor</h2>
+                        <p class="featured-post-excerpt">Recognizing the signs that your child might benefit from tutoring can be challenging. This guide helps parents identify key indicators that suggest additional academic support could be beneficial, and explains how tutoring can address specific learning needs.</p>
+                        <div class="blog-card-meta">
+                            <span class="blog-card-date">April 16th, 2025</span>
+                            <div class="blog-card-author">
+                                <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Evan-mWhXtdSVoTUneMgwGCZEHL1vQ1mxJd.webp" alt="Evan Varan" class="blog-card-author-img">
+                                <span>Evan Varan</span>
+                            </div>
+                        </div>
+                        <span class="read-more-btn">Read More</span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-section">
+        <div class="container">
+            <h2 class="section-title">Latest Articles</h2>
+            <div class="blog-grid">
+                <!-- Blog Card 1 -->
+                <article class="blog-card fade-in">
+                    <a href="../BlogPages/online-tutoring-vs-in-person.html" class="blog-card-link">
+                        <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1610484826967-09c5720778c7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=873&q=80');">
+                            <div class="blog-card-frame">
+                                <div class="frame-corner top-left"></div>
+                                <div class="frame-corner top-right"></div>
+                                <div class="frame-corner bottom-left"></div>
+                                <div class="frame-corner bottom-right"></div>
+                                <div class="frame-edge top"></div>
+                                <div class="frame-edge right"></div>
+                                <div class="frame-edge bottom"></div>
+                                <div class="frame-edge left"></div>
+                            </div>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Tutoring Options</span>
+                            <h3 class="blog-card-title">Online Tutoring vs In-Person: What Parents Should Know</h3>
+                            <p class="blog-card-excerpt">Compare the benefits and limitations of online and in-person tutoring to help you make the best choice for your child's learning needs and preferences.</p>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-date">April 15th, 2025</span>
+                                <div class="blog-card-author">
+                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Evan-mWhXtdSVoTUneMgwGCZEHL1vQ1mxJd.webp" alt="Evan Varan" class="blog-card-author-img">
+                                    <span>Evan Varan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Blog Card 2 -->
+                <article class="blog-card fade-in">
+                    <a href="../BlogPages/best-study-tips-for-students.html" class="blog-card-link">
+                        <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1488190211105-8b0e65b80b4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');">
+                            <div class="blog-card-frame">
+                                <div class="frame-corner top-left"></div>
+                                <div class="frame-corner top-right"></div>
+                                <div class="frame-corner bottom-left"></div>
+                                <div class="frame-corner bottom-right"></div>
+                                <div class="frame-edge top"></div>
+                                <div class="frame-edge right"></div>
+                                <div class="frame-edge bottom"></div>
+                                <div class="frame-edge left"></div>
+                            </div>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Study Skills</span>
+                            <h3 class="blog-card-title">Best Study Tips for Middle School and High School Students</h3>
+                            <p class="blog-card-excerpt">Effective study strategies tailored specifically for adolescents to help them manage increased academic demands and develop lifelong learning habits.</p>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-date">April 14th, 2025</span>
+                                <div class="blog-card-author">
+                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beth-n6d51HNHQXZNpUvd1XPfvcav0rysxu.webp" alt="Beth Burgin" class="blog-card-author-img">
+                                    <span>Beth Burgin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Blog Card 3 -->
+                <article class="blog-card fade-in">
+                    <a href="../BlogPages/how-to-choose-online-tutor.html" class="blog-card-link">
+                        <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1584697964358-3e14ca57658b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');">
+                            <div class="blog-card-frame">
+                                <div class="frame-corner top-left"></div>
+                                <div class="frame-corner top-right"></div>
+                                <div class="frame-corner bottom-left"></div>
+                                <div class="frame-corner bottom-right"></div>
+                                <div class="frame-edge top"></div>
+                                <div class="frame-edge right"></div>
+                                <div class="frame-edge bottom"></div>
+                                <div class="frame-edge left"></div>
+                            </div>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Online Learning</span>
+                            <h3 class="blog-card-title">How to Choose the Right Online Tutor for Your Child</h3>
+                            <p class="blog-card-excerpt">A comprehensive guide to evaluating online tutors, including qualifications to look for, questions to ask, and how to ensure a good fit for your child's learning style.</p>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-date">April 13th, 2025</span>
+                                <div class="blog-card-author">
+                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beth-n6d51HNHQXZNpUvd1XPfvcav0rysxu.webp" alt="Beth Burgin" class="blog-card-author-img">
+                                    <span>Beth Burgin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Blog Card 4 -->
+                <article class="blog-card fade-in">
+                    <a href="../BlogPages/what-to-expect-first-tutoring-session.html" class="blog-card-link">
+                        <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');">
+                            <div class="blog-card-frame">
+                                <div class="frame-corner top-left"></div>
+                                <div class="frame-corner top-right"></div>
+                                <div class="frame-corner bottom-left"></div>
+                                <div class="frame-corner bottom-right"></div>
+                                <div class="frame-edge top"></div>
+                                <div class="frame-edge right"></div>
+                                <div class="frame-edge bottom"></div>
+                                <div class="frame-edge left"></div>
+                            </div>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Getting Started</span>
+                            <h3 class="blog-card-title">What to Expect from Your First Tutoring Session</h3>
+                            <p class="blog-card-excerpt">Prepare for a successful first tutoring session with insights into the typical structure, goals, and how to help your child feel comfortable and ready to learn.</p>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-date">April 12th, 2025</span>
+                                <div class="blog-card-author">
+                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Evan-mWhXtdSVoTUneMgwGCZEHL1vQ1mxJd.webp" alt="Evan Varan" class="blog-card-author-img">
+                                    <span>Evan Varan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Blog Card 5 -->
+                <article class="blog-card fade-in">
+                    <a href="../BlogPages/tutoring-for-adhd-neurodivergent-students.html" class="blog-card-link">
+                        <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1606167668584-78701c57f13d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');">
+                            <div class="blog-card-frame">
+                                <div class="frame-corner top-left"></div>
+                                <div class="frame-corner top-right"></div>
+                                <div class="frame-corner bottom-left"></div>
+                                <div class="frame-corner bottom-right"></div>
+                                <div class="frame-edge top"></div>
+                                <div class="frame-edge right"></div>
+                                <div class="frame-edge bottom"></div>
+                                <div class="frame-edge left"></div>
+                            </div>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Special Needs</span>
+                            <h3 class="blog-card-title">Tutoring for ADHD and Neurodivergent Students: What Works</h3>
+                            <p class="blog-card-excerpt">Specialized tutoring approaches that address the unique learning needs of students with ADHD, autism, and other neurodivergent conditions.</p>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-date">April 11th, 2025</span>
+                                <div class="blog-card-author">
+                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beth-n6d51HNHQXZNpUvd1XPfvcav0rysxu.webp" alt="Beth Burgin" class="blog-card-author-img">
+                                    <span>Beth Burgin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Blog Card 6 -->
+                <article class="blog-card fade-in">
+                    <a href="../BlogPages/prevent-summer-slide-with-online-tutoring.html" class="blog-card-link">
+                        <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1445251836269-d158eaa028a6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');">
+                            <div class="blog-card-frame">
+                                <div class="frame-corner top-left"></div>
+                                <div class="frame-corner top-right"></div>
+                                <div class="frame-corner bottom-left"></div>
+                                <div class="frame-corner bottom-right"></div>
+                                <div class="frame-edge top"></div>
+                                <div class="frame-edge right"></div>
+                                <div class="frame-edge bottom"></div>
+                                <div class="frame-edge left"></div>
+                            </div>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Summer Learning</span>
+                            <h3 class="blog-card-title">How to Prevent the Summer Slide with Online Tutoring</h3>
+                            <p class="blog-card-excerpt">Strategies to maintain academic progress during summer break using flexible online tutoring options that keep learning engaging and prevent knowledge loss.</p>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-date">April 10th, 2025</span>
+                                <div class="blog-card-author">
+                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Evan-mWhXtdSVoTUneMgwGCZEHL1vQ1mxJd.webp" alt="Evan Varan" class="blog-card-author-img">
+                                    <span>Evan Varan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Blog Card 7 -->
+                <article class="blog-card fade-in">
+                    <a href="../BlogPages/top-10-mistakes-parents-make-with-homework.html" class="blog-card-link">
+                        <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');">
+                            <div class="blog-card-frame">
+                                <div class="frame-corner top-left"></div>
+                                <div class="frame-corner top-right"></div>
+                                <div class="frame-corner bottom-left"></div>
+                                <div class="frame-corner bottom-right"></div>
+                                <div class="frame-edge top"></div>
+                                <div class="frame-edge right"></div>
+                                <div class="frame-edge bottom"></div>
+                                <div class="frame-edge left"></div>
+                            </div>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Parent Resources</span>
+                            <h3 class="blog-card-title">The Top 10 Mistakes Parents Make with Homework Help</h3>
+                            <p class="blog-card-excerpt">Common pitfalls to avoid when supporting your child's homework routine, with constructive alternatives that foster independence and learning.</p>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-date">April 9th, 2025</span>
+                                <div class="blog-card-author">
+                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Evan-mWhXtdSVoTUneMgwGCZEHL1vQ1mxJd.webp" alt="Evan Varan" class="blog-card-author-img">
+                                    <span>Evan Varan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Blog Card 8 -->
+                <article class="blog-card fade-in">
+                    <a href="../BlogPages/math-anxiety-how-tutoring-helps.html" class="blog-card-link">
+                        <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');">
+                            <div class="blog-card-frame">
+                                <div class="frame-corner top-left"></div>
+                                <div class="frame-corner top-right"></div>
+                                <div class="frame-corner bottom-left"></div>
+                                <div class="frame-corner bottom-right"></div>
+                                <div class="frame-edge top"></div>
+                                <div class="frame-edge right"></div>
+                                <div class="frame-edge bottom"></div>
+                                <div class="frame-edge left"></div>
+                            </div>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Math Education</span>
+                            <h3 class="blog-card-title">Overcoming Math Anxiety: How Tutoring Can Help</h3>
+                            <p class="blog-card-excerpt">Understanding the causes of math anxiety and how personalized tutoring can build confidence and improve mathematical skills in students of all ages.</p>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-date">April 8th, 2025</span>
+                                <div class="blog-card-author">
+                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beth-n6d51HNHQXZNpUvd1XPfvcav0rysxu.webp" alt="Beth Burgin" class="blog-card-author-img">
+                                    <span>Beth Burgin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Blog Card 9 -->
+                <article class="blog-card fade-in">
+                    <a href="../BlogPages/preparing-for-college-entrance-exams.html" class="blog-card-link">
+                        <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');">
+                            <div class="blog-card-frame">
+                                <div class="frame-corner top-left"></div>
+                                <div class="frame-corner top-right"></div>
+                                <div class="frame-corner bottom-left"></div>
+                                <div class="frame-corner bottom-right"></div>
+                                <div class="frame-edge top"></div>
+                                <div class="frame-edge right"></div>
+                                <div class="frame-edge bottom"></div>
+                                <div class="frame-edge left"></div>
+                            </div>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Test Prep</span>
+                            <h3 class="blog-card-title">Preparing for College Entrance Exams: When to Start and How</h3>
+                            <p class="blog-card-excerpt">A timeline and strategy guide for SAT and ACT preparation, including when to begin tutoring and how to create an effective study plan for success.</p>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-date">April 7th, 2025</span>
+                                <div class="blog-card-author">
+                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Evan-mWhXtdSVoTUneMgwGCZEHL1vQ1mxJd.webp" alt="Evan Varan" class="blog-card-author-img">
+                                    <span>Evan Varan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+                
+                <!-- Blog Card 10 -->
+                <article class="blog-card fade-in">
+                    <a href="../BlogPages/building-reading-comprehension-skills.html" class="blog-card-link">
+                        <div class="blog-card-image" style="background-image: url('https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=873&q=80');">
+                            <div class="blog-card-frame">
+                                <div class="frame-corner top-left"></div>
+                                <div class="frame-corner top-right"></div>
+                                <div class="frame-corner bottom-left"></div>
+                                <div class="frame-corner bottom-right"></div>
+                                <div class="frame-edge top"></div>
+                                <div class="frame-edge right"></div>
+                                <div class="frame-edge bottom"></div>
+                                <div class="frame-edge left"></div>
+                            </div>
+                        </div>
+                        <div class="blog-card-content">
+                            <span class="blog-card-category">Reading Skills</span>
+                            <h3 class="blog-card-title">Building Strong Reading Comprehension Skills at Any Age</h3>
+                            <p class="blog-card-excerpt">Effective strategies for developing critical reading skills from elementary through high school, with techniques tutors use to enhance understanding and retention.</p>
+                            <div class="blog-card-meta">
+                                <span class="blog-card-date">April 6th, 2025</span>
+                                <div class="blog-card-author">
+                                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beth-n6d51HNHQXZNpUvd1XPfvcav0rysxu.webp" alt="Beth Burgin" class="blog-card-author-img">
+                                    <span>Beth Burgin</span>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </article>
+            </div>
+        </section>
+
+    <!-- Newsletter -->
+    <!-- <section class="newsletter">
+        <div class="container">
+            <h2 class="newsletter-title">Subscribe to Our Newsletter</h2>
+            <p class="newsletter-description">Stay updated with our latest articles, tips, and resources to help your child succeed academically.</p>
+            <form class="newsletter-form">
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </section> -->
+
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript to Load Footer -->
+    <script src="../Footer/Footer.js" defer></script>
+
+    <script>
+        // Dynamic Grid Hover Effect
+        const gridItems = document.querySelectorAll('.grid-item');
+        
+        gridItems.forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                gridItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.style.opacity = '0.7';
+                        otherItem.style.transform = 'scale(0.95)';  
+                        otherItem.style.opacity = '0.7';
+                        otherItem.style.transform = 'scale(0.95)';
+                    }
+                });
+            });
+            
+            item.addEventListener('mouseleave', () => {
+                gridItems.forEach(otherItem => {
+                    otherItem.style.opacity = '1';
+                    otherItem.style.transform = 'scale(1)';
+                });
+            });
+        });
+        
+        // Animate elements on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight - 50) {
+                    element.style.opacity = '1';
+                }
+            });
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', () => {
+            animateOnScroll();
+            
+            window.addEventListener('scroll', () => {
+                animateOnScroll();
+            });
+        });
+    </script>
+</body>
+</html>

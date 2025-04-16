@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Main Pages -->
+  <url>
+    <loc>https://fromthehearttutoring.com/HomeDesktop.html</loc>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/HomeMobile.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/MainPages/Welcome.html</loc>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/MainPages/Services.html</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/MainPages/Contact.html</loc>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Articles -->
+  <url>
+    <loc>https://fromthehearttutoring.com/BlogPages/how-to-know-if-your-child-needs-a-tutor.html</loc>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/BlogPages/best-study-tips-for-students.html</loc>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/BlogPages/building-reading-comprehension-skills.html</loc>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/BlogPages/how-to-choose-online-tutor.html</loc>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/BlogPages/math-anxiety-how-tutoring-helps.html</loc>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/BlogPages/online-tutoring-vs-in-person.html</loc>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/BlogPages/preparing-for-college-entrance-exams.html</loc>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/BlogPages/prevent-summer-slide-with-online-tutoring.html</loc>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/BlogPages/top-10-mistakes-parents-make-with-homework.html</loc>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/BlogPages/tutoring-for-adhd-neurodivergent-students.html</loc>
+  </url>
+  <url>
+    <loc>https://fromthehearttutoring.com/BlogPages/what-to-expect-first-tutoring-session.html</loc>
+  </url>
+
+</urlset>
