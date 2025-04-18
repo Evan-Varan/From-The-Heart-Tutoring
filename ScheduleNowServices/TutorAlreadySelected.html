@@ -503,7 +503,7 @@
             <button class="square-button secondary" onclick="redirectToPrevious()">Back</button>
             <button class="square-button" id="next-button" onclick="redirectToNext()">Next</button>
             <a href="Account-Creation.html" style="display: none;">Next</a>
-            <a href="Student-Portal-First-Time.html" style="display: none;">Back</a>
+            <a href="ScheduleNowSubjects.html" style="display: none;">Back</a>
             <a href="../MainPages/About.html#redirect-virtual-schedule" style="display: none;">Alternate Next (Switch Tutor)</a>
         </div>
     </div>
@@ -599,7 +599,7 @@
                 // Handle case where tutor data is missing
                 document.getElementById('tutor-name').textContent = 'Unknown Tutor';
                 document.getElementById('tutor-card-name').textContent = 'Unknown Tutor';
-                document.getElementById('tutor-image').src = '/placeholder.svg?height=100&width=100'; // Placeholder image
+                document.getElementById('tutor-image').src = 'https://d3r7ksou5fmir9.cloudfront.net/TutorImages/placeholder.png?height=100&width=100'; // Placeholder image
                 document.getElementById('tutor-subjects').textContent = 'Not available';
                 errorMessageElement.style.display = "block";
                 errorMessageElement.textContent = "No tutor information is available.";
