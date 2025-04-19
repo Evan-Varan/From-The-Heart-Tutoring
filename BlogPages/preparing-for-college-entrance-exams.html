@@ -8,6 +8,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="../Javascript/analytics.js"></script>
+<script src="../Javascript/metaPixel.js"></script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
+</noscript>
+<script src="../Javascript/tiktokPixel.js"></script>
+<link rel="stylesheet" href="../Footer/Footer.css">
+  <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+<noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
+  </noscript>
     <style>
         /* Base Styles */
         html, body {
@@ -100,7 +113,7 @@
         .back-to-blog {
             display: inline-flex;
             align-items: center;
-            margin: 20px 0;
+            margin: 40px 0;
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             color: #2a4365;
@@ -458,8 +471,11 @@
     </style>
 </head>
 <body>
-    <!-- Space for navbar -->
-    <div class="navbar-space"></div>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- JavaScript to Load Navbar -->
+    <script src="../Navbar/Navbar.js" defer></script>
     
     <div class="container main-content">
         <a href="../MainPages/Blog.html" class="back-to-blog">
@@ -473,11 +489,11 @@
               <div class="article-meta">
                 <span class="article-date">Updated April 2025</span>
                 <div class="article-author">
-                  <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Evan-mWhXtdSVoTUneMgwGCZEHL1vQ1mxJd.webp" alt="Evan Varan" class="article-author-img">
+                  <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Evan-mWhXtdSVoTUneMgwGCZEHL1vQ1mxJd.webp" alt="Evan Varan - College entrance exam specialist and SAT/ACT prep expert at From the Heart Tutoring" class="article-author-img">
                   <span class="article-author-name">Evan Varan</span>
                 </div>
               </div>
-              <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1022&q=80" alt="Student studying for SAT or ACT" class="article-featured-image">
+              <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=1022&q=80" alt="High school student preparing for SAT and ACT exams with practice materials and strategic study plan" class="article-featured-image">
             </header>
           
             <div class="article-content">
@@ -534,11 +550,12 @@
                 <div class="share-buttons">
                   <h3 class="share-title">Share This Article</h3>
                   <div class="share-list">
-                    <a href="#" class="share-button">f</a>
-                    <a href="#" class="share-button">t</a>
-                    <a href="#" class="share-button">in</a>
-                    <a href="#" class="share-button">P</a>
-                    <a href="#" class="share-button">✉</a>
+                    <!-- Social sharing buttons - using aria-label for screen readers instead of alt text -->
+                    <a href="#" class="share-button" aria-label="Share on Facebook">f</a>
+                    <a href="#" class="share-button" aria-label="Share on Twitter">t</a>
+                    <a href="#" class="share-button" aria-label="Share on LinkedIn">in</a>
+                    <a href="#" class="share-button" aria-label="Share on Pinterest">P</a>
+                    <a href="#" class="share-button" aria-label="Share via Email">✉</a>
                   </div>
                 </div>
               </aside>
@@ -573,7 +590,7 @@
                 
                 <article class="related-card">
                     <a href="tutoring-for-adhd-neurodivergent-students.html" class="related-card-link">
-                        <div class="related-card-image" style="background-image: url('https://images.unsplash.com/photo-1606167668584-78701c57f13d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');">
+                        <div class="related-card-image" style="background-image: url('https://images.unsplash.com/photo-1606167668584-78701c57f13d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80');">
                         </div>
                         <div class="related-card-content">
                             <h3 class="related-card-title">Tutoring for ADHD and Neurodivergent Students: What Works</h3>
@@ -595,7 +612,11 @@
             </form>
         </div>
     </section> -->
-    
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript to Load Footer -->
+    <script src="../Footer/Footer.js" defer></script>
     <script>
         // Smooth scrolling for table of contents links
         document.querySelectorAll('.toc-link').forEach(link => {

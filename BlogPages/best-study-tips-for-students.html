@@ -8,6 +8,19 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <script src="../Javascript/analytics.js"></script>
+<script src="../Javascript/metaPixel.js"></script>
+<noscript>
+  <img height="1" width="1" style="display:none"
+       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
+</noscript>
+<script src="../Javascript/tiktokPixel.js"></script>
+<link rel="stylesheet" href="../Footer/Footer.css">
+  <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+<noscript>
+    <img height="1" width="1" style="display:none"
+         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
+  </noscript>
     <style>
         /* Base Styles */
         html, body {
@@ -85,11 +98,6 @@
             box-sizing: border-box;
         }
         
-        /* Navbar Space */
-        .navbar-space {
-            height: 80px; /* Adjust based on expected navbar height */
-            width: 100%;
-        }
         
         /* Main Content */
         .main-content {
@@ -100,7 +108,7 @@
         .back-to-blog {
             display: inline-flex;
             align-items: center;
-            margin: 20px 0;
+            margin: 40px 0;
             font-family: 'Montserrat', sans-serif;
             font-weight: 500;
             color: #2a4365;
@@ -458,8 +466,11 @@
     </style>
 </head>
 <body>
-    <!-- Space for navbar -->
-    <div class="navbar-space"></div>
+    <!-- Navbar Placeholder -->
+    <div id="navbar-placeholder"></div>
+
+    <!-- JavaScript to Load Navbar -->
+    <script src="../Navbar/Navbar.js" defer></script>
     
     <div class="container main-content">
         <a href="../MainPages/Blog.html" class="back-to-blog">
@@ -473,11 +484,11 @@
               <div class="article-meta">
                 <span class="article-date">Updated April 2025</span>
                 <div class="article-author">
-                  <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beth-n6d51HNHQXZNpUvd1XPfvcav0rysxu.webp" alt="Beth Burgin" class="article-author-img">
+                  <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Beth-n6d51HNHQXZNpUvd1XPfvcav0rysxu.webp" alt="Beth Burgin, academic coach and study skills specialist for middle and high school students" class="article-author-img">
                   <span class="article-author-name">Beth Burgin</span>
                 </div>
               </div>
-              <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1022&q=80" alt="Teen studying with notebook and laptop" class="article-featured-image">
+              <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1022&q=80" alt="Focused teen student implementing effective study techniques with organized notes and digital resources" class="article-featured-image">
             </header>
           
             <div class="article-content">
@@ -542,11 +553,11 @@
                 <div class="share-buttons">
                   <h3 class="share-title">Share This Article</h3>
                   <div class="share-list">
-                    <a href="#" class="share-button">f</a>
-                    <a href="#" class="share-button">t</a>
-                    <a href="#" class="share-button">in</a>
-                    <a href="#" class="share-button">P</a>
-                    <a href="#" class="share-button">✉</a>
+                    <a href="#" class="share-button" aria-label="Share on Facebook">f</a>
+                    <a href="#" class="share-button" aria-label="Share on Twitter">t</a>
+                    <a href="#" class="share-button" aria-label="Share on LinkedIn">in</a>
+                    <a href="#" class="share-button" aria-label="Share on Pinterest">P</a>
+                    <a href="#" class="share-button" aria-label="Share via Email">✉</a>
                   </div>
                 </div>
               </aside>
@@ -603,7 +614,11 @@
             </form>
         </div>
     </section> -->
-    
+    <!-- Footer Placeholder -->
+    <div id="footer-placeholder"></div>
+
+    <!-- JavaScript to Load Footer -->
+    <script src="../Footer/Footer.js" defer></script>
     <script>
         // Smooth scrolling for table of contents links
         document.querySelectorAll('.toc-link').forEach(link => {

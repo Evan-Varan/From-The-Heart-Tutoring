@@ -32,6 +32,72 @@
             position: relative;
         }
         
+        /* Enhanced Hero Section Styles */
+        .hero {
+            padding: 4rem 2rem 3.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-top: 1rem; /* Add space below navbar */
+            background: linear-gradient(to bottom, rgba(236, 240, 245, 0.8), rgba(248, 250, 252, 0.9));
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero h1 {
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+            color: #2c3e50;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .hero h1:after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+            margin: 0.5rem auto 0;
+            border-radius: 2px;
+        }
+        
+        .hero-description {
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-size: 1.1rem;
+            color: #34495e;
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero-description strong {
+            color: #2980b9;
+            font-weight: 600;
+        }
+        
+        /* Ensure proper spacing with navbar */
+        #navbar-placeholder + .hero {
+            margin-top: 0; /* The navbar already provides spacing */
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 3.5rem 1rem 2.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-description {
+                font-size: 1rem;
+                padding: 1rem 1.25rem;
+            }
+        }
+        
     /* Medium Screens (Tablets) */
 @media (max-width: 1200px) {
     body::before {
@@ -52,7 +118,11 @@
     <!-- Hero Section -->
     <div class="hero">
         <h1>ACT Services</h1>
-        <p>Explore our specialized ACT preparation services.</p>
+        <div class="hero-description">
+            <p>Elevate your <strong>ACT scores</strong> with our specialized section-by-section tutoring programs. Our expert instructors provide <strong>personalized strategies</strong> for ACT Math, English, Reading, and Science sections, helping you target your weaknesses and maximize your potential.</p>
+            
+            <p>With proven methods and individualized attention, we've helped <strong>thousands of students</strong> achieve their target scores and gain admission to their dream colleges.</p>
+        </div>
     </div>
 
     <!-- Subjects Section -->
@@ -68,21 +138,21 @@
             </div> -->
             <!-- ACT Math Sections -->
             <div class="subject-card">
-                <img src="https://i.imgur.com/aDmePOB.png" alt="ACT Math Icon">
+                <img src="https://i.imgur.com/aDmePOB.png" alt="ACT Math section preparation icon - Expert strategies for ACT mathematics problems">
                 <h3>ACT Math Section</h3>
                 <p>Targeted help for ACT Math with expert guidance.</p>
                 <a href="../MainPages/Welcome.html" class="schedule-button">Schedule Now</a>
             </div>
             <!-- ACT English Sections -->
             <div class="subject-card">
-                <img src="https://i.imgur.com/VTmTgcO.png" alt="ACT English Icon">
+                <img src="https://i.imgur.com/VTmTgcO.png" alt="ACT English sections preparation icon - Reading and writing strategies for ACT success">
                 <h3>ACT English Sections</h3>
                 <p>Comprehensive prep for ACT Reading and Writing.</p>
                 <a href="../MainPages/Welcome.html" class="schedule-button">Schedule Now</a>
             </div>
             <!-- ACT Science Sections -->
             <div class="subject-card">
-                <img src="https://i.imgur.com/aDmePOB.png" alt="ACT Science Icon">
+                <img src="https://i.imgur.com/aDmePOB.png" alt="ACT Science section preparation icon - Data interpretation and scientific reasoning skills">
                 <h3>ACT Science Section</h3>
                 <p>Targeted help for ACT Science with expert guidance.</p>
                 <a href="../MainPages/Welcome.html" class="schedule-button">Schedule Now</a>
