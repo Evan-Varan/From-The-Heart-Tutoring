@@ -2,112 +2,890 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
-<script src="../Javascript/analytics.js"></script>
-<script src="../Javascript/metaPixel.js"></script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
-</noscript>
-<script src="../Javascript/tiktokPixel.js"></script>
-<noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
-  </noscript>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
+    <script src="../Javascript/analytics.js"></script>
+    <script src="../Javascript/metaPixel.js"></script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
+    </noscript>
+    <script src="../Javascript/tiktokPixel.js"></script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
+    </noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AP Exam Tutoring | Biology & More | From the Heart</title>
-<meta name="description" content="Achieve AP success with subject-specific tutoring. Targeted help for AP Biology and more from certified tutors.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Achieve AP success with subject-specific tutoring. Targeted help for AP Biology and more from certified tutors.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../CSS/Hero.css">
-    <link rel="stylesheet" href="../CSS/Services.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../CSS/FishnetBackground.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to footer CSS -->
     <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            position: relative;
+        /* Base Styles */
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #ff6f61;
+            --secondary-light: #ff4d6d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
         }
         
-    /* Medium Screens (Tablets) */
-@media (max-width: 1200px) {
-    body::before {
-        background-image: none; /* Remove the images */
-    }
-}    
-
-       
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
         
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            padding-top: 80px; /* Space for fixed navbar */
+            position: relative;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            box-sizing: border-box;
+        }
+        
+        /* Background Hearts */
+        .bg-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99; /* Matching the ACT page z-index */
+            overflow: hidden;
+        }
+        
+        .bg-heart {
+            position: absolute;
+            opacity: 0.08; /* Reduced opacity */
+        }
+        
+        .bg-heart-1 {
+            width: 400px;
+            height: 400px;
+            top: 0px;
+            right: -130px;
+            transform: rotate(-35deg);
+            fill: var(--secondary);
+        }
+        
+        .bg-heart-2 {
+            width: 500px;
+            height: 500px;
+            bottom: 10%;
+            left: -200px;
+            transform: rotate(-10deg);
+            fill: var(--secondary);
+        }
+        
+        .bg-heart-3 {
+            width: 300px;
+            height: 300px;
+            top: 40%;
+            right: 5%;
+            transform: rotate(20deg);
+            fill: var(--secondary);
+        }
+        
+        .bg-heart-4 {
+            width: 250px;
+            height: 250px;
+            top: 150px;
+            left: 5%;
+            transform: rotate(-15deg);
+            fill: var(--secondary);
+        }
+        
+        /* Hero Section - Full Width */
+        .hero-wrapper {
+            width: 100%;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(150px, -150px);
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-100px, 100px);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            margin-top: 0;
+        }
+        
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 30px auto 0;
+            color: var(--gray);
+            padding: 0 20px;
+        }
+        
+        /* Services Section */
+        .services-wrapper {
+            width: 100%;
+            background-color: white;
+            position: relative;
+            z-index: 2;
+            padding: 60px 0;
+        }
+        
+        .services {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .service-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
+            width: 100%;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background-color: transparent;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background-color: var(--gray-light);
+            color: var(--dark);
+        }
+        
+        .tab-content {
+            display: none;
+            width: 100%;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+        }
+        
+        .service-info {
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        
+        .service-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        
+        .service-info p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .service-features {
+            margin: 25px 0;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background-color: rgba(67, 97, 238, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--primary);
+        }
+        
+        .feature-text {
+            font-size: 0.95rem;
+        }
+        
+        .service-image {
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        
+        .service-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        
+        /* SEO Content Section */
+        .seo-wrapper {
+            width: 100%;
+            background-color: #fff;
+            position: relative;
+            z-index: 2;
+            padding: 60px 0;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .seo-content {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .seo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .seo-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .seo-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .seo-text h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 25px;
+            margin-top: 0;
+        }
+        
+        .seo-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .seo-text ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .seo-text li {
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+        
+        .seo-text h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 30px 0 15px;
+        }
+        
+        /* CTA Section */
+        .cta-wrapper {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            position: relative;
+            z-index: 2;
+            margin-bottom: 60px;
+            overflow: hidden;
+        }
+        
+        .cta-section {
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: translate(150px, -150px);
+        }
+        
+        .cta-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: translate(-100px, 100px);
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            margin-top: 0;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-light {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .btn-light:hover {
+            background-color: var(--gray-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Back Button */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            margin: 40px 0;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-link svg {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--primary);
+        }
+        
+        .back-link:hover svg {
+            transform: translateX(-3px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-image {
+                order: -1;
+                margin-bottom: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            /* Adjust heart sizes and positions for tablets */
+            .bg-heart-1 {
+                width: 300px;
+                height: 300px;
+                right: -100px;
+            }
+            
+            .bg-heart-2 {
+                width: 350px;
+                height: 350px;
+                left: -150px;
+            }
+            
+            .bg-heart-3 {
+                width: 250px;
+                height: 250px;
+                right: 0;
+            }
+            
+            .bg-heart-4 {
+                width: 200px;
+                height: 200px;
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .service-info {
+                padding: 30px;
+            }
+            
+            .service-info h3 {
+                font-size: 1.5rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section p {
+                font-size: 1rem;
+            }
+            
+            /* Further adjust heart sizes and positions for medium screens */
+            .bg-heart-1 {
+                width: 250px;
+                height: 250px;
+                right: -80px;
+                top: 50px;
+            }
+            
+            .bg-heart-2 {
+                width: 280px;
+                height: 280px;
+                left: -120px;
+            }
+            
+            .bg-heart-3 {
+                width: 200px;
+                height: 200px;
+                right: -20px;
+                top: 50%;
+            }
+            
+            .bg-heart-4 {
+                width: 180px;
+                height: 180px;
+                left: -20px;
+                top: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .tab-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+            
+            /* Adjust heart sizes and positions for mobile */
+            .bg-heart-1 {
+                width: 180px;
+                height: 180px;
+                right: -60px;
+                top: 80px;
+            }
+            
+            .bg-heart-2 {
+                width: 200px;
+                height: 200px;
+                left: -100px;
+                bottom: 20%;
+            }
+            
+            .bg-heart-3 {
+                width: 150px;
+                height: 150px;
+                right: -30px;
+                top: 60%;
+            }
+            
+            .bg-heart-4 {
+                width: 120px;
+                height: 120px;
+                left: -30px;
+                top: 250px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
-
+    
     <!-- JavaScript to Load Navbar -->
     <script src="../Navbar/Navbar.js" defer></script>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>AP Exam Prep Services</h1>
-        <p>Explore our specialized AP Exam preparation services.</p>
+    
+    <!-- Background Hearts -->
+    <div class="bg-decoration">
+        <svg class="bg-heart bg-heart-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+        </svg>
+        <svg class="bg-heart bg-heart-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+        </svg>
+        <svg class="bg-heart bg-heart-3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+        </svg>
+        <svg class="bg-heart bg-heart-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+        </svg>
     </div>
-
-    <!-- Subjects Section -->
-    <section class="subjects-section">
-        <h2>AP Exams We Prep For</h2>
-        <div class="subjects-container">
-            <!-- Full TSI Prep -->
-            <!-- <div class="subject-card">
-                <img src="https://i.imgur.com/TyfD1Bl.png" alt="Full TSI Prep Icon">
-                <h3>Full TSI Prep</h3>
-                <p>Complete preparation for all sections of the TSI.</p>
-                <a href="Welcome.html" class="schedule-button">Schedule Now</a>
-            </div> -->
-            <!-- AP Bio Section -->
-            <div class="subject-card">
-                <img src="https://i.imgur.com/ONv8nlz.png" alt="AP Biology Exam preparation icon - College-level biology concepts for advanced placement">
-                <h3>AP Biology Exam</h3>
-                <p>Targeted help for the AP Biology exam.</p>
-                <a href="../MainPages/Welcome.html" class="schedule-button">Schedule Now</a>
+    
+    <!-- Hero Section - Full Width -->
+    <div class="hero-wrapper">
+        <div class="container">
+            <div class="hero">
+                <h1>AP Exam Preparation Services</h1>
+                <p>Elevate your AP exam scores with our specialized preparation programs. Our expert instructors provide personalized strategies for AP Biology and other advanced placement exams, helping you earn college credit and stand out in college applications.</p>
             </div>
-            <!-- TSI English Sections -->
-            <!-- <div class="subject-card">
-                <img src="https://i.imgur.com/TyfD1Bl.png" alt="TSI English Icon">
-                <h3>TSI English Sections</h3>
-                <p>Comprehensive prep for TSI Reading and Writing.</p>
-                <a href="Welcome.html" class="schedule-button">Schedule Now</a>
-            </div> -->
         </div>
-    </section>
-
-    <!-- Back Button -->
-    <div class="back-container">
-        <a href="TestPrepServices.html" class="back-button">Back to Test Prep Services</a>
     </div>
+    
+    <!-- Services Section - Full Width -->
+    <div class="services-wrapper">
+        <div class="container">
+            <div class="services">
+                <div class="section-header">
+                    <h2>AP Exam Preparation Options</h2>
+                    <p>Choose the specific AP exam you need help with to maximize your chances of earning college credit.</p>
+                </div>
+                
+                <div class="service-tabs">
+                    <button class="tab-btn active" data-tab="biology">AP Biology</button>
+                </div>
+                
+                <!-- Biology Tab Content -->
+                <div class="tab-content active" id="biology-tab">
+                    <div class="service-card">
+                        <div class="service-content">
+                            <div class="service-info">
+                                <h3>AP Biology Exam</h3>
+                                <p>Master the complex concepts and analytical skills needed to excel on the AP Biology exam. Our expert tutors break down challenging biological principles and teach effective strategies for both multiple-choice and free-response sections.</p>
+                                
+                                <div class="service-features">
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Cell structure, function, and communication</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Genetics, DNA replication, and protein synthesis</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Evolution, natural selection, and population dynamics</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Ecology, energy flow, and ecosystem interactions</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Lab techniques and data analysis skills</div>
+                                    </div>
+                                </div>
+                                
+                                <a href="../MainPages/Welcome.html" class="btn btn-light" style="background-color: #4361ee; color: white;">Schedule Now</a>
+                            </div>
+                            <div class="service-image">
+                                <img src="https://i.imgur.com/ONv8nlz.png" alt="AP Biology Exam preparation icon - College-level biology concepts for advanced placement">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- SEO Content Section - Full Width -->
+    <div class="seo-wrapper">
+        <div class="container">
+            <div class="seo-content">
+                <div class="seo-grid">
+                    <div class="seo-text">
+                        <h2>Expert AP Exam Preparation That Gets Results</h2>
+                        <p>Advanced Placement (AP) exams offer high school students the opportunity to earn college credit and demonstrate their academic prowess to college admissions officers. Success on these rigorous exams requires specialized preparation that goes beyond standard high school coursework.</p>
+                        
+                        <h3>Why AP-Specific Preparation Matters</h3>
+                        <p>AP exams test college-level knowledge and skills, presenting unique challenges for high school students. Our specialized approach helps students:</p>
+                        <ul>
+                            <li>Master complex college-level concepts and terminology</li>
+                            <li>Develop critical thinking and analytical skills required for AP success</li>
+                            <li>Learn effective strategies for both multiple-choice and free-response sections</li>
+                            <li>Build confidence through practice with authentic AP-style questions</li>
+                        </ul>
+                        
+                        <h3>Our Proven AP Methodology</h3>
+                        <p>Our AP tutoring programs combine comprehensive content review, targeted skill development, and extensive practice with real AP-style questions. Our expert tutors identify each student's unique strengths and weaknesses, then develop personalized study plans that address specific areas for improvement.</p>
+                    </div>
+                    
+                    <div class="seo-image">
+                        <img src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/ManBlueJacketVertical.webp" alt="Student studying for AP Biology exam with tutor, focusing on advanced biology concepts and practice questions">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- CTA Section - Full Width -->
+    <div class="cta-wrapper">
+        <div class="container">
+            <div class="cta-section">
+                <h2>Ready to Ace Your AP Exams?</h2>
+                <p>Join hundreds of students who have earned college credit and boosted their college applications with our expert AP tutoring programs.</p>
+                <a href="../MainPages/Welcome.html" class="btn btn-light">Schedule Your First Session</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <!-- Back Button -->
+        <a href="TestPrepServices.html" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Test Prep Services
+        </a>
+    </div>
+
+    <!-- Footer Placeholder -->
     <div id="footer-placeholder"></div>
 
-<!-- Load Footer -->
-<script>
-    document.addEventListener("DOMContentLoaded", function () {
-        fetch("../Footer/Footer.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("footer-placeholder").innerHTML = html;
+    <!-- Load Footer -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            fetch("../Footer/Footer.html")
+                .then(response => response.text())
+                .then(html => {
+                    document.getElementById("footer-placeholder").innerHTML = html;
+    
+                    // Ensure footer.css is loaded dynamically
+                    if (!document.querySelector('link[href="../CSS/footer.css"]')) {
+                        const link = document.createElement("link");
+                        link.rel = "stylesheet";
+                        link.href = "../CSS/footer.css";
+                        document.head.appendChild(link);
+                    }
+                })
+                .catch(error => console.error("Error loading footer:", error));
+        });
+    </script>
 
-                // Ensure footer.css is loaded dynamically
-                if (!document.querySelector('link[href="../CSS/footer.css"]')) {
-                    const link = document.createElement("link");
-                    link.rel = "stylesheet";
-                    link.href = "../CSS/footer.css";
-                    document.head.appendChild(link);
-                }
-            })
-            .catch(error => console.error("Error loading footer:", error));
-    });
-</script>
+    <script>
+        // Tab Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
+        });
+    </script>
 </body>
 </html>

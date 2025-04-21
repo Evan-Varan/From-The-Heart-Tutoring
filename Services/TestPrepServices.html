@@ -2,212 +2,813 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
-<script src="../Javascript/analytics.js"></script>
-<script src="../Javascript/metaPixel.js"></script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
-</noscript>
-<script src="../Javascript/tiktokPixel.js"></script>
-<noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
-  </noscript>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
+    <script src="../Javascript/analytics.js"></script>
+    <script src="../Javascript/metaPixel.js"></script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
+    </noscript>
+    <script src="../Javascript/tiktokPixel.js"></script>
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
+    </noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Test Prep Tutoring Services | SAT, ACT, TSI, GED, AP</title>
-<meta name="description" content="Get exam-ready with targeted tutoring for standardized tests. We cover SAT, ACT, TSI, GED, and AP exams.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Get exam-ready with targeted tutoring for standardized tests. We cover SAT, ACT, TSI, GED, and AP exams.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../CSS/Hero.css">
-    <link rel="stylesheet" href="../CSS/Services.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../CSS/FishnetBackground.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../Footer/Footer.css">
     <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            position: relative;
+        /* Base Styles */
+        :root {
+            --primary: #4361ee;
+            --primary-dark: #3a56d4;
+            --secondary: #ff6f61;
+            --secondary-light: #ff4d6d;
+            --dark: #1f2937;
+            --light: #f9fafb;
+            --gray: #6b7280;
+            --gray-light: #e5e7eb;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
         }
-
-
-       
+        
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            line-height: 1.6;
+            padding-top: 80px; /* Space for fixed navbar */
+            position: relative;
+            box-sizing: border-box;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+            box-sizing: border-box;
+        }
+        
+        /* Background Hearts */
+        .bg-decoration {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 99; /* Reduced z-index to ensure content is above */
+            overflow: hidden;
+        }
+        
+        .bg-heart {
+            position: absolute;
+            opacity: 0.08; /* Reduced opacity */
+        }
+        
+        .bg-heart-1 {
+            width: 400px;
+            height: 400px;
+            top: 0px;
+            right: -130px;
+            transform: rotate(-35deg);
+            fill: var(--secondary);
+        }
+        
+        .bg-heart-2 {
+            width: 500px;
+            height: 500px;
+            bottom: 10%;
+            left: -200px;
+            transform: rotate(-10deg);
+            fill: var(--secondary);
+        }
+        
+        .bg-heart-3 {
+            width: 300px;
+            height: 300px;
+            top: 40%;
+            right: 5%;
+            transform: rotate(20deg);
+            fill: var(--secondary);
+        }
+        
+        .bg-heart-4 {
+            width: 250px;
+            height: 250px;
+            top: 150px;
+            left: 5%;
+            transform: rotate(-15deg);
+            fill: var(--secondary);
+        }
+        
+        /* Hero Section - Full Width */
+        .hero-wrapper {
+            width: 100%;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .hero {
+            padding: 60px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(150px, -150px);
+        }
+        
+        .hero::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transform: translate(-100px, 100px);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            margin-top: 0;
+        }
+        
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--primary);
+            border-radius: 2px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 30px auto 0;
+            color: var(--gray);
+            padding: 0 20px;
+        }
+        
+        /* Services Grid Section */
+        .services-wrapper {
+            width: 100%;
+            background-color: white;
+            position: relative;
+            z-index: 2;
+            padding: 60px 0;
+        }
+        
+        .services {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+            width: 100%;
+        }
+        
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 15px;
+            margin-top: 0;
+        }
+        
+        .section-header p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+        
+        .service-card {
+            background-color: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .service-image {
+            width: 100%;
+            height: 200px;
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        
+        .service-image img {
+            max-width: 100%;
+            max-height: 160px;
+            object-fit: contain;
+        }
+        
+        .service-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-content h3 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .service-content p {
+            color: var(--gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .service-btn {
+            display: inline-block;
+            padding: 12px 25px;
+            background-color: var(--primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .service-btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        /* SEO Content Section */
+        .seo-wrapper {
+            width: 100%;
+            background-color: #fff;
+            position: relative;
+            z-index: 2;
+            padding: 60px 0;
+            margin-bottom: 60px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+        
+        .seo-content {
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .seo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+            width: 100%;
+        }
+        
+        .seo-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .seo-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .seo-text h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 25px;
+            margin-top: 0;
+        }
+        
+        .seo-text p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .seo-text ul {
+            margin: 20px 0;
+            padding-left: 20px;
+        }
+        
+        .seo-text li {
+            margin-bottom: 10px;
+            color: var(--gray);
+        }
+        
+        .seo-text h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin: 30px 0 15px;
+        }
+        
+        /* CTA Section */
+        .cta-wrapper {
+            width: 100%;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            position: relative;
+            z-index: 2;
+            margin-bottom: 60px;
+            overflow: hidden;
+        }
+        
+        .cta-section {
+            padding: 60px 0;
+            color: white;
+            text-align: center;
+            position: relative;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        
+        .cta-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 300px;
+            height: 300px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: translate(150px, -150px);
+        }
+        
+        .cta-section::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200px;
+            height: 200px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50%;
+            transform: translate(-100px, 100px);
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+            margin-top: 0;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 40px;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-light {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .btn-light:hover {
+            background-color: var(--gray-light);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 1.1rem;
+            color: var(--gray);
+        }
+        
+        .contact-info a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        
+        .contact-info a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+        
+        /* Back Button */
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            color: var(--gray);
+            text-decoration: none;
+            font-weight: 500;
+            margin: 40px 0;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .back-link svg {
+            margin-right: 8px;
+            transition: transform 0.3s ease;
+        }
+        
+        .back-link:hover {
+            color: var(--primary);
+        }
+        
+        .back-link:hover svg {
+            transform: translateX(-3px);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .seo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .seo-image {
+                order: -1;
+                margin-bottom: 30px;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-header h2 {
+                font-size: 2rem;
+            }
+            
+            /* Adjust heart sizes and positions for tablets */
+            .bg-heart-1 {
+                width: 300px;
+                height: 300px;
+                right: -100px;
+            }
+            
+            .bg-heart-2 {
+                width: 350px;
+                height: 350px;
+                left: -150px;
+            }
+            
+            .bg-heart-3 {
+                width: 250px;
+                height: 250px;
+                right: 0;
+            }
+            
+            .bg-heart-4 {
+                width: 200px;
+                height: 200px;
+                left: 0;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .hero {
+                padding: 60px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-header h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section p {
+                font-size: 1rem;
+            }
+            
+            /* Further adjust heart sizes and positions for medium screens */
+            .bg-heart-1 {
+                width: 250px;
+                height: 250px;
+                right: -80px;
+                top: 50px;
+            }
+            
+            .bg-heart-2 {
+                width: 280px;
+                height: 280px;
+                left: -120px;
+            }
+            
+            .bg-heart-3 {
+                width: 200px;
+                height: 200px;
+                right: -20px;
+                top: 50%;
+            }
+            
+            .bg-heart-4 {
+                width: 180px;
+                height: 180px;
+                left: -20px;
+                top: 200px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            /* Adjust heart sizes and positions for mobile */
+            .bg-heart-1 {
+                width: 180px;
+                height: 180px;
+                right: -60px;
+                top: 80px;
+            }
+            
+            .bg-heart-2 {
+                width: 200px;
+                height: 200px;
+                left: -100px;
+                bottom: 20%;
+            }
+            
+            .bg-heart-3 {
+                width: 150px;
+                height: 150px;
+                right: -30px;
+                top: 60%;
+            }
+            
+            .bg-heart-4 {
+                width: 120px;
+                height: 120px;
+                left: -30px;
+                top: 250px;
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navbar Placeholder -->
     <div id="navbar-placeholder"></div>
-
+    
     <!-- JavaScript to Load Navbar -->
     <script src="../Navbar/Navbar.js" defer></script>
-
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>Test Prep Subjects</h1>
-        <p>Excel in standardized tests with targeted preparation for SAT, ACT, TSI, and GED.</p>
-
+    
+    <!-- Background Hearts -->
+    <div class="bg-decoration">
+        <svg class="bg-heart bg-heart-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+        </svg>
+        <svg class="bg-heart bg-heart-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+        </svg>
+        <svg class="bg-heart bg-heart-3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+        </svg>
+        <svg class="bg-heart bg-heart-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+        </svg>
     </div>
-    <!-- Subjects Section -->
-    <section class="subjects-section">
-        <h2>Our Test Prep Subjects</h2>
-        <div class="subjects-container">
-            <!-- SAT Exam -->
-            <div class="subject-card">
-                <img src="https://i.imgur.com/3Yvz086.png" alt="SAT test preparation icon - Comprehensive tutoring for college entrance exams">
-                <h3>SAT</h3>
-                <p>Comprehensive preparation for the SAT exam.</p>
-                <a href="SATServices.html" class="schedule-button" style="background-color: #1e293b;">View SAT Services</a>
-            </div>
-            <!-- ACT Exam -->
-            <div class="subject-card">
-                <img src="https://i.imgur.com/aDmePOB.png" alt="ACT test preparation icon - Expert guidance for all ACT sections">
-                <h3>ACT</h3>
-                <p>Expert guidance for excelling in the ACT exam.</p>
-                <a href="ACTServices.html" class="schedule-button" style="background-color: #1e293b;">View ACT Services</a>
-            </div>
-            <!-- TSI Exam -->
-            <div class="subject-card">
-                <img src="https://i.imgur.com/pnAQZlu.png" alt="TSI test preparation icon - Texas Success Initiative assessment tutoring">
-                <h3>TSI</h3>
-                <p>Targeted preparation for success in the TSI exam.</p>
-                <a href="TSIServices.html" class="schedule-button" style="background-color: #1e293b;">View TSI Services</a>
-            </div>
-            <!-- GED Exam -->
-            <div class="subject-card">
-                <img src="https://i.imgur.com/yBpCgJ9.png" alt="GED test preparation icon - High school equivalency exam tutoring">
-                <h3>GED</h3>
-                <p>Achieve your GED with our customized tutoring.</p>
-                <a href="GEDServices.html" class="schedule-button" style="background-color: #1e293b;">View GED Services</a>
-            </div>
-            <!-- AP Exams -->
-            <div class="subject-card">
-                <img src="https://i.imgur.com/7RomIiJ.png" alt="AP Exams preparation icon - Advanced Placement test tutoring for college credit">
-                <h3>AP Exams</h3>
-                <p>Advanced placement preparation for multiple subjects.</p>
-                <a href="APExamServices.html" class="schedule-button" style="background-color: #1e293b;">View AP Services</a>
+    
+    <!-- Hero Section - Full Width -->
+    <div class="hero-wrapper">
+        <div class="container">
+            <div class="hero">
+                <h1>Test Prep Services</h1>
+                <p>Excel in standardized tests with our comprehensive preparation programs. Our expert tutors provide personalized strategies and targeted practice for SAT, ACT, TSI, GED, and AP exams to help you achieve your highest potential score.</p>
             </div>
         </div>
-    </section>
+    </div>
     
-
-    <!-- <div id="sat-math-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal('sat-math-modal')">&times;</span>
-            <h3>SAT Math Topics</h3>
-            <ul>
-                <li>Algebra and Functions</li>
-                <li>Geometry and Trigonometry</li>
-                <li>Data Analysis and Problem Solving</li>
-            </ul>
+    <!-- Services Grid Section - Full Width -->
+    <div class="services-wrapper">
+        <div class="container">
+            <div class="services">
+                <div class="section-header">
+                    <h2>Our Test Prep Programs</h2>
+                    <p>Choose from our specialized test preparation services designed to help you succeed on any standardized exam.</p>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- SAT Card -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://i.imgur.com/3Yvz086.png" alt="SAT test preparation icon - Comprehensive tutoring for college entrance exams">
+                        </div>
+                        <div class="service-content">
+                            <h3>SAT Preparation</h3>
+                            <p>Comprehensive preparation for all sections of the SAT exam, including Math, Reading, and Writing. Our expert tutors help you master content knowledge and test-taking strategies.</p>
+                            <a href="SATServices.html" class="service-btn">View SAT Services</a>
+                        </div>
+                    </div>
+                    
+                    <!-- ACT Card -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://i.imgur.com/aDmePOB.png" alt="ACT test preparation icon - Expert guidance for all ACT sections">
+                        </div>
+                        <div class="service-content">
+                            <h3>ACT Preparation</h3>
+                            <p>Targeted preparation for the ACT exam covering English, Math, Reading, Science, and the optional Writing section. Learn proven strategies to improve your score.</p>
+                            <a href="ACTServices.html" class="service-btn">View ACT Services</a>
+                        </div>
+                    </div>
+                    
+                    <!-- TSI Card -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://i.imgur.com/pnAQZlu.png" alt="TSI test preparation icon - Texas Success Initiative assessment tutoring">
+                        </div>
+                        <div class="service-content">
+                            <h3>TSI Preparation</h3>
+                            <p>Specialized tutoring for the Texas Success Initiative Assessment, focusing on Reading, Writing, and Mathematics to help you meet college readiness standards.</p>
+                            <a href="TSIServices.html" class="service-btn">View TSI Services</a>
+                        </div>
+                    </div>
+                    
+                    <!-- GED Card -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://i.imgur.com/yBpCgJ9.png" alt="GED test preparation icon - High school equivalency exam tutoring">
+                        </div>
+                        <div class="service-content">
+                            <h3>GED Preparation</h3>
+                            <p>Comprehensive preparation for all four GED subject tests: Mathematical Reasoning, Reasoning Through Language Arts, Science, and Social Studies.</p>
+                            <a href="GEDServices.html" class="service-btn">View GED Services</a>
+                        </div>
+                    </div>
+                    
+                    <!-- AP Exams Card -->
+                    <div class="service-card">
+                        <div class="service-image">
+                            <img src="https://i.imgur.com/7RomIiJ.png" alt="AP Exams preparation icon - Advanced Placement test tutoring for college credit">
+                        </div>
+                        <div class="service-content">
+                            <h3>AP Exam Preparation</h3>
+                            <p>Specialized tutoring for Advanced Placement exams across multiple subjects, helping you earn college credit and stand out in the college admissions process.</p>
+                            <a href="APExamServices.html" class="service-btn">View AP Services</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
-    <div id="sat-english-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal('sat-english-modal')">&times;</span>
-            <h3>SAT English Topics</h3>
-            <ul>
-                <li>Reading Comprehension</li>
-                <li>Grammar and Sentence Structure</li>
-                <li>Essay Writing Techniques</li>
-            </ul>
+    <!-- SEO Content Section - Full Width -->
+    <div class="seo-wrapper">
+        <div class="container">
+            <div class="seo-content">
+                <div class="seo-grid">
+                    <div class="seo-text">
+                        <h2>Why Choose Our Test Prep Services</h2>
+                        <p>Standardized tests play a crucial role in academic advancement and college admissions. Our comprehensive test preparation programs are designed to help students achieve their highest potential scores through personalized instruction and proven strategies.</p>
+                        
+                        <h3>Our Approach to Test Preparation</h3>
+                        <p>We believe that effective test preparation combines content knowledge, test-taking strategies, and confidence building. Our programs offer:</p>
+                        <ul>
+                            <li>Diagnostic assessments to identify strengths and areas for improvement</li>
+                            <li>Customized study plans tailored to individual learning needs</li>
+                            <li>Expert instruction from tutors with proven success records</li>
+                            <li>Practice with authentic test questions and full-length practice exams</li>
+                            <li>Strategies for managing test anxiety and maximizing performance</li>
+                        </ul>
+                        
+                        <h3>Proven Results</h3>
+                        <p>Our students consistently achieve significant score improvements and reach their target schools. We focus not just on test content, but on developing the critical thinking and problem-solving skills that lead to success both on test day and beyond.</p>
+                    </div>
+                    
+                    <div class="seo-image">
+                        <img src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlCurlyHairBlueShirt.webp" alt="Student studying for standardized test with tutor, reviewing practice questions and test strategies">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     
-    <div id="act-math-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal('act-math-modal')">&times;</span>
-            <h3>ACT Math Topics</h3>
-            <ul>
-                <li>Algebra and Coordinate Geometry</li>
-                <li>Trigonometry and Statistics</li>
-                <li>Word Problems and Strategies</li>
-            </ul>
+    <!-- CTA Section - Full Width -->
+    <div class="cta-wrapper">
+        <div class="container">
+            <div class="cta-section">
+                <h2>Ready to Ace Your Exam?</h2>
+                <p>Join thousands of successful students who have achieved their target scores with our expert test preparation programs.</p>
+                <a href="../MainPages/Welcome.html" class="btn btn-light">Schedule Your First Session</a>
+            </div>
         </div>
     </div>
     
-    <div id="act-english-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal('act-english-modal')">&times;</span>
-            <h3>ACT English Topics</h3>
-            <ul>
-                <li>Reading and Understanding Texts</li>
-                <li>Grammar Rules and Applications</li>
-                <li>Time Management for Reading Sections</li>
-            </ul>
+    <!-- Contact Info Section -->
+    <div class="container">
+        <div class="contact-info">
+            <p>Can't find test prep for your specific exam? <a href="../MainPages/Contact.html">Contact us</a> for customized tutoring options.</p>
         </div>
     </div>
     
-    <div id="tsi-math-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal('tsi-math-modal')">&times;</span>
-            <h3>TSI Math Topics</h3>
-            <ul>
-                <li>Basic Algebra</li>
-                <li>Word Problems and Data Interpretation</li>
-                <li>College Readiness Preparation</li>
-            </ul>
-        </div>
+    <div class="container">
+        <!-- Back Button -->
+        <a href="../MainPages/Services.html" class="back-link">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+            Back to Services
+        </a>
     </div>
     
-    <div id="tsi-english-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal('tsi-english-modal')">&times;</span>
-            <h3>TSI English Topics</h3>
-            <ul>
-                <li>Critical Reading</li>
-                <li>Essay Writing and Grammar</li>
-                <li>Comprehension Strategies</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div id="ged-math-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal('ged-math-modal')">&times;</span>
-            <h3>GED Math Topics</h3>
-            <ul>
-                <li>Fractions and Decimals</li>
-                <li>Algebra and Geometry</li>
-                <li>Data and Graph Interpretation</li>
-            </ul>
-        </div>
-    </div>
-    
-    <div id="ged-english-modal" class="modal">
-        <div class="modal-content">
-            <span class="close-button" onclick="closeModal('ged-english-modal')">&times;</span>
-            <h3>GED English Topics</h3>
-            <ul>
-                <li>Reading Comprehension</li>
-                <li>Grammar and Sentence Structure</li>
-                <li>Essay Writing Techniques</li>
-            </ul>
-        </div>
-    </div> -->
-    <section class="contact-section" style="text-align: center; margin-top: 40px; font-size: 1.2rem;">
-        <p>
-            Can't find test prep for your specific exam?
-            <a href="../MainPages/Contact.html" class="contact-link">Contact us here</a>.
-        </p>
-    </section>
-
-    <!-- Back Button Section -->
-    <div class="back-container">
-        <a href="../MainPages/Services.html" class="back-button">Back to Services</a>
-    </div>
-
-    <script>
-        function openModal(id) {
-            document.getElementById(id).style.display = 'block';
-        }
-
-        function closeModal(id) {
-            document.getElementById(id).style.display = 'none';
-        }
-    </script>
     <div id="footer-placeholder"></div>
 
     <!-- Load Footer -->
