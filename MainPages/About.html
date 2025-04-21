@@ -1,639 +1,1311 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
-<script src="../Javascript/analytics.js"></script>
-<script src="../Javascript/metaPixel.js"></script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
-</noscript>
-<script src="../Javascript/tiktokPixel.js"></script>
-<noscript>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
+  <script src="../Javascript/analytics.js"></script>
+  <script src="../Javascript/metaPixel.js"></script>
+  <noscript>
     <img height="1" width="1" style="display:none"
-         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
+         src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
   </noscript>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About From the Heart Tutoring | Meet Our Mission & Team</title>
-<meta name="description" content="Learn about the mission, values, and educators behind From the Heart Tutoring. Discover why families trust us to support student success.">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
-    <style>
-        :root {
-            --primary-color: #ff6f61;
-            --secondary-color: #1e293b;
-            --text-color: #333;
-            --background-color: #f9f9f9;
-        }
-
-        *:not(.navbar, .navbar *) {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: var(--background-color);
-            position: relative; /* Added for positioning context */
-        }
-        
-        /* Background pattern styling */
-        body::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/pixel-heart.png');
-            background-repeat: repeat;
-            opacity: 0.3; /* Subtle opacity */
-            pointer-events: none; /* Allows clicking through the background */
-            min-height: 100%;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-            position: relative; /* Ensures content stays above background */
-        }
-
-        .hero {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
-            position: relative; /* Ensures it's above the background */
-            z-index: 1;
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            color: var(--secondary-color);
-            margin-bottom: 1.5rem;
-            text-align: center;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        section {
-            margin-bottom: 4rem;
-            padding: 0 1rem;
-            position: relative; /* Ensures it's above the background */
-            z-index: 1;
-        }
-
-        .mission p {
-            margin-bottom: 1rem;
-        }
-
-        .staff-grid, .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .staff-card {
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .staff-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .staff-card-header {
-            background-color: var(--secondary-color);
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .staff-card img {
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-            border-radius: 50%;
-            border: 4px solid white;
-            margin: 0 auto;
-        }
-
-        .staff-card-content {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .staff-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .staff-card .title {
-            color: white;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-            font-style: italic;
-        }
-
-        .staff-card p {
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-
-        .staff-card a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border: 2px solid var(--primary-color);
-            border-radius: 20px;
-            text-align: center;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            align-self: center;
-        }
-
-        .staff-card a:hover {
-            background-color: var(--primary-color);
-            color: white;
-        }
-
-        .value-card {
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            transition: transform 0.3s ease;
-            text-align: center;
-            padding: 1.5rem;
-        }
-
-        .value-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .value-card img {
-            width: 80px;
-            height: 80px;
-            object-fit: contain;
-            margin-bottom: 1rem;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            padding: 1rem;
-        }
-
-        .social-links a {
-            display: flex;
-            align-items: center;
-            color: var(--secondary-color);
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .social-links img {
-            width: 24px;
-            height: 24px;
-            margin-right: 0.5rem;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-
-        .cta-button:hover {
-            background-color: #e5635b;
-        }
-
-        .join-team {
-            margin-top: 2rem;
-            text-align: center;
-        }
-
-        .join-team p {
-            margin-bottom: 1rem;
-        }
-
-        .credits-section {
-            margin-top: 2rem; /* Updated spacing */
-            padding: 0 1rem;
-            text-align: center;
-        }
-
-        .credits-summary {
-            margin-bottom: 1rem;
-        }
-
-        .expand-button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 25px;
-            font-family: 'Poppins', sans-serif;
-            font-weight: bold;
-            font-size: 1rem; /* Updated font size */
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-            margin-bottom: 1rem;
-        }
-
-        .expand-button:hover {
-            background-color: #e5635b;
-        }
-
-        .credits-expand {
-            display: none;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 1.5rem;
-            margin: 1rem auto;
-            max-width: 800px;
-            text-align: left;
-        }
-
-        .credits-expand ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .credits-expand li {
-            margin-bottom: 0.75rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid #eee;
-        }
-
-        .credits-expand li:last-child {
-            margin-bottom: 0;
-            padding-bottom: 0;
-            border-bottom: none;
-        }
-
-        .credits-expand a {
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s ease;
-        }
-
-        .credits-expand a:hover {
-            color: #e5635b;
-        }
-
-        @media (max-width: 768px) {
-            .staff-grid, .values-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .container {
-                padding: 1rem;
-            }
-            .credits-expand li {
-                font-size: 0.9rem;
-            }
-        }
-        .bold {
-            font-weight: bold;
-        }
-        @media (max-width: 480px) {
-            .expand-button {
-                width: 100%;
-            }
-        }
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            text-align: center;
-            padding: 1rem;
-            margin-top: 4rem;
-            position: relative; /* Ensures it's above the background */
-            z-index: 1;
-        }
-    </style>
+  <script src="../Javascript/tiktokPixel.js"></script>
+  <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
+  </noscript>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About From the Heart Tutoring | Our Mission, Team & Values</title>
+  <meta name="description" content="Meet the passionate educators behind From the Heart Tutoring. Learn about our mission to provide personalized education, our core values, and how we help students succeed.">
+  <meta name="keywords" content="tutoring service, online tutors, math tutoring, science tutoring, test prep, personalized education">
+  <meta property="og:title" content="About From the Heart Tutoring | Our Mission, Team & Values">
+  <meta property="og:description" content="Meet the passionate educators behind From the Heart Tutoring and learn how we're transforming education through personalized tutoring.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://fromthehearttutoring.com/MainPages/About.html">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+  <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to footer CSS -->
+  <style>
+      /* Base Styles */
+      :root {
+          --primary: #ff6f61;
+          --primary-light: #ff8a7f;
+          --primary-dark: #e5635b;
+          --secondary: #4361ee;
+          --dark: #0f172a;
+          --light: #f8f9fa;
+          --gray: #6b7280;
+          --gray-light: #e5e7eb;
+      }
+      
+      body {
+          font-family: 'Poppins', sans-serif;
+          margin: 0;
+          padding: 0;
+          color: #333;
+          background-color: var(--light);
+          overflow-x: hidden;
+      }
+      
+      /* Utility Classes */
+      .container {
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 0 20px;
+          position: relative;
+      }
+      
+      .text-center {
+          text-align: center;
+      }
+      
+      .mb-1 { margin-bottom: 0.5rem; }
+      .mb-2 { margin-bottom: 1rem; }
+      .mb-3 { margin-bottom: 1.5rem; }
+      .mb-4 { margin-bottom: 2rem; }
+      .mb-5 { margin-bottom: 3rem; }
+      
+      .mt-1 { margin-top: 0.5rem; }
+      .mt-2 { margin-top: 1rem; }
+      .mt-3 { margin-top: 1.5rem; }
+      .mt-4 { margin-top: 2rem; }
+      .mt-5 { margin-top: 3rem; }
+      
+      .py-1 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+      .py-2 { padding-top: 1rem; padding-bottom: 1rem; }
+      .py-3 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+      .py-4 { padding-top: 2rem; padding-bottom: 2rem; }
+      .py-5 { padding-top: 3rem; padding-bottom: 3rem; }
+      
+      .px-1 { padding-left: 0.5rem; padding-right: 0.5rem; }
+      .px-2 { padding-left: 1rem; padding-right: 1rem; }
+      .px-3 { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .px-4 { padding-left: 2rem; padding-right: 2rem; }
+      .px-5 { padding-left: 3rem; padding-right: 3rem; }
+      
+      .btn {
+          display: inline-block;
+          padding: 12px 28px;
+          border-radius: 50px;
+          text-decoration: none;
+          font-weight: 600;
+          font-size: 1rem;
+          transition: all 0.3s ease;
+          cursor: pointer;
+          text-align: center;
+          box-sizing: border-box;
+      }
+      
+      /* Modified button styles for hero section */
+      .hero .btn {
+          display: block;
+          width: 100%;
+          max-width: 300px;
+          margin: 0 auto;
+      }
+      
+      .btn-primary {
+          background-color: var(--primary);
+          color: white;
+          border: 2px solid var(--primary);
+      }
+      
+      .btn-primary:hover {
+          background-color: var(--primary-dark);
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(255, 111, 97, 0.2);
+      }
+      
+      .btn-outline {
+          background-color: transparent;
+          color: var(--primary);
+          border: 2px solid var(--primary);
+      }
+      
+      .btn-outline:hover {
+          background-color: var(--primary);
+          color: white;
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(255, 111, 97, 0.2);
+      }
+      
+      .section-title {
+          position: relative;
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: var(--dark);
+          margin-bottom: 1.5rem;
+          text-align: center;
+      }
+      
+      .section-title::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 80px;
+          height: 4px;
+          background: var(--primary);
+          border-radius: 2px;
+      }
+      
+      .section-subtitle {
+          font-size: 1.2rem;
+          color: var(--gray);
+          max-width: 800px;
+          margin: 0 auto 3rem;
+          text-align: center;
+      }
+      
+      /* Hero Section */
+      .hero {
+          position: relative;
+          background: linear-gradient(135deg, var(--dark) 0%, #2a3f5f 100%);
+          color: white;
+          padding: 80px 0 80px;
+          overflow: hidden;
+      }
+      
+      .hero::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 300px;
+          height: 300px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 50%;
+          transform: translate(150px, -150px);
+      }
+      
+      .hero::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 200px;
+          height: 200px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 50%;
+          transform: translate(-100px, 100px);
+      }
+      
+      .hero-content {
+          position: relative;
+          z-index: 2;
+          max-width: 800px;
+          margin: 0 auto;
+          text-align: center;
+          padding: 0 20px;
+      }
+      
+      .hero h1 {
+          font-size: 3.5rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+          line-height: 1.2;
+      }
+      
+      .hero p {
+          font-size: 1.25rem;
+          margin-bottom: 2rem;
+          opacity: 0.9;
+      }
+      
+      .hero-accent {
+          color: var(--primary);
+      }
+      
+      .hero-hearts {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          pointer-events: none;
+          z-index: 1;
+      }
+      
+      .heart {
+          position: absolute;
+          opacity: 0.1;
+          fill: var(--primary);
+      }
+      
+      .heart-1 {
+          top: 10%;
+          left: 5%;
+          width: 60px;
+          height: 60px;
+          animation: float 8s ease-in-out infinite;
+      }
+      
+      .heart-2 {
+          top: 20%;
+          right: 10%;
+          width: 40px;
+          height: 40px;
+          animation: float 6s ease-in-out infinite 1s;
+      }
+      
+      .heart-3 {
+          bottom: 15%;
+          left: 15%;
+          width: 50px;
+          height: 50px;
+          animation: float 7s ease-in-out infinite 0.5s;
+      }
+      
+      .heart-4 {
+          bottom: 25%;
+          right: 5%;
+          width: 70px;
+          height: 70px;
+          animation: float 9s ease-in-out infinite 1.5s;
+      }
+      
+      @keyframes float {
+          0% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
+          100% { transform: translateY(0) rotate(0deg); }
+      }
+      
+      /* Mission Section */
+      .mission-section {
+          padding: 100px 0;
+          position: relative;
+          background-color: white;
+      }
+      
+      .mission-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 50px;
+          align-items: center;
+      }
+      
+      .mission-image {
+          position: relative;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      }
+      
+      .mission-image img {
+          width: 100%;
+          height: auto;
+          display: block;
+          transition: transform 0.5s ease;
+      }
+      
+      .mission-image:hover img {
+          transform: scale(1.05);
+      }
+      
+      .mission-image::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.5) 100%);
+      }
+      
+      .mission-content h2 {
+          font-size: 2.5rem;
+          font-weight: 700;
+          color: var(--dark);
+          margin-bottom: 1.5rem;
+          position: relative;
+      }
+      
+      .mission-content h2::after {
+          content: '';
+          position: absolute;
+          bottom: -10px;
+          left: 0;
+          width: 80px;
+          height: 4px;
+          background: var(--primary);
+          border-radius: 2px;
+      }
+      
+      .mission-content p {
+          font-size: 1.1rem;
+          line-height: 1.8;
+          color: var(--gray);
+          margin-bottom: 1.5rem;
+      }
+      
+      .highlight {
+          color: var(--primary);
+          font-weight: 600;
+      }
+      
+      /* Team Section */
+      .team-section {
+          padding: 100px 0;
+          background-color: white;
+          position: relative;
+      }
+      
+      .team-tabs {
+          display: flex;
+          justify-content: center;
+          margin-bottom: 50px;
+          flex-wrap: wrap;
+          gap: 10px;
+      }
+      
+      .team-tab {
+          padding: 12px 25px;
+          background-color: var(--gray-light);
+          color: var(--dark);
+          border: none;
+          border-radius: 50px;
+          font-family: 'Poppins', sans-serif;
+          font-size: 1rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.3s ease;
+      }
+      
+      .team-tab.active {
+          background-color: var(--primary);
+          color: white;
+      }
+      
+      .team-tab:hover:not(.active) {
+          background-color: #ddd;
+      }
+      
+      .team-content {
+          display: none;
+      }
+      
+      .team-content.active {
+          display: block;
+      }
+      
+      .team-grid {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 30px;
+          justify-content: center;
+          margin: 0 auto;
+      }
+      
+      .team-card {
+          background-color: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          width: 300px; /* Fixed width instead of percentage */
+          text-align: center;
+      }
+      
+      .team-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+      
+      .team-card-header {
+          position: relative;
+          padding-top: 30px;
+          background: linear-gradient(135deg, var(--dark) 0%, #2a3f5f 100%);
+          text-align: center;
+      }
+      
+      .team-card-header::before {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 40px;
+          background-color: white;
+          border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+      }
+      
+      .team-card-img {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          border: 5px solid white;
+          object-fit: cover;
+          margin: 0 auto;
+          position: relative;
+          z-index: 1;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+      
+      .team-card-title {
+          color: white;
+          padding: 0 20px;
+          position: relative;
+          z-index: 1;
+          margin-bottom: 40px;
+      }
+      
+      .team-card-title h3 {
+          font-size: 1.3rem;
+          font-weight: 700;
+          margin-bottom: 5px;
+          margin-top: 15px;
+      }
+      
+      .team-card-title p {
+          font-size: 0.9rem;
+          opacity: 0.9;
+          font-style: italic;
+          margin: 0;
+      }
+      
+      .team-card-content {
+          padding: 25px;
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+          align-items: center; /* Center content vertically */
+      }
+      
+      .team-card-content p {
+          font-size: 0.95rem;
+          color: var(--gray);
+          line-height: 1.7;
+          margin-bottom: 20px;
+          flex-grow: 1;
+      }
+      
+      .team-card-link {
+          display: inline-block;
+          padding: 10px 20px;
+          background-color: transparent;
+          color: var(--primary);
+          text-decoration: none;
+          border: 2px solid var(--primary);
+          border-radius: 50px;
+          font-weight: 600;
+          font-size: 0.9rem;
+          transition: all 0.3s ease;
+          text-align: center;
+          align-self: center;
+      }
+      
+      .team-card-link:hover {
+          background-color: var(--primary);
+          color: white;
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(255, 111, 97, 0.2);
+      }
+      
+      /* Values Section */
+      .values-section {
+          padding: 100px 0;
+          background-color: var(--light);
+          position: relative;
+          overflow: hidden;
+      }
+      
+      .values-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 30px;
+          margin-top: 50px;
+      }
+      
+      .value-card {
+          background-color: white;
+          border-radius: 20px;
+          overflow: hidden;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+          position: relative;
+      }
+      
+      .value-card:hover {
+          transform: translateY(-10px);
+          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+      
+      .value-icon {
+          width: 80px;
+          height: 80px;
+          margin: 30px auto 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background-color: rgba(255, 111, 97, 0.1);
+          border-radius: 50%;
+          transition: transform 0.3s ease;
+      }
+      
+      .value-card:hover .value-icon {
+          transform: scale(1.1);
+      }
+      
+      .value-icon img {
+          width: 40px;
+          height: 40px;
+          object-fit: contain;
+      }
+      
+      .value-content {
+          padding: 0 30px 30px;
+          flex-grow: 1;
+          display: flex;
+          flex-direction: column;
+      }
+      
+      .value-content h3 {
+          font-size: 1.5rem;
+          font-weight: 700;
+          color: var(--dark);
+          margin-bottom: 15px;
+      }
+      
+      .value-content p {
+          font-size: 1rem;
+          color: var(--gray);
+          line-height: 1.7;
+          flex-grow: 1;
+      }
+      
+      /* Join Team Section */
+      .join-section {
+          padding: 100px 0;
+          background: linear-gradient(135deg, var(--secondary) 0%, #2a4baa 100%);
+          color: white;
+          text-align: center;
+          position: relative;
+          overflow: hidden;
+      }
+      
+      .join-section::before {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 300px;
+          height: 300px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 50%;
+          transform: translate(150px, -150px);
+      }
+      
+      .join-section::after {
+          content: "";
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 200px;
+          height: 200px;
+          background: rgba(255, 255, 255, 0.05);
+          border-radius: 50%;
+          transform: translate(-100px, 100px);
+      }
+      
+      .join-content {
+          position: relative;
+          z-index: 2;
+          max-width: 800px;
+          margin: 0 auto;
+      }
+      
+      .join-content h2 {
+          font-size: 2.5rem;
+          font-weight: 700;
+          margin-bottom: 1.5rem;
+      }
+      
+      .join-content p {
+          font-size: 1.2rem;
+          margin-bottom: 2rem;
+          opacity: 0.9;
+      }
+      
+      .btn-light {
+          background-color: white;
+          color: var(--primary);
+          border: 2px solid white;
+      }
+      
+      .btn-light:hover {
+          background-color: transparent;
+          color: white;
+          transform: translateY(-3px);
+          box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+      }
+      
+      /* Social Section */
+      .social-section {
+          padding: 80px 0;
+          background-color: var(--light);
+          text-align: center;
+      }
+      
+      .social-links {
+          display: flex;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 30px; /* Increased gap for better spacing */
+          margin-top: 30px;
+      }
+      
+      .social-link {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          width: 100px; /* Fixed width for consistent spacing */
+          transition: all 0.3s ease;
+      }
+      
+      .social-icon {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 60px;
+          height: 60px;
+          background-color: white;
+          border-radius: 50%;
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+          transition: all 0.3s ease;
+          margin-bottom: 10px;
+      }
+      
+      .social-link:hover .social-icon {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+          background-color: var(--primary);
+      }
+      
+      .social-icon img {
+          width: 30px;
+          height: 30px;
+          object-fit: contain;
+          transition: filter 0.3s ease;
+      }
+      
+      .social-link:hover .social-icon img {
+          filter: brightness(0) invert(1);
+      }
+      
+      .social-name {
+          font-size: 0.9rem;
+          color: var(--gray);
+          font-weight: 500;
+      }
+      
+      /* Credits Section */
+      .credits-section {
+          padding: 60px 0;
+          background-color: white;
+          text-align: center;
+      }
+      
+      .credits-summary {
+          max-width: 600px;
+          margin: 0 auto 20px;
+          color: var(--gray);
+      }
+      
+      .credits-summary a {
+          color: var(--primary);
+          text-decoration: none;
+          font-weight: 600;
+          transition: color 0.3s ease;
+      }
+      
+      .credits-summary a:hover {
+          color: var(--primary-dark);
+          text-decoration: underline;
+      }
+      
+      .expand-button {
+          display: inline-block;
+          padding: 10px 25px;
+          background-color: var(--primary);
+          color: white;
+          border: none;
+          border-radius: 50px;
+          font-family: 'Poppins', sans-serif;
+          font-weight: 600;
+          font-size: 0.95rem;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          margin-bottom: 20px;
+      }
+      
+      .expand-button:hover {
+          background-color: var(--primary-dark);
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(255, 111, 97, 0.2);
+      }
+      
+      .credits-expand {
+          display: none;
+          background-color: white;
+          border-radius: 15px;
+          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+          padding: 30px;
+          margin: 20px auto;
+          max-width: 800px;
+          text-align: left;
+      }
+      
+      .credits-expand ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+          gap: 15px;
+      }
+      
+      .credits-expand li {
+          padding: 10px 15px;
+          background-color: var(--light);
+          border-radius: 10px;
+          transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+      
+      .credits-expand li:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      }
+      
+      .credits-expand a {
+          color: var(--primary);
+          text-decoration: none;
+          font-weight: 600;
+          transition: color 0.3s ease;
+      }
+      
+      .credits-expand a:hover {
+          color: var(--primary-dark);
+          text-decoration: underline;
+      }
+      
+      /* Responsive Styles */
+      @media (max-width: 992px) {
+          .section-title {
+              font-size: 2.2rem;
+          }
+          
+          .hero h1 {
+              font-size: 3rem;
+          }
+          
+          .mission-grid {
+              grid-template-columns: 1fr;
+          }
+          
+          .mission-image {
+              order: -1;
+              margin-bottom: 30px;
+          }
+          
+          .mission-content h2 {
+              font-size: 2.2rem;
+          }
+          
+          .join-content h2 {
+              font-size: 2.2rem;
+          }
+      }
+      
+      @media (max-width: 768px) {
+          .section-title {
+              font-size: 2rem;
+          }
+          
+          .hero {
+              padding: 80px 0 60px;
+          }
+          
+          .hero h1 {
+              font-size: 2.5rem;
+          }
+          
+          .hero p {
+              font-size: 1.1rem;
+          }
+          
+          .mission-section,
+          .values-section,
+          .team-section,
+          .join-section,
+          .social-section,
+          .credits-section {
+              padding: 60px 0;
+          }
+          
+          .mission-content h2 {
+              font-size: 2rem;
+          }
+          
+          .join-content h2 {
+              font-size: 2rem;
+          }
+          
+          .join-content p {
+              font-size: 1.1rem;
+          }
+          
+          .team-tabs {
+              flex-direction: column;
+              align-items: center;
+              gap: 10px;
+          }
+          
+          .team-tab {
+              width: 100%;
+              max-width: 300px;
+          }
+      }
+      
+      @media (max-width: 576px) {
+          .section-title {
+              font-size: 1.8rem;
+          }
+          
+          .hero h1 {
+              font-size: 2rem;
+          }
+          
+          .hero p {
+              font-size: 1rem;
+          }
+          
+          .mission-content h2 {
+              font-size: 1.8rem;
+          }
+          
+          .join-content h2 {
+              font-size: 1.8rem;
+          }
+          
+          .hero-content {
+              padding: 0 15px;
+          }
+          
+          .btn {
+              padding: 12px 20px;
+          }
+          
+          .hero .btn {
+              max-width: 100%;
+          }
+          
+          .social-links {
+              gap: 20px;
+          }
+          
+          .social-icon {
+              width: 50px;
+              height: 50px;
+          }
+          
+          .social-icon img {
+              width: 25px;
+              height: 25px;
+          }
+          
+          .expand-button {
+              width: 100%;
+          }
+      }
+      
+      @media (max-width: 400px) {
+          .hero .btn {
+              font-size: 0.95rem;
+              padding: 12px 15px;
+          }
+      }
+      
+      @media (max-width: 360px) {
+          .hero-content {
+              padding: 0 10px;
+          }
+      }
+  </style>
 </head>
 <body>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
+  
+  <!-- JavaScript to Load Navbar -->
+  <script src="../Navbar/Navbar.js" defer></script>
+  
+  <!-- Hero Section -->
+  <section class="hero">
+      <div class="hero-hearts">
+          <svg class="heart heart-1" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+          </svg>
+          <svg class="heart heart-2" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+          </svg>
+          <svg class="heart heart-3" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+          </svg>
+          <svg class="heart heart-4" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12,21.35L10.55,20.03C5.4,15.36 2,12.27 2,8.5C2,5.41 4.42,3 7.5,3C9.24,3 10.91,3.81 12,5.08C13.09,3.81 14.76,3 16.5,3C19.58,3 22,5.41 22,8.5C22,12.27 18.6,15.36 13.45,20.03L12,21.35Z"/>
+          </svg>
+      </div>
+      <div class="container">
+          <div class="hero-content">
+              <h1>About <span class="hero-accent">From the Heart</span> Tutoring</h1>
+              <p>We're more than just tutors. We're mentors, guides, and partners in your educational journey, committed to helping every student reach their full potential.</p>
+              <a href="../MainPages/Welcome.html" class="btn btn-primary">Schedule a Session</a>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Mission Section -->
+  <section class="mission-section">
+      <div class="container">
+          <div class="mission-grid">
+              <div class="mission-content">
+                  <h2>Our Mission</h2>
+                  <p>From the Heart Tutoring was founded with a mission to provide <span class="highlight">personalized</span> and impactful education to students of all ages. Our tutors are passionate educators committed to helping learners achieve their goals and build confidence in their abilities.</p>
+                  <p>We specialize in a range of subjects including <span class="highlight">Math</span>, <span class="highlight">Science</span>, and <span class="highlight">Test Preparation</span>, tailoring our approach to meet each student's unique learning style. With years of experience and proven results, our team is dedicated to making a positive difference in education.</p>
+                  <p>We offer <span class="highlight">on-demand virtual tutoring</span>, providing students with immediate access to <span class="highlight">expert guidance</span> whenever they need it. Whether it's last-minute homework help, test prep, or long-term academic support, our flexible online sessions ensure personalized learning at any time.</p>
+              </div>
+              <div class="mission-image">
+                  <img src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/Teacher&StudentField.webp" alt="Student engaged in personalized tutoring session with expert instructor">
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Team Section (Swapped with Values Section) -->
+  <section class="team-section">
+      <div class="container">
+          <h2 class="section-title">Meet Our Team</h2>
+          <p class="section-subtitle">Our dedicated team of educators brings diverse expertise and a shared passion for helping students succeed.</p>
+          
+          <div class="team-tabs">
+              <button class="team-tab active" data-tab="founders">Founders</button>
+              <button class="team-tab" data-tab="virtualTutors">Virtual Tutors</button>
+              <button class="team-tab" data-tab="inPersonTutors">Austin In-Person Tutors</button>
+              <button class="team-tab" data-tab="otherMembers">Other Team Members</button>
+          </div>
+          
+          <div class="team-content active" id="founders">
+              <div class="team-grid" id="foundersGrid"></div>
+          </div>
+          
+          <div class="team-content" id="virtualTutors">
+              <div class="team-grid" id="virtualTutorsGrid"></div>
+          </div>
+          
+          <div class="team-content" id="inPersonTutors">
+              <div class="team-grid" id="inPersonTutorsGrid"></div>
+          </div>
+          
+          <div class="team-content" id="otherMembers">
+              <div class="team-grid" id="otherMembersGrid"></div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Values Section (Swapped with Team Section) -->
+  <section class="values-section">
+      <div class="container">
+          <h2 class="section-title">Our Core Values</h2>
+          <p class="section-subtitle">At From the Heart Tutoring, we believe in fostering a supportive, inclusive, and inspiring environment for our students and their families. These values guide everything we do.</p>
+          
+          <div class="values-grid">
+              <div class="value-card">
+                  <div class="value-icon">
+                      <img src="https://i.imgur.com/jPxGP0g.png" alt="Inclusivity icon">
+                  </div>
+                  <div class="value-content">
+                      <h3>Inclusivity</h3>
+                      <p>We welcome students from all backgrounds and create a safe space for learning. Every student deserves quality education regardless of their starting point or circumstances.</p>
+                  </div>
+              </div>
+              
+              <div class="value-card">
+                  <div class="value-icon">
+                      <img src="https://i.imgur.com/zgIG8ln.png" alt="Innovation icon">
+                  </div>
+                  <div class="value-content">
+                      <h3>Innovation</h3>
+                      <p>Our unique teaching methods make learning engaging and effective. We constantly evolve our approaches to incorporate the latest educational research and technology.</p>
+                  </div>
+              </div>
+              
+              <div class="value-card">
+                  <div class="value-icon">
+                      <img src="https://i.imgur.com/cStGkwq.png" alt="Community icon">
+                  </div>
+                  <div class="value-content">
+                      <h3>Community</h3>
+                      <p>We are more than tutors—we're mentors who build lasting relationships. Our community of learners supports each other through challenges and celebrates successes together.</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Social Media Section -->
+  <section class="social-section">
+      <div class="container">
+          <h2 class="section-title">Connect With Us</h2>
+          <p class="section-subtitle">Follow us on social media to stay updated with our latest news, educational tips, and student success stories.</p>
+          
+          <div class="social-links" id="socialLinksContainer"></div>
+      </div>
+  </section>
+  
+  <!-- Join Team Section (Moved below Connect With Us) -->
+  <section class="join-section">
+      <div class="container">
+          <div class="join-content">
+              <h2>Join Our Growing Team</h2>
+              <p>Are you passionate about education and making a difference in students' lives? We're always looking for talented educators to join our team of tutors.</p>
+              <a href="../MainPages/Contact.html" class="btn btn-light">Contact Us Today</a>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Credits Section -->
+  <section class="credits-section">
+      <div class="container">
+          <h2 class="section-title">Credits</h2>
+          <p class="credits-summary">Icons used on this website are provided by <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</p>
+          <button class="expand-button" onclick="toggleCredits()">Show All Authors</button>
+          <div class="credits-expand" id="credits-details">
+              <ul>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/chattapat" title="chattapat" target="_blank">chattapat</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="smashicons" target="_blank">smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="eucalyp" target="_blank">eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="flat-icons" target="_blank">flat-icons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/max.icons" title="max.icons" target="_blank">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/Stockio" title="Stockio" target="_blank">Stockio</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/popo2021" title="popo2021" target="_blank">popo2021</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/prettycons" title="prettycons" target="_blank">prettycons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/vectors-tank" title="vectors-tank" target="_blank">vectors-tank</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/pixelx" title="pixelx" target="_blank">pixelx</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/awicon" title="awicon" target="_blank">awicon</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/bukeicon" title="bukeicon" target="_blank">bukeicon</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/popcornarts" title="popcornarts" target="_blank">popcornarts</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/wanicon" title="wanicon" target="_blank">wanicon</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/Uniconlabs" title="Uniconlabs" target="_blank">Uniconlabs</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/talha-doger" title="talha-doger" target="_blank">Talha Doger</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/surang" title="surang" target="_blank">surang</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="vectors-market" target="_blank">vectors-market</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/karyative" title="karyative" target="_blank">karyative</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/kerismaker" title="kerismaker" target="_blank">kerismaker</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar" target="_blank">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+                  <li>Icons made by <a href="https://www.flaticon.com/authors/srip" title="srip" target="_blank">srip</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
+              </ul>
+          </div>
+      </div>
+  </section>
+  
+  <!-- Footer Placeholder -->
+  <div id="footer-placeholder"></div>
+  
+  <!-- JavaScript to Load Footer -->
+  <script src="../Footer/Footer.js" defer></script>
+  
+  <script>
+      // Staff Members Data
+      const staffMembers = [
+          {
+              name: "Beth Burgin",
+              title: "Founder",
+              image: "https://i.imgur.com/zNsl3lz.jpeg",
+              description: "Co-owner and tutor for From the Heart Tutoring. Certified teacher in Austin Texas. Civil Engineering college grad from University of Texas at Austin",
+              link: "../TutorAboutPages/BethBurgin.html",
+              category: "founders"
+          },
+          {
+              name: "Zarek Cole",
+              title: "K-College Math Tutor",
+              image: "https://i.imgur.com/5Cuh8SZ.png",
+              description: "Senior mathematics college student. Experienced in teaching high school and college level advanced courses.",
+              link: "../TutorAboutPages/ZarekCole.html",
+              category: "virtualTutors"
+          },
+          {
+              name: "Dianne Simental",
+              title: "Science, Math & Spanish Tutor",
+              image: "https://i.imgur.com/X0kdDss.jpeg",
+              description: "Graduate from Cal State with a degree in Biology Education. Former middle school science teacher.",
+              link: "../TutorAboutPages/DianneSimental.html",
+              category: "virtualTutors"
+          },
+          {
+              name: "Taylor Thomas",
+              title: "English & Science Tutor",
+              image: "https://i.imgur.com/zAXRwYt.jpeg",
+              description: "Biology graduate and current master's student in Instructional Design and Learning Technology at UTA. Experienced in teaching science grades K-12.",
+              link: "../TutorAboutPages/TaylorThomas.html",
+              category: "virtualTutors"
+          },
+          {
+              name: "Evan Varan",
+              title: "Founder & Tutor",
+              image: "https://i.imgur.com/zPiwhDv.png",
+              description: "Co-owner and tutor for From the Heart Tutoring. Electrical Engineering college grad from Texas State University.",
+              link: "../TutorAboutPages/EvanVaran.html",
+              category: "virtualTutors"
+          },
+          {
+              name: "Evan Varan",
+              title: "Founder & Tutor",
+              image: "https://i.imgur.com/zPiwhDv.png",
+              description: "Co-owner and tutor for From the Heart Tutoring. Electrical Engineering college grad from Texas State University.",
+              link: "../TutorAboutPages/EvanVaran.html",
+              category: "founders"
+          },
+          {
+              name: "Barbara Garnett-Herrera",
+              title: "English & K-6th Math Tutor",
+              image: "https://i.imgur.com/Chj0g5s.jpeg",
+              description: "Experienced professional writer and english teacher. Passionate about helping children succeed.",
+              link: "../TutorAboutPages/BarbaraGarnett-Herrera.html",
+              category: "inPersonTutors"
+          },
+          {
+              name: "Myan Nelson",
+              title: "K-7th Math Tutor",
+              image: "https://i.imgur.com/Gd3mxwZ.jpeg",
+              description: "Certified tutor and current elementary school teacher. Specialist in helping with student anxieties.",
+              link: "../TutorAboutPages/MyanNelson.html",
+              category: "inPersonTutors"
+          },
+          {
+              name: "Emma Varan",
+              title: "Freelance Artist and Graphic Designer",
+              image: "https://i.imgur.com/xiBstb2.png",
+              description: "Austin Community College student currently studying animation.",
+              link: null,
+              category: "otherMembers"
+          }
+      ];
 
-    <!-- Navbar Placeholder -->
-    <div id="navbar-placeholder"></div>
+      // Social Media Links Data
+      const socialLinks = [
+          { name: "Facebook", url: "https://www.facebook.com/profile.php?id=100066409571827", icon: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" },
+          { name: "Instagram", url: "https://www.instagram.com/fromtheheartsocial/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" },
+          { name: "LinkedIn", url: "https://www.linkedin.com/company/from-the-heart-tutoring", icon: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" },
+          { name: "TikTok", url: "https://www.tiktok.com/@fromthehearttutoring", icon: "https://i.imgur.com/3Nga21m.jpeg" },
+          { name: "Youtube", url: "https://www.youtube.com/@fromthehearttutoring", icon: "https://i.imgur.com/vs2hIdu.png" }
+      ];
 
-    <!-- JavaScript to Load Navbar -->
-    <script src="../Navbar/Navbar.js" defer></script>
-    <header class="hero">
-        <h1>About Us</h1>
-        <p>Learn more about who we are and what we do.</p>
-    </header>
+      // Function to create team cards
+      function createTeamCards() {
+          staffMembers.forEach(member => {
+              const card = document.createElement('div');
+              card.className = 'team-card';
+              
+              let buttonText = member.category === 'founders' || member.category === 'otherMembers' || member.category === 'inPersonTutors' 
+                  ? `Learn more about ${member.name.split(' ')[0]}` 
+                  : `Learn more or schedule with ${member.name.split(' ')[0]}`;
+              
+              card.innerHTML = `
+                  <div class="team-card-header">
+                      <img src="${member.image}" alt="${member.name}" class="team-card-img">
+                      <div class="team-card-title">
+                          <h3>${member.name}</h3>
+                          <p>${member.title}</p>
+                      </div>
+                  </div>
+                  <div class="team-card-content">
+                      <p>${member.description}</p>
+                      ${member.link ? `<a href="${member.link}" class="team-card-link">${buttonText}</a>` : ''}
+                  </div>
+              `;
+              
+              const grid = document.getElementById(`${member.category}Grid`);
+              if (grid) {
+                  grid.appendChild(card);
+              }
+          });
+      }
 
-    <main class="container">
-        <section class="mission">
-            <h2>Our Mission</h2>
-            <p>From the Heart Tutoring was founded with a mission to provide <span class="bold">personalized</span> and impactful education to students of all ages. Our <span class="bold">tutors</span> are passionate educators committed to helping learners achieve their goals and build confidence in their abilities.</p>
-            <p>We specialize in a range of subjects including <span class="bold">Math</span>, <span class="bold">Science</span>, and <span class="bold">Test Preparation</span>, tailoring our approach to meet each student's unique learning style. With years of experience and proven results, our team is dedicated to making a positive difference in education.</p>
-            <p>We offer <span class="bold">on-demand virtual tutoring</span>, providing students with immediate access to <span class="bold">expert guidance</span> whenever they need it. Whether it's last-minute homework help, test prep, or long-term academic support, our flexible online sessions ensure personalized learning at any time.</p>
-        </section>
+      // Function to create social links
+      function createSocialLinks() {
+          const container = document.getElementById('socialLinksContainer');
+          
+          socialLinks.forEach(link => {
+              const socialLink = document.createElement('a');
+              socialLink.href = link.url;
+              socialLink.target = "_blank";
+              socialLink.rel = "noopener noreferrer";
+              socialLink.className = 'social-link';
+              socialLink.innerHTML = `
+                  <div class="social-icon">
+                      <img src="${link.icon}" alt="${link.name}">
+                  </div>
+                  <span class="social-name">${link.name}</span>
+              `;
+              
+              container.appendChild(socialLink);
+          });
+      }
 
-        <section class="team">
-            <h2>Meet Our Team</h2>
-            <h3>Founders</h3>
-            <div class="staff-grid" id="foundersGrid"></div>
-            
-            <h3>Virtual Tutors</h3>
-            <div class="staff-grid" id="virtualTutorsGrid"></div>
-            
-            <h3>Austin In-Person Tutors</h3>
-            <div class="staff-grid" id="inPersonTutorsGrid"></div>
-            
-            <h3>Other Team Members</h3>
-            <div class="staff-grid" id="otherMembersGrid"></div>
-        </section>
+      // Function to toggle credits section
+      function toggleCredits() {
+          const creditsDetails = document.getElementById('credits-details');
+          const expandButton = document.querySelector('.expand-button');
+          
+          if (creditsDetails.style.display === 'none' || creditsDetails.style.display === '') {
+              creditsDetails.style.display = 'block';
+              expandButton.textContent = 'Hide All Authors';
+          } else {
+              creditsDetails.style.display = 'none';
+              expandButton.textContent = 'Show All Authors';
+          }
+      }
 
-        <section class="values">
-            <h2>Our Values</h2>
-            <p>At From the Heart Tutoring, we believe in fostering a supportive, inclusive, and inspiring environment for our students and their families. These values guide everything we do and set us apart as a trusted partner in education.</p>
-            <div class="values-grid" id="valuesGrid"></div>
-        </section>
+      // Function to handle team tabs
+      function setupTeamTabs() {
+          const tabs = document.querySelectorAll('.team-tab');
+          
+          tabs.forEach(tab => {
+              tab.addEventListener('click', () => {
+                  // Remove active class from all tabs
+                  tabs.forEach(t => t.classList.remove('active'));
+                  
+                  // Add active class to clicked tab
+                  tab.classList.add('active');
+                  
+                  // Hide all content sections
+                  document.querySelectorAll('.team-content').forEach(content => {
+                      content.classList.remove('active');
+                  });
+                  
+                  // Show the corresponding content section
+                  const tabId = tab.getAttribute('data-tab');
+                  document.getElementById(tabId).classList.add('active');
+              });
+          });
+      }
 
-        <section class="social">
-            <h2>Follow Us on Social Media</h2>
-            <div class="social-links" id="socialLinks"></div>
-        </section>
-
-        <section class="join-team">
-            <h2>Join Our Team</h2>
-            <p>Want to join our expanding team?</p>
-            <a href="Contact.html" class="cta-button">Contact Us</a>
-        </section>
-        <section class="credits-section">
-            <h2>Credits</h2>
-            <p class="credits-summary">Icons used on this website are provided by <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</p>
-            <button class="expand-button" onclick="toggleCredits()">Show All Authors</button>
-            <div class="credits-expand" id="credits-details">
-                <ul>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik" target="_blank">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/chattapat" title="chattapat" target="_blank">chattapat</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="smashicons" target="_blank">smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/eucalyp" title="eucalyp" target="_blank">eucalyp</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/flat-icons" title="flat-icons" target="_blank">flat-icons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/max.icons" title="max.icons" target="_blank">max.icons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/Stockio" title="Stockio" target="_blank">Stockio</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/popo2021" title="popo2021" target="_blank">popo2021</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/prettycons" title="prettycons" target="_blank">prettycons</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/vectors-tank" title="vectors-tank" target="_blank">vectors-tank</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/pixelx" title="pixelx" target="_blank">pixelx</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/awicon" title="awicon" target="_blank">awicon</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/bukeicon" title="bukeicon" target="_blank">bukeicon</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/popcornarts" title="popcornarts" target="_blank">popcornarts</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/wanicon" title="wanicon" target="_blank">wanicon</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/Uniconlabs" title="Uniconlabs" target="_blank">Uniconlabs</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/talha-doger" title="talha-doger" target="_blank">Talha Doger</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/surang" title="surang" target="_blank">surang</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/vectors-market" title="vectors-market" target="_blank">vectors-market</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/karyative" title="karyative" target="_blank">karyative</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/kerismaker" title="kerismaker" target="_blank">kerismaker</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/iconixar" title="iconixar" target="_blank">iconixar</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                    <li>Icons made by <a href="https://www.flaticon.com/authors/srip" title="srip" target="_blank">srip</a> from <a href="https://www.flaticon.com/" title="Flaticon" target="_blank">Flaticon</a>.</li>
-                </ul>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <p>&copy; 2025 From the Heart Tutoring. All rights reserved.</p>
-    </footer>
-
-    <script>
-        
-
-        function toggleCredits() {
-            const creditsDetails = document.getElementById('credits-details');
-            const expandButton = document.querySelector('.expand-button');
-            
-            if (creditsDetails.style.display === 'none' || creditsDetails.style.display === '') {
-                creditsDetails.style.display = 'block';
-                expandButton.textContent = 'Hide All Authors';
-            } else {
-                creditsDetails.style.display = 'none';
-                expandButton.textContent = 'Show All Authors';
-            }
-        }
-        const staffMembers = [
-            {
-                name: "Beth Burgin",
-                title: "Founder",
-                image: "https://i.imgur.com/zNsl3lz.jpeg",
-                description: "Co-owner and tutor for From the Heart Tutoring. Certified teacher in Austin Texas. Civil Engineering college grad from University of Texas at Austin",
-                link: "../TutorAboutPages/BethBurgin.html",
-                category: "founders"
-            },
-            {
-                name: "Zarek Cole",
-                title: "K-College Math Tutor",
-                image: "https://i.imgur.com/5Cuh8SZ.png",
-                description: "Senior mathematics college student. Experienced in teaching high school and college level advanced courses.",
-                link: "../TutorAboutPages/ZarekCole.html",
-                category: "virtualTutors"
-            },
-            {
-                name: "Dianne Simental",
-                title: "Science, Math & Spanish Tutor",
-                image: "https://i.imgur.com/X0kdDss.jpeg",
-                description: "Graduate from Cal State with a degree in Biology Education. Former middle school science teacher.",
-                link: "../TutorAboutPages/DianneSimental.html",
-                category: "virtualTutors"
-            },
-            {
-                name: "Taylor Thomas",
-                title: "English & Science Tutor",
-                image: "https://i.imgur.com/zAXRwYt.jpeg",
-                description: "Biology graduate and current master's student in Instructional Design and Learning Technology at UTA. Experienced in teaching science grades K-12.",                link: "../TutorAboutPages/TaylorThomas.html",
-                category: "virtualTutors"
-            },
-            {
-                name: "Evan Varan",
-                title: "Founder & Tutor",
-                image: "https://i.imgur.com/zPiwhDv.png",
-                description: "Co-owner and tutor for From the Heart Tutoring. Electrical Engineering college grad from Texas State University.",
-                link: "../TutorAboutPages/EvanVaran.html",
-                category: "virtualTutors"
-            },
-            {
-                name: "Evan Varan",
-                title: "Founder & Tutor",
-                image: "https://i.imgur.com/zPiwhDv.png",
-                description: "Co-owner and tutor for From the Heart Tutoring. Electrical Engineering college grad from Texas State University.",
-                link: "../TutorAboutPages/EvanVaran.html",
-                category: "founders"
-            },
-            {
-                name: "Barbara Garnett-Herrera",
-                title: "English & K-6th Math Tutor",
-                image: "https://i.imgur.com/Chj0g5s.jpeg",
-                description: "Experienced professional writer and english teacher. Passionate about helping children succeed.",
-                link: "../TutorAboutPages/BarbaraGarnett-Herrera.html",
-                category: "inPersonTutors"
-            },
-            {
-                name: "Myan Nelson",
-                title: "K-7th Math Tutor",
-                image: "https://i.imgur.com/Gd3mxwZ.jpeg",
-                description: "Certified tutor and current elementary school teacher. Specialist in helping with student anxieties.",
-                link: "../TutorAboutPages/MyanNelson.html",
-                category: "inPersonTutors"
-            },
-            {
-                name: "Emma Varan",
-                title: "Freelance Artist and Graphic Designer",
-                image: "https://i.imgur.com/xiBstb2.png",
-                description: "Austin Community College student currently studying animation.",
-                link: null,
-                category: "otherMembers"
-            }
-        ];
-
-        const values = [
-            {
-                title: "Inclusivity",
-                image: "https://i.imgur.com/jPxGP0g.png",
-                description: "We welcome students from all backgrounds and create a safe space for learning."
-            },
-            {
-                title: "Innovation",
-                image: "https://i.imgur.com/zgIG8ln.png",
-                description: "Our unique teaching methods make learning engaging and effective."
-            },
-            {
-                title: "Community",
-                image: "https://i.imgur.com/cStGkwq.png",
-                description: "We are more than tutors—we're mentors who build lasting relationships."
-            }
-        ];
-
-        const socialLinks = [
-            { name: "Facebook", url: "https://www.facebook.com/profile.php?id=100066409571827", icon: "https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" },
-            { name: "Instagram", url: "https://www.instagram.com/fromtheheartsocial/", icon: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" },
-            { name: "LinkedIn", url: "https://www.linkedin.com/company/from-the-heart-tutoring", icon: "https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" },
-            { name: "TikTok", url: "https://www.tiktok.com/@fromthehearttutoring", icon: "https://i.imgur.com/3Nga21m.jpeg" },
-            { name: "Youtube", url: "https://www.youtube.com/@fromthehearttutoring", icon: "https://i.imgur.com/vs2hIdu.png" }
-        ];
-
-        function createStaffCard(member) {
-            const card = document.createElement('div');
-            card.className = 'staff-card';
-            let buttonText = member.category === 'founders' || member.category === 'otherMembers' || member.category === 'inPersonTutors' 
-                ? `Learn more about ${member.name.split(' ')[0]}` 
-                : `Learn more or schedule with ${member.name.split(' ')[0]}`;
-            card.innerHTML = `
-                <div class="staff-card-header">
-                    <img src="${member.image}" alt="${member.name}">
-                    <h3>${member.name}</h3>
-                    <p class="title">${member.title}</p>
-                </div>
-                <div class="staff-card-content">
-                    <p>${member.description}</p>
-                    ${member.link ? `<a href="${member.link}">${buttonText}</a>` : ''}
-                </div>
-            `;
-            return card;
-        }
-
-        function createStaffCards() {
-            const foundersGrid = document.getElementById('foundersGrid');
-            const virtualTutorsGrid = document.getElementById('virtualTutorsGrid');
-            const inPersonTutorsGrid = document.getElementById('inPersonTutorsGrid');
-            const otherMembersGrid = document.getElementById('otherMembersGrid');
-
-            staffMembers.forEach(member => {
-                const card = createStaffCard(member);
-                switch (member.category) {
-                    case 'founders':
-                        foundersGrid.appendChild(card);
-                        break;
-                    case 'virtualTutors':
-                        virtualTutorsGrid.appendChild(card);
-                        break;
-                    case 'inPersonTutors':
-                        inPersonTutorsGrid.appendChild(card);
-                        break;
-                    case 'otherMembers':
-                        otherMembersGrid.appendChild(card);
-                        break;
-                }
-            });
-        }
-
-        function createValueCards() {
-            const valuesGrid = document.getElementById('valuesGrid');
-            values.forEach(value => {
-                const card = document.createElement('div');
-                card.className = 'value-card';
-                card.innerHTML = `
-                    <img src="${value.image}" alt="${value.title}">
-                    <h3>${value.title}</h3>
-                    <p>${value.description}</p>
-                `;
-                valuesGrid.appendChild(card);
-            });
-        }
-
-        function createSocialLinks() {
-            const socialLinksContainer = document.getElementById('socialLinks');
-            socialLinks.forEach(link => {
-                const a = document.createElement('a');
-                a.href = link.url;
-                a.target = "_blank";
-                a.rel = "noopener noreferrer";
-                a.innerHTML = `
-                    <img src="${link.icon}" alt="${link.name}">
-                    ${link.name}
-                `;
-                socialLinksContainer.appendChild(a);
-            });
-        }
-
-        document.addEventListener('DOMContentLoaded', () => {
-            createStaffCards();
-            createValueCards();
-            createSocialLinks();
-        });
-    </script>
+      // Initialize everything when DOM is loaded
+      document.addEventListener('DOMContentLoaded', () => {
+          createTeamCards();
+          createSocialLinks();
+          setupTeamTabs();
+      });
+  </script>
 </body>
 </html>
