@@ -159,15 +159,6 @@
             position: relative;
         }
 
-        .progress-text {
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary-dark);
-            margin-top: 10px;
-            margin-bottom: 30px;
-        }
-
         /* Selected Tutor */
         .selected-tutor {
             text-align: center;
@@ -346,23 +337,9 @@
             </div>
         </div>
 
-        <!-- Progress Steps -->
-        <div class="progress-container">
-            <div class="progress-steps">
-                <div class="step-container">
-                    <div class="step">1</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">2</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">3</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">4</div>
-                </div>
-            </div>
-            <div class="progress-text">Step 4 of 4</div>
+        <!-- Modern Progress Indicator -->
+        <div class="progress-container" id="progress-container">
+            <!-- Progress indicator will be inserted here by JavaScript -->
         </div>
 
         <!-- Selected Tutor -->
@@ -372,11 +349,11 @@
         <div class="widget-container">
             <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9xZFhKMSIsIldlYnNpdGVJRCI6Indic196MjZKViIsIldlYnNpdGVCbG9ja0lEIjoid2JiX1Q0UzFKSCJ9"></script>
             <!-- Replace the TutorBird widget image alt text -->
-            <img src="https://i.imgur.com/zNsl3lz.jpeg" referrerpolicy="no-referrer" alt="Beth Burgin, certified teacher and tutor at From the Heart Tutoring">
+            <!-- <img src="https://i.imgur.com/zNsl3lz.jpeg" referrerpolicy="no-referrer" alt="Beth Burgin, certified teacher and tutor at From the Heart Tutoring">
             <img src="https://i.imgur.com/5Cuh8SZ.png" referrerpolicy="no-referrer" alt="Zarek Cole, K-College math tutor specializing in advanced mathematics">
             <img src="https://i.imgur.com/X0kdDss.jpeg" referrerpolicy="no-referrer" alt="Dianne Simental, science, math and Spanish tutor with biology education degree">
             <img src="https://i.imgur.com/zAXRwYt.jpeg" referrerpolicy="no-referrer" alt="Taylor Thomas, English and science tutor with biology degree">
-            <img src="https://i.imgur.com/zPiwhDv.png" referrerpolicy="no-referrer" alt="Evan Varan, founder and tutor with electrical engineering background">
+            <img src="https://i.imgur.com/zPiwhDv.png" referrerpolicy="no-referrer" alt="Evan Varan, founder and tutor with electrical engineering background"> -->
         </div>
         
         <!-- Back Button -->
@@ -393,9 +370,19 @@
 
     <script src="../Progress/Progress.js"></script>
     <script>
-        // Call updateSteps with the current step number
+        // Initialize the progress indicator when the DOM is loaded
         document.addEventListener("DOMContentLoaded", function() {
-            updateSteps(4); // Set to step 4
+            // Define the steps for the scheduling process
+            const totalSteps = 4;
+            const stepLabels = ['Student Type', 'Subject', 'Schedule', 'Confirmation'];
+            const currentStep = 4; // We're on step 4
+            
+            // Get the progress container
+            const progressContainer = document.getElementById('progress-container');
+            
+            // Initialize the progress indicator
+            const progressIndicator = initProgressIndicator(currentStep, totalSteps, stepLabels);
+            progressContainer.appendChild(progressIndicator);
             
             // Retrieve the selected tutor's name from localStorage
             const selectedTutor = localStorage.getItem('selectedTutor');
@@ -426,8 +413,7 @@
                 window.location.href = 'RecommendedTutor.html';
             }
         }
-        
     </script>
-    
 </body>
 </html>
+

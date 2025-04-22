@@ -166,15 +166,6 @@
             position: relative;
         }
 
-        .progress-text {
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary-dark);
-            margin-top: 10px;
-            margin-bottom: 30px;
-        }
-
         /* Categories */
         .category-container {
             display: flex;
@@ -677,23 +668,9 @@
             </div>
         </div>
 
-        <!-- Progress Steps -->
-        <div class="progress-container">
-            <div class="progress-steps">
-                <div class="step-container">
-                    <div class="step">1</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">2</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">3</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">4</div>
-                </div>
-            </div>
-            <div class="progress-text">Step 2 of 4</div>
+        <!-- Modern Progress Indicator -->
+        <div class="progress-container" id="progress-container">
+            <!-- Progress indicator will be inserted here by JavaScript -->
         </div>
 
         <!-- Categories -->
@@ -838,7 +815,6 @@
             </div>
             <div class="subject" onclick="toggleSelection(this, 'Chemistry')">
                 <img src="https://i.imgur.com/Lf147IR.png" alt="Chemistry science tutoring icon">
-                <div class="subject-card-content">Chemistry</div>  alt="Science Icon">
                 <div class="subject-card-content">Chemistry</div>
             </div>
             <div class="subject" onclick="toggleSelection(this, 'Physics')">
@@ -942,9 +918,19 @@
         const selectedSubjects = new Set();
         const errorMessage = document.getElementById('error-message');
 
-        // Call updateSteps with the current step number
+        // Initialize the progress indicator when the DOM is loaded
         document.addEventListener("DOMContentLoaded", function() {
-            updateSteps(2); // Set to step 2
+            // Define the steps for the scheduling process
+            const totalSteps = 4;
+            const stepLabels = ['Student Type', 'Subject', 'Schedule', 'Confirmation'];
+            const currentStep = 2; // We're on step 2
+            
+            // Get the progress container
+            const progressContainer = document.getElementById('progress-container');
+            
+            // Initialize the progress indicator
+            const progressIndicator = initProgressIndicator(currentStep, totalSteps, stepLabels);
+            progressContainer.appendChild(progressIndicator);
             
             // Check for previously selected subjects
             const savedSubjects = JSON.parse(localStorage.getItem('selectedSubjects') || '[]');

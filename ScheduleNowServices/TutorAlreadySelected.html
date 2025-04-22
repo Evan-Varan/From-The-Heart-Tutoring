@@ -17,7 +17,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Confirm Your Selected Tutor | From the Heart Tutoring</title>
-<meta name="description" content="You’ve already selected a tutor! Confirm your match and move forward with scheduling your next tutoring session.">
+<meta name="description" content="You've already selected a tutor! Confirm your match and move forward with scheduling your next tutoring session.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css">
     <link rel="stylesheet" href="../Footer/Footer.css">
@@ -171,15 +171,6 @@
         .progress-container {
             margin: 30px auto;
             position: relative;
-        }
-
-        .progress-text {
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary-dark);
-            margin-top: 10px;
-            margin-bottom: 30px;
         }
 
         /* Tutor Card */
@@ -463,23 +454,9 @@
             </div>
         </div>
 
-        <!-- Progress Steps -->
-        <div class="progress-container">
-            <div class="progress-steps">
-                <div class="step-container">
-                    <div class="step">1</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">2</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">3</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">4</div>
-                </div>
-            </div>
-            <div class="progress-text">Step 3 of 4</div>
+        <!-- Modern Progress Indicator -->
+        <div class="progress-container" id="progress-container">
+            <!-- Progress indicator will be inserted here by JavaScript -->
         </div>
 
         <!-- Tutor Card -->
@@ -538,9 +515,19 @@
             },
         ];
         
-        // Call updateSteps with the current step number
+        // Initialize the progress indicator when the DOM is loaded
         document.addEventListener("DOMContentLoaded", function() {
-            updateSteps(3); // Set to step 3
+            // Define the steps for the scheduling process
+            const totalSteps = 4;
+            const stepLabels = ['Student Type', 'Subject', 'Schedule', 'Confirmation'];
+            const currentStep = 3; // We're on step 3
+            
+            // Get the progress container
+            const progressContainer = document.getElementById('progress-container');
+            
+            // Initialize the progress indicator
+            const progressIndicator = initProgressIndicator(currentStep, totalSteps, stepLabels);
+            progressContainer.appendChild(progressIndicator);
             
             // Fetch tutor details and selected subjects from localStorage
             const tutorName = localStorage.getItem('selectedTutorName');

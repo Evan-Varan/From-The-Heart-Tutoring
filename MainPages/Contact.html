@@ -24,57 +24,26 @@
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <link rel="stylesheet" href="../CSS/Hero.css"> <!-- Link to new hero CSS -->
     <link rel="stylesheet" href="../Footer/Footer.css">
+    <script src="../Javascript/floating-hearts.js"></script>
     <style>
         /* Reset and base styles */
-        *:not(.navbar, .navbar *) {
+        *{
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
         html, body {
-            height: 100%;
+            min-height: 100vh;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
             margin: 0;
             padding: 0;
-        }
-
-        body {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Use viewport height instead of percentage */
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f3f4f6;
-            width: 100%;
-            overflow-x: hidden;
-            background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/email-pattern.png');
-            background-repeat: repeat;
-        }
-
-        /* Hero Section */
-        .hero {
-            background-color: #1e293b;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-            margin-bottom: 2rem; /* Add some space between hero and contact section */
-        }
-
-        .hero h1 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin: 10px 0;
-        }
-
-        .hero strong {
-            font-size: 1rem;
-            font-style: italic;
+            box-sizing: border-box;
         }
 
         /* Contact Section */
@@ -287,11 +256,14 @@
 
     <!-- JavaScript to Load Navbar -->
     <script src="../Navbar/Navbar.js" defer></script>
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>We'd Love to Hear from You</h1>
-        <p>Have questions? Get in touch with us using the form below or through our contact details!</p>
-        <p><strong>Please allow up to 3 business days for a response</strong></p>
+    
+    <!-- New Hero Section with Modern Design -->
+    <div class="hero-section">
+        <div class="diagonal-line"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">We'd Love to Hear from You</h1>
+            <p class="hero-subtitle">Have questions? Get in touch with us using the form below or through our contact details! <br><strong>Please allow up to 3 business days for a response</strong></p>
+        </div>
     </div>
 
     <!-- Contact Section -->

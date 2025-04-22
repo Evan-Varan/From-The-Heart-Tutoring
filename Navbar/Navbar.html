@@ -3,102 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Navbar</title>
+    <title>From the Heart Tutoring</title>
     <meta name="robots" content="noindex">
     <link rel="icon" href="https://i.imgur.com/MLrDMam.png" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="Navbar.css"> <!-- Link to the Navbar CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Navbar.css">
 </head>
 <body>
-    <div class="navbar">
-        <!-- Logo Container -->
-        <div class="logo-container">
-            <img src="https://d3r7ksou5fmir9.cloudfront.net/CompanyImages/websiteheart.webp" referrerpolicy="no-referrer" alt="Heart Logo" class="logo-heart-image">
-            <img src="https://d3r7ksou5fmir9.cloudfront.net/CompanyImages/websitetext.webp" referrerpolicy="no-referrer" alt="Text Logo" class="logo-image">
+    <header class="header">
+        <div class="nav-container">
+            <!-- Redesigned Logo Section -->
+            <div class="logo-section">
+                <a href="../Home.html" class="logo-link">
+                    <div class="logo-wrapper">
+                        <div class="logo-icon">
+                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/red%20heart%20profile%20pic-sxFq9YpE1HpEVjlwPh1GpolqB0S4Up.png" alt="Heart" class="heart-img">
+                            <div class="heart-pulse"></div>
+                        </div>
+                        <div class="logo-text">
+                            <span class="from-text">from the</span>
+                            <span class="heart-text">Heart</span>
+                            <span class="tagline">TUTORING</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            
+            <!-- Navigation Section -->
+            <nav class="nav-section">
+                <div class="nav-item" data-page="home">
+                    <a href="../Home.html" class="nav-link">Home</a>
+                    <span class="nav-indicator"></span>
+                </div>
+                
+                <div class="nav-item" data-page="welcome">
+                    <a href="../MainPages/Welcome.html" class="nav-link">Schedule Now</a>
+                    <span class="nav-indicator"></span>
+                </div>
+                
+                <div class="nav-item" data-page="services">
+                    <a href="../MainPages/Services.html" class="nav-link">Services</a>
+                    <span class="nav-indicator"></span>
+                </div>
+                
+                <div class="nav-item" data-page="student-portal">
+                    <a href="../MainPages/Student-Portal.html" class="nav-link">Student Portal</a>
+                    <span class="nav-indicator"></span>
+                </div>
+                
+                <div class="nav-item" data-page="about">
+                    <a href="../MainPages/About.html" class="nav-link">About</a>
+                    <span class="nav-indicator"></span>
+                </div>
+                
+                <div class="nav-item" data-page="contact">
+                    <a href="../MainPages/Contact.html" class="nav-link">Contact</a>
+                    <span class="nav-indicator"></span>
+                </div>
+                
+                <div class="nav-item dropdown" data-page="more">
+                    <a href="#" class="nav-link">
+                        More
+                        <span class="dropdown-arrow">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chevron-down">
+                                <polyline points="6 9 12 15 18 9"></polyline>
+                            </svg>
+                        </span>
+                    </a>
+                    <span class="nav-indicator"></span>
+                    <div class="dropdown-content">
+                        <a href="../MainPages/FAQ.html" data-page="faq" class="dropdown-link">FAQ</a>
+                        <a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight" class="dropdown-link">Student Spotlight</a>
+                        <a href="../MainPages/Resources.html" data-page="resources" class="dropdown-link">Resources</a>
+                        <a href="../MainPages/Blog.html" data-page="blog" class="dropdown-link">Blog</a>
+                    </div>
+                </div>
+            </nav>
+            
+            <!-- Mobile Menu Button -->
+            <div class="mobile-toggle">
+                <div class="toggle-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
         </div>
-
-        <!-- Hamburger Menu (for Mobile) -->
-        <div class="hamburger-menu">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
-
-        <!-- Navbar for Desktop -->
-        <ul class="navbar-center">
-            <li><a href="../Home.html" data-page="home">Home</a></li>
-            <li><a href="../MainPages/Welcome.html" data-page="welcome">Schedule Now</a></li>
-            <li><a href="../MainPages/Services.html" data-page="services">Services</a></li>
-            <li><a href="../MainPages/Student-Portal.html" data-page="student-portal">Student Portal</a></li>
-        </ul>
-        <ul class="navbar-center-small">
-            <li><a href="../Home.html" data-page="home">Home</a></li>
-            <li><a href="../MainPages/Welcome.html" data-page="welcome">Schedule Now</a></li>
-        </ul>
-        <ul class="navbar-right">
-            <li><a href="../MainPages/About.html" data-page="about">About</a></li>
-            <li><a href="../MainPages/Contact.html" data-page="contact">Contact</a></li>
-            <li>
-                <a href="#" data-page="more">More <span class="dropdown-symbol">▼</span></a>
-                <div class="dropdown">
-                    <a href="../MainPages/FAQ.html" data-page="faq">FAQ</a>
-                    <a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a>
-                    <a href="../MainPages/Resources.html" data-page="resources">Resources</a>
-                    <a href="../MainPages/Blog.html" data-page="blog">Blog</a>
-                </div>
-            </li>
-        </ul>
-
-        <!-- Dropdown for Medium Screens -->
-        <ul class="navbar-dropdown2">
-            <li>
-                <a href="#" data-page="more">Menu <span class="dropdown-symbol">▼</span></a>
-                <div class="dropdown2">
-                    <a href="../MainPages/About.html" data-page="about">About</a>
-                    <a href="../MainPages/Contact.html" data-page="contact">Contact</a>
-                    <a href="../MainPages/FAQ.html" data-page="faq">FAQ</a>
-                    <a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a>
-                    <a href="../MainPages/Resources.html" data-page="resources">Resources</a>
-                    <a href="../MainPages/Blog.html" data-page="blog">Blog</a>
-                </div>
-            </li>
-        </ul>
-
-        <ul class="navbar-dropdown3">
-            <li>
-                <a href="#" data-page="menu">Menu <span class="dropdown-symbol">▼</span></a>
-                <div class="dropdown3">
-                    <a href="../MainPages/Services.html" data-page="services">Services</a>
-                    <a href="../MainPages/Student-Portal.html" data-page="student-portal">Student Portal</a>
-                    <a href="../MainPages/About.html" data-page="about">About</a>
-                    <a href="../MainPages/Contact.html" data-page="contact">Contact</a>
-                    <a href="../MainPages/FAQ.html" data-page="faq">FAQ</a>
-                    <a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a>
-                    <a href="../MainPages/Resources.html" data-page="resources">Resources</a>
-                    <a href="../MainPages/Blog.html" data-page="blog">Blog</a>
-                </div>
-            </li>
-        </ul>
-        
-        
-
-    </div>
-
-    <!-- Mobile Menu (Hidden by Default) -->
+    </header>
+    
+    <!-- Mobile Menu -->
     <div class="mobile-menu">
-        <ul>
-            <li><a href="../Home.html" data-page="home">Home</a></li>
-            <li><a href="../MainPages/Welcome.html" data-page="welcome">Schedule Now</a></li>
-            <li><a href="../MainPages/Services.html" data-page="services">Services</a></li>
-            <li><a href="../MainPages/Student-Portal.html" data-page="student-portal">Student Portal</a></li>
-            <li><a href="../MainPages/About.html" data-page="about">About</a></li>
-            <li><a href="../MainPages/Contact.html" data-page="contact">Contact</a></li>
-            <li><a href="../MainPages/FAQ.html" data-page="faq">FAQ</a></li>
-            <li><a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight">Student Spotlight</a></li>
-            <li><a href="../MainPages/Resources.html" data-page="resources">Resources</a></li>
-            <li><a href="../MainPages/Blog.html" data-page="blog">Blog</a></li>
-        </ul>
+        <div class="mobile-menu-container">
+            <a href="../Home.html" data-page="home" class="mobile-link">Home</a>
+            <a href="../MainPages/Welcome.html" data-page="welcome" class="mobile-link">Schedule Now</a>
+            <a href="../MainPages/Services.html" data-page="services" class="mobile-link">Services</a>
+            <a href="../MainPages/Student-Portal.html" data-page="student-portal" class="mobile-link">Student Portal</a>
+            <a href="../MainPages/About.html" data-page="about" class="mobile-link">About</a>
+            <a href="../MainPages/Contact.html" data-page="contact" class="mobile-link">Contact</a>
+            <a href="../MainPages/FAQ.html" data-page="faq" class="mobile-link">FAQ</a>
+            <a href="../MainPages/StudentSpotlight.html" data-page="student-spotlight" class="mobile-link">Student Spotlight</a>
+            <a href="../MainPages/Resources.html" data-page="resources" class="mobile-link">Resources</a>
+            <a href="../MainPages/Blog.html" data-page="blog" class="mobile-link">Blog</a>
+        </div>
     </div>
-
-    </body>
+</body>
 </html>

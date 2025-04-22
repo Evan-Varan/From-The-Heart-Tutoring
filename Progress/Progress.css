@@ -1,80 +1,229 @@
-/* Progress Steps Container */
-.progress-steps {
+/* Modern Progress Indicator - Navy & Red Design */
+.progress-indicator {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 90%;
+    max-width: 700px;
+    margin: 30px auto;
     position: relative;
-    width: 80%;
-    max-width: 500px;
-    margin: 20px auto;
-}
-
-/* Step Container */
-.step-container {
-    display: flex;
-    align-items: center;
-    position: relative;
-    margin-right: 20px; /* Reduced spacing for better line visibility */
-}
-
-/* Connecting Line */
-.step-container::before {
+    padding: 0 10px;
+  }
+  
+  /* Progress Bar Background */
+  .progress-indicator::before {
     content: "";
     position: absolute;
-    width: 40px;
-    height: 6px;
-    background-color: #b0b0b0; /* Default: Inactive Gray */
-    left: -24px;
     top: 50%;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background-color: #e9ecef;
     transform: translateY(-50%);
-    z-index: 0;
-}
-
-/* Hide Line on First Step */
-.step-container:first-child::before {
-    display: none;
-}
-
-/* Step Circle */
-.step {
-    width: 40px;
-    height: 40px;
+    z-index: 1;
+  }
+  
+  /* Active Progress Bar */
+  .progress-bar {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    height: 3px;
+    background-color: #ff6f61; /* Red/coral color */
+    transform: translateY(-50%);
+    transition: width 0.6s cubic-bezier(0.45, 0, 0.55, 1);
+    z-index: 2;
+    box-shadow: 0 0 8px rgba(255, 111, 97, 0.3);
+  }
+  
+  /* Step Item Container */
+  .step-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 3;
+  }
+  
+  /* Step Circle */
+  .step-circle {
+    width: 36px;
+    height: 36px;
     border-radius: 50%;
-    background-color: #d1d1d1; /* Default: Inactive Gray */
-    color: white;
+    background-color: white;
+    border: 2px solid #e9ecef;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 1.2rem;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 16px;
+    color: #1f2937; /* Navy color for numbers */
+    margin-bottom: 8px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     position: relative;
-    z-index: 2;
-    transition: background 0.3s ease-in-out, transform 0.3s;
-}
-
-/* Steps Before Current Step */
-/* Completed Steps (Dark Blue) */
-/* Completed Steps (Dark Blue) */
-/* Completed Steps (Dark Blue) */
-.step.completed {
-    background-color: #1e293b; 
-}
-
-/* Active Step (Current Step) - Red */
-.step.active {
-    background-color: #ff6f61;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Step Label */
+  .step-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #1f2937; /* Navy color for labels */
+    text-align: center;
+    transition: all 0.3s ease;
+    max-width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  /* Completed Step */
+  .step-item.completed .step-circle {
+    background-color: #0f172a; /* Navy background for completed steps */
+    border-color: #0f172a;
+    color: white;
+  }
+  
+  /* Custom checkmark for completed steps */
+  .step-item.completed .step-circle::before {
+    content: "✓";
+    position: absolute;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  /* Hide the number when showing checkmark */
+  .step-item.completed .step-circle {
+    color: transparent; /* This hides the number but keeps the element dimensions */
+  }
+  
+  .step-item.completed .step-label {
+    color: #1f2937;
+    font-weight: 600;
+  }
+  
+  /* Active Step */
+  .step-item.active .step-circle {
+    background-color: white;
+    border-color: #ff6f61; /* Red border for active step */
+    border-width: 3px;
+    color: #ff6f61; /* Red color for active step number */
     transform: scale(1.1);
-}
-
-/* Completed Lines (Before Steps) - Dark Blue */
-.step-container.completed::before {
-    background-color: #1e293b;
-}
-
-/* Line Before Active Step - Red */
-.step-container.before-active::before {
-    background-color: #ff6f61 !important;
-}
-
-
-
+    box-shadow: 0 0 0 5px rgba(255, 111, 97, 0.2);
+  }
+  
+  .step-item.active .step-label {
+    color: #ff6f61; /* Red color for active step label */
+    font-weight: 600;
+  }
+  
+  /* Hover Effects */
+  .step-item:hover .step-circle {
+    transform: translateY(-3px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  }
+  
+  .step-item.completed:hover .step-circle {
+    transform: scale(0.95) translateY(-3px);
+    filter: brightness(1.05);
+  }
+  
+  .step-item.active:hover .step-circle {
+    transform: scale(1.12) translateY(-3px);
+  }
+  
+  /* Subtle Glow Animation for Active Step */
+  @keyframes glow {
+    0% {
+      box-shadow: 0 0 0 0 rgba(255, 111, 97, 0.4);
+    }
+    70% {
+      box-shadow: 0 0 0 8px rgba(255, 111, 97, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(255, 111, 97, 0);
+    }
+  }
+  
+  .step-item.active .step-circle {
+    animation: glow 2s infinite;
+  }
+  
+  /* Tooltip for step details */
+  .step-tooltip {
+    position: absolute;
+    top: -45px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1f2937; /* Navy background for tooltip */
+    color: white;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    pointer-events: none;
+    z-index: 10;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+  
+  .step-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #1f2937 transparent transparent transparent;
+  }
+  
+  .step-item:hover .step-tooltip {
+    opacity: 1;
+    visibility: visible;
+    top: -40px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .progress-indicator {
+      width: 95%;
+    }
+  
+    .step-circle {
+      width: 30px;
+      height: 30px;
+      font-size: 14px;
+    }
+  
+    .step-label {
+      font-size: 12px;
+      max-width: 80px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .step-label {
+      display: none;
+    }
+  
+    .step-circle {
+      margin-bottom: 0;
+    }
+  
+    /* Show labels on hover for mobile */
+    .step-item:hover .step-label {
+      display: block;
+      position: absolute;
+      top: 40px;
+      background: white;
+      padding: 3px 8px;
+      border-radius: 4px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+  }
+  

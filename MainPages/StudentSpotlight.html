@@ -17,219 +17,475 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Student Success Stories | From the Heart Tutoring</title>
-<meta name="description" content="Celebrate the achievements of our students! See how tutoring has helped learners of all ages grow in confidence and skills.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Celebrate the achievements of our students! See how tutoring has helped learners of all ages grow in confidence and skills.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css">
     <link rel="stylesheet" href="../CSS/Hero.css">
     <link rel="stylesheet" href="../Footer/Footer.css">
-    <link rel="stylesheet" href="../CSS/HeartBackground.css">
+    <script src="../Javascript/floating-hearts.js"></script>
     <style>
-        html, body {
-            min-height: 100vh;
-            position: relative;
-            width: 100%;
-            max-width: 100%;
-            overflow-x: hidden; /* Prevent horizontal scrolling */
+        /* Base styles */
+        :root {
+            --primary: #ff6f61;
+            --primary-light: #ff8a7f;
+            --primary-dark: #e5635b;
+            --dark: #1e293b;
+            --light: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+            --transition: 0.3s ease;
+        }
+        
+        * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
         
-        /* Fix for heart background to cover entire page */
-        body::after {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
+        html, body {
+            min-height: 100vh;
             width: 100%;
-            height: 100%;
-            z-index: -10;
-            background: inherit;
-            pointer-events: none;
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
         
         body {
-            margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
+            background-color: var(--gray-100);
             display: flex;
             flex-direction: column;
             align-items: center;
-            touch-action: pan-y; /* Allow vertical scrolling but prevent horizontal */
+            color: var(--gray-800);
+            line-height: 1.6;
         }
         
-        .spotlight-section {
-            padding: 60px 20px;
-            max-width: 1200px;
-            width: 100%;
-            display: flex;
-            gap: 20px;
-            justify-content: center;
-            flex-wrap: wrap;
-            position: relative;
-            z-index: 1;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-        
-        .spotlight-card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            width: 300px;
-            flex: 1 1 calc(33% - 40px);
-            margin: 20px;
-            max-width: 400px;
-            box-sizing: border-box;
-        }
-        
-        .spotlight-card img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 15px;
-            max-width: 100%;
-        }
-        
-        .spotlight-card h3 {
-            font-size: 1.5rem;
-            color: #1e293b;
-            margin-bottom: 10px;
-            max-width: 100%;
-            word-wrap: break-word;
-        }
-        
-        .spotlight-card p {
-            font-size: 1rem;
-            color: #333;
-            line-height: 1.8;
-            max-width: 100%;
-            word-wrap: break-word;
-        }
-        
-        .tutor-working {
-            font-size: 1rem;
-            color: #777;
-            margin-bottom: 10px;
-            font-style: italic;
-            margin: 0 auto;
-            max-width: 260px;
-        }
-        
-        .contact-us {
-            display: inline;
-            color: #ff6f61;
-            text-decoration: none;
-            font-weight: bold;
-            text-align: center;
-            margin-top: 40px;
-            font-size: 1.1rem;
-        }
-        
-        .contact-us-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            margin-top: 0px;
-            font-size: 1.2rem;
-            text-align: center;
-            width: 100%;
-            padding: 0 20px;
-            position: relative;
-            z-index: 1;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-        
-        .contact-us:hover {
-            color: #d9574e;
-        }
-        
-        .hero {
-            width: 100%;
-            text-align: center;
-            position: relative;
-            z-index: 1;
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-        
-        #navbar-placeholder, #footer-placeholder {
-            width: 100%;
-            max-width: 100%;
-            box-sizing: border-box;
-            overflow-x: hidden;
-        }
-        
-        /* Additional fix for heart background */
-        .heart-background, 
-        [class*="heart-background"] {
-            position: fixed !important;
-            top: 0 !important;
-            left: 0 !important;
+        /* Fix for hero section to span full width */
+        .hero-section {
             width: 100% !important;
-            height: 100% !important;
-            z-index: -5 !important;
-            overflow: hidden !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            align-self: stretch !important;
+            position: relative;
+            z-index: 1;
         }
         
-        /* Ensure text doesn't overflow containers */
-        p, h1, h2, h3 {
+        /* Main page layout */
+        .page-container {
+            width: 100%;
             max-width: 100%;
-            word-wrap: break-word;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(180deg, var(--gray-100) 0%, #ffffff 100%);
+            position: relative;
         }
         
-        /* Media query for smaller screens */
-        @media (max-width: 768px) {
-            .spotlight-card {
-                flex: 1 1 100%;
-                margin: 10px;
+        /* Decorative elements */
+        .decorative-shape {
+            position: absolute;
+            background-color: var(--primary-light);
+            opacity: 0.05;
+            border-radius: 50%;
+            z-index: 0;
+        }
+        
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: -150px;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 30%;
+            right: -100px;
+        }
+        
+        /* Content section */
+        .content-section {
+            width: 100%;
+            max-width: 1200px;
+            padding: 60px 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Section header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--gray-600);
+        }
+        
+        /* Student showcase */
+        .student-showcase {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 80px;
+        }
+        
+        /* Student card */
+        .student-card {
+            background-color: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            transition: transform var(--transition), box-shadow var(--transition);
+            position: relative;
+        }
+        
+        .student-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .card-inner {
+            display: flex;
+            flex-direction: row;
+            height: 100%;
+        }
+        
+        .card-media {
+            flex: 0 0 45%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .student-card:hover .card-media img {
+            transform: scale(1.05);
+        }
+        
+        .card-content {
+            flex: 0 0 55%;
+            padding: 35px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background-color: rgba(255, 111, 97, 0.1);
+            color: var(--primary);
+            font-size: 0.8rem;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            align-self: flex-start;
+        }
+        
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .card-subtitle {
+            font-size: 0.95rem;
+            color: var(--gray-600);
+            margin-bottom: 20px;
+        }
+        
+        .card-subtitle strong {
+            color: var(--primary);
+        }
+        
+        .card-text {
+            font-size: 1rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+        
+        .card-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--gray-200);
+            padding-top: 15px;
+            margin-top: auto;
+        }
+        
+        .achievement {
+            display: flex;
+            align-items: center;
+        }
+        
+        .achievement-icon {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+            fill: var(--primary);
+        }
+        
+        .achievement-text {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--gray-700);
+        }
+        
+        /* Call to action - FULL WIDTH */
+        .cta-section {
+            width: 100%;
+            background-color: var(--light);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.03);
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: background-color var(--transition), transform var(--transition);
+            box-shadow: 0 4px 10px rgba(255, 111, 97, 0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer placeholder - ensure it spans full width */
+        #footer-placeholder {
+            width: 100%;
+            max-width: 100%;
+            align-self: stretch;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 992px) {
+            .student-showcase {
+                grid-template-columns: 1fr;
             }
             
-            .spotlight-section {
-                padding: 30px 10px;
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 40px 20px;
+            }
+            
+            .card-inner {
+                flex-direction: column;
+            }
+            
+            .card-media {
+                flex: 0 0 200px;
+            }
+            
+            .card-content {
+                flex: 1;
+                padding: 25px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .section-description {
+                font-size: 1rem;
+            }
+            
+            .cta-title {
+                font-size: 1.6rem;
+            }
+            
+            .cta-text {
+                font-size: 1rem;
+            }
+            
+            .cta-section {
+                padding: 60px 20px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .card-title {
+                font-size: 1.3rem;
+            }
+            
+            .card-content {
+                padding: 20px;
+            }
+            
+            .cta-button {
+                padding: 10px 25px;
+                font-size: 0.95rem;
+            }
+            
+            .cta-section {
+                padding: 50px 20px;
             }
         }
     </style>
 </head>
 <body>
     <div id="navbar-placeholder"></div>
-
     <script src="../Navbar/Navbar.js" defer></script>
-    <div class="hero">
-        <h1>Student Spotlight</h1>
-        <p>Celebrating the achievements of our students.</p>
-    </div>
-
-    <div class="spotlight-section">
-        <div class="spotlight-card">
-            <img src="https://i.imgur.com/2N3LhTt.jpeg" referrerpolicy="no-referrer" alt="Mariame Top, algebra student showing academic improvement with From the Heart Tutoring">
-            <h3>Mariame Top</h3>
-            <p class="tutor-working">Working with Evan Varan</p>
-            <p>Working with Evan has helped her get a better grasp and understanding of the math itself. She is now less confused when approaching a question. She has gained so much confidence and is able to get A grades on algebra tests.</p>
-        </div>
-        <div class="spotlight-card">
-            <img src="https://i.imgur.com/R1vtVlV.jpeg" referrerpolicy="no-referrer" alt="Madison Self, honors math student excelling in accelerated middle school mathematics">
-            <h3>Madison Self</h3>
-            <p class="tutor-working">Working with Evan Varan</p>
-            <p>Madison has consistently excelled in her accelerated math classes throughout middle school, and she is really looking forward to continuing her studies with honors math in high school, especially with Evan.</p>
+    
+    <!-- Hero Section (imported) -->
+    <div class="hero-section">
+        <div class="diagonal-line"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Student Spotlight</h1>
+            <p class="hero-subtitle">Celebrating the achievements of our students.</p>
         </div>
     </div>
 
-    <div class="contact-us-section">
-        <p>Want to be featured on our student spotlight?
-            <a href="Contact.html" class="contact-us">Contact us here</a>
-        </p>
+    <!-- Main Page Container -->
+    <div class="page-container">
+        <!-- Decorative Shapes -->
+        <div class="decorative-shape shape-1"></div>
+        <div class="decorative-shape shape-2"></div>
+        
+        <!-- Content Section -->
+        <div class="content-section">
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2 class="section-title">Success Stories</h2>
+                <p class="section-description">Discover how our personalized tutoring approach has helped students achieve their academic goals and build confidence in their abilities.</p>
+            </div>
+            
+            <!-- Student Showcase -->
+            <div class="student-showcase">
+                <!-- Student 1 -->
+                <div class="student-card">
+                    <div class="card-inner">
+                        <div class="card-media">
+                            <img src="https://i.imgur.com/2N3LhTt.jpeg" referrerpolicy="no-referrer" alt="Mariame Top, algebra student showing academic improvement with From the Heart Tutoring">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">Algebra</span>
+                            <h3 class="card-title">Mariame Top</h3>
+                            <p class="card-subtitle">Working with <strong>Evan Varan</strong></p>
+                            <p class="card-text">Working with Evan has helped her get a better grasp and understanding of the math itself. She is now less confused when approaching a question. She has gained so much confidence and is able to get A grades on algebra tests.</p>
+                            <div class="card-footer">
+                                <div class="achievement">
+                                    <svg class="achievement-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28z"/>
+                                    </svg>
+                                    <span class="achievement-text">Achieving A Grades</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Student 2 -->
+                <div class="student-card">
+                    <div class="card-inner">
+                        <div class="card-media">
+                            <img src="https://i.imgur.com/R1vtVlV.jpeg" referrerpolicy="no-referrer" alt="Madison Self, honors math student excelling in accelerated middle school mathematics">
+                        </div>
+                        <div class="card-content">
+                            <span class="card-tag">Honors Math</span>
+                            <h3 class="card-title">Madison Self</h3>
+                            <p class="card-subtitle">Working with <strong>Evan Varan</strong></p>
+                            <p class="card-text">Madison has consistently excelled in her accelerated math classes throughout middle school, and she is really looking forward to continuing her studies with honors math in high school, especially with Evan.</p>
+                            <div class="card-footer">
+                                <div class="achievement">
+                                    <svg class="achievement-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28z"/>
+                                    </svg>
+                                    <span class="achievement-text">Accelerated Math Excellence</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Full-width CTA Section -->
+    <div class="cta-section">
+        <div class="cta-container">
+            <h3 class="cta-title">Share Your Success Story</h3>
+            <p class="cta-text">Want to be featured on our student spotlight? We'd love to hear about your experience and share your achievements with our community.</p>
+            <a href="Contact.html" class="cta-button">Contact Us Today</a>
+        </div>
     </div>
     
     <div id="footer-placeholder"></div>
-
-    <!-- JavaScript to Load Footer -->
     <script src="../Footer/Footer.js" defer></script>
 </body>
 </html>

@@ -24,15 +24,17 @@
     <link rel="stylesheet" href="../Progress/Progress.css">
     <link rel="stylesheet" href="../Footer/Footer.css">
     <link rel="stylesheet" href="../CSS/HeartBackground.css">
+    <script src="../Javascript/floating-hearts.js"></script>
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
+        html, body {
+            min-height: 100vh;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
             margin: 0;
             padding: 0;
-            background-color: #f7f9fc;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            box-sizing: border-box;
         }
         body::before {
             content: "";
@@ -161,9 +163,11 @@
     <script src="../Navbar/Navbar.js" defer></script>
 
     <!-- Hero Section -->
-    <div class="hero">
-        <h1>Welcome to the Student Portal</h1>
-        <p>Access your personalized schedule and find an open slot with the tutor of your choice.</p>
+    <div class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">Welcome to the Student Portal</h1>
+            <p class="hero-subtitle">Access your personalized schedule and find an open slot with the tutor of your choice.</p>
+        </div>
     </div>
 
     <!-- Widget, Registration Box, and Create Account Section -->

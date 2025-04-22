@@ -13,188 +13,731 @@
 <noscript>
     <img height="1" width="1" style="display:none"
          src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
-  </noscript> 
+  </noscript>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Frequently Asked Questions | From the Heart Tutoring</title>
-<meta name="description" content="Have questions about pricing, scheduling, payments, or session policies? Find answers to our most common tutoring FAQs here.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <meta name="description" content="Find answers to common questions about our tutoring services, scheduling, pricing, and more.">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../Navbar/Navbar.css">
     <link rel="stylesheet" href="../CSS/Hero.css">
-    <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
-
+    <link rel="stylesheet" href="../Footer/Footer.css">
+    <script src="../Javascript/floating-hearts.js"></script>
     <style>
-         html {
-            height: 100%;
+        /* Base styles */
+        :root {
+            --primary: #ff6f61;
+            --primary-light: #ff8a7f;
+            --primary-dark: #e5635b;
+            --dark: #1e293b;
+            --light: #ffffff;
+            --gray-100: #f8f9fa;
+            --gray-200: #e9ecef;
+            --gray-300: #dee2e6;
+            --gray-400: #ced4da;
+            --gray-500: #adb5bd;
+            --gray-600: #6c757d;
+            --gray-700: #495057;
+            --gray-800: #343a40;
+            --gray-900: #212529;
+            --transition: 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            min-height: 100vh;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden;
+            margin: 0;
+            padding: 0;
         }
         
         body {
-            margin: 0;
             font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            min-height: 100%;
-            position: relative;
-            /* Make sure body takes at least full viewport height */
+            background-color: var(--gray-100);
             display: flex;
             flex-direction: column;
+            align-items: center;
+            color: var(--gray-800);
+            line-height: 1.6;
         }
         
-        /* Create a wrapper for the background pattern */
-        .background-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
+        /* Fix for hero section to span full width */
+        .hero-section {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            align-self: stretch !important;
+            position: relative;
+            z-index: 1;
+        }
+        
+        /* Main page layout */
+        .page-container {
             width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/pixel-heart.png');
-            background-repeat: repeat;
-            opacity: 0.3;
-            pointer-events: none;
-            /* alt="From the Heart Tutoring FAQ page background with decorative pixel heart pattern" */
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(180deg, var(--gray-100) 0%, #ffffff 100%);
+            position: relative;
+            padding-bottom: 80px;
         }
-
-
-
         
+        /* Decorative elements */
+        .decorative-shape {
+            position: absolute;
+            background-color: var(--primary-light);
+            opacity: 0.05;
+            border-radius: 50%;
+            z-index: 0;
+        }
         
-
-    .contact-section {
-        text-align: center;
-        margin-top: 0px; /* Set margin-top to 0 */
-        font-size: 1.2rem;
-        padding-top: 10px; /* Add slight padding if needed for visual spacing */
-    }
-
-    .faq-section {
-    display: flex;
-    flex-direction: column;
-    gap: 30px;
-    padding: 60px 20px;
-    max-width: 1000px;
-    margin: auto;
-    box-sizing: border-box;
-    background-color: #f9f9f9;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-}
-
-.faq-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 20px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
-}
-
-
-.faq-item h2 {
-    flex: 0 0 200px;
-    font-size: 1.6rem;
-    font-weight: bold;
-    color: #1e293b;
-    margin: 0;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-
-.faq-item p {
-    flex: 1;
-    font-size: 1.1rem;
-    color: #555;
-    line-height: 1.8;
-    margin: 0;
-    padding-left: 10px; /* Creates space between the text and the border */
-}
-
-.faq-item p::before {
-    content: "💬"; /* Adds an icon before the answer */
-    font-size: 1.2rem;
-    color: #6b7280;
-    margin-right: 10px;
-}
-
-.faq-section h1 {
-    text-align: center;
-    color: #1e293b;
-    font-size: 2rem;
-    font-weight: bold;
-    margin-bottom: 40px;
-    border-bottom: 2px solid #ff6f61;
-    padding-bottom: 10px;
-}
-
-.contact-link {
-    color: #ff6f61;
-    font-weight: bold;
-    text-decoration: none;
-    transition: color 0.3s ease, transform 0.3s ease;
-}
-
-.contact-link:hover {
-    color: #d9574e;
-    transform: scale(1.05); /* Slightly enlarges on hover */
-}
-
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: -150px;
+        }
+        
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            bottom: 30%;
+            right: -100px;
+        }
+        
+        /* Content section */
+        .content-section {
+            width: 100%;
+            max-width: 1000px;
+            padding: 60px 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        /* Section header */
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+        
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            color: var(--gray-600);
+        }
+        
+        /* FAQ Categories */
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .category-button {
+            padding: 10px 20px;
+            background-color: var(--light);
+            border: 1px solid var(--gray-300);
+            border-radius: 30px;
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--gray-700);
+            cursor: pointer;
+            transition: all var(--transition);
+        }
+        
+        .category-button:hover {
+            background-color: var(--gray-100);
+            border-color: var(--gray-400);
+        }
+        
+        .category-button.active {
+            background-color: var(--primary);
+            border-color: var(--primary);
+            color: var(--light);
+        }
+        
+        /* FAQ Accordion */
+        .faq-container {
+            width: 100%;
+            margin-bottom: 40px;
+        }
+        
+        .faq-category {
+            margin-bottom: 40px;
+        }
+        
+        .category-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--gray-300);
+        }
+        
+        .faq-item {
+            background-color: var(--light);
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--dark);
+            background-color: var(--light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color var(--transition);
+            position: relative;
+        }
+        
+        .faq-question:hover {
+            background-color: var(--gray-100);
+        }
+        
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            font-weight: 300;
+            color: var(--primary);
+            transition: transform var(--transition);
+        }
+        
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            padding: 0 25px;
+            font-size: 1rem;
+            color: var(--gray-700);
+            line-height: 1.7;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 0 25px 25px;
+        }
+        
+        /* Search bar */
+        .search-container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px 20px;
+            padding-left: 50px;
+            border: 1px solid var(--gray-300);
+            border-radius: 8px;
+            font-size: 1rem;
+            color: var(--gray-800);
+            background-color: var(--light);
+            transition: border-color var(--transition), box-shadow var(--transition);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-light);
+            box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.1);
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 18px;
+            height: 18px;
+            fill: var(--gray-500);
+        }
+        
+        /* Call to action - FULL WIDTH */
+        .cta-section {
+            width: 100%;
+            background-color: var(--light);
+            padding: 80px 20px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.03);
+        }
+        
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .cta-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 20px;
+        }
+        
+        .cta-text {
+            font-size: 1.1rem;
+            color: var(--gray-600);
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-button {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: var(--light);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 6px;
+            transition: background-color var(--transition), transform var(--transition);
+            box-shadow: 0 4px 10px rgba(255, 111, 97, 0.2);
+        }
+        
+        .cta-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        /* Footer placeholder - ensure it spans full width */
+        #footer-placeholder {
+            width: 100%;
+            max-width: 100%;
+            align-self: stretch;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .content-section {
+                padding: 40px 20px;
+            }
+            
+            .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .section-description {
+                font-size: 1rem;
+            }
+            
+            .faq-question {
+                padding: 15px 20px;
+                font-size: 1rem;
+            }
+            
+            .faq-item.active .faq-answer {
+                padding: 0 20px 20px;
+            }
+            
+            .cta-title {
+                font-size: 1.6rem;
+            }
+            
+            .cta-text {
+                font-size: 1rem;
+            }
+            
+            .cta-section {
+                padding: 60px 20px;
+            }
+            
+            .category-title {
+                font-size: 1.3rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .search-input {
+                padding: 12px 15px 12px 45px;
+                font-size: 0.95rem;
+            }
+            
+            .category-button {
+                padding: 8px 15px;
+                font-size: 0.85rem;
+            }
+            
+            .cta-button {
+                padding: 10px 25px;
+                font-size: 0.95rem;
+            }
+            
+            .cta-section {
+                padding: 50px 20px;
+            }
+        }
     </style>
 </head>
 <body>
-<!-- Navbar Placeholder -->
-<!-- Navbar Placeholder -->
-<div class="background-pattern"></div>
-<div id="navbar-placeholder"></div>
-
-<!-- JavaScript to Load Navbar -->
-<script src="../Navbar/Navbar.js" defer></script>
-    <div class="hero">
-        <h1>Frequently Asked Questions</h1>
-        <p>Answers to your common questions about our services.</p>
-    </div>
-
-    <div class="faq-section">
-        <div class="faq-item">
-            <h2>Are there any current specials?</h2>
-            <p>Yes, we have two exciting offers:<br>
-               1. We offer 50% off for your first session.<br>
-               2. You can get $25 off a session if you refer someone.<br>
-               Don't miss out on these great deals!</p>
-        </div>
-        <div class="faq-item">
-            <h2>How do I pay for my session?</h2>
-            <p>To learn how to pay for a session, check out our
-                <a href="https://www.tutorbird.com/download/67000/?tmstv=1701374377" target="_blank" class="contact-link">detailed guide</a>.
-            </p>
-        </div>
-        <div class="faq-item">
-            <h2>How much does a session cost?</h2>
-            <p>Our standard rate is $70 per hour, regardless of the subject. This would come to 4 sessions for $280 or 8 sessions for $560.</p>
-        </div>
-        <div class="faq-item">
-            <h2>How long is a typical session?</h2>
-            <p>Each session lasts one hour. </p>
-        </div>
-        <div class="faq-item">
-            <h2>Why am I being billed for 4 sessions at a time?</h2>
-            <p>To ensure your session time remains reserved, we require payment for a month's worth of weekly sessions in advance. This policy helps us manage high demand and provide consistent scheduling for all our students.</p>
-        </div>
-        <div class="faq-item">
-            <h2>What if I don't use the full hour of time I reserved?</h2>
-            <p>While we understand that sometimes all your questions can be answered before the hour is over, we also offer extra practice for the remainder of your session upon request.</p>
+    <div id="navbar-placeholder"></div>
+    <script src="../Navbar/Navbar.js" defer></script>
+    
+    <!-- Hero Section (imported) -->
+    <div class="hero-section">
+        <div class="diagonal-line"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Frequently Asked Questions</h1>
+            <p class="hero-subtitle">Find answers to common questions about our tutoring services.</p>
         </div>
     </div>
-    <section class="contact-section" style="text-align: center; margin-top: 20px; font-size: 1.2rem;">
-        <p>
-            Have any other questions? 
-            <a href="Contact.html" class="contact-link">Contact us here</a>.
-        </p>
-    </section>
 
-<div id="footer-placeholder"></div>
+    <!-- Main Page Container -->
+    <div class="page-container">
+        <!-- Decorative Shapes -->
+        <div class="decorative-shape shape-1"></div>
+        <div class="decorative-shape shape-2"></div>
+        
+        <!-- Content Section -->
+        <div class="content-section">
+            <!-- Section Header -->
+            <div class="section-header">
+                <h2 class="section-title">How Can We Help?</h2>
+                <p class="section-description">Browse through our frequently asked questions to find the information you need. If you can't find what you're looking for, feel free to contact us.</p>
+            </div>
+            
+            <!-- Search Bar -->
+            <!-- <div class="search-container">
+                <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+                </svg>
+                <input type="text" class="search-input" placeholder="Search for questions...">
+            </div> -->
+            
+            <!-- FAQ Categories -->
+            <!-- <div class="faq-categories">
+                <button class="category-button active">All</button>
+                <button class="category-button">Tutoring Services</button>
+                <button class="category-button">Scheduling</button>
+                <button class="category-button">Pricing</button>
+                <button class="category-button">Online Tutoring</button>
+            </div> -->
+            
+            <!-- FAQ Accordion -->
+            <div class="faq-container">
+                <!-- General Questions -->
+                <div class="faq-category">
+                    <h3 class="category-title">General Questions</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">What age groups do you tutor?</div>
+                        <div class="faq-answer">
+                            <p>We provide tutoring services for students of all ages, from elementary school through college. Our tutors are experienced in working with different age groups and can adapt their teaching methods to suit the needs and learning styles of each student.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">What subjects do you offer tutoring in?</div>
+                        <div class="faq-answer">
+                            <p>We offer tutoring in a wide range of subjects including:</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Mathematics (all levels from elementary to college)</li>
+                                <li>Sciences (Biology, Chemistry, Physics)</li>
+                                <li>English and Language Arts</li>
+                                <li>Spanish</li>
+                                <li>Standardized Test Preparation (SAT, ACT, AP exams, etc)</li>
+                                <li>Study Skills and Academic Coaching</li>
+                            </ul>
+                            <p style="margin-top: 10px;">If you need tutoring in a subject not listed here, please contact us to discuss your specific needs.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How are your tutors selected and qualified?</div>
+                        <div class="faq-answer">
+                            <p>All of our tutors go through a rigorous selection process that includes:</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Verification of academic credentials and subject expertise</li>
+                                <li>Background checks for safety and security</li>
+                                <li>Assessment of teaching abilities and communication skills</li>
+                                <li>Evaluation of patience, empathy, and ability to connect with students</li>
+                            </ul>
+                            <p style="margin-top: 10px;">Many of our tutors have advanced degrees in their fields and years of teaching or tutoring experience. We prioritize not just academic knowledge but also the ability to effectively communicate concepts and build rapport with students.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tutoring Process -->
+                <div class="faq-category">
+                    <h3 class="category-title">Tutoring Process</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How do you match students with tutors?</div>
+                        <div class="faq-answer">
+                            <p>We carefully match students with tutors based on several factors:</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Subject expertise and grade level requirements</li>
+                                <li>Learning style and personality compatibility</li>
+                                <li>Specific academic goals and challenges</li>
+                                <li>Schedule availability</li>
+                            </ul>
+                            <p style="margin-top: 10px;">Our goal is to create a productive and positive tutoring relationship. If for any reason you feel the match isn't working well, we're happy to find an alternative tutor who might be a better fit.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">What happens during a typical tutoring session?</div>
+                        <div class="faq-answer">
+                            <p>A typical tutoring session lasts 60 minutes and is structured to maximize learning while keeping the student engaged. Sessions generally include:</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Review of previous material and homework</li>
+                                <li>Addressing specific questions or problem areas</li>
+                                <li>Introduction and explanation of new concepts</li>
+                                <li>Guided practice with immediate feedback</li>
+                                <li>Independent practice to build confidence</li>
+                                <li>Summary of progress and assignment of practice work</li>
+                            </ul>
+                            <p style="margin-top: 10px;">Our tutors adapt each session to the student's needs, focusing on areas that require the most attention while building on strengths.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How do you track and report student progress?</div>
+                        <div class="faq-answer">
+                            <p>We believe in transparent communication about student progress. Our progress tracking includes:</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Session notes after each tutoring session</li>
+                                <li>Goal-setting and achievement tracking</li>
+                            </ul>
+                            <p style="margin-top: 10px;">Parents and students have access to our online portal where they can view session summaries and communicate with tutors.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Scheduling and Logistics -->
+                <div class="faq-category">
+                    <h3 class="category-title">Scheduling and Logistics</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">How often should my child meet with a tutor?</div>
+                        <div class="faq-answer">
+                            <p>The frequency of tutoring sessions depends on the student's needs, goals, and schedule. Here are our general recommendations:</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li><strong>For ongoing academic support:</strong> 1-2 sessions per week</li>
+                                <li><strong>For test preparation:</strong> 1-2 sessions per week, increasing as the test date approaches</li>
+                                <li><strong>For addressing specific challenges:</strong> 2-3 sessions per week until improvement is seen</li>
+                                <li><strong>For maintenance and enrichment:</strong> 1 session per week or every other week</li>
+                            </ul>
+                            <p style="margin-top: 10px;">We'll work with you to determine the optimal frequency based on your child's specific situation and adjust as needed.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">What is your cancellation policy?</div>
+                        <div class="faq-answer">
+                            <p>We understand that schedules can change. Our cancellation policy is as follows:</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Cancellations made with at least 24 hours' notice: No charge</li>
+                                <li>Cancellations with less than 24 hours' notice: 50% of the session fee</li>
+                                <li>No-shows without notification: Full session fee</li>
+                            </ul>
+                            <p style="margin-top: 10px;">In cases of illness or emergency, we're happy to waive the cancellation fee. We also offer the option to convert an in-person session to an online session if transportation becomes an issue.</p>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <!-- Pricing and Payments -->
+                <div class="faq-category">
+                    <h3 class="category-title">Pricing and Payments</h3>
+                    <div class="faq-item">
+                        <div class="faq-question">How much does a session cost?</div>
+                        <div class="faq-answer">
+                            <p>Our standard rate is $70 per hour, regardless of the subject. This would come to 4 sessions for $280 or 8 sessions for $560.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">What payment methods do you accept?</div>
+                        <div class="faq-answer">
+                            <p>We accept a variety of payment methods for your convenience:</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>Credit/debit cards (Visa, Mastercard, American Express, Discover)</li>
+                                <li>PayPal</li>
+                                <li>Venmo</li>
+                                <li>Bank transfers/ACH</li>
+                                <li>Checks (for package purchases only)</li>
+                            </ul>
+                            <p style="margin-top: 10px;">We offer both one-time payments and convenient auto-billing options. All payment information is securely stored and processed in compliance with industry standards.</p>
+                        </div>
+                    </div>
+                
+                    <div class="faq-item">
+                        <div class="faq-question">Are there any current specials?</div>
+                        <div class="faq-answer">
+                            <p>Yes, we have two exciting offers:</p>
+                            <ul style="margin-left: 20px; margin-top: 10px;">
+                                <li>We offer 50% off for your first session.</li>
+                                <li>You can get $25 off a session if you refer someone.</li>
+                            </ul>
+                            <p style="margin-top: 10px;">Don't miss out on these great deals!</p>
+                        </div>
+                    </div>
 
-<!-- JavaScript to Load Footer -->
-<script src="../Footer/Footer.js" defer></script>
+                    <div class="faq-item">
+                        <div class="faq-question">How do I pay for my session?</div>
+                        <div class="faq-answer">
+                            <p>To learn how to pay for a session, check out our <a href="https://www.tutorbird.com/download/67000/?tmstv=1701374377" target="_blank" style="color: var(--primary); text-decoration: none; font-weight: 500; transition: color var(--transition);">detailed guide</a>.</p>
+                        </div>
+                    </div>
+
+                    
+
+                    <div class="faq-item">
+                        <div class="faq-question">How long is a typical session?</div>
+                        <div class="faq-answer">
+                            <p>Each session lasts one hour.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">Why am I being billed for 4 sessions at a time?</div>
+                        <div class="faq-answer">
+                            <p>To ensure your session time remains reserved, we require payment for a month's worth of weekly sessions in advance. This policy helps us manage high demand and provide consistent scheduling for all our students.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">What if I don't use the full hour of time I reserved?</div>
+                        <div class="faq-answer">
+                            <p>While we understand that sometimes all your questions can be answered before the hour is over, we also offer extra practice for the remainder of your session upon request.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Full-width CTA Section -->
+    <div class="cta-section">
+        <div class="cta-container">
+            <h3 class="cta-title">Still Have Questions?</h3>
+            <p class="cta-text">Can't find the answer you're looking for? Our team is here to help with any questions you may have about our tutoring services.</p>
+            <a href="Contact.html" class="cta-button">Contact Us Today</a>
+        </div>
+    </div>
+    
+    <div id="footer-placeholder"></div>
+    <script src="../Footer/Footer.js" defer></script>
+    
+    <script>
+        // FAQ Accordion Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqQuestions = document.querySelectorAll('.faq-question');
+            
+            faqQuestions.forEach(question => {
+                question.addEventListener('click', function() {
+                    const faqItem = this.parentElement;
+                    const isActive = faqItem.classList.contains('active');
+                    
+                    // Close all items
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.classList.remove('active');
+                    });
+                    
+                    // If the clicked item wasn't active, open it
+                    if (!isActive) {
+                        faqItem.classList.add('active');
+                    }
+                });
+            });
+            
+            // Category filter functionality
+            const categoryButtons = document.querySelectorAll('.category-button');
+            
+            categoryButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    categoryButtons.forEach(btn => {
+                        btn.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter functionality would go here in a real implementation
+                    // For now, we'll just log the category
+                    console.log('Selected category:', this.textContent);
+                });
+            });
+            
+            // Search functionality
+            const searchInput = document.querySelector('.search-input');
+            
+            searchInput.addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const faqItems = document.querySelectorAll('.faq-item');
+                
+                faqItems.forEach(item => {
+                    const questionText = item.querySelector('.faq-question').textContent.toLowerCase();
+                    const answerText = item.querySelector('.faq-answer').textContent.toLowerCase();
+                    
+                    if (questionText.includes(searchTerm) || answerText.includes(searchTerm)) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+                
+                // Show/hide category headers based on visible items
+                document.querySelectorAll('.faq-category').forEach(category => {
+                    const visibleItems = category.querySelectorAll('.faq-item[style="display: block"]').length;
+                    const hiddenItems = category.querySelectorAll('.faq-item[style="display: none"]').length;
+                    const totalItems = visibleItems + hiddenItems;
+                    
+                    if (hiddenItems === totalItems) {
+                        category.style.display = 'none';
+                    } else {
+                        category.style.display = 'block';
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

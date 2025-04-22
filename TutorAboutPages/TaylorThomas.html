@@ -1,469 +1,485 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
 <script src="../Javascript/analytics.js"></script>
 <script src="../Javascript/metaPixel.js"></script>
 <noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
+<img height="1" width="1" style="display:none"
+     src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
 </noscript>
 <script src="../Javascript/tiktokPixel.js"></script>
 <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
-  </noscript>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet Taylor Thomas | Compassionate K-12 Tutor</title>
+  <img height="1" width="1" style="display:none"
+       src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
+</noscript>
+<script src="../Javascript/floating-hearts.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet Taylor Thomas | Compassionate K-12 Tutor</title>
 <meta name="description" content="Taylor brings care and encouragement to tutoring K-12 students. Learn more about her teaching style and passions.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../CSS/Hero.css">
-    <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
-    <style>
-        html {
-            height: 100%;
-        }
-        
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            min-height: 100%;
-            position: relative;
-            /* Make sure body takes at least full viewport height */
-            display: flex;
-            flex-direction: column;
-        }
-        
-        /* Create a wrapper for the background pattern */
-        .background-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/pixel-heart.png');
-            background-repeat: repeat;
-            opacity: .3;
-            pointer-events: none;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+  <link rel="stylesheet" href="../CSS/Hero.css">
+  <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
+  <style>
+      html {
+          height: 100%;
+      }
+      
+      body {
+          margin: 0;
+          font-family: 'Poppins', sans-serif;
+          background-color: #f9f9f9;
+          min-height: 100%;
+          position: relative;
+          /* Make sure body takes at least full viewport height */
+          display: flex;
+          flex-direction: column;
+      }
+      
+      /* Create a wrapper for the background pattern */
+      .background-pattern {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          z-index: -1;
+          background-image: url('https://www.toptal.com/designers/subtlepatterns/uploads/pixel-heart.png');
+          background-repeat: repeat;
+          opacity: .3;
+          pointer-events: none;
+      }
 
-       /* Main container for side-by-side layout */
+      /* Fix for hero section to span full width */
+      .hero-section {
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          align-self: stretch !important;
+          position: relative;
+          z-index: 1;
+      }
+
+     /* Main container for side-by-side layout */
 .tutor-main-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px; /* Space between the two sections */
-    max-width: 1200px;
-    margin: 40px auto; /* Centers the layout */
-    padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between the two sections */
+  max-width: 1200px;
+  margin: 40px auto; /* Centers the layout */
+  padding: 20px;
 }
 
 /* Left container: About section */
 .tutor-about-container {
-    flex: 2;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    border: 2px solid #000; /* Solid black border */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  flex: 2;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  border: 2px solid #000; /* Solid black border */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .tutor-about-container p {
-    line-height: 1.8;
-    color: #333;
-    font-size: 1rem;
-    text-align: center; /* Justifies the text for a polished look */
+  line-height: 1.8;
+  color: #333;
+  font-size: 1rem;
+  text-align: center; /* Justifies the text for a polished look */
 }
 
 .tutor-about-container h2 {
-    font-size: 2rem;
-    color: #1e293b;
-    margin: 0 auto 10px; /* Centers the name and adds spacing below */
+  font-size: 2rem;
+  color: #1e293b;
+  margin: 0 auto 10px; /* Centers the name and adds spacing below */
 }
 
 .tutor-image {
-    display: block; /* Ensures block-level behavior for margin auto */
-    margin: 0 auto 10px; /* Centers the image and adds spacing below */
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    object-position: center;
+  display: block; /* Ensures block-level behavior for margin auto */
+  margin: 0 auto 10px; /* Centers the image and adds spacing below */
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
 }
 .tutor-about-header {
-    text-align: center; /* Centers image and name */
-    margin-bottom: 20px; /* Adds spacing below the header */
+  text-align: center; /* Centers image and name */
+  margin-bottom: 20px; /* Adds spacing below the header */
 }
 /* Right container: Subjects list redesign */
 /* Right container: Subjects list redesign */
 .subjects-container {
-    flex: 1;
-    background-color: #fff; /* Matches the site's card style */
-    padding: 20px;
-    border-radius: 10px; /* Rounded corners */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    border: 2px solid #1e293b; /* Adds a themed border */
+  flex: 1;
+  background-color: #fff; /* Matches the site's card style */
+  padding: 20px;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  border: 2px solid #1e293b; /* Adds a themed border */
 }
 
 .subjects-container h3 {
-    font-size: 1.5rem;
-    color: #1e293b;
-    margin-bottom: 15px;
-    text-align: center;
-    font-weight: bold;
-    border-bottom: 2px solid #ff6f61; /* Themed underline */
-    padding-bottom: 5px; /* Adds spacing below underline */
+  font-size: 1.5rem;
+  color: #1e293b;
+  margin-bottom: 15px;
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 2px solid #ff6f61; /* Themed underline */
+  padding-bottom: 5px; /* Adds spacing below underline */
 }
 
 .subject-list {
-    list-style-type: none; /* Removes default bullet styling */
-    padding: 0;
-    margin: 0;
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.8;
-    text-align: left;
+  list-style-type: none; /* Removes default bullet styling */
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.8;
+  text-align: left;
 }
 
 .subject-list li {
-    margin-bottom: 10px;
-    padding-left: 20px; /* Adds space for custom bullet */
-    position: relative;
+  margin-bottom: 10px;
+  padding-left: 20px; /* Adds space for custom bullet */
+  position: relative;
 }
 
 .subject-list li::before {
-    content: "•"; /* Custom bullet */
-    color: #ff6f61; /* Themed bullet color */
-    font-size: 1.2rem;
-    position: absolute;
-    left: 0; /* Aligns bullet with text */
-    top: 0;
+  content: "•"; /* Custom bullet */
+  color: #ff6f61; /* Themed bullet color */
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0; /* Aligns bullet with text */
+  top: 0;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .subjects-container {
-        margin-top: 20px; /* Adds spacing when stacked */
-    }
+  .subjects-container {
+      margin-top: 20px; /* Adds spacing when stacked */
+  }
 }
 
 
 
 
-  /* Center the back-to-team-page link */
+/* Center the back-to-team-page link */
 .back-link {
-    display: block; /* Ensures the link takes up full width */
-    text-align: center; /* Centers the link text */
-    margin: 20px auto 0; /* Adds spacing above */
-    color: #ff6f61;
-    text-decoration: none;
-    font-weight: bold;
+  display: block; /* Ensures the link takes up full width */
+  text-align: center; /* Centers the link text */
+  margin: 20px auto 0; /* Adds spacing above */
+  color: #ff6f61;
+  text-decoration: none;
+  font-weight: bold;
 }
 
 .back-link:hover {
-    text-decoration: underline;
-    color: #d9574e;
+  text-decoration: underline;
+  color: #d9574e;
 }
-        .values-section {
-    margin-top: 40px;
-    padding: 10px 20px;
-    background-color: #f4f4f9;
-    text-align: center;
-    border-radius: 10px;
+      .values-section {
+  margin-top: 40px;
+  padding: 10px 20px;
+  background-color: #f4f4f9;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .values-section h2 {
-    font-size: 2rem;
-    color: #1e293b;
-    margin-bottom: 20px;
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 20px;
 }
 
 .values-section p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 30px;
-    line-height: 1.6;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.6;
 }
 
 .values-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
 }
 
 .value-item {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 250px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 250px;
 }
 
 .value-graphic {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 15px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
 }
 
 .value-item h3 {
-    font-size: 1.2rem;
-    color: #1e293b;
-    margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin-bottom: 10px;
 }
 
 .value-item p {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.5;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
 }
 .subjects-columns {
-    display: flex;
-    justify-content: space-between; /* Ensures equal spacing between columns */
-    gap: 20px;
+  display: flex;
+  justify-content: space-between; /* Ensures equal spacing between columns */
+  gap: 20px;
 }
 
 .subject-list {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-    font-size: 1rem;
-    color: #333;
-    line-height: 1.8;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+  line-height: 1.8;
 }
 
 .subject-list li {
-    margin-bottom: 10px;
-    padding-left: 20px;
-    position: relative;
-    white-space: nowrap; /* Prevents text from wrapping */
+  margin-bottom: 10px;
+  padding-left: 20px;
+  position: relative;
+  white-space: nowrap; /* Prevents text from wrapping */
 }
 
 .subject-list li::before {
-    content: "•";
-    color: #ff6f61;
-    font-size: 1.2rem;
-    position: absolute;
-    left: 0;
-    top: 0;
+  content: "•";
+  color: #ff6f61;
+  font-size: 1.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 
 .subjects-container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid #1e293b;
-    width: 700px; /* Adjust the width to accommodate longer text */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; 
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 2px solid #1e293b;
+  width: 700px; /* Adjust the width to accommodate longer text */
 }
 
 .button-container {
-    display: flex;
-    justify-content: center; /* Centers the button horizontally */
-    margin-top: 20px; /* Adds space above the button */
-    margin-bottom: 0; /* Ensures the button stays at the bottom */
+  display: flex;
+  justify-content: center; /* Centers the button horizontally */
+  margin-top: 20px; /* Adds space above the button */
+  margin-bottom: 0; /* Ensures the button stays at the bottom */
 }
 
 .schedule-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    background-color: #1e293b;
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color: #1e293b;
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .schedule-button:hover {
-    background-color: #16212e;
-    transform: scale(1.05);
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+  background-color: #16212e;
+  transform: scale(1.05);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
 }
 
 
 /* Schedule Button */
 .schedule-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white; /* White text */
-    background-color: #1e293b; /* Navbar blue */
-    border: none;
-    border-radius: 5px;
-    text-align: center;
-    text-decoration: none; /* Removes underline */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white; /* White text */
+  background-color: #1e293b; /* Navbar blue */
+  border: none;
+  border-radius: 5px;
+  text-align: center;
+  text-decoration: none; /* Removes underline */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
 .schedule-button:hover {
-    background-color: #16212e; /* Slightly darker blue on hover */
-    transform: scale(1.05); /* Slight scaling effect */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+  background-color: #16212e; /* Slightly darker blue on hover */
+  transform: scale(1.05); /* Slight scaling effect */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
 }
 @media (max-width: 768px) {
-    .tutor-main-section {
-        flex-direction: column; /* Stack sections vertically */
-        align-items: center; /* Center the stacked sections */
-        padding: 20px;
-        width: 100%;
-        box-sizing: border-box;
-    }
+  .tutor-main-section {
+      flex-direction: column; /* Stack sections vertically */
+      align-items: center; /* Center the stacked sections */
+      padding: 20px;
+      width: 100%;
+      box-sizing: border-box;
+  }
 
-    .tutor-about-container,
-    .subjects-container {
-        width: 100%; /* Full width */
-        max-width: 600px; /* Set a reasonable maximum width */
-        margin: 0 auto 20px; /* Center the sections horizontally and add bottom margin */
-        box-sizing: border-box; /* Include padding in width calculations */
-        flex: none; /* Remove flex properties that might affect width */
-    }
+  .tutor-about-container,
+  .subjects-container {
+      width: 100%; /* Full width */
+      max-width: 600px; /* Set a reasonable maximum width */
+      margin: 0 auto 20px; /* Center the sections horizontally and add bottom margin */
+      box-sizing: border-box; /* Include padding in width calculations */
+      flex: none; /* Remove flex properties that might affect width */
+  }
 
-    .subjects-container {
-        padding: 20px;
-        border: 2px solid #1e293b;
-        width: 100%; /* Override the fixed width set earlier */
-    }
-    
-    .subjects-columns {
-        flex-direction: column; /* Stack the subject lists on very small screens */
-    }
-    
-    /* Only apply two columns if there's enough width */
-    @media (min-width: 480px) {
-        .subjects-columns {
-            flex-direction: row;
-        }
-    }
-    
-    .subject-list li {
-        white-space: normal; /* Allow text to wrap on mobile */
-    }
+  .subjects-container {
+      padding: 20px;
+      border: 2px solid #1e293b;
+      width: 100%; /* Override the fixed width set earlier */
+  }
+  
+  .subjects-columns {
+      flex-direction: column; /* Stack the subject lists on very small screens */
+  }
+  
+  /* Only apply two columns if there's enough width */
+  @media (min-width: 480px) {
+      .subjects-columns {
+          flex-direction: row;
+      }
+  }
+  
+  .subject-list li {
+      white-space: normal; /* Allow text to wrap on mobile */
+  }
 }
 
-    </style>
+  </style>
 </head>
 <body>
-    <div class="background-pattern"></div>
-    <!-- Navbar Placeholder -->
-    <div id="navbar-placeholder"></div>
+  <div class="background-pattern"></div>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
 
-    <!-- JavaScript to Load Navbar -->
-    <script src="../Navbar/Navbar.js" defer></script>
+  <!-- JavaScript to Load Navbar -->
+  <script src="../Navbar/Navbar.js" defer></script>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>About Taylor Thomas</h1>
-        <p>Get to know your dedicated tutor!</p>
+  <!-- Hero Section with proper structure for hero.css -->
+  <div class="hero-section">
+    <div class="diagonal-line"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">About Taylor Thomas</h1>
+      <p class="hero-subtitle">Get to know your dedicated tutor!</p>
     </div>
+  </div>
 
-    <section class="tutor-main-section">
-        <div class="tutor-about-container">
-            <div class="tutor-about-header">
-                <img src="https://i.imgur.com/zAXRwYt.jpeg" alt="Taylor Thomas - Biology graduate and compassionate K-12 tutor" class="tutor-image">
-                <h2>Taylor Thomas</h2>
-            </div>
-            <p>
-                Hi, I'm Taylor Thomas! I'm a biology graduate and current master's student in Instructional Design and Learning Technology at UTA. I've spent over three years teaching and developing curriculum for science grades 7-12, and I love helping students tackle tough concepts and feel more confident in their learning. Whether it's prepping for a test or just getting through a tricky homework assignment, I'm here to support you every step of the way.
-            </p>
-            <p>
-                <!--Hobbies-->
-                Outside of tutoring, I'm usually reading, traveling, or working on creative projects and I'm always looking for new ways to make learning fun and engaging. I'm excited to meet you!
-            </p>
-            <a href="../MainPages/About.html" class="back-link">← Back to Team Page</a>
-        </div>
-    
-        
-        <div class="subjects-container">
-            <h3>Subjects I Tutor</h3>
-            <div class="subjects-columns">
-                <ul class="subject-list">
-                    <li>English (K-8th)</li>
-                    <li>English (9-12th)</li>
-                    <li>SAT English</li>
-                    <li>ACT English</li>
-                    <li>GED English</li>
-                    <li>GED Science</li>
-                    <li>Biology</li>
-                    <li>AP Biology </li>
-                    <li>AP Biology Exam</li>
-                </ul>
-            </div>
-            <div class="button-container">
-                <a href="../ScheduleNowServices/WelcomeFromTutor.html" class="schedule-button" onclick="setTutor('Taylor Thomas', 'https://i.imgur.com/zAXRwYt.jpeg')">Schedule With Taylor</a>
-            </div>
-        </div>
-        
-    </section>
-    
-    
-    
-    
-    <section class="values-section">
-        <h2>Taylor's Values</h2>        
-        <div class="values-container">
-            <div class="value-item">
-                <img src="https://i.imgur.com/naRoAD4.png" alt="Patience value icon - Taking time with students at their own pace" class="value-graphic">
-                <h3>Patience</h3>
-                <p>I take the time to meet students where they are, explaining concepts at their pace without pressure.</p>
-            </div>
-            <div class="value-item">
-                <img src="https://i.imgur.com/1oEbgAa.png" alt="Growth value icon - Building long-term understanding and confidence" class="value-graphic">
-                <h3>Growth</h3>
-                <p>I focus on long-term understanding, helping students steadily build confidence and skills.</p>
-            </div>
-            <div class="value-item">
-                <img src="https://i.imgur.com/DpDVqiP.png" alt="Empowerment value icon - Helping students recognize their strengths" class="value-graphic">
-                <h3>Empowerment</h3>
-                <p>I guide students to recognize their own strengths and take charge of their learning.</p>
-            </div>
-        </div>
-    </section>
-    <script>
-        function setTutor(name, image) {
-            localStorage.setItem('selectedTutorName', name);
-            localStorage.setItem('selectedTutorImage', image);
-            localStorage.setItem('tutorSelected', 'true'); // Save the selection status
-        }
-    </script>
-    <div id="footer-placeholder"></div>
+  <section class="tutor-main-section">
+      <div class="tutor-about-container">
+          <div class="tutor-about-header">
+              <img src="https://i.imgur.com/zAXRwYt.jpeg" alt="Taylor Thomas - Biology graduate and compassionate K-12 tutor" class="tutor-image">
+              <h2>Taylor Thomas</h2>
+          </div>
+          <p>
+              Hi, I'm Taylor Thomas! I'm a biology graduate and current master's student in Instructional Design and Learning Technology at UTA. I've spent over three years teaching and developing curriculum for science grades 7-12, and I love helping students tackle tough concepts and feel more confident in their learning. Whether it's prepping for a test or just getting through a tricky homework assignment, I'm here to support you every step of the way.
+          </p>
+          <p>
+              <!--Hobbies-->
+              Outside of tutoring, I'm usually reading, traveling, or working on creative projects and I'm always looking for new ways to make learning fun and engaging. I'm excited to meet you!
+          </p>
+          <a href="../MainPages/About.html" class="back-link">← Back to Team Page</a>
+      </div>
+  
+      
+      <div class="subjects-container">
+          <h3>Subjects I Tutor</h3>
+          <div class="subjects-columns">
+              <ul class="subject-list">
+                  <li>English (K-8th)</li>
+                  <li>English (9-12th)</li>
+                  <li>SAT English</li>
+                  <li>ACT English</li>
+                  <li>GED English</li>
+                  <li>GED Science</li>
+                  <li>Biology</li>
+                  <li>AP Biology </li>
+                  <li>AP Biology Exam</li>
+              </ul>
+          </div>
+          <div class="button-container">
+              <a href="../ScheduleNowServices/WelcomeFromTutor.html" class="schedule-button" onclick="setTutor('Taylor Thomas', 'https://i.imgur.com/zAXRwYt.jpeg')">Schedule With Taylor</a>
+          </div>
+      </div>
+      
+  </section>
+  
+  
+  
+  
+  <section class="values-section">
+      <h2>Taylor's Values</h2>        
+      <div class="values-container">
+          <div class="value-item">
+              <img src="https://i.imgur.com/naRoAD4.png" alt="Patience value icon - Taking time with students at their own pace" class="value-graphic">
+              <h3>Patience</h3>
+              <p>I take the time to meet students where they are, explaining concepts at their pace without pressure.</p>
+          </div>
+          <div class="value-item">
+              <img src="https://i.imgur.com/1oEbgAa.png" alt="Growth value icon - Building long-term understanding and confidence" class="value-graphic">
+              <h3>Growth</h3>
+              <p>I focus on long-term understanding, helping students steadily build confidence and skills.</p>
+          </div>
+          <div class="value-item">
+              <img src="https://i.imgur.com/DpDVqiP.png" alt="Empowerment value icon - Helping students recognize their strengths" class="value-graphic">
+              <h3>Empowerment</h3>
+              <p>I guide students to recognize their own strengths and take charge of their learning.</p>
+          </div>
+      </div>
+  </section>
+  <script>
+      function setTutor(name, image) {
+          localStorage.setItem('selectedTutorName', name);
+          localStorage.setItem('selectedTutorImage', image);
+          localStorage.setItem('tutorSelected', 'true'); // Save the selection status
+      }
+  </script>
+  <div id="footer-placeholder"></div>
 
-    <!-- Load Footer -->
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            fetch("../Footer/Footer.html")
-                .then(response => response.text())
-                .then(html => {
-                    document.getElementById("footer-placeholder").innerHTML = html;
-    
-                    // Ensure footer.css is loaded dynamically
-                    if (!document.querySelector('link[href="../CSS/footer.css"]')) {
-                        const link = document.createElement("link");
-                        link.rel = "stylesheet";
-                        link.href = "../CSS/footer.css";
-                        document.head.appendChild(link);
-                    }
-                })
-                .catch(error => console.error("Error loading footer:", error));
-        });
-    </script>
+  <!-- Load Footer -->
+  <script>
+      document.addEventListener("DOMContentLoaded", function () {
+          fetch("../Footer/Footer.html")
+              .then(response => response.text())
+              .then(html => {
+                  document.getElementById("footer-placeholder").innerHTML = html;
+  
+                  // Ensure footer.css is loaded dynamically
+                  if (!document.querySelector('link[href="../CSS/footer.css"]')) {
+                      const link = document.createElement("link");
+                      link.rel = "stylesheet";
+                      link.href = "../CSS/footer.css";
+                      document.head.appendChild(link);
+                  }
+              })
+              .catch(error => console.error("Error loading footer:", error));
+      });
+  </script>
 </body>
 </html>

@@ -24,21 +24,29 @@
     <link rel="stylesheet" href="../Progress/Progress.css">
     <link rel="stylesheet" href="../CSS/Button.css">
     <link rel="stylesheet" href="../Footer/Footer.css">
+    <script src="../Javascript/floating-hearts.js"></script>
     <style>
-        html {
-            height: 100%;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
+        html, body {
+            min-height: 100vh;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
             margin: 0;
             padding: 0;
-            background-color: #f7f9fc;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
+            box-sizing: border-box;
         }
+
+        /* Fix for hero section to span full width */
+        .hero-section {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            align-self: stretch !important;
+        }
+
         @media (max-width: 480px) {
             .hero h1 {
                 margin-top: 50px !important;
@@ -160,47 +168,32 @@
             }
         }
 
-
-
-
-        /* Progress Dots */
-        .progress {
-            display: flex;
-            justify-content: center;
-            margin: 20px 0;
+        /* Progress Container */
+        .progress-container {
+            margin: 30px auto;
+            position: relative;
         }
 
-        .dot {
-            width: 20px;
-            height: 20px;
-            margin: 0 8px;
-            background-color: #d1d1d1;
-            border-radius: 50%;
-        }
-
-        .dot.active {
-            background-color: #ff6f61;
-        }
         #selected-tutor {
             font-size: 20px;
             color: #333;
             margin-top: 10px;
         }
         .info-text {
-    color: #ff6f61; /* Base red color */
-    text-decoration: none;
-    font-weight: bold;
-}
+            color: #ff6f61; /* Base red color */
+            text-decoration: none;
+            font-weight: bold;
+        }
 
-.info-text:hover {
-    color: #d9574e; /* Darker red on hover */
-}
+        .info-text:hover {
+            color: #d9574e; /* Darker red on hover */
+        }
 
-.back-button-container {
-    display: flex;
-    justify-content: center; /* Centers the button horizontally */
-    margin-top: 20px; /* Adds spacing above the button */
-}
+        .back-button-container {
+            display: flex;
+            justify-content: center; /* Centers the button horizontally */
+            margin-top: 20px; /* Adds spacing above the button */
+        }
 
     </style>
 </head>
@@ -213,104 +206,121 @@
 
 <!-- JavaScript to Load Navbar -->
 <script src="../Navbar/Navbar.js" defer></script>
-<!-- Hero Section -->
-<div class="hero">
-    <h1>Welcome to the Student Portal</h1>
-    <p id="hero-text">
-        Login and find an open session with 
-        <span id="tutor-name" style="color: #ff6f61; font-weight: bold;"></span>
-        <p style="font-style: italic; font-size: 0.9rem;margin-top: 20px;">Please make sure to pay 24 hours before your first session.
-            <a href="https://www.tutorbird.com/download/67000/?tmstv=1701374377" target="_blank" class="create-account">Payment Guide</a>. </p>
-    </p>
-</div>
 
-
-    <!-- Information Text -->
-    <!-- <div class="selected-tutor">
-        <p>
-            If you cannot find a time that works for your specific tutor, please select a new one 
-            <a href="RecommendedTutor.html" class ="info-text" onclick="updateCacheData()">here</a>.
-        </p>
-    </div> -->
-    
-    
-    
-
-    <!-- Display Selected Tutor -->
-
-    <div class="progress-steps">
-        <div class="step-container">
-            <div class="step">1</div>
-        </div>
-        <div class="step-container">
-            <div class="step">2</div>
-        </div>
-        <div class="step-container">
-            <div class="step">3</div>
-        </div>
-        <div class="step-container">
-            <div class="step">4</div>
-        </div>
-    </div>
-    <script src="../Progress/Progress.js"></script>
+<!-- Script to set active navbar item -->
 <script>
-    // Call updateSteps with the current step number
-    document.addEventListener("DOMContentLoaded", function() {
-        updateSteps(4); // Change 3 to any current step dynamically
+    document.addEventListener('DOMContentLoaded', function() {
+        // Wait a short time to ensure navbar has loaded
+        setTimeout(function() {
+            // Remove active class from all nav items
+            const navItems = document.querySelectorAll('.nav-item');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Find the Schedule Now link and add active class
+            const scheduleNowLink = document.querySelector('.nav-item a[href*="Schedule"]');
+            if (scheduleNowLink) {
+                scheduleNowLink.closest('.nav-item').classList.add('active');
+            }
+            
+            // For mobile menu
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            mobileLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.textContent.includes('Schedule Now')) {
+                    link.classList.add('active');
+                }
+            });
+        }, 100); // Short delay to ensure navbar is loaded
     });
 </script>
 
-    <!-- Widget, Registration Box, and Create Account Section -->
-    <div class="widget-wrapper">
-        <!-- Left Empty for Centering -->
-        <div class="spacer"></div>
-    
-        <!-- Centered TutorBird Widget -->
-        <div class="content">
-            <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9xZFhKMSIsIldlYnNpdGVJRCI6Indic196MjZKViIsIldlYnNpdGVCbG9ja0lEIjoid2JiX1Q0U2hKTSJ9"></script>
-        </div>
-    
-        <!-- Right: "How to Schedule" Box -->
-        <div class="schedule-box">
-            <h2>How to Schedule a Session</h2>
-            <p>To learn how to register for a session, check out our <br>
-                <a href="https://www.tutorbird.com/download/66986/?tmstv=1701374343" target="_blank" class="create-account">detailed guide</a>.
-            </p>
-            <p>Sessions are one hour long at a standard rate of $70 per hour.</p>
-        </div>
-    </div>
-    
-    <!-- Create Account Section -->
-    <div class="create-account-section">
-        <p>Don't have an account? 
-            <a href="../MainPages/Welcome.html" class="create-account">Create one through the scheduling process</a>
+<!-- Hero Section with New Design -->
+<div class="hero-section">
+    <div class="diagonal-line"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">Welcome to the Student Portal</h1>
+        <p class="hero-subtitle" id="hero-text">
+            Login and find an open session with 
+            <span id="tutor-name" style="color: #ff6f61; font-weight: bold;"></span>
+        </p>
+        <p class="hero-subtitle" style="font-style: italic; font-size: 0.9rem; margin-top: 10px;">
+            Please make sure to pay 24 hours before your first session.
+            <a href="https://www.tutorbird.com/download/67000/?tmstv=1701374377" target="_blank" class="create-account">Payment Guide</a>.
         </p>
     </div>
-    <div class="back-button-container">
-        <button class="square-button" onclick="redirectToPreviousPage()">Back</button>
-        <a href="TutorAlreadySelected.html" style="display: none;">Back (if tutor selected)</a>
-        <a href="RecommendedTutor.html" style="display: none;">Back (if no tutor)</a>
+</div>
 
+<!-- Modern Progress Indicator -->
+<div class="progress-container" id="progress-container">
+    <!-- Progress indicator will be inserted here by JavaScript -->
+</div>
+
+<!-- Widget, Registration Box, and Create Account Section -->
+<div class="widget-wrapper">
+    <!-- Left Empty for Centering -->
+    <div class="spacer"></div>
+
+    <!-- Centered TutorBird Widget -->
+    <div class="content">
+        <script src="https://app.tutorbird.com/Widget/v4/Widget.ashx?settings=eyJTY2hvb2xJRCI6InNjaF9xZFhKMSIsIldlYnNpdGVJRCI6Indic196MjZKViIsIldlYnNpdGVCbG9ja0lEIjoid2JiX1Q0U2hKTSJ9"></script>
     </div>
-    
-    
-    <!-- Script for Selected Tutor and Progress Dots -->
-    <script>
+
+    <!-- Right: "How to Schedule" Box -->
+    <div class="schedule-box">
+        <h2>How to Schedule a Session</h2>
+        <p>To learn how to register for a session, check out our <br>
+            <a href="https://www.tutorbird.com/download/66986/?tmstv=1701374343" target="_blank" class="create-account">detailed guide</a>.
+        </p>
+        <p>Sessions are one hour long at a standard rate of $70 per hour.</p>
+    </div>
+</div>
+
+<!-- Create Account Section -->
+<div class="create-account-section">
+    <p>Don't have an account? 
+        <a href="../MainPages/Welcome.html" class="create-account">Create one through the scheduling process</a>
+    </p>
+</div>
+<div class="back-button-container">
+    <button class="square-button" onclick="redirectToPreviousPage()">Back</button>
+    <a href="TutorAlreadySelected.html" style="display: none;">Back (if tutor selected)</a>
+    <a href="RecommendedTutor.html" style="display: none;">Back (if no tutor)</a>
+</div>
+
+<!-- Script for Selected Tutor and Progress Dots -->
+<script src="../Progress/Progress.js"></script>
+<script>
+    // Initialize the progress indicator when the DOM is loaded
+    document.addEventListener("DOMContentLoaded", function() {
+        // Define the steps for the scheduling process
+        const totalSteps = 4;
+        const stepLabels = ['Student Type', 'Subject', 'Schedule', 'Confirmation'];
+        const currentStep = 4; // We're on step 4
         
-        function updateCacheData() {
-          // Save the data from ScheduleNowSubjects.html to localStorage
-          const scheduleNowData = localStorage.getItem('selectedSubjects');
-          if (scheduleNowData) {
+        // Get the progress container
+        const progressContainer = document.getElementById('progress-container');
+        
+        // Initialize the progress indicator
+        const progressIndicator = initProgressIndicator(currentStep, totalSteps, stepLabels);
+        progressContainer.appendChild(progressIndicator);
+    });
+    
+    function updateCacheData() {
+        // Save the data from ScheduleNowSubjects.html to localStorage
+        const scheduleNowData = localStorage.getItem('selectedSubjects');
+        if (scheduleNowData) {
             localStorage.setItem('cachedScheduleNowData', scheduleNowData);
-          }
-      
-          // Update Type-Of-Student.html cache data
-          localStorage.setItem('studentType', 'Returning Student');
         }
-      </script>
+    
+        // Update Type-Of-Student.html cache data
+        localStorage.setItem('studentType', 'Returning Student');
+    }
+</script>
       
-    <script>
-        // Retrieve the selected tutor's name from local storage
+<script>
+    // Retrieve the selected tutor's name from local storage
     const selectedTutor = localStorage.getItem('selectedTutor');
     document.addEventListener('DOMContentLoaded', () => {
         // Update the Hero section text
@@ -320,17 +330,23 @@
 
         if (selectedTutor) {
             tutorNameSpan.textContent = selectedTutor;
-            altTutorNameSpan.textContent = selectedTutor;
+            if (altTutorNameSpan) {
+                altTutorNameSpan.textContent = selectedTutor;
+            }
         } else {
             // Default text if no tutor is selected
             heroText.textContent = "Login and find an open session with the tutor of your choice.";
-            document.getElementById('alternate-text').innerHTML = `
-                Can't find a session with the tutor you are looking for? 
-                Find a different tutor 
-                <a href="../About.html" class="create-account" style="color: #ff6f61;" onclick="updateCacheData()">here</a>.
-            `;
+            const alternateTextElement = document.getElementById('alternate-text');
+            if (alternateTextElement) {
+                alternateTextElement.innerHTML = `
+                    Can't find a session with the tutor you are looking for? 
+                    Find a different tutor 
+                    <a href="../About.html" class="create-account" style="color: #ff6f61;" onclick="updateCacheData()">here</a>.
+                `;
+            }
         }
     });
+    
     function redirectToPreviousPage() {
         // Check if a tutor is already selected in localStorage
         const selectedTutor = localStorage.getItem('selectedTutorName'); // Key should match what you set when saving
@@ -342,43 +358,25 @@
             window.location.href = 'RecommendedTutor.html';
         }
     }
-        // Generate progress bar dots based on student type
-        function generateProgressDots() {
-            const progressBar = document.getElementById('progress-bar');
-            const studentType = localStorage.getItem('studentType');
-            const totalDots = studentType === 'Returning Student' ? 4 : 5; // 4 dots for Returning Student, 5 for others
+</script>
 
-            for (let i = 0; i < totalDots; i++) {
-                const dot = document.createElement('span');
-                dot.className = 'dot';
-                if (i === totalDots - 1) {
-                    dot.classList.add('active'); // Last dot is active
-                }
-                progressBar.appendChild(dot);
-            }
-        }
-
-        // Initialize progress dots after DOM is loaded
-        document.addEventListener('DOMContentLoaded', generateProgressDots);
-
-    </script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-          if (typeof fbq === 'function') {
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        if (typeof fbq === 'function') {
             fbq('trackCustom', 'FTHTSignup');
-          }
-      
-          if (typeof ttq === 'object' && typeof ttq.track === 'function') {
+        }
+    
+        if (typeof ttq === 'object' && typeof ttq.track === 'function') {
             ttq.track('CompleteRegistration');
-          }
+        }
+    
+        console.log("✅ Fired Lead and CompleteRegistration tracking on page load.");
+    });
+</script>
       
-          console.log("✅ Fired Lead and CompleteRegistration tracking on page load.");
-        });
-      </script>
-      
-    <div id="footer-placeholder"></div>
+<div id="footer-placeholder"></div>
 
-    <!-- JavaScript to Load Footer -->
-    <script src="../Footer/Footer.js" defer></script>
+<!-- JavaScript to Load Footer -->
+<script src="../Footer/Footer.js" defer></script>
 </body>
 </html>

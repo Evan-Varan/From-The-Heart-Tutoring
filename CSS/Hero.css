@@ -1,71 +1,283 @@
-/* Hero Section */
-.hero {
-    background-color: #1e293b !important;
-    color: white;
-    padding: 50px 60px 20px; /* Keeping original size */
-    text-align: center;
+/* Alternative Hero Section Styles - Fixed for Content Visibility */
+.hero-section {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    padding: 90px 40px 90px; /* Increased bottom padding as well */
+    position: relative;
+    overflow: hidden; /* Changed to hidden to prevent hearts from going outside */
+    box-shadow: 0 4px 15px -5px rgba(0, 0, 0, 0.2);
+    margin-top: 0;
+}
+
+/* Decorative elements */
+.hero-section::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 111, 97, 0.1) 0%, rgba(255, 111, 97, 0) 70%);
+    transform: rotate(-15deg);
+    z-index: 1;
+}
+
+.hero-section::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 10px;
+    background: linear-gradient(90deg, transparent, #ff6f61, transparent);
+    opacity: 0.7;
+    z-index: 2;
+}
+
+/* Diagonal accent line */
+.hero-section .diagonal-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.hero-section .diagonal-line::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -5%;
+    width: 110%;
+    height: 100%;
+    background: linear-gradient(135deg, transparent 40%, rgba(255, 111, 97, 0.1) 40%);
+}
+
+/* Content container */
+.hero-content {
+    position: relative;
+    z-index: 5; /* Increased z-index to ensure content is above hearts */
+    max-width: 1200px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    min-height: 180px; /* Added minimum height to ensure content fits */
+}
+
+/* Floating hearts animation */
+@keyframes float {
+    0% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0) rotate(0deg); }
+}
+
+/* SVG Heart styling */
+.floating-heart {
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Hearts container to ensure they stay within bounds */
+.hearts-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Title with accent */
+.hero-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 5px;
+    color: #ffffff;
+    line-height: 1.1;
+    position: relative;
+    display: inline-block;
+}
+
+.hero-title::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 80px;
+    height: 4px;
+    background-color: #ff6f61;
+    border-radius: 2px;
+}
+
+/* Subtitle with slightly larger size */
+.hero-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 25px 0 0 0;
+    max-width: 750px; /* Increased from 650px to accommodate more text */
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Call to action section */
+.hero-cta {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
     align-items: center;
-    height: 200px !important; /* Ensure the correct static height */
 }
 
-/* Header Title */
-.hero h1 {
-    font-size: 2.2rem; /* Slightly refined for balance */
-    margin-bottom: 12px; /* Reduced spacing */
+/* Primary button with hover effect */
+.hero-button {
+    display: inline-block;
+    background-color: #ff6f61;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
-    line-height: 1.2;
+    font-size: 1rem;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: none;
+    box-shadow: 0 4px 15px -3px rgba(255, 111, 97, 0.4);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
 }
 
-/* Subtext */
-.hero p {
-    font-size: 1.1rem; /* More balanced with the title */
-    max-width: 700px; /* Prevents excessive stretching */
-    margin: 0 auto;
-    line-height: 1.5;
+.hero-button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: -1;
+    transition: opacity 0.3s ease;
+    opacity: 0;
 }
 
-/* Responsive Adjustments */
-@media (max-width: 1024px) {
-    .hero {
-        padding: 50px 20px;
-    }
+.hero-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px -5px rgba(255, 111, 97, 0.5);
+}
 
-    .hero h1 {
-        font-size: 2rem;
-    }
+.hero-button:hover::after {
+    opacity: 1;
+}
 
-    .hero p {
-        font-size: 1rem;
+/* Secondary button */
+.hero-button.secondary {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: none;
+}
+
+.hero-button.secondary:hover {
+    border-color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+    .hero-section {
+        padding: 90px 30px 80px; /* Increased top padding */
+        margin-top: 15px; /* Added margin-top for better spacing */
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+        margin-top: 15px; /* Added margin-top for better spacing */
+    }
+    
+    .hero-subtitle {
+        font-size: 1.2rem;
+        max-width: 100%; /* Allow full width on smaller screens */
+        margin-top: 25px; /* Adjusted for better spacing */
+    }
+    
+    .hero-content {
+        min-height: 200px; /* Ensure enough space for content */
+        justify-content: center; /* Center content vertically */
     }
 }
 
 @media (max-width: 768px) {
-    .hero {
-        padding: 45px 15px;
+    .hero-section {
+        padding: 95px 20px 70px; /* Increased top padding */
+        text-align: center;
+        margin-top: 18px; /* Added margin-top for better spacing */
     }
-
-    .hero h1 {
-        font-size: 1.8rem;
+    
+    .hero-content {
+        align-items: center;
+        text-align: center;
+        min-height: 210px; /* Increased for tablet */
+        justify-content: center; /* Center content vertically */
     }
-
-    .hero p {
-        font-size: 1rem;
+    
+    .hero-title {
+        font-size: 2.2rem;
+        margin-top: 18px; /* Added margin-top for better spacing */
+    }
+    
+    .hero-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .hero-subtitle {
+        font-size: 1.1rem;
+        margin-top: 25px; /* Adjusted for better spacing */
+    }
+    
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-button {
+        width: 100%;
+        max-width: 300px;
     }
 }
 
 @media (max-width: 480px) {
-    .hero {
-        padding: 40px 15px;
+    .hero-section {
+        padding: 100px 20px 60px; /* Increased top padding for better spacing from navbar */
+        margin-top: 20px; /* Added margin-top for better spacing */
     }
-
-    .hero h1 {
-        font-size: 1.6rem;
+    
+    .hero-title {
+        font-size: 1.8rem;
+        margin-top: 20px; /* Added margin-top for better spacing */
     }
-
-    .hero p {
-        font-size: 0.95rem;
+    
+    .hero-subtitle {
+        font-size: 1rem;
+        margin-top: 20px; /* Adjusted for better spacing */
+    }
+    
+    .hero-content {
+        min-height: 220px; /* Increased for small mobile */
+        justify-content: center; /* Center content vertically */
     }
 }
+
+/* Add the diagonal line element to the HTML */
+.diagonal-line {
+    display: block;
+} 

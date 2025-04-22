@@ -23,7 +23,31 @@
     <link rel="stylesheet" href="../CSS/Hero.css">
     <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
     <link rel="stylesheet" href="../CSS/HeartBackground.css">
+    <script src="../Javascript/floating-hearts.js" defer></script>
     <style>
+        html, body {
+            min-height: 100vh;
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Fix for hero section to span full width */
+        .hero-section {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            align-self: stretch !important;
+            position: relative;
+            z-index: 1;
+        }
+
         body {
             margin: 0;
             font-family: 'Poppins', sans-serif;
@@ -140,11 +164,14 @@
 <!-- JavaScript to Load Navbar -->
 <script src="../Navbar/Navbar.js" defer></script>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>About Barbara Garnett-Herrera</h1>
-        <p>Get to know your dedicated tutor!</p>
+<!-- Hero Section with proper structure for hero.css -->
+<div class="hero-section">
+    <div class="diagonal-line"></div>
+    <div class="hero-content">
+        <h1 class="hero-title">About Barbara Garnett-Herrera</h1>
+        <p class="hero-subtitle">Get to know your dedicated tutor!</p>
     </div>
+</div>
 
     <!-- Tutor About Section -->
     <section class="tutor-about-section">

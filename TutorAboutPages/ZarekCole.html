@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <link rel="stylesheet" href="../CSS/Hero.css">
     <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
+    <script src="../Javascript/floating-hearts.js" defer></script>
     <style>
         html {
             height: 100%;
@@ -50,6 +51,18 @@
             background-repeat: repeat;
             opacity: .3;
             pointer-events: none;
+        }
+        
+        /* Fix for hero section to span full width */
+        .hero-section {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin-left: 0 !important;
+            margin-right: 0 !important;
+            align-self: stretch !important;
+            position: relative;
+            z-index: 1;
         }
 
        /* Main container for side-by-side layout */
@@ -369,10 +382,13 @@
     <!-- JavaScript to Load Navbar -->
     <script src="../Navbar/Navbar.js" defer></script>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>About Zarek Cole</h1>
-        <p>Get to know your dedicated tutor!</p>
+    <!-- Hero Section with proper structure for hero.css -->
+    <div class="hero-section">
+        <div class="diagonal-line"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">About Zarek Cole</h1>
+            <p class="hero-subtitle">Get to know your dedicated tutor!</p>
+        </div>
     </div>
 
     <section class="tutor-main-section">

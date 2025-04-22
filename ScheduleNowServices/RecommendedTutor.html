@@ -168,15 +168,6 @@
             position: relative;
         }
 
-        .progress-text {
-            text-align: center;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--primary-dark);
-            margin-top: 10px;
-            margin-bottom: 30px;
-        }
-
         /* Tutor Cards */
         .tutors-container {
             display: flex;
@@ -560,23 +551,9 @@
             </div>
         </div>
 
-        <!-- Progress Steps -->
-        <div class="progress-container">
-            <div class="progress-steps">
-                <div class="step-container">
-                    <div class="step">1</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">2</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">3</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">4</div>
-                </div>
-            </div>
-            <div class="progress-text">Step 3 of 4</div>
+        <!-- Modern Progress Indicator -->
+        <div class="progress-container" id="progress-container">
+            <!-- Progress indicator will be inserted here by JavaScript -->
         </div>
 
         <!-- Tutors Container -->
@@ -613,9 +590,19 @@
         const errorMessage = document.getElementById('error-message');
         const selectedTutor = { name: null }; // Store selected tutor
         
-        // Call updateSteps with the current step number
+        // Initialize the progress indicator when the DOM is loaded
         document.addEventListener("DOMContentLoaded", function() {
-            updateSteps(3); // Set to step 3
+            // Define the steps for the scheduling process
+            const totalSteps = 4;
+            const stepLabels = ['Student Type', 'Subject', 'Schedule', 'Confirmation'];
+            const currentStep = 3; // We're on step 3
+            
+            // Get the progress container
+            const progressContainer = document.getElementById('progress-container');
+            
+            // Initialize the progress indicator
+            const progressIndicator = initProgressIndicator(currentStep, totalSteps, stepLabels);
+            progressContainer.appendChild(progressIndicator);
             
             // Display selected subjects
             const subjectsDisplay = document.getElementById("selected-subjects");
@@ -784,7 +771,7 @@
             errorMessage.style.display = "none"; // Hide error message if a tutor is selected
             
             // Store selected tutor
-            localStorage.setItem("selectedTutor", selectedTutor.name);
+            localStorage.setItem("selectedTutorName", selectedTutor.name);
             
             // Redirect based on student type
             const studentType = localStorage.getItem('studentType');

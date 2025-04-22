@@ -151,10 +151,6 @@
             position: relative;
         }
 
-        .progress-steps {
-            margin-bottom: 10px;
-        }
-
         .progress-text {
             text-align: center;
             font-size: 0.95rem;
@@ -476,23 +472,9 @@
             </div>
         </div>
         
-        <!-- Progress Steps with Step Text -->
-        <div class="progress-container">
-            <div class="progress-steps">
-                <div class="step-container">
-                    <div class="step">1</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">2</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">3</div>
-                </div>
-                <div class="step-container">
-                    <div class="step">4</div>
-                </div>
-            </div>
-            <div class="progress-text">Step 1 of 4</div>
+        <!-- Modern Progress Indicator -->
+        <div class="progress-container" id="progress-container">
+            <!-- Progress indicator will be inserted here by JavaScript -->
         </div>
         
         <!-- Options -->
@@ -538,9 +520,19 @@
      
     <script src="../Progress/Progress.js"></script>
     <script>
-        // Call updateSteps with the current step number
+        // Initialize the progress indicator when the DOM is loaded
         document.addEventListener("DOMContentLoaded", function() {
-            updateSteps(1); // Set to step 1
+            // Define the steps for the scheduling process
+            const totalSteps = 4;
+            const stepLabels = ['Student Type', 'Subject', 'Tutor', 'Signup'];
+            const currentStep = 1; // We're on step 1
+            
+            // Get the progress container
+            const progressContainer = document.getElementById('progress-container');
+            
+            // Initialize the progress indicator
+            const progressIndicator = initProgressIndicator(currentStep, totalSteps, stepLabels);
+            progressContainer.appendChild(progressIndicator);
             
             // Add animation classes
             document.querySelectorAll('.option-card').forEach((card, index) => {

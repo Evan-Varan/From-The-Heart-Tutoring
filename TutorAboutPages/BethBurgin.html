@@ -1,204 +1,231 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- Google tag (gtag.js) -->
+  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-8C6EXQKJ0S"></script>
 <script src="../Javascript/analytics.js"></script>
 <script src="../Javascript/metaPixel.js"></script>
 <noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
+<img height="1" width="1" style="display:none"
+     src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
 </noscript>
 <script src="../Javascript/tiktokPixel.js"></script>
 <noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
-  </noscript>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    title>Meet Beth Burgin | Certified Math Tutor & Co-Owner</title>
+  <img height="1" width="1" style="display:none"
+       src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
+</noscript>
+<script src="../Javascript/floating-hearts.js" defer></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meet Beth Burgin | Certified Math Tutor & Co-Owner</title>
 <meta name="description" content="Beth is a certified teacher with engineering background, specializing in middle school math and special learning needs.">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../CSS/Hero.css">
-    <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
-    <link rel="stylesheet" href="../CSS/HeartBackground.css">
-   <style>
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-        }
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+  <link rel="stylesheet" href="../CSS/Hero.css">
+  <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
+  <link rel="stylesheet" href="../CSS/HeartBackground.css">
+ <style>
+      html, body {
+          min-height: 100vh;
+          position: relative;
+          width: 100%;
+          max-width: 100%;
+          overflow-x: hidden; /* Prevent horizontal scrolling */
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+      }
+      
+      /* Fix for hero section to span full width */
+      .hero-section {
+          width: 100% !important;
+          max-width: 100% !important;
+          box-sizing: border-box !important;
+          margin-left: 0 !important;
+          margin-right: 0 !important;
+          align-self: stretch !important;
+          position: relative;
+          z-index: 1;
+      }
+
+      body {
+          margin: 0;
+          font-family: 'Poppins', sans-serif;
+          background-color: #f9f9f9;
+      }
 
 
-        .tutor-about-section {
-            padding: 0px 20px;
-            text-align: center;
-            max-width: 800px;
-            margin: auto;
-            background-color: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
+      .tutor-about-section {
+          padding: 0px 20px;
+          text-align: center;
+          max-width: 800px;
+          margin: auto;
+          background-color: #fff;
+          border-radius: 10px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
 
-        .tutor-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            margin-top: 10px; /* Lowers the image slightly within the card */
-            object-fit: cover; /* Ensures the image fits within the circle without stretching */
-            object-position: center; /* Centers the image within the circle */
-        }
+      .tutor-image {
+          width: 120px;
+          height: 120px;
+          border-radius: 50%;
+          margin-bottom: 15px;
+          margin-top: 10px; /* Lowers the image slightly within the card */
+          object-fit: cover; /* Ensures the image fits within the circle without stretching */
+          object-position: center; /* Centers the image within the circle */
+      }
 
-        .tutor-about-section h2 {
-            font-size: 2rem;
-            color: #1e293b;
-            margin-bottom: 15px;
-        }
+      .tutor-about-section h2 {
+          font-size: 2rem;
+          color: #1e293b;
+          margin-bottom: 15px;
+      }
 
-        .tutor-about-section p {
-            font-size: 1rem;
-            color: #333;
-            line-height: 1.8;
-        }
+      .tutor-about-section p {
+          font-size: 1rem;
+          color: #333;
+          line-height: 1.8;
+      }
 
-        .back-link {
-            display: inline-block;
-            margin-top: 20px;
-            color: #ff6f61;
-            text-decoration: none;
-            font-weight: bold;
-        }
+      .back-link {
+          display: inline-block;
+          margin-top: 20px;
+          color: #ff6f61;
+          text-decoration: none;
+          font-weight: bold;
+      }
 
-        .back-link:hover {
-            text-decoration: underline;
-            color: #d9574e;
-        }
-        .values-section {
-    margin-top: 40px;
-    padding: 50px 20px;
-    background-color: #f4f4f9;
-    text-align: center;
-    border-radius: 10px;
+      .back-link:hover {
+          text-decoration: underline;
+          color: #d9574e;
+      }
+      .values-section {
+  margin-top: 40px;
+  padding: 50px 20px;
+  background-color: #f4f4f9;
+  text-align: center;
+  border-radius: 10px;
 }
 
 .values-section h2 {
-    font-size: 2rem;
-    color: #1e293b;
-    margin-bottom: 20px;
+  font-size: 2rem;
+  color: #1e293b;
+  margin-bottom: 20px;
 }
 
 .values-section p {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 30px;
-    line-height: 1.6;
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 30px;
+  line-height: 1.6;
 }
 
 .values-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+  justify-content: center;
 }
 
 .value-item {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 250px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 250px;
 }
 
 .value-graphic {
-    width: 100px;
-    height: 100px;
-    object-fit: cover;
-    margin-bottom: 15px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  margin-bottom: 15px;
 }
 
 .value-item h3 {
-    font-size: 1.2rem;
-    color: #1e293b;
-    margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #1e293b;
+  margin-bottom: 10px;
 }
 
 .value-item p {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.5;
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
 }
 
-    </style>
+  </style>
 </head>
 <body>
-    <!-- Navbar Placeholder -->
-    <div id="navbar-placeholder"></div>
+  <!-- Navbar Placeholder -->
+  <div id="navbar-placeholder"></div>
 
-    <!-- JavaScript to Load Navbar -->
-    <script src="../Navbar/Navbar.js" defer></script>
+  <!-- JavaScript to Load Navbar -->
+  <script src="../Navbar/Navbar.js" defer></script>
 
-    <!-- Hero Section -->
-    <div class="hero">
-        <h1>About Beth Burgin</h1>
-        <p>Get to know your dedicated tutor!</p>
+  <!-- Hero Section with proper structure for hero.css -->
+  <div class="hero-section">
+    <div class="diagonal-line"></div>
+    <div class="hero-content">
+      <h1 class="hero-title">About Beth Burgin</h1>
+      <p class="hero-subtitle">Get to know your dedicated tutor!</p>
     </div>
+  </div>
 
-    <!-- Tutor About Section -->
-    <section class="tutor-about-section">
-        <img src="https://i.imgur.com/zNsl3lz.jpeg" alt="Beth Burgin - Certified Math Tutor and Co-Owner with engineering background" class="tutor-image">
-        <h2>Beth Burgin</h2>
-        <p>
-            Hi! I'm Beth Burgin, Co-owner and tutor for From the Heart Tutoring. I am a certified teacher. I have worked as a classroom  teacher in public schools for over nine years. I have experience with Dyslexia, Dysgraphia, ESL, ADHD, and Autism. I specialize in 6th grade Math, 7th grade Math, 8th grade Math and Algebra. Prior to teaching I worked as an engineer in Austin, TX. My degree is in Engineering from the University of TX at Austin. 
-        </p>
-        <p>
-            When I'm not teaching, I enjoy hanging out with my dog Benji, watching disaster movies, and gardening.
-        </p>
-        <a href="../MainPages/About.html" class="back-link">← Back to Team Page</a>
-    </section>
-    <section class="values-section">
-        <h2>Beth's Values</h2>        
-        <div class="values-container">
-            <div class="value-item">
-                <img src="https://i.imgur.com/jPxGP0g.png" alt="Inclusivity value icon - Creating a safe learning space for diverse students" class="value-graphic">
-                <h3>Inclusivity</h3>
-                <p>We welcome students from all backgrounds and create a safe space for learning.</p>
-            </div>
-            <div class="value-item">
-                <img src="https://i.imgur.com/zgIG8ln.png" alt="Innovation value icon - Engaging teaching methods for math education" class="value-graphic">
-                <h3>Innovation</h3>
-                <p>Our unique teaching methods make learning engaging and effective.</p>
-            </div>
-            <div class="value-item">
-                <img src="https://i.imgur.com/cStGkwq.png" alt="Community value icon - Building mentoring relationships in education" class="value-graphic">
-                <h3>Community</h3>
-                <p>We are more than tutors—we're mentors who build lasting relationships.</p>
-            </div>
-        </div>
-    </section>
-    <div id="footer-placeholder"></div>
+  <!-- Tutor About Section -->
+  <section class="tutor-about-section">
+      <img src="https://i.imgur.com/zNsl3lz.jpeg" alt="Beth Burgin - Certified Math Tutor and Co-Owner with engineering background" class="tutor-image">
+      <h2>Beth Burgin</h2>
+      <p>
+          Hi! I'm Beth Burgin, Co-owner and tutor for From the Heart Tutoring. I am a certified teacher. I have worked as a classroom  teacher in public schools for over nine years. I have experience with Dyslexia, Dysgraphia, ESL, ADHD, and Autism. I specialize in 6th grade Math, 7th grade Math, 8th grade Math and Algebra. Prior to teaching I worked as an engineer in Austin, TX. My degree is in Engineering from the University of TX at Austin. 
+      </p>
+      <p>
+          When I'm not teaching, I enjoy hanging out with my dog Benji, watching disaster movies, and gardening.
+      </p>
+      <a href="../MainPages/About.html" class="back-link">← Back to Team Page</a>
+  </section>
+  <section class="values-section">
+      <h2>Beth's Values</h2>        
+      <div class="values-container">
+          <div class="value-item">
+              <img src="https://i.imgur.com/jPxGP0g.png" alt="Inclusivity value icon - Creating a safe learning space for diverse students" class="value-graphic">
+              <h3>Inclusivity</h3>
+              <p>We welcome students from all backgrounds and create a safe space for learning.</p>
+          </div>
+          <div class="value-item">
+              <img src="https://i.imgur.com/zgIG8ln.png" alt="Innovation value icon - Engaging teaching methods for math education" class="value-graphic">
+              <h3>Innovation</h3>
+              <p>Our unique teaching methods make learning engaging and effective.</p>
+          </div>
+          <div class="value-item">
+              <img src="https://i.imgur.com/cStGkwq.png" alt="Community value icon - Building mentoring relationships in education" class="value-graphic">
+              <h3>Community</h3>
+              <p>We are more than tutors—we're mentors who build lasting relationships.</p>
+          </div>
+      </div>
+  </section>
+  <div id="footer-placeholder"></div>
 
 <!-- Load Footer -->
 <script>
-    document.addEventListener("DOMContentLoaded", function () {
-        fetch("../Footer/Footer.html")
-            .then(response => response.text())
-            .then(html => {
-                document.getElementById("footer-placeholder").innerHTML = html;
+  document.addEventListener("DOMContentLoaded", function () {
+      fetch("../Footer/Footer.html")
+          .then(response => response.text())
+          .then(html => {
+              document.getElementById("footer-placeholder").innerHTML = html;
 
-                // Ensure footer.css is loaded dynamically
-                if (!document.querySelector('link[href="../CSS/footer.css"]')) {
-                    const link = document.createElement("link");
-                    link.rel = "stylesheet";
-                    link.href = "../CSS/footer.css";
-                    document.head.appendChild(link);
-                }
-            })
-            .catch(error => console.error("Error loading footer:", error));
-    });
+              // Ensure footer.css is loaded dynamically
+              if (!document.querySelector('link[href="../CSS/footer.css"]')) {
+                  const link = document.createElement("link");
+                  link.rel = "stylesheet";
+                  link.href = "../CSS/footer.css";
+                  document.head.appendChild(link);
+              }
+          })
+          .catch(error => console.error("Error loading footer:", error));
+  });
 </script>
 </body>
 </html>
