@@ -4,23 +4,25 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Top Homework Mistakes Parents Make | Avoid These Pitfalls</title>
-<meta name="description" content="Help your child succeed by avoiding these common homework mistakes parents often make. Learn what to do instead.">
+    <meta name="description" content="Help your child succeed by avoiding these common homework mistakes parents often make. Learn what to do instead.">
+    <!-- Added meta tag to identify this as a blog post for navigation purposes -->
+    <meta name="page-category" content="blog">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="../Javascript/analytics.js"></script>
-<script src="../Javascript/metaPixel.js"></script>
-<noscript>
-  <img height="1" width="1" style="display:none"
-       src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
-</noscript>
-<script src="../Javascript/tiktokPixel.js"></script>
-<link rel="stylesheet" href="../Footer/Footer.css">
-  <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
-<noscript>
-    <img height="1" width="1" style="display:none"
-         src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
-  </noscript>
+    <script src="../Javascript/metaPixel.js"></script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=1739954003401700&ev=PageView&noscript=1" />
+    </noscript>
+    <script src="../Javascript/tiktokPixel.js"></script>
+    <link rel="stylesheet" href="../Footer/Footer.css">
+    <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
+    <noscript>
+        <img height="1" width="1" style="display:none"
+             src="https://analytics.tiktok.com/i18n/pixel/events.js?sdkid=CVMO74JC77U7H4FD3I70&lib=ttq" />
+    </noscript>
     <style>
         /* Base Styles */
         html, body {
@@ -477,6 +479,38 @@
     <!-- JavaScript to Load Navbar -->
     <script src="../Navbar/Navbar.js" defer></script>
     
+    <!-- Script to ensure this page is categorized under Blog, not Home -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Wait a short time to ensure navbar has loaded
+            setTimeout(function() {
+                // Remove active class from Home nav item if it exists
+                const homeNavItem = document.querySelector('.nav-item a[href*="Home"]');
+                if (homeNavItem && homeNavItem.parentElement) {
+                    homeNavItem.parentElement.classList.remove('active');
+                }
+                
+                // Add active class to Blog nav item
+                const blogNavItem = document.querySelector('.nav-item a[href*="Blog"]');
+                if (blogNavItem && blogNavItem.parentElement) {
+                    blogNavItem.parentElement.classList.add('active');
+                }
+                
+                // For mobile menu if it exists
+                const mobileHomeLink = document.querySelector('.mobile-link[href*="Home"]');
+                const mobileBlogLink = document.querySelector('.mobile-link[href*="Blog"]');
+                
+                if (mobileHomeLink) {
+                    mobileHomeLink.classList.remove('active');
+                }
+                
+                if (mobileBlogLink) {
+                    mobileBlogLink.classList.add('active');
+                }
+            }, 100); // Short delay to ensure navbar is loaded
+        });
+    </script>
+    
     <div class="container main-content">
         <a href="../MainPages/Blog.html" class="back-to-blog">
             <span class="back-arrow">←</span> Back to Blog
@@ -498,13 +532,13 @@
           
             <div class="article-content">
               <div class="article-main">
-                <p>Helping your child with homework seems like a no-brainer — but it’s easier than you think to accidentally create tension, confusion, or dependency. In this article, we’ll highlight 10 common mistakes parents make while helping with homework and how to avoid them. Whether your child is in elementary school or high school, these tips will help you support them more effectively and independently.</p>
+                <p>Helping your child with homework seems like a no-brainer — but it's easier than you think to accidentally create tension, confusion, or dependency. In this article, we'll highlight 10 common mistakes parents make while helping with homework and how to avoid them. Whether your child is in elementary school or high school, these tips will help you support them more effectively and independently.</p>
           
                 <h2 id="doing-too-much">1. Doing the Work for Them</h2>
-                <p>It’s tempting to jump in and fix mistakes, especially when your child is frustrated. But if you're doing the thinking, your child isn't learning. Instead, ask guiding questions or suggest a strategy, then step back.</p>
+                <p>It's tempting to jump in and fix mistakes, especially when your child is frustrated. But if you're doing the thinking, your child isn't learning. Instead, ask guiding questions or suggest a strategy, then step back.</p>
           
                 <h2 id="being-too-hands-off">2. Being Too Hands-Off</h2>
-                <p>On the flip side, some parents take a completely hands-off approach, assuming their child should “figure it out.” Younger students especially may need help building time management and problem-solving skills before they can work fully independently.</p>
+                <p>On the flip side, some parents take a completely hands-off approach, assuming their child should "figure it out." Younger students especially may need help building time management and problem-solving skills before they can work fully independently.</p>
           
                 <h2 id="micromanaging">3. Micromanaging Every Step</h2>
                 <p>Hovering over your child, correcting each answer, or redoing their organization methods can be overwhelming. Allow room for mistakes and self-correction. It builds resilience and accountability.</p>
@@ -513,7 +547,7 @@
                 <p>Doing homework at random times and places creates stress and inconsistency. Help your child establish a predictable routine with a quiet space, set time blocks, and limited distractions.</p>
           
                 <h2 id="ignoring-frustration">5. Ignoring Emotional Frustration</h2>
-                <p>If your child is melting down or shutting down, pushing harder won’t help. Acknowledge their feelings and offer a short break. Homework struggles are often tied to confidence, not just content.</p>
+                <p>If your child is melting down or shutting down, pushing harder won't help. Acknowledge their feelings and offer a short break. Homework struggles are often tied to confidence, not just content.</p>
           
                 <h2 id="wrong-environment">6. Choosing the Wrong Homework Environment</h2>
                 <p>TV, noisy siblings, or a cluttered table can sabotage focus. Create a designated workspace with everything your child needs — pencils, calculator, scratch paper, and quiet time.</p>
@@ -522,16 +556,16 @@
                 <p>If your child is consistently confused or behind, reach out to the teacher. Homework should reinforce classroom learning — not introduce brand new material with no support.</p>
           
                 <h2 id="pressuring-grades">8. Focusing Too Much on Grades</h2>
-                <p>Obsessing over grades can increase anxiety and decrease motivation. Instead of asking “What grade did you get?” ask “What did you learn today?” Shift focus to growth, not perfection.</p>
+                <p>Obsessing over grades can increase anxiety and decrease motivation. Instead of asking "What grade did you get?" ask "What did you learn today?" Shift focus to growth, not perfection.</p>
           
-                <h2 id="ignoring-learning-style">9. Ignoring Your Child’s Learning Style</h2>
+                <h2 id="ignoring-learning-style">9. Ignoring Your Child's Learning Style</h2>
                 <p>Some students learn best through visuals, others through movement or repetition. If your child struggles with traditional methods, explore alternative strategies that match their strengths.</p>
           
                 <h2 id="avoiding-help">10. Waiting Too Long to Seek Help</h2>
                 <p>If your child regularly struggles or arguments are becoming routine, it may be time for outside support. A tutor can reduce stress at home and give your child the tools to succeed on their own terms.</p>
           
                 <h2 id="get-started">Better Support Starts Here</h2>
-                <p>Homework time doesn’t have to be a battle. By shifting your role from rescuer to coach, and by avoiding these common pitfalls, you can help your child build lifelong learning habits. <a href="../MainPages/Welcome.html">Schedule a session today</a> to get expert support that reduces stress and builds independence.</p>
+                <p>Homework time doesn't have to be a battle. By shifting your role from rescuer to coach, and by avoiding these common pitfalls, you can help your child build lifelong learning habits. <a href="../MainPages/Welcome.html">Schedule a session today</a> to get expert support that reduces stress and builds independence.</p>
               </div>
           
               <aside class="article-sidebar">

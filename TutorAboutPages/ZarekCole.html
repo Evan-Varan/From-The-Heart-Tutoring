@@ -24,19 +24,15 @@
     <link rel="stylesheet" href="../Footer/Footer.css"> <!-- Link to navbar CSS -->
     <script src="../Javascript/floating-hearts.js" defer></script>
     <style>
-        html {
-            height: 100%;
-        }
-        
-        body {
-            margin: 0;
-            font-family: 'Poppins', sans-serif;
-            background-color: #f9f9f9;
-            min-height: 100%;
+        html, body {
+            min-height: 100vh;
             position: relative;
-            /* Make sure body takes at least full viewport height */
-            display: flex;
-            flex-direction: column;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
         
         /* Create a wrapper for the background pattern */
