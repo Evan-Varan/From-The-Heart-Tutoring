@@ -16,8 +16,8 @@
     </noscript>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test Prep Tutoring Services | SAT, ACT, TSI, STAAR, GED, AP</title>
-    <meta name="description" content="Get exam-ready with targeted tutoring for standardized tests. We cover SAT, ACT, TSI, STAAR, GED, and AP exams.">
+    <title>STAAR Test Prep Tutoring | Math, Reading & Science Support</title>
+    <meta name="description" content="Prepare for the STAAR exam with expert tutoring in math, reading, and science. Get school-ready with personalized support.">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../Navbar/Navbar.css"> <!-- Link to navbar CSS -->
     <link rel="stylesheet" href="../Footer/Footer.css">
@@ -72,7 +72,7 @@
             width: 100%;
             height: 100%;
             pointer-events: none;
-            z-index: 99; /* Reduced z-index to ensure content is above */
+            z-index: 9;
             overflow: hidden;
         }
         
@@ -190,7 +190,7 @@
             padding: 0 20px;
         }
         
-        /* Services Grid Section */
+        /* Services Section */
         .services-wrapper {
             width: 100%;
             background-color: white;
@@ -225,11 +225,52 @@
             margin: 0 auto;
         }
         
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
+        .service-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+            gap: 10px;
             width: 100%;
+        }
+        
+        .tab-btn {
+            padding: 12px 25px;
+            background-color: transparent;
+            border: none;
+            border-radius: 50px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 500;
+            color: var(--gray);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .tab-btn.active {
+            background-color: var(--primary);
+            color: white;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background-color: var(--gray-light);
+            color: var(--dark);
+        }
+        
+        .tab-content {
+            display: none;
+            width: 100%;
+        }
+        
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         .service-card {
@@ -237,72 +278,81 @@
             border-radius: 15px;
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+            margin-bottom: 30px;
+            width: 100%;
+            box-sizing: border-box;
         }
         
-        .service-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        .service-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            width: 100%;
+        }
+        
+        .service-info {
+            padding: 40px;
+            box-sizing: border-box;
+        }
+        
+        .service-info h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 20px;
+            margin-top: 0;
+        }
+        
+        .service-info p {
+            margin-bottom: 20px;
+            color: var(--gray);
+        }
+        
+        .service-features {
+            margin: 25px 0;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+        
+        .feature-icon {
+            width: 24px;
+            height: 24px;
+            background-color: rgba(67, 97, 238, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .feature-icon svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--primary);
+        }
+        
+        .feature-text {
+            font-size: 0.95rem;
         }
         
         .service-image {
-            width: 100%;
-            height: 200px;
             background-color: #f8f9fa;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 20px;
+            padding: 40px;
             box-sizing: border-box;
         }
         
         .service-image img {
             max-width: 100%;
-            max-height: 160px;
-            object-fit: contain;
-        }
-        
-        .service-content {
-            padding: 25px;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .service-content h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-top: 0;
-            margin-bottom: 15px;
-        }
-        
-        .service-content p {
-            color: var(--gray);
-            margin-bottom: 20px;
-            flex-grow: 1;
-        }
-        
-        .service-btn {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            text-align: center;
-        }
-        
-        .service-btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+            height: auto;
+            border-radius: 10px;
         }
         
         /* SEO Content Section */
@@ -454,26 +504,6 @@
             box-shadow: 0 6px 20px rgba(255, 255, 255, 0.2);
         }
         
-        /* Contact Section */
-        .contact-info {
-            text-align: center;
-            margin: 40px 0;
-            font-size: 1.1rem;
-            color: var(--gray);
-        }
-        
-        .contact-info a {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-        }
-        
-        .contact-info a:hover {
-            color: var(--primary-dark);
-            text-decoration: underline;
-        }
-        
         /* Back Button */
         .back-link {
             display: inline-flex;
@@ -502,6 +532,10 @@
         
         /* Responsive Styles */
         @media (max-width: 992px) {
+            .service-content {
+                grid-template-columns: 1fr;
+            }
+            
             .seo-grid {
                 grid-template-columns: 1fr;
             }
@@ -546,10 +580,6 @@
         }
         
         @media (max-width: 768px) {
-            .services-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
             .hero {
                 padding: 60px 0;
             }
@@ -564,6 +594,14 @@
             
             .section-header h2 {
                 font-size: 1.8rem;
+            }
+            
+            .service-info {
+                padding: 30px;
+            }
+            
+            .service-info h3 {
+                font-size: 1.5rem;
             }
             
             .cta-section h2 {
@@ -608,8 +646,9 @@
                 font-size: 1.8rem;
             }
             
-            .services-grid {
-                grid-template-columns: 1fr;
+            .tab-btn {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
             
             /* Adjust heart sizes and positions for mobile */
@@ -670,91 +709,142 @@
     <div class="hero-wrapper">
         <div class="container">
             <div class="hero">
-                <h1>Test Prep Services</h1>
-                <p>Excel in standardized tests with our comprehensive preparation programs. Our expert tutors provide personalized strategies and targeted practice for SAT, ACT, TSI, STAAR, GED, and AP exams to help you achieve your highest potential score.</p>
+                <h1>STAAR Tutoring Services</h1>
+                <p>Prepare for the State of Texas Assessments of Academic Readiness with our specialized tutoring programs. Our expert instructors provide personalized strategies for STAAR Math, Reading, and Science sections, helping you achieve academic success.</p>
             </div>
         </div>
     </div>
     
-    <!-- Services Grid Section - Full Width -->
+    <!-- Services Section - Full Width -->
     <div class="services-wrapper">
         <div class="container">
             <div class="services">
                 <div class="section-header">
-                    <h2>Our Test Prep Programs</h2>
-                    <p>Choose from our specialized test preparation services designed to help you succeed on any standardized exam.</p>
+                    <h2>STAAR Preparation Options</h2>
+                    <p>Choose the specific STAAR section you need help with to ensure you meet grade-level standards and excel on your exams.</p>
                 </div>
                 
-                <div class="services-grid">
-                    <!-- SAT Card -->
+                <div class="service-tabs">
+                    <button class="tab-btn active" data-tab="math">STAAR Math</button>
+                    <button class="tab-btn" data-tab="reading">STAAR Reading & Writing</button>
+                </div>
+                
+                <!-- Math Tab Content -->
+                <div class="tab-content active" id="math-tab">
                     <div class="service-card">
-                        <div class="service-image">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/sat-GeuYSIYnLmMLn5o213ojkJD5aTcuwn.png" alt="SAT test preparation icon - Comprehensive tutoring for college entrance exams">
-                        </div>
                         <div class="service-content">
-                            <h3>SAT Preparation</h3>
-                            <p>Comprehensive preparation for all sections of the SAT exam, including Math, Reading, and Writing. Our expert tutors help you master content knowledge and test-taking strategies.</p>
-                            <a href="SATServices.html" class="service-btn">View SAT Services</a>
+                            <div class="service-info">
+                                <h3>STAAR Math Sections</h3>
+                                <p>Master the mathematical concepts needed to succeed on the STAAR Assessment. Our expert tutors break down complex problems and teach efficient problem-solving techniques specifically designed for the STAAR format.</p>
+                                
+                                <div class="service-features">
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Number operations and algebraic reasoning</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Data analysis and personal financial literacy</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Geometry and measurement principles</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Proportional relationships and expressions</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Test-taking strategies specific to the STAAR format</div>
+                                    </div>
+                                </div>
+                                
+                                <a href="../MainPages/Welcome.html" class="btn btn-light" style="background-color: #4361ee; color: white;">Schedule Now</a>
+                            </div>
+                            <div class="service-image">
+                                <img src="https://d3r7ksou5fmir9.cloudfront.net/IconImages/mathexam.png" alt="STAAR Math section preparation icon - Texas state assessment mathematics tutoring">
+                            </div>
                         </div>
                     </div>
-                    
-                    <!-- ACT Card -->
+                </div>
+                
+                <!-- Reading Tab Content -->
+                <div class="tab-content" id="reading-tab">
                     <div class="service-card">
-                        <div class="service-image">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/act-ejFHcpKBpSIqAXYLYY2CUAqnmE6pKo.png" alt="ACT test preparation icon - Expert guidance for all ACT sections">
-                        </div>
                         <div class="service-content">
-                            <h3>ACT Preparation</h3>
-                            <p>Targeted preparation for the ACT exam covering English, Math, Reading, Science, and the optional Writing section. Learn proven strategies to improve your score.</p>
-                            <a href="ACTServices.html" class="service-btn">View ACT Services</a>
-                        </div>
-                    </div>
-                    
-                    <!-- STAAR Card -->
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/STAAR-Test-Graphic-MHagerty.jpg-NURLOSjM5NbwULEisXhdOsief499Kd.jpeg" alt="STAAR test preparation icon - State of Texas Assessments of Academic Readiness tutoring">
-                        </div>
-                        <div class="service-content">
-                            <h3>STAAR Preparation</h3>
-                            <p>Specialized tutoring for the State of Texas Assessments of Academic Readiness, focusing on Math, Reading, Science, and Social Studies to help students meet grade-level standards.</p>
-                            <a href="STAARServices.html" class="service-btn">View STAAR Services</a>
-                        </div>
-                    </div>
-                    
-                    <!-- TSI Card -->
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/tsi-Av7skyt4ulkSyPDG6LH2m1qoGbI6eY.png" alt="TSI test preparation icon - Texas Success Initiative assessment tutoring">
-                        </div>
-                        <div class="service-content">
-                            <h3>TSI Preparation</h3>
-                            <p>Specialized tutoring for the Texas Success Initiative Assessment, focusing on Reading, Writing, and Mathematics to help you meet college readiness standards.</p>
-                            <a href="TSIServices.html" class="service-btn">View TSI Services</a>
-                        </div>
-                    </div>
-                    
-                    <!-- GED Card -->
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/GED_Testing_Service.svg-AGeZWbhUCOtQIXBW9bdyqd2dWEsDM6.png" alt="GED test preparation icon - High school equivalency exam tutoring">
-                        </div>
-                        <div class="service-content">
-                            <h3>GED Preparation</h3>
-                            <p>Comprehensive preparation for all four GED subject tests: Mathematical Reasoning, Reasoning Through Language Arts, Science, and Social Studies.</p>
-                            <a href="GEDServices.html" class="service-btn">View GED Services</a>
-                        </div>
-                    </div>
-                    
-                    <!-- AP Exams Card -->
-                    <div class="service-card">
-                        <div class="service-image">
-                            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/images-gCxwsnvinpczEYXWbohYzRwQLOQC8p.png" alt="AP Exams preparation icon - Advanced Placement test tutoring for college credit">
-                        </div>
-                        <div class="service-content">
-                            <h3>AP Exam Preparation</h3>
-                            <p>Specialized tutoring for Advanced Placement exams across multiple subjects, helping you earn college credit and stand out in the college admissions process.</p>
-                            <a href="APExamServices.html" class="service-btn">View AP Services</a>
+                            <div class="service-info">
+                                <h3>STAAR Reading & Writing Sections</h3>
+                                <p>Develop the reading comprehension and analysis skills needed to excel on the STAAR Reading Assessment. Our tutors focus on building critical reading strategies and text analysis techniques.</p>
+                                
+                                <div class="service-features">
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Reading comprehension across genres</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Literary analysis and text evidence</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Vocabulary development and context clues</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Informational text and media literacy</div>
+                                    </div>
+                                    <div class="feature">
+                                        <div class="feature-icon">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                                <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41L9 16.17z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="feature-text">Strategic approaches to multiple-choice questions</div>
+                                    </div>
+                                </div>
+                                
+                                <a href="../MainPages/Welcome.html" class="btn btn-light" style="background-color: #4361ee; color: white;">Schedule Now</a>
+                            </div>
+                            <div class="service-image">
+                                <img src="https://d3r7ksou5fmir9.cloudfront.net/IconImages/readingexam.png" alt="STAAR Reading section preparation icon - Texas state assessment reading tutoring">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -768,25 +858,24 @@
             <div class="seo-content">
                 <div class="seo-grid">
                     <div class="seo-text">
-                        <h2>Why Choose Our Test Prep Services</h2>
-                        <p>Standardized tests play a crucial role in academic advancement and college admissions. Our comprehensive test preparation programs are designed to help students achieve their highest potential scores through personalized instruction and proven strategies.</p>
+                        <h2>Expert STAAR Preparation That Gets Results</h2>
+                        <p>The State of Texas Assessments of Academic Readiness (STAAR) is a critical standardized testing program that measures student achievement and ensures they meet grade-level expectations. Success on these exams is essential for academic advancement and can impact future educational opportunities.</p>
                         
-                        <h3>Our Approach to Test Preparation</h3>
-                        <p>We believe that effective test preparation combines content knowledge, test-taking strategies, and confidence building. Our programs offer:</p>
+                        <h3>Why STAAR-Specific Preparation Matters</h3>
+                        <p>The STAAR tests have unique features that require specialized preparation. Our targeted approach helps students:</p>
                         <ul>
-                            <li>Diagnostic assessments to identify strengths and areas for improvement</li>
-                            <li>Customized study plans tailored to individual learning needs</li>
-                            <li>Expert instruction from tutors with proven success records</li>
-                            <li>Practice with authentic test questions and full-length practice exams</li>
-                            <li>Strategies for managing test anxiety and maximizing performance</li>
+                            <li>Understand the specific format and question types on STAAR exams</li>
+                            <li>Master the essential knowledge and skills (TEKS) tested on the STAAR</li>
+                            <li>Build confidence through practice with authentic STAAR-style questions</li>
+                            <li>Develop effective time management and test-taking strategies</li>
                         </ul>
                         
-                        <h3>Proven Results</h3>
-                        <p>Our students consistently achieve significant score improvements and reach their target schools. We focus not just on test content, but on developing the critical thinking and problem-solving skills that lead to success both on test day and beyond.</p>
+                        <h3>Our Proven STAAR Methodology</h3>
+                        <p>Our STAAR tutoring programs combine diagnostic assessment, targeted instruction, and extensive practice with real STAAR-style questions. Our expert tutors identify each student's unique strengths and weaknesses, then develop personalized study plans that address specific areas for improvement.</p>
                     </div>
                     
                     <div class="seo-image">
-                        <img src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/GirlCurlyHairBlueShirt.webp" alt="Student studying for standardized test with tutor, reviewing practice questions and test strategies">
+                        <img src="https://d3r7ksou5fmir9.cloudfront.net/StockImages/TeenageBoyLaptop.webp" alt="Student studying for STAAR exam with tutor, focusing on test preparation materials and practice questions">
                     </div>
                 </div>
             </div>
@@ -797,30 +886,23 @@
     <div class="cta-wrapper">
         <div class="container">
             <div class="cta-section">
-                <h2>Ready to Ace Your Exam?</h2>
-                <p>Join thousands of successful students who have achieved their target scores with our expert test preparation programs.</p>
+                <h2>Ready to Succeed on Your STAAR Assessment?</h2>
+                <p>Join hundreds of students who have achieved academic excellence with our expert STAAR tutoring programs.</p>
                 <a href="../MainPages/Welcome.html" class="btn btn-light">Schedule Your First Session</a>
             </div>
         </div>
     </div>
     
-    <!-- Contact Info Section -->
-    <div class="container">
-        <div class="contact-info">
-            <p>Can't find test prep for your specific exam? <a href="../MainPages/Contact.html">Contact us</a> for customized tutoring options.</p>
-        </div>
-    </div>
-    
     <div class="container">
         <!-- Back Button -->
-        <a href="../MainPages/Services.html" class="back-link">
+        <a href="TestPrepServices.html" class="back-link">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M19 12H5M12 19l-7-7 7-7"/>
             </svg>
-            Back to Services
+            Back to Test Prep Services
         </a>
     </div>
-    
+
     <div id="footer-placeholder"></div>
 
     <!-- Load Footer -->
@@ -840,6 +922,29 @@
                     }
                 })
                 .catch(error => console.error("Error loading footer:", error));
+        });
+    </script>
+
+    <script>
+        // Tab Functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Remove active class from all buttons and contents
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    button.classList.add('active');
+                    
+                    // Show corresponding content
+                    const tabId = button.getAttribute('data-tab');
+                    document.getElementById(`${tabId}-tab`).classList.add('active');
+                });
+            });
         });
     </script>
 </body>
